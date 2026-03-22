@@ -1,111 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ShoreDay — AI Cruise Port Planner for the Bahamas</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #0A1628;
-      color: #FFFFFF;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .badge {
-      background: #26C6B0;
-      color: #0A1628;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 6px 16px;
-      border-radius: 20px;
-      margin-bottom: 24px;
-      display: inline-block;
-    }
-    h1 {
-      font-size: 48px;
-      font-weight: 800;
-      color: #26C6B0;
-      margin-bottom: 16px;
-    }
-    .tagline {
-      font-size: 20px;
-      color: #B0C4DE;
-      max-width: 560px;
-      line-height: 1.6;
-      margin-bottom: 32px;
-    }
-    .features {
-      list-style: none;
-      margin-bottom: 40px;
-    }
-    .features li {
-      font-size: 16px;
-      color: #E0E0E0;
-      margin-bottom: 10px;
-      padding-left: 24px;
-      position: relative;
-      text-align: left;
-    }
-    .features li::before {
-      content: "✦";
-      color: #26C6B0;
-      position: absolute;
-      left: 0;
-    }
-    .cta {
-      background: #FF6B6B;
-      color: #FFFFFF;
-      font-size: 16px;
-      font-weight: 700;
-      padding: 14px 32px;
-      border-radius: 12px;
-      text-decoration: none;
-      margin-bottom: 40px;
-      display: inline-block;
-    }
-    .ports {
-      font-size: 14px;
-      color: #7A9BB5;
-      margin-bottom: 40px;
-    }
-    footer {
-      font-size: 13px;
-      color: #4A6A8A;
-    }
-    footer a {
-      color: #26C6B0;
-      text-decoration: none;
-    }
-    footer a:hover { text-decoration: underline; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShoreDay | Bahamas Cruise Port AI Concierge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-teal: #26C6B0;
+            --bg-dark: #0A1128;
+            --text-light: #F8FAFC;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        
+        /* Nav */
+        nav { display: flex; justify-content: space-between; padding: 2rem 5%; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: white; letter-spacing: -0.5px; }
+        .logo span { color: var(--primary-teal); }
+        
+        /* Hero */
+        .hero { text-align: center; padding: 4rem 5% 2rem; max-width: 900px; margin: 0 auto; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .badge { background: rgba(38, 198, 176, 0.1); color: var(--primary-teal); padding: 6px 16px; border-radius: 20px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem; border: 1px solid rgba(38, 198, 176, 0.2); }
+        h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -1px; }
+        p.subtitle { font-size: 1.2rem; color: #94A3B8; margin-bottom: 2.5rem; max-width: 600px; }
+        .cta-button { background: var(--primary-teal); color: #000; text-decoration: none; padding: 1rem 2rem; border-radius: 50px; font-weight: 800; font-size: 1.1rem; transition: transform 0.2s, box-shadow 0.2s; display: inline-block; }
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(38, 198, 176, 0.2); }
+        
+        /* Features */
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; padding: 4rem 5%; max-width: 1000px; margin: 0 auto; }
+        .feature-card { background: var(--card-bg); padding: 2rem; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1); text-align: left; transition: transform 0.3s; }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-icon { font-size: 2rem; margin-bottom: 1rem; }
+        .feature-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+        .feature-card p { color: #94A3B8; font-size: 0.95rem; }
+        
+        /* Footer */
+        footer { border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 2rem 5%; text-align: center; color: #64748B; font-size: 0.9rem; margin-top: auto; }
+        footer a { color: #94A3B8; text-decoration: none; margin: 0 10px; transition: color 0.2s; }
+        footer a:hover { color: var(--primary-teal); }
+        
+        @media (max-width: 768px) { h1 { font-size: 2.5rem; } }
+    </style>
 </head>
 <body>
-  <div class="badge">🌊 Coming March 30, 2026</div>
-  <h1>ShoreDay</h1>
-  <p class="tagline">
-    The AI-powered port day planner built for cruise passengers. Get a personalized, hour-by-hour Bahamas itinerary that guarantees you're back on the ship on time.
-  </p>
-  <ul class="features">
-    >AI itinerary built around your exact all-aboard time</li>
-    >Curated shore excursions for Nassau, Freeport & Bimini</li>
-    >"Time to Head Back" countdown alarm</li>
-    >AI concierge for real-time port day questions</li>
-  </ul>
-  <a class="cta" href="#">Coming to App Store & Google Play →</a>
-  <p class="ports">Nassau · Freeport · Bimini</p>
-  <footer>
-    <a href="/privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
-    <a href="/terms.html">Terms of Service</a><br /><br />
-    © 2026 VMAManagement LLC · ShoreDay
-  </footer>
+    <nav>
+        <div class="logo">Shore<span>Day</span></div>
+    </nav>
+
+    <main class="hero">
+        <div class="badge">Coming March 30, 2026</div>
+        <h1>The AI concierge for Bahamas cruise tourists.</h1>
+        <p class="subtitle">Get a personalized, hour-by-hour itinerary for Nassau, Freeport, and Bimini that guarantees you're back on the ship on time.</p>
+        <a href="#" class="cta-button">Launching Soon on iOS & Android</a>
+    </main>
+
+    <section class="features">
+        <div class="feature-card">
+            <div class="feature-icon">⏱️</div>
+            <h3>Never Miss the Ship</h3>
+            <p>Our AI builds your entire port day around your exact "All-Aboard" time, including built-in buffer zones.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🌴</div>
+            <h3>Curated Excursions</h3>
+            <p>Skip the tourist traps. Instantly discover and book the best-rated local experiences and walkable hidden gems.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🗺️</div>
+            <h3>Offline Ready</h3>
+            <p>No cell service? No problem. ShoreDay's native map integrations keep you routed even in Airplane Mode.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div style="margin-bottom: 1rem;">
+            <a href="/privacy.html">Privacy Policy</a> | 
+            <a href="/terms.html">Terms of Service</a>
+        </div>
+        <p>&copy; 2026 VMAManagement LLC - ShoreDay. All rights reserved.</p>
+    </footer>
 </body>
 </html>
