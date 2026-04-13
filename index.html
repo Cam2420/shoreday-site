@@ -24,6 +24,7 @@
             display: flex; 
             flex-direction: column; 
             min-height: 100vh; 
+            overflow-x: hidden;
         }
         
         /* Nav */
@@ -31,37 +32,127 @@
         .logo { font-size: 1.5rem; font-weight: 800; color: white; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; }
         .logo span { color: var(--primary-teal); }
         
-        /* Hero */
-        .hero { text-align: center; padding: 4rem 5% 2rem; max-width: 900px; margin: 0 auto; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        .badge { background: rgba(38, 198, 176, 0.15); color: var(--primary-teal); padding: 6px 16px; border-radius: 20px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem; border: 1px solid rgba(38, 198, 176, 0.3); backdrop-filter: blur(4px); }
+        /* Split Hero Layout */
+        .hero { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 4rem 5% 4rem; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            flex: 1; 
+            gap: 3rem;
+        }
+        
+        /* Hero Left: Text & Buttons */
+        .hero-text-content {
+            flex: 1;
+            max-width: 600px;
+            text-align: left;
+        }
+        .badge { 
+            display: inline-block;
+            background: rgba(38, 198, 176, 0.15); 
+            color: var(--primary-teal); 
+            padding: 6px 16px; 
+            border-radius: 20px; 
+            font-weight: 600; 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            margin-bottom: 1.5rem; 
+            border: 1px solid rgba(38, 198, 176, 0.3); 
+            backdrop-filter: blur(4px); 
+        }
         h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -1px; text-shadow: 0 4px 12px rgba(0,0,0,0.3); }
-        p.subtitle { font-size: 1.2rem; color: #E2E8F0; margin-bottom: 2.5rem; max-width: 600px; text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
-        .cta-button { background: var(--primary-teal); color: #000; text-decoration: none; padding: 1rem 2rem; border-radius: 50px; font-weight: 800; font-size: 1.1rem; transition: transform 0.2s, box-shadow 0.2s; display: inline-block; }
-        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(38, 198, 176, 0.4); }
+        p.subtitle { font-size: 1.2rem; color: #E2E8F0; margin-bottom: 2.5rem; text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+        
+        .app-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .app-buttons a img {
+            height: 50px;
+            transition: transform 0.2s, filter 0.2s;
+        }
+        .app-buttons a:hover img {
+            transform: translateY(-3px);
+            filter: brightness(1.1);
+        }
+
+        /* Hero Right: Overlapping Phone Mockups */
+        .hero-mockups {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            min-height: 550px;
+            width: 100%;
+        }
+        .mockup-back {
+            position: absolute;
+            width: 260px;
+            right: 5%;
+            top: 0;
+            opacity: 0.7;
+            transform: scale(0.9);
+            border-radius: 35px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        .mockup-front {
+            position: absolute;
+            width: 280px;
+            left: 10%;
+            top: 50px;
+            z-index: 2;
+            border-radius: 38px;
+            box-shadow: -15px 25px 50px rgba(0,0,0,0.6);
+            transition: transform 0.3s;
+        }
+
+        /* Interactive Hover effect for phones */
+        .hero-mockups:hover .mockup-back { transform: scale(0.95) translateX(15px); opacity: 0.9; }
+        .hero-mockups:hover .mockup-front { transform: translateX(-10px); }
         
         /* Features - Frosted Glass Effect */
-        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; padding: 4rem 5%; max-width: 1000px; margin: 0 auto; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; padding: 2rem 5% 4rem; max-width: 1200px; margin: 0 auto; width: 100%; }
         .feature-card { 
             background: rgba(10, 17, 40, 0.5); 
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            padding: 2rem; 
+            padding: 2.5rem 2rem; 
             border-radius: 16px; 
             border: 1px solid rgba(255, 255, 255, 0.1); 
             text-align: left; 
             transition: transform 0.3s, background 0.3s; 
         }
-        .feature-card:hover { transform: translateY(-5px); background: rgba(10, 17, 40, 0.7); }
-        .feature-icon { font-size: 2rem; margin-bottom: 1rem; }
-        .feature-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
-        .feature-card p { color: #CBD5E1; font-size: 0.95rem; }
+        .feature-card:hover { transform: translateY(-5px); background: rgba(10, 17, 40, 0.7); border-color: rgba(38, 198, 176, 0.3); }
+        .feature-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .feature-card h3 { font-size: 1.3rem; margin-bottom: 0.75rem; }
+        .feature-card p { color: #CBD5E1; font-size: 1rem; line-height: 1.5; }
         
         /* Footer */
         footer { border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 2rem 5%; text-align: center; color: #94A3B8; font-size: 0.9rem; margin-top: auto; background: rgba(10, 17, 40, 0.8); backdrop-filter: blur(10px); }
         footer a { color: #E2E8F0; text-decoration: none; margin: 0 10px; transition: color 0.2s; }
         footer a:hover { color: var(--primary-teal); }
         
-        @media (max-width: 768px) { h1 { font-size: 2.5rem; } }
+        /* Responsive Mobile Layout */
+        @media (max-width: 960px) { 
+            .hero { flex-direction: column; text-align: center; padding-top: 2rem; }
+            .hero-text-content { text-align: center; display: flex; flex-direction: column; align-items: center; }
+            h1 { font-size: 2.8rem; }
+            .app-buttons { justify-content: center; }
+            .hero-mockups { min-height: 450px; margin-top: 2rem; }
+            .mockup-back { right: 15%; width: 220px; }
+            .mockup-front { left: 15%; width: 240px; top: 30px; }
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .mockup-back { right: 5%; width: 180px; }
+            .mockup-front { left: 5%; width: 200px; }
+        }
     </style>
 </head>
 <body>
@@ -73,10 +164,25 @@
     </nav>
 
     <main class="hero">
-        <div class="badge">Now Available on iOS</div>
-        <h1>The AI concierge for Bahamas cruise tourists.</h1>
-        <p class="subtitle">Get a personalized, hour-by-hour itinerary for Nassau, Freeport, and Bimini that guarantees you're back on the ship on time.</p>
-        <a href="https://apps.apple.com/app/id6761083487" target="_blank" class="cta-button">Download Free on the App Store</a>
+        <div class="hero-text-content">
+            <div class="badge">The #1 Bahamas Cruise App</div>
+            <h1>Your Bahamas Port Day, Perfectly Timed.</h1>
+            <p class="subtitle">AI-powered itineraries, offline maps, and local secrets to make the most of your cruise stop in Nassau. Never miss the ship.</p>
+            
+            <div class="app-buttons">
+                <a href="https://apps.apple.com/app/id6761083487" target="_blank">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+                </a>
+                <a href="android.html">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-mockups">
+            <img src="https://via.placeholder.com/260x520/1A202C/FFFFFF?text=Itinerary+Screen" alt="ShoreDay Itinerary" class="mockup-back">
+            <img src="https://via.placeholder.com/280x560/26C6B0/FFFFFF?text=Main+App+Screen" alt="ShoreDay App" class="mockup-front">
+        </div>
     </main>
 
     <section class="features">
