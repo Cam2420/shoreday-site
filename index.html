@@ -56,8 +56,8 @@
             color: var(--primary-teal); 
             padding: 6px 16px; 
             border-radius: 20px; 
-            font-weight: 600; 
-            font-size: 0.85rem; 
+            font-weight: 800; 
+            font-size: 0.80rem; 
             text-transform: uppercase; 
             letter-spacing: 1px; 
             margin-bottom: 1.5rem; 
@@ -65,48 +65,74 @@
             backdrop-filter: blur(4px); 
         }
         h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -1px; text-shadow: 0 4px 12px rgba(0,0,0,0.3); }
-        p.subtitle { font-size: 1.2rem; color: #E2E8F0; margin-bottom: 2.5rem; text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+        p.subtitle { font-size: 1.2rem; color: #E2E8F0; margin-bottom: 2rem; text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
         
-        /* Buttons forced side-by-side */
+        /* Updated Button Layout */
+        .app-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
         .app-buttons {
             display: flex;
-            gap: 15px;
-            flex-wrap: nowrap;
+            gap: 20px;
             align-items: center;
         }
-        .app-buttons a img {
+        .app-buttons img {
             height: 48px; 
             width: auto;
             transition: transform 0.2s, filter 0.2s;
         }
-        .app-buttons a:hover img {
+        .app-buttons a.store-badge:hover img {
             transform: translateY(-3px);
             filter: brightness(1.1);
         }
+        
+        /* New Android Waitlist Link Styling */
+        .waitlist-link {
+            color: #CBD5E1;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+        }
+        .waitlist-link:hover {
+            color: var(--primary-teal);
+        }
 
-        /* NEW: Side-by-Side Mockup Layout */
+        /* Subtle Social Proof */
+        .trust-bar {
+            font-size: 0.85rem;
+            color: #94A3B8;
+            font-weight: 600;
+            opacity: 0.8;
+        }
+
+        /* Side-by-Side Mockup Layout */
         .hero-mockups {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px; /* Space between the two phones */
+            gap: 20px;
         }
         
         .mockup-left, .mockup-right {
-            width: 240px; /* Perfectly sized to fit side-by-side */
+            width: 240px; 
             border-radius: 35px;
             box-shadow: 0 25px 50px rgba(0,0,0,0.5);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
         
-        /* Subtle float effect on hover */
         .mockup-left:hover, .mockup-right:hover {
             transform: translateY(-10px);
             box-shadow: 0 35px 60px rgba(0,0,0,0.7);
         }
         
-        /* Features - Frosted Glass Effect */
+        /* Features */
         .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; padding: 2rem 5% 4rem; max-width: 1200px; margin: 0 auto; width: 100%; }
         .feature-card { 
             background: rgba(10, 17, 40, 0.5); 
@@ -140,9 +166,10 @@
         }
         @media (max-width: 600px) {
             h1 { font-size: 2.2rem; }
-            .app-buttons { flex-direction: column; gap: 10px; }
+            .app-actions { align-items: center; }
+            .app-buttons { flex-direction: column; gap: 15px; }
             .hero-mockups { gap: 10px; }
-            .mockup-left, .mockup-right { width: 160px; } /* Scales down nicely for mobile screens */
+            .mockup-left, .mockup-right { width: 160px; }
         }
     </style>
 </head>
@@ -156,17 +183,22 @@
 
     <main class="hero">
         <div class="hero-text-content">
-            <div class="badge">The Ultimate Bahamas AI Concierge</div>
+            <div class="badge">Now Live On iOS</div>
             <h1>Your Bahamas Port Day, Perfectly Timed.</h1>
-            <p class="subtitle">AI-powered itineraries, real-time ship countdowns, and local secrets to make the most of your cruise stop in Nassau. Never miss the ship.</p>
+            <p class="subtitle">Know exactly what things cost, where locals actually eat, and when to head back — before you step off the ship.</p>
             
-            <div class="app-buttons">
-                <a href="https://apps.apple.com/app/id6761083487" target="_blank">
-                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
-                </a>
-                <a href="android.html">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
-                </a>
+            <div class="app-actions">
+                <div class="app-buttons">
+                    <a href="https://apps.apple.com/app/id6761083487" target="_blank" class="store-badge">
+                        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+                    </a>
+                    <a href="android.html" class="waitlist-link">
+                        Join Android Waitlist &rarr;
+                    </a>
+                </div>
+                <div class="trust-bar">
+                    Perfect for passengers on Royal Caribbean, Carnival & NCL.
+                </div>
             </div>
         </div>
 
