@@ -32,7 +32,7 @@
         .logo { font-size: 1.5rem; font-weight: 800; color: white; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .logo span { color: var(--primary-teal); }
         
-        /* Split Hero Layout */
+        /* Hero Layout */
         .hero { 
             display: flex; 
             align-items: center; 
@@ -41,7 +41,7 @@
             max-width: 1200px; 
             margin: 0 auto; 
             flex: 1; 
-            gap: 3rem;
+            gap: 4rem;
         }
         
         /* Hero Left: Text & Buttons */
@@ -67,13 +67,16 @@
         h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -1px; text-shadow: 0 4px 12px rgba(0,0,0,0.3); }
         p.subtitle { font-size: 1.2rem; color: #E2E8F0; margin-bottom: 2.5rem; text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
         
+        /* Buttons forced side-by-side */
         .app-buttons {
             display: flex;
             gap: 15px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
+            align-items: center;
         }
         .app-buttons a img {
-            height: 50px;
+            height: 48px; 
+            width: auto;
             transition: transform 0.2s, filter 0.2s;
         }
         .app-buttons a:hover img {
@@ -81,40 +84,27 @@
             filter: brightness(1.1);
         }
 
-        /* Hero Right: Overlapping Phone Mockups */
+        /* NEW: Side-by-Side Mockup Layout */
         .hero-mockups {
             flex: 1;
-            position: relative;
             display: flex;
             justify-content: center;
-            min-height: 550px;
-            width: 100%;
+            align-items: center;
+            gap: 20px; /* Space between the two phones */
         }
-        .mockup-back {
-            position: absolute;
-            width: 260px;
-            right: 5%;
-            top: 0;
-            opacity: 0.7;
-            transform: scale(0.9);
+        
+        .mockup-left, .mockup-right {
+            width: 240px; /* Perfectly sized to fit side-by-side */
             border-radius: 35px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            transition: transform 0.3s, opacity 0.3s;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
-        .mockup-front {
-            position: absolute;
-            width: 280px;
-            left: 10%;
-            top: 50px;
-            z-index: 2;
-            border-radius: 38px;
-            box-shadow: -15px 25px 50px rgba(0,0,0,0.6);
-            transition: transform 0.3s;
+        
+        /* Subtle float effect on hover */
+        .mockup-left:hover, .mockup-right:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 35px 60px rgba(0,0,0,0.7);
         }
-
-        /* Interactive Hover effect for phones */
-        .hero-mockups:hover .mockup-back { transform: scale(0.95) translateX(15px); opacity: 0.9; }
-        .hero-mockups:hover .mockup-front { transform: translateX(-10px); }
         
         /* Features - Frosted Glass Effect */
         .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; padding: 2rem 5% 4rem; max-width: 1200px; margin: 0 auto; width: 100%; }
@@ -139,19 +129,20 @@
         footer a:hover { color: var(--primary-teal); }
         
         /* Responsive Mobile Layout */
+        @media (max-width: 1024px) {
+            .mockup-left, .mockup-right { width: 200px; }
+        }
         @media (max-width: 960px) { 
-            .hero { flex-direction: column; text-align: center; padding-top: 2rem; }
+            .hero { flex-direction: column; text-align: center; padding-top: 2rem; gap: 3rem; }
             .hero-text-content { text-align: center; display: flex; flex-direction: column; align-items: center; }
             h1 { font-size: 2.8rem; }
             .app-buttons { justify-content: center; }
-            .hero-mockups { min-height: 450px; margin-top: 2rem; }
-            .mockup-back { right: 15%; width: 220px; }
-            .mockup-front { left: 15%; width: 240px; top: 30px; }
         }
         @media (max-width: 600px) {
             h1 { font-size: 2.2rem; }
-            .mockup-back { right: 5%; width: 180px; }
-            .mockup-front { left: 5%; width: 200px; }
+            .app-buttons { flex-direction: column; gap: 10px; }
+            .hero-mockups { gap: 10px; }
+            .mockup-left, .mockup-right { width: 160px; } /* Scales down nicely for mobile screens */
         }
     </style>
 </head>
@@ -165,7 +156,7 @@
 
     <main class="hero">
         <div class="hero-text-content">
-            <div class="badge">The Ultimate Bahamas Cruise Guide</div>
+            <div class="badge">The Ultimate Bahamas AI Concierge</div>
             <h1>Your Bahamas Port Day, Perfectly Timed.</h1>
             <p class="subtitle">AI-powered itineraries, real-time ship countdowns, and local secrets to make the most of your cruise stop in Nassau. Never miss the ship.</p>
             
@@ -180,8 +171,8 @@
         </div>
 
         <div class="hero-mockups">
-            <img src="app-back.png" alt="ShoreDay Itinerary" class="mockup-back">
-            <img src="app-front.png" alt="ShoreDay App" class="mockup-front">
+            <img src="phone-left.png" alt="ShoreDay Itinerary" class="mockup-left">
+            <img src="phone-right.png" alt="ShoreDay Notification" class="mockup-right">
         </div>
     </main>
 
