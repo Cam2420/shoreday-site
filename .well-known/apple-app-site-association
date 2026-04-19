@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "T9V5CR7P54.com.vmamanagement.shoreday",
+        "paths": ["*"]
+      }
+    ]
+  }
+}feat: add apple-app-site-association for Universal Links
