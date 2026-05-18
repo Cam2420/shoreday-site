@@ -79,9 +79,12 @@
         .feature-card h3 { font-size: 1.3rem; margin-bottom: 0.75rem; }
         .feature-card p { color: #CBD5E1; font-size: 1rem; line-height: 1.5; }
 
-        /* Excursions CTA Section */
+        /* UPGRADED EXCURSIONS CTA SECTION */
         .excursions-cta {
-            background: linear-gradient(135deg, rgba(38, 198, 176, 0.15), rgba(10, 17, 40, 0.6));
+            /* Now uses the uploaded image with a dark gradient overlay */
+            background: linear-gradient(rgba(10, 17, 40, 0.8), rgba(10, 17, 40, 0.9)), url('swimmingpig_bird.jpg');
+            background-size: cover;
+            background-position: center;
             border: 1px solid rgba(38, 198, 176, 0.3);
             padding: 4rem 5%;
             text-align: center;
@@ -89,13 +92,49 @@
             width: 90%;
             max-width: 1000px;
             border-radius: 24px;
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
         }
+
+        /* Credibility Badges */
+        .credibility-stack {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+        }
+        .viator-text {
+            color: #E2E8F0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .viator-text span {
+            color: #34E0A1; /* Tripadvisor Green */
+            font-weight: 800;
+        }
+        .tp-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            padding: 6px 14px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .tp-stars { color: #00B67A; font-size: 1.1rem; letter-spacing: 1px; }
+        .tp-text { color: white; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.5px; }
+
         .excursions-cta h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; color: white; letter-spacing: -0.5px; }
-        .excursions-cta p { font-size: 1.15rem; color: #E2E8F0; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+        .excursions-cta p { font-size: 1.15rem; color: #E2E8F0; margin-bottom: 2.5rem; max-width: 750px; margin-left: auto; margin-right: auto; line-height: 1.6; }
         
+        .cta-button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
         .primary-btn {
             display: inline-block;
             background: var(--primary-teal);
@@ -110,6 +149,23 @@
         .primary-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(38, 198, 176, 0.5);
+        }
+        .secondary-btn {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .secondary-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
         }
         
         /* Footer */
@@ -133,6 +189,8 @@
             .hero-mockups { gap: 10px; }
             .mockup-left, .mockup-right { width: 160px; }
             .excursions-cta { padding: 3rem 1.5rem; width: 95%; }
+            .cta-button-group { flex-direction: column; width: 100%; }
+            .primary-btn, .secondary-btn { width: 100%; text-align: center; }
         }
     </style>
 </head>
@@ -193,10 +251,21 @@
     </section>
 
     <section class="excursions-cta">
-        <div class="badge">Partnered with Viator</div>
-        <h2>Book Curated Bahamas Excursions</h2>
-        <p>Browse our hand-picked selection of top-rated tours in Nassau, Freeport, and Bimini. Every activity in our shop is selected to perfectly fit your port day schedule.</p>
-        <a href="https://vi.me/s/shoredayapp" target="_blank" class="primary-btn">Shop Excursions Now</a>
+        <div class="credibility-stack">
+            <div class="viator-text">Partnered with <span>Viator</span>, a Tripadvisor company</div>
+            <div class="tp-badge">
+                <span class="tp-stars">★★★★★</span>
+                <span class="tp-text">Trustpilot</span>
+            </div>
+        </div>
+        
+        <h2>Book ShoreDay Curated Excursions</h2>
+        <p>Skip the tourist traps. Browse our exclusive selection of top-rated Bahamas tours perfectly timed to your ship's schedule. <strong>Shop instantly via the link below</strong>, or download the ShoreDay app to book these same amazing experiences alongside our powerful AI concierge and real-time ship countdowns for the ultimate port day.</p>
+        
+        <div class="cta-button-group">
+            <a href="https://vi.me/s/shoredayapp" target="_blank" class="primary-btn">Shop Excursions Online</a>
+            <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="secondary-btn">Get the ShoreDay App</a>
+        </div>
     </section>
 
     <footer>
