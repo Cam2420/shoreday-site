@@ -31,6 +31,8 @@
         nav { display: flex; justify-content: space-between; padding: 2rem 5%; align-items: center; }
         .logo { font-size: 1.5rem; font-weight: 800; color: white; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .logo span { color: var(--primary-teal); }
+        .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--primary-teal); }
         
         /* Hero Layout */
         .hero { 
@@ -45,95 +47,70 @@
         }
         
         /* Hero Left: Text & Buttons */
-        .hero-text-content {
-            flex: 1;
-            max-width: 600px;
-            text-align: left;
-        }
+        .hero-text-content { flex: 1; max-width: 600px; text-align: left; }
         .badge { 
-            display: inline-block;
-            background: rgba(38, 198, 176, 0.15); 
-            color: var(--primary-teal); 
-            padding: 6px 16px; 
-            border-radius: 20px; 
-            font-weight: 800; 
-            font-size: 0.80rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-            margin-bottom: 1.5rem; 
-            border: 1px solid rgba(38, 198, 176, 0.3); 
-            backdrop-filter: blur(4px); 
+            display: inline-block; background: rgba(38, 198, 176, 0.15); color: var(--primary-teal); 
+            padding: 6px 16px; border-radius: 20px; font-weight: 800; font-size: 0.80rem; 
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem; 
+            border: 1px solid rgba(38, 198, 176, 0.3); backdrop-filter: blur(4px); 
         }
         h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -1px; text-shadow: 0 4px 12px rgba(0,0,0,0.3); }
         p.subtitle { font-size: 1.2rem; color: #E2E8F0; margin-bottom: 2rem; text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
         
         /* Updated Button Layout */
-        .app-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 2rem;
-        }
-        .app-buttons {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-        .app-buttons img {
-            height: 48px; 
-            width: auto;
-            transition: transform 0.2s, filter 0.2s;
-        }
-        .app-buttons a.store-badge:hover img {
-            transform: translateY(-3px);
-            filter: brightness(1.1);
-        }
+        .app-actions { display: flex; flex-direction: column; gap: 15px; margin-bottom: 2rem; }
+        .app-buttons { display: flex; gap: 15px; align-items: center; }
+        .app-buttons img { height: 48px; width: auto; transition: transform 0.2s, filter 0.2s; }
+        .app-buttons a.store-badge:hover img { transform: translateY(-3px); filter: brightness(1.1); }
 
         /* Subtle Social Proof */
-        .trust-bar {
-            font-size: 0.85rem;
-            color: #94A3B8;
-            font-weight: 600;
-            opacity: 0.8;
-        }
+        .trust-bar { font-size: 0.85rem; color: #94A3B8; font-weight: 600; opacity: 0.8; }
 
         /* Side-by-Side Mockup Layout */
-        .hero-mockups {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-        }
-        
-        .mockup-left, .mockup-right {
-            width: 240px; 
-            border-radius: 35px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-        
-        .mockup-left:hover, .mockup-right:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 35px 60px rgba(0,0,0,0.7);
-        }
+        .hero-mockups { flex: 1; display: flex; justify-content: center; align-items: center; gap: 20px; }
+        .mockup-left, .mockup-right { width: 240px; border-radius: 35px; box-shadow: 0 25px 50px rgba(0,0,0,0.5); transition: transform 0.4s ease, box-shadow 0.4s ease; }
+        .mockup-left:hover, .mockup-right:hover { transform: translateY(-10px); box-shadow: 0 35px 60px rgba(0,0,0,0.7); }
         
         /* Features */
-        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; padding: 2rem 5% 4rem; max-width: 1200px; margin: 0 auto; width: 100%; }
-        .feature-card { 
-            background: rgba(10, 17, 40, 0.5); 
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 2.5rem 2rem; 
-            border-radius: 16px; 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            text-align: left; 
-            transition: transform 0.3s, background 0.3s; 
-        }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; padding: 2rem 5% 2rem; max-width: 1200px; margin: 0 auto; width: 100%; }
+        .feature-card { background: rgba(10, 17, 40, 0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 2.5rem 2rem; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1); text-align: left; transition: transform 0.3s, background 0.3s; }
         .feature-card:hover { transform: translateY(-5px); background: rgba(10, 17, 40, 0.7); border-color: rgba(38, 198, 176, 0.3); }
         .feature-icon { font-size: 2.5rem; margin-bottom: 1rem; }
         .feature-card h3 { font-size: 1.3rem; margin-bottom: 0.75rem; }
         .feature-card p { color: #CBD5E1; font-size: 1rem; line-height: 1.5; }
+
+        /* Excursions CTA Section */
+        .excursions-cta {
+            background: linear-gradient(135deg, rgba(38, 198, 176, 0.15), rgba(10, 17, 40, 0.6));
+            border: 1px solid rgba(38, 198, 176, 0.3);
+            padding: 4rem 5%;
+            text-align: center;
+            margin: 2rem auto 5rem;
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 24px;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .excursions-cta h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; color: white; letter-spacing: -0.5px; }
+        .excursions-cta p { font-size: 1.15rem; color: #E2E8F0; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+        
+        .primary-btn {
+            display: inline-block;
+            background: var(--primary-teal);
+            color: #0A1128;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(38, 198, 176, 0.5);
+        }
         
         /* Footer */
         footer { border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 2rem 5%; text-align: center; color: #94A3B8; font-size: 0.9rem; margin-top: auto; background: rgba(10, 17, 40, 0.8); backdrop-filter: blur(10px); }
@@ -141,14 +118,13 @@
         footer a:hover { color: var(--primary-teal); }
         
         /* Responsive Mobile Layout */
-        @media (max-width: 1024px) {
-            .mockup-left, .mockup-right { width: 200px; }
-        }
+        @media (max-width: 1024px) { .mockup-left, .mockup-right { width: 200px; } }
         @media (max-width: 960px) { 
             .hero { flex-direction: column; text-align: center; padding-top: 2rem; gap: 3rem; }
             .hero-text-content { text-align: center; display: flex; flex-direction: column; align-items: center; }
             h1 { font-size: 2.8rem; }
             .app-buttons { justify-content: center; }
+            .excursions-cta h2 { font-size: 2rem; }
         }
         @media (max-width: 600px) {
             h1 { font-size: 2.2rem; }
@@ -156,6 +132,7 @@
             .app-buttons { flex-direction: column; gap: 15px; }
             .hero-mockups { gap: 10px; }
             .mockup-left, .mockup-right { width: 160px; }
+            .excursions-cta { padding: 3rem 1.5rem; width: 95%; }
         }
     </style>
 </head>
@@ -165,6 +142,9 @@
             <img src="logo_transparent.png" alt="ShoreDay Icon" style="height: 36px; width: auto;">
             <div>Shore<span>Day</span></div>
         </a>
+        <div class="nav-links">
+            <a href="https://vi.me/s/shoredayapp" target="_blank">Book Excursions ↗</a>
+        </div>
     </nav>
 
     <main class="hero">
@@ -210,6 +190,13 @@
             <h3>AI Concierge</h3>
             <p>Need a quick recommendation or looking for a hidden beach? Ask your pocket AI concierge for real-time, location-aware answers.</p>
         </div>
+    </section>
+
+    <section class="excursions-cta">
+        <div class="badge">Partnered with Viator</div>
+        <h2>Book Curated Bahamas Excursions</h2>
+        <p>Browse our hand-picked selection of top-rated tours in Nassau, Freeport, and Bimini. Every activity in our shop is selected to perfectly fit your port day schedule.</p>
+        <a href="https://vi.me/s/shoredayapp" target="_blank" class="primary-btn">Shop Excursions Now</a>
     </section>
 
     <footer>
