@@ -2,15 +2,18 @@
    under .home to avoid collisions with other pages' global CSS. */
 
 .home {
+  /* Sand-dominant page wash. The hero photo stays faintly visible beneath a
+     light Sand → Sea Glass gradient so imagery is preserved without dark navy
+     dominating the surface. */
   background-image: linear-gradient(
-      rgba(10, 17, 40, 0.75),
-      rgba(10, 17, 40, 0.9)
+      rgba(255, 248, 238, 0.88),
+      rgba(234, 247, 245, 0.93)
     ),
     url("https://images.unsplash.com/photo-1548574505-5e239809ee19?q=80&w=2564&auto=format&fit=crop");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  color: var(--color-text-light);
+  color: var(--color-ocean-ink);
   line-height: 1.6;
   display: flex;
   flex-direction: column;
@@ -28,7 +31,7 @@
 .home .logo {
   font-size: 1.5rem;
   font-weight: 800;
-  color: white;
+  color: var(--color-ocean-ink);
   letter-spacing: -0.5px;
   display: flex;
   align-items: center;
@@ -36,16 +39,16 @@
   text-decoration: none;
 }
 .home .logo span {
-  color: var(--color-primary-teal);
+  color: var(--color-deep-teal);
 }
 .home .nav-links a {
-  color: var(--color-text-light);
+  color: var(--color-ocean-ink);
   text-decoration: none;
   font-weight: 600;
   transition: color 0.2s;
 }
 .home .nav-links a:hover {
-  color: var(--color-primary-teal);
+  color: var(--color-deep-teal);
 }
 
 /* Hero Layout */
@@ -68,8 +71,8 @@
 }
 .home .badge {
   display: inline-block;
-  background: rgba(38, 198, 176, 0.15);
-  color: var(--color-primary-teal);
+  background: rgba(44, 200, 183, 0.18);
+  color: var(--color-deep-teal);
   padding: 6px 16px;
   border-radius: 20px;
   font-weight: 800;
@@ -77,8 +80,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 1.5rem;
-  border: 1px solid rgba(38, 198, 176, 0.3);
-  backdrop-filter: blur(4px);
+  border: 1px solid rgba(44, 200, 183, 0.45);
 }
 .home h1 {
   font-size: 3.5rem;
@@ -86,13 +88,12 @@
   line-height: 1.1;
   margin-bottom: 1.5rem;
   letter-spacing: -1px;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: var(--color-ocean-ink);
 }
 .home p.subtitle {
   font-size: 1.2rem;
-  color: #e2e8f0;
+  color: var(--color-ocean-ink-muted);
   margin-bottom: 2rem;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Button Layout */
@@ -120,9 +121,8 @@
 /* Subtle Social Proof */
 .home .trust-bar {
   font-size: 0.85rem;
-  color: #94a3b8;
+  color: var(--color-ocean-ink-muted);
   font-weight: 600;
-  opacity: 0.8;
 }
 
 /* Side-by-Side Mockup Layout */
@@ -157,19 +157,17 @@
   width: 100%;
 }
 .home .feature-card {
-  background: rgba(10, 17, 40, 0.5);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: var(--color-sea-glass);
   padding: 2.5rem 2rem;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(44, 200, 183, 0.35);
   text-align: left;
-  transition: transform 0.3s, background 0.3s;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 .home .feature-card:hover {
   transform: translateY(-5px);
-  background: rgba(10, 17, 40, 0.7);
-  border-color: rgba(38, 198, 176, 0.3);
+  border-color: var(--color-deep-teal);
+  box-shadow: 0 12px 28px rgba(14, 90, 103, 0.18);
 }
 .home .feature-icon {
   font-size: 2.5rem;
@@ -178,31 +176,34 @@
 .home .feature-card h3 {
   font-size: 1.3rem;
   font-weight: 700;
+  color: var(--color-ocean-ink);
   margin-bottom: 0.75rem;
 }
 .home .feature-card p {
-  color: #cbd5e1;
+  color: var(--color-ocean-ink-muted);
   font-size: 1rem;
   line-height: 1.5;
 }
 
-/* Excursions CTA Section */
+/* Excursions CTA Section — the one deliberate dark accent panel. A lighter
+   Deep Teal → Ocean Ink overlay keeps the swimming-pig photography visible
+   while preserving white-text legibility. */
 .home .excursions-cta {
   background: linear-gradient(
-      rgba(10, 17, 40, 0.2),
-      rgba(10, 17, 40, 0.5)
+      rgba(14, 90, 103, 0.55),
+      rgba(23, 50, 77, 0.78)
     ),
     url("/swimmingpig_bird.jpg");
   background-size: cover;
   background-position: center;
-  border: 1px solid rgba(38, 198, 176, 0.4);
+  border: 1px solid rgba(44, 200, 183, 0.5);
   padding: 4rem 5%;
   text-align: center;
   margin: 2rem auto 5rem;
   width: 90%;
   max-width: 1000px;
   border-radius: 24px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 20px 40px rgba(14, 90, 103, 0.35);
 }
 
 /* Credibility Badges */
@@ -262,58 +263,57 @@
 }
 .home .primary-btn {
   display: inline-block;
-  background: var(--color-primary-teal);
-  color: #0a1128;
+  background: var(--color-deep-teal);
+  color: #ffffff;
   padding: 16px 36px;
   border-radius: 50px;
   font-weight: 800;
   font-size: 1.1rem;
   text-decoration: none;
   transition: transform 0.2s, box-shadow 0.2s;
-  border: 2px solid var(--color-primary-teal);
+  border: 2px solid var(--color-deep-teal);
 }
 .home .primary-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(38, 198, 176, 0.5);
+  box-shadow: 0 10px 25px rgba(14, 90, 103, 0.55);
 }
 .home .secondary-btn {
   display: inline-block;
-  background: rgba(10, 17, 40, 0.65);
+  background: rgba(23, 50, 77, 0.55);
   color: white;
   padding: 16px 36px;
   border-radius: 50px;
   font-weight: 800;
   font-size: 1.1rem;
   text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   transition: background 0.2s, transform 0.2s;
 }
 .home .secondary-btn:hover {
-  background: rgba(10, 17, 40, 0.85);
+  background: rgba(23, 50, 77, 0.8);
   transform: translateY(-3px);
 }
 
-/* Footer */
+/* Footer — compact Deep Teal anchor band (part of the ~20% dark allowance). */
 .home footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(44, 200, 183, 0.4);
   padding: 2rem 5%;
   text-align: center;
-  color: #94a3b8;
+  color: rgba(255, 255, 255, 0.85);
   font-size: 0.9rem;
   margin-top: auto;
-  background: rgba(10, 17, 40, 0.8);
-  backdrop-filter: blur(10px);
+  background: var(--color-deep-teal);
 }
 .home footer a {
-  color: #e2e8f0;
-  text-decoration: none;
+  color: #ffffff;
+  text-decoration: underline;
   margin: 0 10px;
   transition: color 0.2s;
 }
 .home footer a:hover {
-  color: var(--color-primary-teal);
+  color: var(--color-lagoon);
 }
 
 /* Responsive */

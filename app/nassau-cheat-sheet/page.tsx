@@ -32,7 +32,7 @@ export default function NassauCheatSheet() {
           <div
             style={{
               fontSize: 12,
-              color: "#94a3b8",
+              color: "#45586b",
               marginTop: -12,
               marginBottom: 20,
             }}

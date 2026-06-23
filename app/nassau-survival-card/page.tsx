@@ -93,7 +93,7 @@ export default function NassauSurvivalCard() {
 
         <h2>
           Typical regulated fares{" "}
-          <span style={{ fontSize: 14, color: "#94a3b8", fontWeight: 400 }}>
+          <span style={{ fontSize: 14, color: "#45586b", fontWeight: 400 }}>
             (2 passengers, one-way — confirm first)
           </span>
         </h2>
@@ -131,7 +131,7 @@ export default function NassauSurvivalCard() {
         </div>
 
         <div className="miss">
-          <h2 style={{ marginTop: 0, color: "#ff6b5e" }}>
+          <h2 style={{ marginTop: 0, color: "#c2453a" }}>
             If you miss the ship (you won&apos;t, but just in case)
           </h2>
           <p style={{ margin: 0 }}>

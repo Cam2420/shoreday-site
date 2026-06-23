@@ -9,10 +9,14 @@
     
     <style>
         :root {
-            --primary-teal: #26C6B0;
-            --bg-dark: #0a1128;
-            --text-light: #F8FAFC;
-            --text-muted: #94A3B8;
+            /* Lagoon + Sand visual system */
+            --sand: #FFF8EE;
+            --sea-glass: #EAF7F5;
+            --ocean-ink: #17324D;
+            --ocean-ink-muted: #45586B;
+            --deep-teal: #0E5A67;
+            --lagoon: #2CC8B7;
+            --coral: #F46F61;
         }
         * {
             margin: 0;
@@ -21,11 +25,14 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
         body {
-            background: url('Nassau_people.full.jpg');
+            /* Keep the Nassau photo visible behind a light Ocean Ink wash; the
+               Sand card carries the content. */
+            background-image: linear-gradient(rgba(23, 50, 77, 0.2), rgba(23, 50, 77, 0.32)),
+                url('Nassau_people.full.jpg');
             background-size: cover;
             background-position: bottom center;
             background-attachment: fixed;
-            color: var(--text-light);
+            color: var(--ocean-ink);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -36,34 +43,34 @@
         .container {
             max-width: 550px;
             width: 100%;
-            background: rgba(10, 17, 40, 0.90);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: var(--sand);
+            border: 1px solid rgba(14, 90, 103, 0.18);
             padding: 40px 30px;
             border-radius: 24px;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            box-shadow: 0 20px 50px rgba(14, 90, 103, 0.28);
         }
         .logo {
             font-size: 24px;
             font-weight: 700;
+            color: var(--ocean-ink);
             letter-spacing: -0.5px;
             margin-bottom: 30px;
             display: inline-block;
         }
         .logo span {
-            color: var(--primary-teal);
+            color: var(--deep-teal);
         }
         h1 {
             font-size: 28px;
             font-weight: 700;
+            color: var(--ocean-ink);
             line-height: 1.3;
             margin-bottom: 12px;
             letter-spacing: -0.5px;
         }
         .subtitle {
-            color: var(--primary-teal);
+            color: var(--deep-teal);
             font-size: 16px;
             font-weight: 600;
             text-transform: uppercase;
@@ -71,7 +78,7 @@
             margin-bottom: 24px;
         }
         p.description {
-            color: var(--text-muted);
+            color: var(--ocean-ink-muted);
             font-size: 15px;
             line-height: 1.6;
             margin-bottom: 30px;
@@ -84,19 +91,19 @@
         .floor-cta {
             margin-top: 20px;
             font-size: 13px;
-            color: var(--text-muted);
+            color: var(--ocean-ink-muted);
         }
         .floor-cta a {
-            color: var(--primary-teal);
-            text-decoration: none;
-            font-weight: 500;
+            color: var(--deep-teal);
+            text-decoration: underline;
+            font-weight: 600;
             transition: opacity 0.2s;
         }
         .floor-cta a:hover {
-            text-decoration: underline;
+            opacity: 0.75;
         }
         .affiliate-disclosure {
-            color: #CBD5E1;
+            color: var(--ocean-ink-muted);
             font-size: 12px;
             line-height: 1.5;
             margin: 12px 0 0;
@@ -118,7 +125,7 @@
 
         <div class="form-wrapper">
             <script async data-uid="140b41e206" src="https://shoreday.kit.com/140b41e206/index.js"></script>
-            <div style="font-size: 12px; color: var(--text-muted); margin-top: -12px; margin-bottom: 20px;">
+            <div style="font-size: 12px; color: var(--ocean-ink-muted); margin-top: -12px; margin-bottom: 20px;">
                 Free • No spam • Unsubscribe anytime
             </div>
         </div>

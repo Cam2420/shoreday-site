@@ -5,11 +5,17 @@
   margin: 0;
   padding: 16px;
   min-height: 100vh;
-  background: url("/nassau_aerial.jpg");
+  /* Keep the aerial photo visible behind a light Ocean Ink wash; the Sand card
+     carries the content rather than an opaque dark panel. */
+  background-image: linear-gradient(
+      rgba(23, 50, 77, 0.2),
+      rgba(23, 50, 77, 0.32)
+    ),
+    url("/nassau_aerial.jpg");
   background-size: cover;
   background-position: bottom center;
   background-attachment: fixed;
-  color: #f8fafc;
+  color: var(--color-ocean-ink);
   line-height: 1.6;
 }
 
@@ -21,18 +27,16 @@
   max-width: 760px;
   margin: 20px auto;
   padding: 40px 24px;
-  background: rgba(10, 17, 40, 0.92);
+  background: var(--color-sand);
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(14, 90, 103, 0.18);
+  box-shadow: 0 20px 50px rgba(14, 90, 103, 0.28);
 }
 
 .survival .eyebrow {
   display: inline-block;
-  background: rgba(38, 198, 176, 0.15);
-  color: #26c6b0;
+  background: rgba(44, 200, 183, 0.18);
+  color: var(--color-ocean-ink);
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 0.05em;
@@ -44,6 +48,7 @@
 .survival h1 {
   font-size: 30px;
   font-weight: 700;
+  color: var(--color-ocean-ink);
   line-height: 1.2;
   margin: 16px 0 8px;
   letter-spacing: -0.5px;
@@ -52,22 +57,22 @@
   font-size: 21px;
   margin: 36px 0 12px;
   font-weight: 700;
-  color: #fff;
+  color: var(--color-ocean-ink);
 }
 
 .survival .lede {
   font-size: 18px;
-  color: #94a3b8;
+  color: var(--color-ocean-ink-muted);
   margin-bottom: 32px;
 }
 
 .survival .rule {
-  background: #26c6b0;
-  color: #041d1a;
+  background: var(--color-lagoon);
+  color: var(--color-ocean-ink);
   border-radius: 16px;
   padding: 24px;
   margin: 28px 0;
-  box-shadow: 0 10px 25px rgba(38, 198, 176, 0.15);
+  box-shadow: 0 10px 25px rgba(44, 200, 183, 0.28);
 }
 .survival .rule b {
   font-size: 22px;
@@ -78,7 +83,7 @@
 .survival .rule .ex {
   display: inline-block;
   margin-top: 12px;
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(23, 50, 77, 0.14);
   border-radius: 8px;
   padding: 6px 12px;
   font-size: 14px;
@@ -92,13 +97,13 @@
 .survival li {
   position: relative;
   padding: 6px 0 6px 24px;
-  color: #f8fafc;
+  color: var(--color-ocean-ink);
 }
 .survival li::before {
   content: "›";
   position: absolute;
   left: 0;
-  color: #26c6b0;
+  color: var(--color-deep-teal);
   font-weight: 800;
   font-size: 18px;
   line-height: 1.2;
@@ -106,10 +111,10 @@
 
 .survival .fares li::before {
   content: "•";
-  color: #ff6b5e;
+  color: var(--color-coral);
 }
 .survival .fares b {
-  color: #26c6b0;
+  color: var(--color-deep-teal);
 }
 
 .survival .traps {
@@ -118,25 +123,26 @@
   margin: 20px 0;
 }
 .survival .trap {
-  background: rgba(255, 255, 255, 0.04);
-  border-left: 4px solid #ff6b5e;
+  background: rgba(244, 111, 97, 0.1);
+  border-left: 4px solid var(--color-coral);
   border-radius: 10px;
   padding: 16px 20px;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(244, 111, 97, 0.25);
+  border-top: 1px solid rgba(244, 111, 97, 0.25);
+  border-bottom: 1px solid rgba(244, 111, 97, 0.25);
+  color: var(--color-ocean-ink);
 }
 .survival .trap .tn {
   font-size: 12px;
   font-weight: 800;
   text-transform: uppercase;
-  color: #ff6b5e;
+  color: var(--color-coral-strong);
   margin-bottom: 4px;
 }
 
 .survival .miss {
-  background: rgba(255, 107, 94, 0.08);
-  border: 1px solid rgba(255, 107, 94, 0.2);
+  background: rgba(244, 111, 97, 0.1);
+  border: 1px solid rgba(244, 111, 97, 0.35);
   border-radius: 16px;
   padding: 20px 24px;
   margin: 32px 0;
@@ -161,8 +167,8 @@
 .survival .cta .shop {
   display: inline-block;
   background: transparent;
-  color: #26c6b0;
-  border: 1.5px solid #26c6b0;
+  color: var(--color-deep-teal);
+  border: 1.5px solid var(--color-deep-teal);
   text-decoration: none;
   font-weight: 700;
   padding: 12px 20px;
@@ -170,11 +176,11 @@
   transition: all 0.2s;
 }
 .survival .cta .shop:hover {
-  background: rgba(38, 198, 176, 0.1);
+  background: rgba(14, 90, 103, 0.08);
 }
 
 .survival .affiliate-disclosure {
-  color: #cbd5e1;
+  color: var(--color-ocean-ink-muted);
   font-size: 13px;
   line-height: 1.5;
   margin: -20px 0 32px;
@@ -182,9 +188,9 @@
 
 .survival .disclaimer {
   font-size: 13px;
-  color: #94a3b8;
+  color: var(--color-ocean-ink-muted);
   font-style: italic;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(14, 90, 103, 0.18);
   margin-top: 32px;
   padding-top: 20px;
 }

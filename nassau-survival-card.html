@@ -8,113 +8,117 @@
 <meta name="robots" content="noindex, nofollow">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root { 
-    --teal: #26C6B0; 
-    --bg-dark: #0a1128; 
-    --text-light: #F8FAFC; 
-    --text-muted: #94A3B8;
-    --card-bg: rgba(255, 255, 255, 0.04);
-    --coral: #ff6b5e; 
-    --line: rgba(255, 255, 255, 0.1); 
+  :root {
+    /* Lagoon + Sand visual system */
+    --sand: #FFF8EE;
+    --sea-glass: #EAF7F5;
+    --ocean-ink: #17324D;
+    --ocean-ink-muted: #45586B;
+    --deep-teal: #0E5A67;
+    --lagoon: #2CC8B7;
+    --coral: #F46F61;
+    --coral-strong: #C2453A;
+    --line: rgba(14, 90, 103, 0.18);
   }
-  
-  * { box-sizing: border-box; } 
-  
- body { 
-    margin: 0; 
+
+  * { box-sizing: border-box; }
+
+ body {
+    margin: 0;
     padding: 16px;
-    font-family: "Plus Jakarta Sans", system-ui, Arial, sans-serif; 
-    background: url('nassau_aerial.jpg');
-    background-size: cover; 
-    background-position: bottom center; 
+    font-family: "Plus Jakarta Sans", system-ui, Arial, sans-serif;
+    /* Keep the aerial photo visible behind a light Ocean Ink wash. */
+    background-image: linear-gradient(rgba(23, 50, 77, 0.2), rgba(23, 50, 77, 0.32)),
+        url('nassau_aerial.jpg');
+    background-size: cover;
+    background-position: bottom center;
     background-attachment: fixed;
-    color: var(--text-light); 
-    line-height: 1.6; 
+    color: var(--ocean-ink);
+    line-height: 1.6;
 }
-  
-  .card { 
-    max-width: 760px; 
-    margin: 20px auto; 
-    padding: 40px 24px; 
-    background: rgba(10, 17, 40, 0.92); 
+
+  .card {
+    max-width: 760px;
+    margin: 20px auto;
+    padding: 40px 24px;
+    background: var(--sand);
     border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    border: 1px solid rgba(14, 90, 103, 0.18);
+    box-shadow: 0 20px 50px rgba(14, 90, 103, 0.28);
   }
-  
-  .eyebrow { 
-    display: inline-block; 
-    background: rgba(38, 198, 176, 0.15); 
-    color: var(--teal); 
-    font-weight: 700; 
-    font-size: 13px; 
-    letter-spacing: 0.05em; 
-    text-transform: uppercase; 
-    padding: 6px 14px; 
-    border-radius: 999px; 
+
+  .eyebrow {
+    display: inline-block;
+    background: rgba(44, 200, 183, 0.18);
+    color: var(--ocean-ink);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 999px;
   }
-  
-  h1 { font-size: 30px; line-height: 1.2; margin: 16px 0 8px; letter-spacing: -0.5px; }
-  h2 { font-size: 21px; margin: 36px 0 12px; font-weight: 700; color: #fff; }
-  
-  .lede { font-size: 18px; color: var(--text-muted); margin-bottom: 32px; }
-  
-  .rule { 
-    background: var(--teal); 
-    color: #041d1a; /* Dark contrast text for readability on teal */
-    border-radius: 16px; 
-    padding: 24px; 
-    margin: 28px 0; 
-    box-shadow: 0 10px 25px rgba(38, 198, 176, 0.15);
+
+  h1 { font-size: 30px; line-height: 1.2; margin: 16px 0 8px; letter-spacing: -0.5px; color: var(--ocean-ink); }
+  h2 { font-size: 21px; margin: 36px 0 12px; font-weight: 700; color: var(--ocean-ink); }
+
+  .lede { font-size: 18px; color: var(--ocean-ink-muted); margin-bottom: 32px; }
+
+  .rule {
+    background: var(--lagoon);
+    color: var(--ocean-ink); /* Ocean Ink reads cleanly on the Lagoon panel */
+    border-radius: 16px;
+    padding: 24px;
+    margin: 28px 0;
+    box-shadow: 0 10px 25px rgba(44, 200, 183, 0.28);
   }
   .rule b { font-size: 22px; display: block; margin-top: 4px; line-height: 1.3; }
-  .rule .ex { 
-    display: inline-block; 
-    margin-top: 12px; 
-    background: rgba(0, 0, 0, 0.15); 
-    border-radius: 8px; 
-    padding: 6px 12px; 
-    font-size: 14px; 
+  .rule .ex {
+    display: inline-block;
+    margin-top: 12px;
+    background: rgba(23, 50, 77, 0.14);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 14px;
     font-weight: 600;
   }
-  
-  ul { padding-left: 0; list-style: none; } 
-  li { position: relative; padding: 6px 0 6px 24px; color: var(--text-light); } 
-  li::before { content: "›"; position: absolute; left: 0; color: var(--teal); font-weight: 800; font-size: 18px; line-height: 1.2; }
-  
-  .fares li::before { content: "•"; color: var(--coral); } 
-  .fares b { color: var(--teal); }
+
+  ul { padding-left: 0; list-style: none; }
+  li { position: relative; padding: 6px 0 6px 24px; color: var(--ocean-ink); }
+  li::before { content: "›"; position: absolute; left: 0; color: var(--deep-teal); font-weight: 800; font-size: 18px; line-height: 1.2; }
+
+  .fares li::before { content: "•"; color: var(--coral); }
+  .fares b { color: var(--deep-teal); }
   
   .traps { 
     display: grid; 
     gap: 16px; 
     margin: 20px 0; 
   } 
-  .trap { 
-    background: var(--card-bg); 
-    border-left: 4px solid var(--coral); 
-    border-radius: 10px; 
-    padding: 16px 20px; 
-    border-right: 1px solid var(--line);
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+  .trap {
+    background: rgba(244, 111, 97, 0.10);
+    border-left: 4px solid var(--coral);
+    border-radius: 10px;
+    padding: 16px 20px;
+    border-right: 1px solid rgba(244, 111, 97, 0.25);
+    border-top: 1px solid rgba(244, 111, 97, 0.25);
+    border-bottom: 1px solid rgba(244, 111, 97, 0.25);
+    color: var(--ocean-ink);
   }
-  .trap .tn { 
-    font-size: 12px; 
-    font-weight: 800; 
-    text-transform: uppercase; 
-    color: var(--coral); 
+  .trap .tn {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--coral-strong);
     margin-bottom: 4px;
   }
-  
-  .miss { 
-    background: rgba(255, 107, 94, 0.08); 
-    border: 1px solid rgba(255, 107, 94, 0.2); 
-    border-radius: 16px; 
-    padding: 20px 24px; 
-    margin: 32px 0; 
+
+  .miss {
+    background: rgba(244, 111, 97, 0.10);
+    border: 1px solid rgba(244, 111, 97, 0.35);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin: 32px 0;
   }
   
   .cta { 
@@ -127,33 +131,33 @@
   .cta img { height: 48px; width: auto; transition: transform 0.2s; }
   .cta img:hover { transform: translateY(-2px); }
   
-  .cta .shop { 
+  .cta .shop {
     display: inline-block;
-    background: transparent; 
-    color: var(--teal); 
-    border: 1.5px solid var(--teal); 
-    text-decoration: none; 
-    font-weight: 700; 
-    padding: 12px 20px; 
-    border-radius: 12px; 
+    background: transparent;
+    color: var(--deep-teal);
+    border: 1.5px solid var(--deep-teal);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 12px 20px;
+    border-radius: 12px;
     transition: all 0.2s;
   }
-  .cta .shop:hover { background: rgba(38, 198, 176, 0.1); }
+  .cta .shop:hover { background: rgba(14, 90, 103, 0.08); }
 
   .affiliate-disclosure {
-    color: #CBD5E1;
+    color: var(--ocean-ink-muted);
     font-size: 13px;
     line-height: 1.5;
     margin: -20px 0 32px;
   }
 
-  .disclaimer { 
-    font-size: 13px; 
-    color: var(--text-muted); 
-    font-style: italic; 
-    border-top: 1px solid var(--line); 
-    margin-top: 32px; 
-    padding-top: 20px; 
+  .disclaimer {
+    font-size: 13px;
+    color: var(--ocean-ink-muted);
+    font-style: italic;
+    border-top: 1px solid var(--line);
+    margin-top: 32px;
+    padding-top: 20px;
   }
   
   @media(min-width: 600px) { 
@@ -196,7 +200,7 @@
     <li>Most port trips are flat zone fares — know the ballpark before you ride.</li>
   </ul>
 
-  <h2>Typical regulated fares <span style="font-size:14px;color:var(--text-muted);font-weight:400">(2 passengers, one-way — confirm first)</span></h2>
+  <h2>Typical regulated fares <span style="font-size:14px;color:var(--ocean-ink-muted);font-weight:400">(2 passengers, one-way — confirm first)</span></h2>
   <ul class="fares">
     <li>Around downtown Nassau / Junkanoo Beach — <b>~$6</b></li>
     <li>Cruise port ⇄ Paradise Island (Atlantis) — <b>~$6–9</b> + ~$2 bridge toll</li>
@@ -221,7 +225,7 @@
   </div>
 
   <div class="miss">
-    <h2 style="margin-top:0;color:var(--coral);">If you miss the ship (you won't, but just in case)</h2>
+    <h2 style="margin-top:0;color:var(--coral-strong);">If you miss the ship (you won't, but just in case)</h2>
     <p style="margin:0">Call the ship's <b>port agent</b> — the number is on your daily planner (photo it every morning). You'll arrange and pay for travel to the next port, so keep your <b>passport or a photo of it</b>, a card, and a charged phone on you.</p>
   </div>
 
