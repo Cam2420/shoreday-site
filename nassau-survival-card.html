@@ -121,12 +121,12 @@
     margin: 32px 0;
   }
   
-  .cta { 
-    display: flex; 
-    flex-wrap: wrap; 
+  .cta {
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 16px; 
-    margin: 24px 0 40px; 
+    gap: 16px;
+    margin: 24px 0 16px;
   }
   .cta img { height: 48px; width: auto; transition: transform 0.2s; }
   .cta img:hover { transform: translateY(-2px); }
@@ -148,7 +148,9 @@
     color: var(--ocean-ink-muted);
     font-size: 13px;
     line-height: 1.5;
-    margin: -20px 0 32px;
+    /* Stable positive spacing keeps the disclosure attached below the CTA group
+       at every width (replaces a fragile negative top margin). */
+    margin: 0 0 32px;
   }
 
   .disclaimer {

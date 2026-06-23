@@ -110,3 +110,13 @@
   outline-offset: 2px !important;
   box-shadow: 0 0 0 6px rgba(44, 200, 183, 0.4) !important;
 }
+
+/* Brand Kit's submit button to ShoreDay Deep Teal. Kit sets the blue via a
+   non-important inline style, so a stylesheet `!important` wins — CSS only, no
+   DOM mutation. Button text stays white ("Get the Free Playbook"). */
+.cheat .formkit-submit {
+  background-color: var(--color-deep-teal) !important;
+}
+.cheat .formkit-submit:hover {
+  background-color: var(--color-ocean-ink) !important;
+}

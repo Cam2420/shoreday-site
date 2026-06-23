@@ -2,12 +2,15 @@
    under .home to avoid collisions with other pages' global CSS. */
 
 .home {
-  /* Sand-dominant page wash. The hero photo stays faintly visible beneath a
-     light Sand → Sea Glass gradient so imagery is preserved without dark navy
-     dominating the surface. */
+  /* Sand-dominant page wash, biased to the left so the text column stays highly
+     readable while the right side reveals the harbor/ships clearly. Lighter than
+     the prior near-opaque wash so the photo reads as authentic destination proof
+     rather than background texture — without returning to a dark-navy hero. */
   background-image: linear-gradient(
-      rgba(255, 248, 238, 0.88),
-      rgba(234, 247, 245, 0.93)
+      to right,
+      rgba(255, 248, 238, 0.92) 0%,
+      rgba(255, 248, 238, 0.7) 42%,
+      rgba(234, 247, 245, 0.42) 100%
     ),
     url("https://images.unsplash.com/photo-1548574505-5e239809ee19?q=80&w=2564&auto=format&fit=crop");
   background-size: cover;
@@ -157,7 +160,7 @@
   width: 100%;
 }
 .home .feature-card {
-  background: var(--color-sea-glass);
+  background: var(--color-sand);
   padding: 2.5rem 2rem;
   border-radius: 16px;
   border: 1px solid rgba(44, 200, 183, 0.35);
@@ -169,8 +172,16 @@
   border-color: var(--color-deep-teal);
   box-shadow: 0 12px 28px rgba(14, 90, 103, 0.18);
 }
+/* Sand is the dominant card surface; Sea Glass returns as an icon-chip accent. */
 .home .feature-icon {
-  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  background: var(--color-sea-glass);
+  font-size: 2rem;
   margin-bottom: 1rem;
 }
 .home .feature-card h3 {

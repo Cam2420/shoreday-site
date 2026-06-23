@@ -153,7 +153,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 16px;
-  margin: 24px 0 40px;
+  margin: 24px 0 16px;
 }
 .survival .cta img {
   height: 48px;
@@ -183,7 +183,9 @@
   color: var(--color-ocean-ink-muted);
   font-size: 13px;
   line-height: 1.5;
-  margin: -20px 0 32px;
+  /* Stable positive spacing keeps the disclosure attached just below the CTA
+     group at every width (replaces a fragile negative top margin). */
+  margin: 0 0 32px;
 }
 
 .survival .disclaimer {
