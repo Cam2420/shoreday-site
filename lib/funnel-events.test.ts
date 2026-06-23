@@ -4,6 +4,7 @@ import {
   createFunnelEvent,
   daysToPortBucket,
   FUNNEL_EVENTS,
+  SPEC_APP_EVENTS,
 } from './funnel-events';
 
 describe('funnel events — canonical names (spec §12)', () => {
@@ -29,6 +30,15 @@ describe('funnel events — canonical names (spec §12)', () => {
 
   it('has no duplicate event names', () => {
     expect(new Set(FUNNEL_EVENTS).size).toBe(FUNNEL_EVENTS.length);
+  });
+
+  it('reconciles to 14 web + 12 app events (neither is 17)', () => {
+    expect(FUNNEL_EVENTS).toHaveLength(14);
+    expect(SPEC_APP_EVENTS).toHaveLength(12);
+    expect(FUNNEL_EVENTS.length + SPEC_APP_EVENTS.length).toBe(26);
+    // No overlap between web and app event names.
+    const web = new Set<string>(FUNNEL_EVENTS);
+    expect(SPEC_APP_EVENTS.some((e) => web.has(e))).toBe(false);
   });
 });
 

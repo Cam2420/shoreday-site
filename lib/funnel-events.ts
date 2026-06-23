@@ -6,9 +6,11 @@
  * PII: no email, name, raw personal data, Firebase tokens, or affiliate
  * identifiers containing PII (spec §14).
  *
- * Count note: spec §12 defines exactly 14 web event names (below). The Funnel V1
- * authorization referenced "17"; the spec is the source of truth, so 14 are
- * implemented. The discrepancy is recorded in the build report.
+ * Count reconciliation: spec §12 defines exactly 14 WEB event names (below) and a
+ * separate set of 12 APP events (`SPEC_APP_EVENTS`, verified in the mobile app,
+ * not emitted here). The "17" referenced during authorization matches neither
+ * list. The web funnel implements the spec's 14 web events; the app set is listed
+ * only to account for the full analytics surface (14 + 12).
  *
  * Owner concept (Phase 10) → spec event name:
  *   landing viewed          → landing_view
@@ -46,6 +48,27 @@ export const FUNNEL_EVENTS = [
 ] as const;
 
 export type FunnelEventName = (typeof FUNNEL_EVENTS)[number];
+
+/**
+ * Spec §12 "app events to verify already exist or add" — owned by the ShoreDay
+ * mobile app and verified there, NOT emitted by the web funnel. Listed only to
+ * reconcile the full analytics surface (14 web + 12 app).
+ */
+export const SPEC_APP_EVENTS = [
+  'first_open',
+  'onboarding_start',
+  'onboarding_complete',
+  'excursion_tab_view',
+  'concierge_question_1',
+  'concierge_question_2',
+  'concierge_question_3',
+  'paywall_view',
+  'paywall_trigger',
+  'port_pass_purchase',
+  'annual_purchase',
+  'departure_alert_set',
+] as const;
+export type SpecAppEventName = (typeof SPEC_APP_EVENTS)[number];
 
 /** Coarse days-to-port buckets (avoids storing exact dates in analytics). */
 export const DAYS_TO_PORT_BUCKETS = ['le_3', '4_7', '8_14', 'ge_15', 'unknown'] as const;
