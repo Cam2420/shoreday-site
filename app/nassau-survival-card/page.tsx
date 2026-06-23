@@ -46,14 +46,16 @@ export default function NassauSurvivalCard() {
         <h2>Run on ship time</h2>
         <p>
           Your phone may quietly switch to local time and put you an hour off. Set
-          an alarm to <b>ship time</b> the moment you wake up, and judge every
+          an alarm to <b>ship time</b>{" "}
+          the moment you wake up, and judge every
           &quot;head back now&quot; decision against it.
         </p>
 
         <h2>Know who the ship waits for</h2>
         <p>
           On a <b>cruise-line excursion</b> and running late? The ship waits.{" "}
-          <b>On your own</b> and late? It leaves — and you&apos;re responsible for
+          <b>On your own</b>{" "}
+          and late? It leaves — and you&apos;re responsible for
           catching up to it at the next port, at your own expense. Independent days
           are cheaper and better; they&apos;re only risky when you wing the timing.
         </p>
@@ -61,7 +63,8 @@ export default function NassauSurvivalCard() {
         <h2>Distance = risk</h2>
         <ul>
           <li>
-            <b>Low risk:</b> downtown &amp; Junkanoo Beach — minutes from the ship.
+            <b>Low risk:</b>{" "}
+            downtown &amp; Junkanoo Beach — minutes from the ship.
           </li>
           <li>
             <b>Medium risk:</b> Paradise Island / Cabbage Beach — a bridge or ferry
@@ -132,7 +135,8 @@ export default function NassauSurvivalCard() {
             If you miss the ship (you won&apos;t, but just in case)
           </h2>
           <p style={{ margin: 0 }}>
-            Call the ship&apos;s <b>port agent</b> — the number is on your daily
+            Call the ship&apos;s <b>port agent</b>{" "}
+            — the number is on your daily
             planner (photo it every morning). You&apos;ll arrange and pay for travel
             to the next port, so keep your <b>passport or a photo of it</b>, a card,
             and a charged phone on you.

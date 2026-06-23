@@ -177,6 +177,7 @@
 }
 .home .feature-card h3 {
   font-size: 1.3rem;
+  font-weight: 700;
   margin-bottom: 0.75rem;
 }
 .home .feature-card p {
@@ -223,29 +224,6 @@
 .home .viator-text span {
   color: #34e0a1;
   font-weight: 800;
-}
-.home .tp-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(10, 17, 40, 0.65);
-  padding: 6px 14px;
-  border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-}
-.home .tp-stars {
-  color: #00b67a;
-  font-size: 1.1rem;
-  letter-spacing: 1px;
-}
-.home .tp-text {
-  color: white;
-  font-weight: 800;
-  font-size: 0.85rem;
-  letter-spacing: 0.5px;
-  text-shadow: none;
 }
 
 .home .excursions-cta h2 {

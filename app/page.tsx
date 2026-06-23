@@ -116,11 +116,7 @@ export default function Home() {
       <section className="excursions-cta">
         <div className="credibility-stack">
           <div className="viator-text">
-            Partnered with <span>Viator</span>, a Tripadvisor company
-          </div>
-          <div className="tp-badge">
-            <span className="tp-stars">★★★★★</span>
-            <span className="tp-text">Trustpilot</span>
+            Excursions via <span>Viator</span>, a Tripadvisor company
           </div>
         </div>
 
