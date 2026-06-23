@@ -1,0 +1,132 @@
+/**
+ * Nassau Funnel V1 — canonical analytics event contract (spec §12).
+ *
+ * This module DEFINES the typed event names and property shape only. It does NOT
+ * send events anywhere (no GA4, no network, no transport). It must never carry
+ * PII: no email, name, raw personal data, Firebase tokens, or affiliate
+ * identifiers containing PII (spec §14).
+ *
+ * Count note: spec §12 defines exactly 14 web event names (below). The Funnel V1
+ * authorization referenced "17"; the spec is the source of truth, so 14 are
+ * implemented. The discrepancy is recorded in the build report.
+ *
+ * Owner concept (Phase 10) → spec event name:
+ *   landing viewed          → landing_view
+ *   quiz started            → planner_start
+ *   quiz step viewed        → planner_step_view
+ *   quiz step completed     → planner_step_complete
+ *   calculator completed    → planner_complete
+ *   partial result viewed   → port_math_view
+ *   email gate viewed       → email_gate_view
+ *   email submitted         → email_submitted
+ *   full result viewed      → results_view
+ *   excursion impression    → excursion_card_view
+ *   excursion clicked       → excursion_click
+ *   app CTA viewed          → app_card_view
+ *   app CTA clicked         → app_store_click
+ *   saved plan viewed       → plan_share   (nearest spec event; saved-link views reuse it)
+ */
+
+/** The exact 14 web event names from spec §12, in funnel order. */
+export const FUNNEL_EVENTS = [
+  'landing_view',
+  'planner_start',
+  'planner_step_view',
+  'planner_step_complete',
+  'planner_complete',
+  'port_math_view',
+  'email_gate_view',
+  'email_submitted',
+  'results_view',
+  'excursion_card_view',
+  'excursion_click',
+  'app_card_view',
+  'app_store_click',
+  'plan_share',
+] as const;
+
+export type FunnelEventName = (typeof FUNNEL_EVENTS)[number];
+
+/** Coarse days-to-port buckets (avoids storing exact dates in analytics). */
+export const DAYS_TO_PORT_BUCKETS = ['le_3', '4_7', '8_14', 'ge_15', 'unknown'] as const;
+export type DaysToPortBucket = (typeof DAYS_TO_PORT_BUCKETS)[number];
+
+/**
+ * Allowed, non-PII event properties (spec §12). All optional. `excursion_id`,
+ * `offer_priority`, etc. carry no personal data. Index signature is intentionally
+ * absent so only declared keys are accepted.
+ */
+export interface FunnelEventProperties {
+  plan_id?: string;
+  port?: 'nassau';
+  days_to_port_bucket?: DaysToPortBucket;
+  party_type?: string;
+  planning_state?: string;
+  angle?: string;
+  source?: string;
+  campaign?: string;
+  creative_id?: string;
+  excursion_id?: string;
+  offer_priority?: string;
+  /** Step index for planner_step_view / planner_step_complete (1–5). */
+  step?: number;
+}
+
+export interface FunnelEvent {
+  name: FunnelEventName;
+  properties: FunnelEventProperties;
+}
+
+/** Property keys that must never appear on an event (defensive PII guard). */
+export const FORBIDDEN_PROPERTY_KEYS = [
+  'email',
+  'name',
+  'first_name',
+  'firstname',
+  'last_name',
+  'phone',
+  'password',
+  'token',
+  'id_token',
+  'access_token',
+  'uid',
+] as const;
+
+function looksLikePii(key: string): boolean {
+  const k = key.toLowerCase();
+  return FORBIDDEN_PROPERTY_KEYS.some((bad) => k === bad || k.includes(bad));
+}
+
+/**
+ * Defensive runtime guard: throws if a property key looks like PII. Useful when
+ * properties originate from loosely-typed callers.
+ * @throws if any forbidden key is present.
+ */
+export function assertNoPii(properties: Record<string, unknown>): void {
+  for (const key of Object.keys(properties)) {
+    if (looksLikePii(key)) {
+      throw new Error(`Funnel event property "${key}" is not allowed (possible PII).`);
+    }
+  }
+}
+
+/**
+ * Pure constructor for a typed funnel event. Validates the name and runs the PII
+ * guard. Does NOT transmit anything — wiring to an analytics sink is a later gate.
+ */
+export function createFunnelEvent(
+  name: FunnelEventName,
+  properties: FunnelEventProperties = {},
+): FunnelEvent {
+  assertNoPii(properties as Record<string, unknown>);
+  return { name, properties };
+}
+
+/** Bucket a `days_to_port` integer into a coarse, PII-free band. */
+export function daysToPortBucket(daysToPort: number | undefined): DaysToPortBucket {
+  if (daysToPort === undefined || !Number.isFinite(daysToPort)) return 'unknown';
+  if (daysToPort <= 3) return 'le_3';
+  if (daysToPort <= 7) return '4_7';
+  if (daysToPort <= 14) return '8_14';
+  return 'ge_15';
+}
