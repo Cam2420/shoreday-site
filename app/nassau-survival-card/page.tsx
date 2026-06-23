@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./survival.css";
 
 export const metadata: Metadata = {
-  title: { absolute: "Nassau Port-Day Survival Guide | ShoreDay" },
+  title: { absolute: "Nassau Port Playbook | ShoreDay" },
   description:
-    "Don't get ripped off, don't miss your ship: the all-aboard buffer rule, ship time, regulated taxi rates, and the 3 traps to avoid on your Nassau cruise port day.",
+    "A practical guide to all-aboard timing, taxi-fare guidance, and avoiding common tourist traps during a Nassau cruise stop.",
   alternates: { canonical: "/nassau-survival-card" },
   robots: { index: false, follow: false },
 };
@@ -13,11 +13,11 @@ export default function NassauSurvivalCard() {
   return (
     <div className="survival">
       <main className="card">
-        <span className="eyebrow">Nassau Port-Day Survival Guide</span>
-        <h1>Don&apos;t get ripped off. Don&apos;t miss your ship.</h1>
+        <span className="eyebrow">NASSAU PORT PLAYBOOK</span>
+        <h1>Timing, Taxi Fares &amp; the Traps to Skip</h1>
         <p className="lede">
-          The simple timing and money rules that take the fear out of your one day
-          ashore in Nassau.
+          A practical one-page guide to help you plan around your all-aboard time
+          and spend smarter in Nassau.
         </p>
 
         <div className="rule">

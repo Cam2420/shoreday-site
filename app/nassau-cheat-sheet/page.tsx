@@ -3,9 +3,9 @@ import KitForm from "./KitForm";
 import "./cheat.css";
 
 export const metadata: Metadata = {
-  title: { absolute: "Nassau Port-Day Survival Guide | ShoreDay" },
+  title: { absolute: "Free Nassau Port Playbook | ShoreDay" },
   description:
-    "Get your free Nassau port-day survival guide: regulated taxi rates, the all-aboard buffer rule, and the 3 tourist traps to avoid.",
+    "Get the free Nassau Port Playbook with all-aboard timing, taxi-fare guidance, and practical tips for your cruise stop.",
   alternates: { canonical: "/nassau-cheat-sheet" },
   robots: { index: false, follow: false },
 };
@@ -18,14 +18,13 @@ export default function NassauCheatSheet() {
           Shore<span>Day</span>
         </div>
 
-        <h1>The Nassau Port Day Survival Guide</h1>
-        <div className="subtitle">Don&apos;t Get Ripped Off. Don&apos;t Miss Your Ship.</div>
+        <h1>The Nassau Port Playbook</h1>
+        <div className="subtitle">Timing, Taxi Fares &amp; the Traps to Skip</div>
 
         <p className="description">
-          Enter your email below to get instant access to your{" "}
-          <strong>free digital survival guide</strong>. Get regulated taxi rates,
-          the mathematical &quot;all-aboard&quot; buffer rule, and the 3 tourist
-          traps to completely avoid this week.
+          Enter your email to get instant access to a practical one-page guide
+          for planning around your all-aboard time and spending smarter in
+          Nassau.
         </p>
 
         <div className="form-wrapper">

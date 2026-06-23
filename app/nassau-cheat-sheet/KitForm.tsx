@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-// Renders the "ShoreDay Nassau Cheat Sheet" Kit form (public UID 140b41e206)
+// Renders the "ShoreDay Nassau Port Playbook" Kit form (public UID 140b41e206)
 // by injecting Kit's public embed script into this container. Kit inserts the
 // generated form immediately after its own script element, so the form renders
 // in place here. Only the public form UID is used — no API key or secret.
