@@ -98,3 +98,15 @@
   line-height: 1.5;
   margin: 12px 0 0;
 }
+
+/* Kit's injected stylesheet forces `outline: none` on its own input and submit
+   button (verified in-browser), suppressing the keyboard-focus ring. Restore
+   the ShoreDay focus treatment with a scoped, higher-specificity override.
+   `!important` is required here only to defeat Kit's outline removal; the rule
+   is scoped to .cheat so it never applies globally. */
+.cheat .formkit-input:focus-visible,
+.cheat .formkit-submit:focus-visible {
+  outline: 3px solid var(--color-deep-teal) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 6px rgba(44, 200, 183, 0.4) !important;
+}

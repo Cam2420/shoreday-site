@@ -108,6 +108,15 @@
             line-height: 1.5;
             margin: 12px 0 0;
         }
+        /* Kit forces `outline: none` on its embedded input/button; restore the
+           ShoreDay keyboard-focus ring with a scoped, higher-specificity rule.
+           `!important` only defeats Kit's outline removal; scoped to .container. */
+        .container .formkit-input:focus-visible,
+        .container .formkit-submit:focus-visible {
+            outline: 3px solid var(--deep-teal) !important;
+            outline-offset: 2px !important;
+            box-shadow: 0 0 0 6px rgba(44, 200, 183, 0.4) !important;
+        }
     </style>
 
     </head>
