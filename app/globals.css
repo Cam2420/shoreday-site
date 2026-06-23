@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+/* ShoreDay design tokens */
+@theme {
+  --color-primary-teal: #26c6b0;
+  --color-bg-dark: #0a1128;
+  --color-text-light: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-coral: #ff6b5e;
+  --font-sans: var(--font-plus-jakarta), system-ui, Arial, sans-serif;
+}
+
+html {
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
