@@ -1,0 +1,64 @@
+/* Shared styling for the Privacy and Terms pages — faithful port of the
+   original privacy.html / terms.html. Because Tailwind's preflight resets
+   browser-default typography (heading sizes, list markers, paragraph
+   spacing), those defaults are restored explicitly here so the legal
+   documents render with parity. Scoped under .legal. */
+
+.legal {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  color: #222;
+  line-height: 1.7;
+}
+
+.legal h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0.67em 0;
+  color: #0a2540;
+}
+.legal h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 2em;
+  margin-bottom: 0.83em;
+  color: #0e5a67;
+}
+.legal h3 {
+  font-size: 1.17em;
+  font-weight: bold;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+  color: #0a2540;
+}
+
+.legal p {
+  margin: 1em 0;
+}
+
+.legal ul {
+  list-style: disc;
+  padding-left: 40px;
+  margin: 1em 0;
+}
+.legal ol {
+  list-style: decimal;
+  padding-left: 40px;
+  margin: 1em 0;
+}
+.legal li {
+  margin: 0.2em 0;
+}
+
+.legal strong {
+  font-weight: bold;
+}
+.legal em {
+  font-style: italic;
+}
+
+.legal a {
+  color: #0e5a67;
+  text-decoration: underline;
+}

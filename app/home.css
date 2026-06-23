@@ -1,0 +1,391 @@
+/* Homepage — faithful port of the original index.html styles, namespaced
+   under .home to avoid collisions with other pages' global CSS. */
+
+.home {
+  /* Sand-dominant page wash, biased to the left so the text column stays highly
+     readable while the right side reveals the harbor/ships clearly. Lighter than
+     the prior near-opaque wash so the photo reads as authentic destination proof
+     rather than background texture — without returning to a dark-navy hero. */
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 248, 238, 0.92) 0%,
+      rgba(255, 248, 238, 0.7) 42%,
+      rgba(234, 247, 245, 0.42) 100%
+    ),
+    url("https://images.unsplash.com/photo-1548574505-5e239809ee19?q=80&w=2564&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--color-ocean-ink);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Nav */
+.home nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 5%;
+  align-items: center;
+}
+.home .logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-ocean-ink);
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.home .logo span {
+  color: var(--color-deep-teal);
+}
+.home .nav-links a {
+  color: var(--color-ocean-ink);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.home .nav-links a:hover {
+  color: var(--color-deep-teal);
+}
+
+/* Hero Layout */
+.home .hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 5% 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex: 1;
+  gap: 4rem;
+}
+
+/* Hero Left: Text & Buttons */
+.home .hero-text-content {
+  flex: 1;
+  max-width: 600px;
+  text-align: left;
+}
+.home .badge {
+  display: inline-block;
+  background: rgba(44, 200, 183, 0.18);
+  color: var(--color-deep-teal);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(44, 200, 183, 0.45);
+}
+.home h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+  color: var(--color-ocean-ink);
+}
+.home p.subtitle {
+  font-size: 1.2rem;
+  color: var(--color-ocean-ink-muted);
+  margin-bottom: 2rem;
+}
+
+/* Button Layout */
+.home .app-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 2rem;
+}
+.home .app-buttons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.home .app-buttons img {
+  height: 48px;
+  width: auto;
+  transition: transform 0.2s, filter 0.2s;
+}
+.home .app-buttons a.store-badge:hover img {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+}
+
+/* Subtle Social Proof */
+.home .trust-bar {
+  font-size: 0.85rem;
+  color: var(--color-ocean-ink-muted);
+  font-weight: 600;
+}
+
+/* Side-by-Side Mockup Layout */
+.home .hero-mockups {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.home .mockup-left,
+.home .mockup-right {
+  width: 240px;
+  border-radius: 35px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.home .mockup-left:hover,
+.home .mockup-right:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 35px 60px rgba(0, 0, 0, 0.7);
+}
+
+/* Features */
+.home .features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem 5% 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+.home .feature-card {
+  background: var(--color-sand);
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(44, 200, 183, 0.35);
+  text-align: left;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.home .feature-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-deep-teal);
+  box-shadow: 0 12px 28px rgba(14, 90, 103, 0.18);
+}
+/* Sand is the dominant card surface; Sea Glass returns as an icon-chip accent. */
+.home .feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  background: var(--color-sea-glass);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.home .feature-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-ocean-ink);
+  margin-bottom: 0.75rem;
+}
+.home .feature-card p {
+  color: var(--color-ocean-ink-muted);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Excursions CTA Section — the one deliberate dark accent panel. A lighter
+   Deep Teal → Ocean Ink overlay keeps the swimming-pig photography visible
+   while preserving white-text legibility. */
+.home .excursions-cta {
+  background: linear-gradient(
+      rgba(14, 90, 103, 0.55),
+      rgba(23, 50, 77, 0.78)
+    ),
+    url("/swimmingpig_bird.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(44, 200, 183, 0.5);
+  padding: 4rem 5%;
+  text-align: center;
+  margin: 2rem auto 5rem;
+  width: 90%;
+  max-width: 1000px;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(14, 90, 103, 0.35);
+}
+
+/* Credibility Badges */
+.home .credibility-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+.home .viator-text {
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.home .viator-text span {
+  color: #34e0a1;
+  font-weight: 800;
+}
+
+.home .excursions-cta h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: white;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+.home .excursions-cta p {
+  font-size: 1.15rem;
+  color: #f8fafc;
+  margin-bottom: 2.5rem;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  font-weight: 500;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.home .cta-button-group {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.home .affiliate-disclosure {
+  color: #e2e8f0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin: 1rem auto 0;
+  max-width: 620px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+.home .primary-btn {
+  display: inline-block;
+  background: var(--color-deep-teal);
+  color: #ffffff;
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 2px solid var(--color-deep-teal);
+}
+.home .primary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(14, 90, 103, 0.55);
+}
+.home .secondary-btn {
+  display: inline-block;
+  background: rgba(23, 50, 77, 0.55);
+  color: white;
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: background 0.2s, transform 0.2s;
+}
+.home .secondary-btn:hover {
+  background: rgba(23, 50, 77, 0.8);
+  transform: translateY(-3px);
+}
+
+/* Footer — compact Deep Teal anchor band (part of the ~20% dark allowance). */
+.home footer {
+  border-top: 1px solid rgba(44, 200, 183, 0.4);
+  padding: 2rem 5%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  margin-top: auto;
+  background: var(--color-deep-teal);
+}
+.home footer a {
+  color: #ffffff;
+  text-decoration: underline;
+  margin: 0 10px;
+  transition: color 0.2s;
+}
+.home footer a:hover {
+  color: var(--color-lagoon);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .home .mockup-left,
+  .home .mockup-right {
+    width: 200px;
+  }
+}
+@media (max-width: 960px) {
+  .home .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 2rem;
+    gap: 3rem;
+  }
+  .home .hero-text-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .home h1 {
+    font-size: 2.8rem;
+  }
+  .home .app-buttons {
+    justify-content: center;
+  }
+  .home .excursions-cta h2 {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 600px) {
+  .home h1 {
+    font-size: 2.2rem;
+  }
+  .home .app-actions {
+    align-items: center;
+  }
+  .home .app-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .home .hero-mockups {
+    gap: 10px;
+  }
+  .home .mockup-left,
+  .home .mockup-right {
+    width: 160px;
+  }
+  .home .excursions-cta {
+    padding: 3rem 1.5rem;
+    width: 95%;
+  }
+  .home .cta-button-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  .home .primary-btn,
+  .home .secondary-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

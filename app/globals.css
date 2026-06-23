@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+/* ShoreDay design tokens — Lagoon + Sand visual system */
+@theme {
+  /* Lagoon + Sand palette */
+  --color-sand: #fff8ee;
+  --color-sea-glass: #eaf7f5;
+  --color-ocean-ink: #17324d;
+  --color-ocean-ink-muted: #45586b;
+  --color-deep-teal: #0e5a67;
+  --color-lagoon: #2cc8b7;
+  --color-coral: #f46f61;
+  --color-coral-strong: #c2453a;
+
+  /* Legacy tokens retained for any unconverted references */
+  --color-primary-teal: #26c6b0;
+  --color-bg-dark: #0a1128;
+  --color-text-light: #f8fafc;
+  --color-text-muted: #94a3b8;
+
+  --font-sans: var(--font-plus-jakarta), system-ui, Arial, sans-serif;
+}
+
+html {
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Keyboard focus indicator for interactive controls. A solid Deep Teal ring
+   (geometry, not color alone) plus a Lagoon halo keeps the indicator clearly
+   visible on both light Sand surfaces and darker Deep Teal panels. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--color-deep-teal);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgba(44, 200, 183, 0.4);
+}

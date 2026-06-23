@@ -8,31 +8,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
+            /* Lagoon + Sand visual system */
+            --sand: #FFF8EE;
+            --sea-glass: #EAF7F5;
+            --ocean-ink: #17324D;
+            --ocean-ink-muted: #45586B;
+            --deep-teal: #0E5A67;
+            --lagoon: #2CC8B7;
+            --coral: #F46F61;
             --primary-teal: #26C6B0;
             --text-light: #F8FAFC;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-        
-        /* The Magic: Tropical Background with Navy Gradient Overlay */
-        body { 
-            background-image: linear-gradient(rgba(10, 17, 40, 0.75), rgba(10, 17, 40, 0.9)), url('https://images.unsplash.com/photo-1548574505-5e239809ee19?q=80&w=2564&auto=format&fit=crop');
+
+        /* Sand-dominant wash, biased left so the text stays readable while the
+           harbor/ships read clearly on the right — lighter than the prior wash. */
+        body {
+            background-image: linear-gradient(to right, rgba(255, 248, 238, 0.92) 0%, rgba(255, 248, 238, 0.70) 42%, rgba(234, 247, 245, 0.42) 100%), url('https://images.unsplash.com/photo-1548574505-5e239809ee19?q=80&w=2564&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            color: var(--text-light); 
-            line-height: 1.6; 
-            display: flex; 
-            flex-direction: column; 
-            min-height: 100vh; 
+            color: var(--ocean-ink);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
             overflow-x: hidden;
         }
-        
+
         /* Nav */
         nav { display: flex; justify-content: space-between; padding: 2rem 5%; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: white; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .logo span { color: var(--primary-teal); }
-        .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 600; transition: color 0.2s; }
-        .nav-links a:hover { color: var(--primary-teal); }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--ocean-ink); letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo span { color: var(--deep-teal); }
+        .nav-links a { color: var(--ocean-ink); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--deep-teal); }
         
         /* Hero Layout */
         .hero { 
@@ -48,14 +57,14 @@
         
         /* Hero Left: Text & Buttons */
         .hero-text-content { flex: 1; max-width: 600px; text-align: left; }
-        .badge { 
-            display: inline-block; background: rgba(38, 198, 176, 0.15); color: var(--primary-teal); 
-            padding: 6px 16px; border-radius: 20px; font-weight: 800; font-size: 0.80rem; 
-            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem; 
-            border: 1px solid rgba(38, 198, 176, 0.3); backdrop-filter: blur(4px); 
+        .badge {
+            display: inline-block; background: rgba(44, 200, 183, 0.18); color: var(--deep-teal);
+            padding: 6px 16px; border-radius: 20px; font-weight: 800; font-size: 0.80rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem;
+            border: 1px solid rgba(44, 200, 183, 0.45);
         }
-        h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -1px; text-shadow: 0 4px 12px rgba(0,0,0,0.3); }
-        p.subtitle { font-size: 1.2rem; color: #E2E8F0; margin-bottom: 2rem; text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+        h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -1px; color: var(--ocean-ink); }
+        p.subtitle { font-size: 1.2rem; color: var(--ocean-ink-muted); margin-bottom: 2rem; }
         
         /* Updated Button Layout */
         .app-actions { display: flex; flex-direction: column; gap: 15px; margin-bottom: 2rem; }
@@ -64,7 +73,7 @@
         .app-buttons a.store-badge:hover img { transform: translateY(-3px); filter: brightness(1.1); }
 
         /* Subtle Social Proof */
-        .trust-bar { font-size: 0.85rem; color: #94A3B8; font-weight: 600; opacity: 0.8; }
+        .trust-bar { font-size: 0.85rem; color: var(--ocean-ink-muted); font-weight: 600; }
 
         /* Side-by-Side Mockup Layout */
         .hero-mockups { flex: 1; display: flex; justify-content: center; align-items: center; gap: 20px; }
@@ -73,26 +82,28 @@
         
         /* Features */
         .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; padding: 2rem 5% 2rem; max-width: 1200px; margin: 0 auto; width: 100%; }
-        .feature-card { background: rgba(10, 17, 40, 0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 2.5rem 2rem; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1); text-align: left; transition: transform 0.3s, background 0.3s; }
-        .feature-card:hover { transform: translateY(-5px); background: rgba(10, 17, 40, 0.7); border-color: rgba(38, 198, 176, 0.3); }
-        .feature-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-        .feature-card h3 { font-size: 1.3rem; margin-bottom: 0.75rem; }
-        .feature-card p { color: #CBD5E1; font-size: 1rem; line-height: 1.5; }
+        .feature-card { background: var(--sand); padding: 2.5rem 2rem; border-radius: 16px; border: 1px solid rgba(44, 200, 183, 0.35); text-align: left; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; }
+        .feature-card:hover { transform: translateY(-5px); border-color: var(--deep-teal); box-shadow: 0 12px 28px rgba(14, 90, 103, 0.18); }
+        /* Sand-dominant card; Sea Glass returns as an icon-chip accent. */
+        .feature-icon { display: flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 14px; background: var(--sea-glass); font-size: 2rem; margin-bottom: 1rem; }
+        .feature-card h3 { font-size: 1.3rem; font-weight: 700; color: var(--ocean-ink); margin-bottom: 0.75rem; }
+        .feature-card p { color: var(--ocean-ink-muted); font-size: 1rem; line-height: 1.5; }
 
         /* UPGRADED EXCURSIONS CTA SECTION */
         .excursions-cta {
-            /* Changed to a MUCH lighter overlay (20% top, 50% bottom) to make the image visible */
-            background: linear-gradient(rgba(10, 17, 40, 0.2), rgba(10, 17, 40, 0.5)), url('swimmingpig_bird.jpg');
+            /* The one deliberate dark accent panel: a lighter Deep Teal → Ocean Ink
+               overlay keeps the photography visible while white text stays legible. */
+            background: linear-gradient(rgba(14, 90, 103, 0.55), rgba(23, 50, 77, 0.78)), url('swimmingpig_bird.jpg');
             background-size: cover;
             background-position: center;
-            border: 1px solid rgba(38, 198, 176, 0.4);
+            border: 1px solid rgba(44, 200, 183, 0.5);
             padding: 4rem 5%;
             text-align: center;
             margin: 2rem auto 5rem;
             width: 90%;
             max-width: 1000px;
             border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            box-shadow: 0 20px 40px rgba(14, 90, 103, 0.35);
         }
 
         /* Credibility Badges */
@@ -116,22 +127,7 @@
             color: #34E0A1; /* Tripadvisor Green */
             font-weight: 800;
         }
-        .tp-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            /* Made the background darker so the badge doesn't blend into the bright water */
-            background: rgba(10, 17, 40, 0.65);
-            padding: 6px 14px;
-            border-radius: 50px;
-            border: 1px solid rgba(255,255,255,0.2);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-        }
-        .tp-stars { color: #00B67A; font-size: 1.1rem; letter-spacing: 1px; }
-        .tp-text { color: white; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.5px; text-shadow: none; } /* Removed shadow inside the badge */
-
-        .excursions-cta h2 { 
+        .excursions-cta h2 {
             font-size: 2.5rem; 
             font-weight: 800; 
             margin-bottom: 1rem; 
@@ -161,44 +157,52 @@
         }
         .primary-btn {
             display: inline-block;
-            background: var(--primary-teal);
-            color: #0A1128;
+            background: var(--deep-teal);
+            color: #FFFFFF;
             padding: 16px 36px;
             border-radius: 50px;
             font-weight: 800;
             font-size: 1.1rem;
             text-decoration: none;
             transition: transform 0.2s, box-shadow 0.2s;
-            border: 2px solid var(--primary-teal);
+            border: 2px solid var(--deep-teal);
         }
         .primary-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(38, 198, 176, 0.5);
+            box-shadow: 0 10px 25px rgba(14, 90, 103, 0.55);
         }
         .secondary-btn {
             display: inline-block;
-            /* Darker background for contrast against the lighter image */
-            background: rgba(10, 17, 40, 0.65);
+            /* Translucent Ocean Ink for contrast against the photo panel */
+            background: rgba(23, 50, 77, 0.55);
             color: white;
             padding: 16px 36px;
             border-radius: 50px;
             font-weight: 800;
             font-size: 1.1rem;
             text-decoration: none;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.45);
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
             transition: background 0.2s, transform 0.2s;
         }
         .secondary-btn:hover {
-            background: rgba(10, 17, 40, 0.85);
+            background: rgba(23, 50, 77, 0.8);
             transform: translateY(-3px);
         }
-        
-        /* Footer */
-        footer { border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 2rem 5%; text-align: center; color: #94A3B8; font-size: 0.9rem; margin-top: auto; background: rgba(10, 17, 40, 0.8); backdrop-filter: blur(10px); }
-        footer a { color: #E2E8F0; text-decoration: none; margin: 0 10px; transition: color 0.2s; }
-        footer a:hover { color: var(--primary-teal); }
+        .affiliate-disclosure {
+            color: #E2E8F0;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin: 1rem auto 0;
+            max-width: 620px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+        }
+
+        /* Footer — compact Deep Teal anchor band */
+        footer { border-top: 1px solid rgba(44, 200, 183, 0.4); padding: 2rem 5%; text-align: center; color: rgba(255, 255, 255, 0.85); font-size: 0.9rem; margin-top: auto; background: var(--deep-teal); }
+        footer a { color: #FFFFFF; text-decoration: underline; margin: 0 10px; transition: color 0.2s; }
+        footer a:hover { color: var(--lagoon); }
         
         /* Responsive Mobile Layout */
         @media (max-width: 1024px) { .mockup-left, .mockup-right { width: 200px; } }
@@ -236,7 +240,7 @@
         <div class="hero-text-content">
             <div class="badge">Now Live On iOS & Android</div>
             <h1>Your Bahamas Port Day, Perfectly Timed.</h1>
-            <p class="subtitle">AI-powered itineraries, real-time ship countdowns, and local secrets to make the most of your cruise stop currently in Nassau, Freeport & Bimini. Never miss the ship.</p>
+            <p class="subtitle">AI-powered itineraries, ship countdowns, and local secrets to make the most of your cruise stop, currently in Nassau, Freeport & Bimini. Built around your exact all-aboard time.</p>
             
             <div class="app-actions">
                 <div class="app-buttons">
@@ -262,7 +266,7 @@
     <section class="features">
         <div class="feature-card">
             <div class="feature-icon">⏱️</div>
-            <h3>Never Miss the Ship</h3>
+            <h3>Built Around Your All-Aboard Time</h3>
             <p>Our AI builds your entire port day around your exact "All-Aboard" time, including built-in buffer zones.</p>
         </div>
         <div class="feature-card">
@@ -273,26 +277,23 @@
         <div class="feature-card">
             <div class="feature-icon">💬</div>
             <h3>AI Concierge</h3>
-            <p>Need a quick recommendation or looking for a hidden beach? Ask your pocket AI concierge for real-time, location-aware answers.</p>
+            <p>Need a quick recommendation or looking for a hidden beach? Ask your pocket AI concierge for local recommendations.</p>
         </div>
     </section>
 
     <section class="excursions-cta">
         <div class="credibility-stack">
-            <div class="viator-text">Partnered with <span>Viator</span>, a Tripadvisor company</div>
-            <div class="tp-badge">
-                <span class="tp-stars">★★★★★</span>
-                <span class="tp-text">Trustpilot</span>
-            </div>
+            <div class="viator-text">Excursions via <span>Viator</span>, a Tripadvisor company</div>
         </div>
-        
+
         <h2>Book ShoreDay Curated Excursions</h2>
-        <p>Skip the tourist traps. Browse our exclusive selection of top-rated Bahamas tours perfectly timed to your ship's schedule. <strong>Shop instantly via the link below</strong>, or download the ShoreDay app to book these same amazing experiences alongside our powerful AI concierge and real-time ship countdowns for the ultimate port day.</p>
+        <p>Skip the tourist traps. Browse our exclusive selection of top-rated Bahamas tours perfectly timed to your ship's schedule. <strong>Shop instantly via the link below</strong>, or download the ShoreDay app to book these same amazing experiences alongside our powerful AI concierge and ship countdowns for the ultimate port day.</p>
         
         <div class="cta-button-group">
             <a href="https://vi.me/s/shoredayapp" target="_blank" class="primary-btn">Shop Excursions Online</a>
             <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="secondary-btn">Get the ShoreDay App</a>
         </div>
+        <p class="affiliate-disclosure">Disclosure: ShoreDay may earn a commission if you book through a Viator link.</p>
     </section>
 
     <footer>
