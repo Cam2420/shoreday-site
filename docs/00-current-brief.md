@@ -159,3 +159,5 @@ Use **net revenue per verified port plan**, where a verified plan includes port/
 ## 7) Platform & Operational Decisions
 
 2026-06-23 — Email platform cutover: The owner confirmed MailerLite has zero subscribers. MailerLite is retired immediately with no contact migration or coexistence period. New ShoreDay web captures use Kit. The Nassau Cheat Sheet signup redirects immediately to the existing Nassau Survival Card; M1 does not require an incentive email, sequence, or automation.
+
+2026-06-23 — Nassau resource naming and visual system: The owner selected ‘The Nassau Port Playbook’ as the visible opt-in resource name and ‘Your Nassau Port Playbook’ as the resulting guide name. Existing route paths remain unchanged during M1. ShoreDay adopts the Lagoon + Sand visual system for its Nassau and primary web marketing surfaces, replacing dark navy as the dominant large-panel color.
