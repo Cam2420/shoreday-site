@@ -979,16 +979,17 @@ Vercel, Google, or AI integration. Two value sets required by §6 and §8 are
 **not specified by any canonical source and are deferred to owner lock before
 production**:
 
-1. **Port-math `PortConfig` numeric defaults** (`terminalBufferMinutes`,
-   `defaultContingencyMinutes`, `minimumUsableMinutes`). The §6 *formulas* are
-   fully specified and implemented as a pure, config-driven engine. The numeric
-   defaults are not in this spec, `docs/00-current-brief.md`, or the mobile app
-   (`PortData` holds only geography). The Master Research Dump provides ranges
-   (gangway 30–60 min; all-aboard 30 min before departure; Cruise Critic ~60-min
-   independent-excursion return cushion; terminal re-entry “not separately
-   quantified”). `data/ports/nassau.ts` carries research-cited **proposed**
-   values, clearly labeled pending owner lock; unit tests use explicit fixture
-   configs and do not depend on the proposed production values.
+1. **Port-math `PortConfig` numeric values — LOCKED 2026-06-23.** The §6
+   *formulas* are implemented as a pure, config-driven engine. The numeric values
+   are now the approved policy in `data/ports/nassau.ts` (`configStatus: 'locked'`),
+   grounded in the Master Research Dump: `terminalBufferMinutes = 60` (pier-return
+   target = all-aboard − 60 min, per Cruise Critic Claim 6-C / fact #15),
+   `defaultContingencyMinutes = 30` (Claim 6-D personal buffer), and
+   `minimumUsableMinutes = 120` (a conservative soft floor with no direct source —
+   adjustable). The earlier proposed 20-min pier-walk-only figure was revised up to
+   60 so the headline pier-return target is appropriately conservative. The
+   itinerary *shape* config (block lengths) remains `proposed`. Unit tests use
+   fixture configs and are unaffected.
 
 2. **Excursion engine-critical fields.** The mobile catalog
    (`lib/data/excursions_data.dart`) supplies id, title, duration string,
@@ -999,3 +1000,27 @@ production**:
    implemented and unit-tested against fixtures; `data/excursions/nassau.ts`
    contains only the verified mobile extract (exact URLs preserved) and is **not**
    a production ranking catalog until the owner curates the missing fields.
+
+### 21.11 Corrective pass (2026-06-23)
+
+- **Nassau timing policy locked** — see §21.10 item 1.
+- **Fail-closed excursion ranking** — the engine now excludes any excursion it
+  cannot positively verify: fixed-start tours (no meeting-time data) and entries
+  with incomplete/invalid required fields are treated as ineligible, not surfaced
+  with advisories. Invalid port-math yields zero recommendations. The result never
+  pads with ineligible options.
+- **Analytics event count reconciled** — spec §12 defines **14 web events** (the
+  funnel's scope) and **12 app events** (verified separately in the mobile app).
+  The "17" referenced during authorization matches neither list; the implemented
+  web contract uses the spec's 14 web events. `lib/funnel-events.ts` documents both
+  sets.
+- **Viator sandbox API — BLOCKED.** Basic affiliate API access was created, but the
+  read-only sandbox preflight to
+  `https://api.sandbox.viator.com/partner/v1/taxonomy/destinations`
+  (`exp-api-key`, `Accept-Language: en-US`, `Accept: application/json;version=2.0`)
+  returns **HTTP 404** — sandbox activation/access is pending. No production key was
+  used, no retries, and no API-derived catalog values were invented. API-based
+  excursion enrichment is held until the sandbox returns HTTP 200.
+- **Vercel** — the `shoreday-site` project (`prj_bdEVOQRilc2EsKtJNEDyAtuUeFVo`,
+  Next.js, `live: false`, no deployment, no custom domains) is the owner-verified
+  Next.js host; `shoredayapp.com` remains on GitHub Pages.

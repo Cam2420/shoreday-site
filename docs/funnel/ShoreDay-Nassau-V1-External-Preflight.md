@@ -96,23 +96,23 @@ scope for this foundation build.
 
 ## Vercel
 
-Source: connected Vercel MCP (read-only). **Nothing deployed; Git not connected;
-no domains changed.**
+Owner-verified state (read-only; nothing deployed, Git not connected, no domains
+changed). **Corrected 2026-06-23.**
 
 | Check | Finding |
 |---|---|
 | Team | `ShoreDay` (slug `shore-day`, id `team_DgC2UEutGZTvXZ3wjT6JqRFN`) |
-| `shoreday-site` project exists? | **No — 404.** The project recorded at the M1 checkpoint (`prj_bdEVOQRilc2EsKtJNEDyAtuUeFVo`) is no longer present. |
-| Projects present | Only **`shoreday-marketing`** (`prj_TDRiW8NehLEtS9mvQDLPi0ODkVxC`) |
-| `shoreday-marketing` deployment | One production-target deployment, `readyState: READY`, on `*.vercel.app` only; project `live: false` |
-| Custom domain on Vercel | **None.** `shoreday-marketing` domains are only `*.vercel.app`. No `shoredayapp.com` attached to any Vercel project. |
-| `shoredayapp.com` host | Remains on **GitHub Pages** (verified live in prior M1 verification; DNS unchanged) |
+| `shoreday-site` project | **Exists** — `prj_bdEVOQRilc2EsKtJNEDyAtuUeFVo`, framework **Next.js** |
+| `live` | `false` |
+| Latest deployment | **None** |
+| Custom domains | **None** |
+| `shoredayapp.com` host | Remains on **GitHub Pages** (DNS unchanged) |
+| Other team project | `shoreday-marketing` (`prj_TDRiW8NehLEtS9mvQDLPi0ODkVxC`) — separate marketing project |
 
-> **Note for the checkpoint record:** the M1 memory note that a `shoreday-site`
-> Vercel project exists with no active deployment is now **stale** — that project
-> is gone; a separate `shoreday-marketing` project exists instead. This does not
-> affect the foundation build (no Vercel work is authorized), but the funnel-UI
-> gate should reconcile which Vercel project will host the Next.js funnel.
+> **Note:** the connected Vercel MCP token could not fetch `shoreday-site`
+> (returned 404 — a connector access/scope limitation, **not** a deletion). The
+> owner-verified state above is authoritative: the `shoreday-site` project exists
+> and is the intended Next.js host. No Vercel work is authorized in this pass.
 
 **Vercel GitHub App authorization** for `Cam2420/shoreday-site` is still
 outstanding (carried over from M1) and remains required before Git-connected
@@ -127,4 +127,4 @@ preview deployments are possible. Not performed.
 | Firebase | Project `bah-tourist-app`, Firestore in use; separate `plans` collection structurally safe | Web App registration + security rules unverified (no connector); server-side credentials not provisioned |
 | Kit | Account ShoreDay, API + write capability available, Playbook form `140b41e206` live | Lifecycle tags + most spec custom fields absent; no sequences/automations (deferred) |
 | Viator | 12 exact Nassau affiliate URLs (`pid=P00293644`) preserved | No booking-level data (aggregate only) — automated `booked` states forbidden |
-| Vercel | Team `shore-day`; `shoreday-marketing` project only | `shoreday-site` project gone; no custom domain; GitHub App auth outstanding; shoredayapp.com still on GitHub Pages |
+| Vercel | Team `shore-day`; `shoreday-site` project exists (Next.js, `live: false`, no deployment, no custom domains) | GitHub App auth outstanding; shoredayapp.com still on GitHub Pages until a separately approved cutover |
