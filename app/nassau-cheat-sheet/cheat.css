@@ -86,3 +86,9 @@
 .cheat .floor-cta a:hover {
   text-decoration: underline;
 }
+.cheat .affiliate-disclosure {
+  color: #cbd5e1;
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 12px 0 0;
+}

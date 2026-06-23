@@ -173,6 +173,13 @@
   background: rgba(38, 198, 176, 0.1);
 }
 
+.survival .affiliate-disclosure {
+  color: #cbd5e1;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: -20px 0 32px;
+}
+
 .survival .disclaimer {
   font-size: 13px;
   color: #94a3b8;

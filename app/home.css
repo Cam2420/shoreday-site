@@ -252,6 +252,14 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+.home .affiliate-disclosure {
+  color: #e2e8f0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin: 1rem auto 0;
+  max-width: 620px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
 .home .primary-btn {
   display: inline-block;
   background: var(--color-primary-teal);

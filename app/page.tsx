@@ -142,6 +142,9 @@ export default function Home() {
             Get the ShoreDay App
           </a>
         </div>
+        <p className="affiliate-disclosure">
+          Disclosure: ShoreDay may earn a commission if you book through a Viator link.
+        </p>
       </section>
 
       <footer>

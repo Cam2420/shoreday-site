@@ -55,6 +55,9 @@ ml('account', '2309687');`}
           <a href="https://vi.me/s/shoredayapp" target="_blank" rel="noopener noreferrer">
             Browse &amp; Book Nassau Excursions Directly (Save up to 60%)
           </a>
+          <p className="affiliate-disclosure">
+            Disclosure: ShoreDay may earn a commission if you book through a Viator link.
+          </p>
         </div>
       </div>
     </div>

@@ -181,6 +181,9 @@ export default function NassauSurvivalCard() {
             Browse curated Nassau excursions →
           </a>
         </div>
+        <p className="affiliate-disclosure">
+          Disclosure: ShoreDay may earn a commission if you book through a Viator link.
+        </p>
 
         <p className="disclaimer">
           Government-regulated taxi fares shown are typical one-way prices for two
