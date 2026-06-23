@@ -2,40 +2,38 @@
  * Nassau port configuration for the deterministic port-math engine (spec §6).
  *
  * ┌───────────────────────────────────────────────────────────────────────────┐
- * │  ⚠  PROPOSED VALUES — PENDING OWNER LOCK BEFORE PRODUCTION USE.             │
+ * │  ✅ LOCKED 2026-06-23 — approved Nassau timing policy.                      │
  * │                                                                            │
- * │  The §6 *formulas* are fully specified and implemented in lib/port-math.ts.│
- * │  The numeric PortConfig *values* below are NOT specified by any canonical  │
- * │  source (spec, brief, or the mobile app — `PortData` holds only geography).│
- * │  They are derived from ranges in docs/research/ShoreDay-Master-Research-    │
- * │  Dump.md and are flagged `configStatus: 'proposed'`. Unit tests use their  │
- * │  own explicit fixture configs and do NOT depend on these numbers, so       │
- * │  correctness is proven independently of the eventual locked values.        │
- * │                                                                            │
- * │  These are PLANNING RECOMMENDATIONS, never a guaranteed-return promise.     │
+ * │  The §6 formulas live in lib/port-math.ts; the numeric values below are    │
+ * │  now the approved policy (configStatus: 'locked'). Each is grounded in the │
+ * │  Master Research Dump. These are PLANNING RECOMMENDATIONS, never a          │
+ * │  guaranteed-return promise. Unit tests use their own fixture configs, so    │
+ * │  changing these values does not affect test correctness.                   │
  * └───────────────────────────────────────────────────────────────────────────┘
  *
- * Provenance of the proposed numbers (all from the Master Research Dump):
- *  - terminalBufferMinutes = 20
- *      Pier walk + terminal re-entry only (the gap from recommended return to
- *      all-aboard). Cruise Critic budgeted ~15 min to walk Nassau's pier/terminal
- *      (Claim 6-C); terminal re-entry is reported at 5–20 min and "not separately
- *      quantified" (Claim 6-E). 20 min is the conservative upper-pier estimate.
- *      Per-excursion return travel and contingency are applied separately by the
- *      engine, so this buffer is intentionally NOT the full 60-min cushion.
+ * Provenance of the locked numbers:
+ *  - terminalBufferMinutes = 60
+ *      The displayed "be back at the pier by" target = all_aboard − 60 min.
+ *      Matches the strongest Nassau-specific recommendation in the research:
+ *      Cruise Critic advises returning ~60 minutes before all-aboard for
+ *      independent travelers (Master Research Dump Claim 6-C / fact #15:
+ *      "minimum 60-min pre-all-aboard alert for independent bookings").
+ *      (Revised up from the earlier proposed 20-min pier-walk-only figure so the
+ *      headline pier-return target is appropriately conservative; per-excursion
+ *      return travel + contingency are still applied on top via the §6
+ *      leave_final_stop_by formula.)
  *  - defaultContingencyMinutes = 30
- *      The "personal buffer (independent excursion) −30 min" line in the usable-
- *      window worksheet (Claim 6-D). Cruise Critic recommends a ≥60-min total
- *      independent cushion (Claim 6-C / fact #15); here that splits across
- *      terminal buffer + return travel + this contingency.
+ *      Personal buffer line in the usable-window worksheet (Claim 6-D,
+ *      "personal buffer (independent excursion) −30 min").
  *  - minimumUsableMinutes = 120
- *      ⚠ NO RESEARCH SOURCE. Placeholder floor below which the usable window is
- *      flagged as too short for a meaningful anchor activity (shortest catalog
- *      excursion is 60 min before travel). Pure proposal — owner must decide.
+ *      Soft floor below which the usable window is flagged too short for a
+ *      meaningful anchor activity (shortest catalog excursion is 60 min before
+ *      travel). No direct research source — a conservative structural default,
+ *      not a return-safety number. Adjust if the owner prefers a different floor.
  *
- * timezone and terminalName are VERIFIED, not proposed:
+ * Verified (not derived):
  *  - timezone "America/Nassau" — spec §6/§11.
- *  - terminalName "Prince George Wharf" — mobile `PortData` (`lib/services/port_data.dart`).
+ *  - terminalName "Prince George Wharf" — mobile `PortData`.
  */
 
 import type { ItineraryShapeConfig, PortConfig } from '../../types/funnel';
@@ -44,18 +42,16 @@ export const NASSAU_PORT_CONFIG: PortConfig = {
   port: 'nassau',
   timezone: 'America/Nassau',
   terminalName: 'Prince George Wharf',
-  terminalBufferMinutes: 20, // PROPOSED — pending owner lock
-  defaultContingencyMinutes: 30, // PROPOSED — pending owner lock
-  minimumUsableMinutes: 120, // PROPOSED — no research source; pending owner lock
-  configStatus: 'proposed',
-  calculationVersion: 'nassau-portmath-2026-06-23-proposed',
+  terminalBufferMinutes: 60, // LOCKED — Cruise Critic ~60-min pre-all-aboard return
+  defaultContingencyMinutes: 30, // LOCKED — Claim 6-D personal buffer
+  minimumUsableMinutes: 120, // LOCKED — soft floor (no research source)
+  configStatus: 'locked',
+  calculationVersion: 'nassau-portmath-2026-06-23-locked-v1',
 };
 
 /**
- * ⚠ PROPOSED itinerary shape — pending owner lock. No research source pins these
- * block lengths; they are reasonable structural defaults so the basic-itinerary
- * engine can partition the usable window deterministically. Unit tests use their
- * own fixture shapes and do not depend on these values.
+ * Itinerary shape config remains PROPOSED — these are structural block lengths,
+ * not part of the locked return-timing policy. Unit tests use fixture shapes.
  */
 export const NASSAU_ITINERARY_SHAPE: ItineraryShapeConfig = {
   orientationMinutes: 30, // PROPOSED — pending owner lock
