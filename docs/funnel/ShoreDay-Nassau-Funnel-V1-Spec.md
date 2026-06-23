@@ -877,3 +877,125 @@ Launch is validated only when the funnel produces:
 
 The first optimization target is the largest measured drop-off, not the feature
 that feels most exciting.
+
+---
+
+## 21. Owner Decisions — 2026-06-23 (Funnel V1 Foundation Gate)
+
+These decisions are locked for the V1 foundation build. They refine, but do not
+override, the research-backed decisions in §0. Where this section is silent, the
+preceding sections govern.
+
+### 21.1 Funnel order
+
+1. Nassau cruise onboarding.
+2. Interactive deterministic all-aboard calculator.
+3. Partial result preview.
+4. Email gate to unlock and save the full plan.
+5. Full results page.
+6. Three app-style excursion recommendations.
+7. **Book Now** routes through the exact existing ShoreDay mobile-app Viator
+   affiliate URL (preserved verbatim, including `pid=`; no PII appended).
+8. Follow-up email based on observed funnel actions.
+9. ShoreDay app download/upgrade presented **after** the excursion recommendations.
+
+### 21.2 Free web value (finite)
+
+The unlocked web result provides one useful but finite basic plan:
+
+- Calculated usable port window.
+- Recommended return-to-pier target.
+- One deterministic day structure.
+- Selected traveler profile and interests.
+- Three timing-eligible excursion recommendations.
+- One saved-plan URL.
+
+It does **not** provide: unlimited itinerary generation; multiple AI itinerary
+alternatives; full concierge access; complete interactive maps; complete
+insider-tips access; guaranteed-return language; booking confirmation.
+
+### 21.3 App monetization
+
+The imported or saved basic plan may later remain viewable in ShoreDay without
+immediately forcing a paywall. Premium value remains: multiple itinerary
+generations, regeneration/alternatives, full AI concierge, full map, complete
+insider tips, and other premium capabilities **actually enforced by the apps**.
+
+> Do not market entitlement distinctions that the live apps do not yet enforce.
+> Audit finding (Mobile Integration Map §E): the shipped app grants a single
+> `premium` unlock — the Port Pass non-subscription and the Premium Explorer
+> access level flip the same flag, with no code-enforced per-port limitation.
+
+### 21.4 App handoff
+
+Full web-to-app plan import and cross-device email authentication are deferred to
+**V1.1**. Nassau Funnel V1 must **not** require app download, ShoreDay account
+creation, Firebase email authentication, or password creation. The V1 results
+page may promote the app after the excursion cards.
+
+### 21.5 Excursion conversion (primary V1 revenue objective)
+
+- CTA may say **Book Now**; it does not need to say “Book on Viator.”
+- An affiliate disclosure must remain visible adjacent to the excursion CTA group.
+- ShoreDay logs: excursion impression, excursion click, outbound affiliate
+  navigation.
+- ShoreDay must **not** claim a booking is confirmed.
+- Until a verified booking-data integration exists, lifecycle segmentation uses
+  `excursion_clicked` / `did not click excursion`. Do **not** use automated
+  `booked` / `did not book` states.
+
+### 21.6 Google services
+
+Google Maps, Places, live traffic, and ETA APIs are deferred. V1 excursion timing
+uses only: deterministic all-aboard calculations, controlled excursion-duration
+data, and controlled transport/buffer classifications.
+
+### 21.7 Firebase
+
+Prefer sharing the existing ShoreDay mobile Firebase project (`bah-tourist-app`)
+if the read-only audit confirms it is appropriate. Use a **separate** Firestore
+`plans` collection/schema for the web funnel. V1 does not require the browser to
+use Firebase Auth. The first integration favors server-side plan creation and
+retrieval to minimize complexity. No credentials in the documents.
+
+### 21.8 Basic itinerary
+
+The web itinerary is deterministic and finite, not AI-generated. Day shape:
+step ashore / orientation → one anchor activity or excursion → optional flexible
+local time → begin return → recommended terminal/pier target. No invented exact
+times beyond values produced by the port-math engine.
+
+### 21.9 Routes
+
+Keep the spec routes: `/nassau`, `/nassau/plan`, `/nassau/results/[planId]`,
+`/nassau/plan/[planId]`. Existing route paths remain available until a separately
+approved production cutover.
+
+### 21.10 Foundation-build implementation notes (2026-06-23)
+
+The foundation build (this branch, `feat/nassau-funnel-v1`) delivers deterministic
+logic, schemas, validation, and unit tests only — no routes, UI, Firestore, Kit,
+Vercel, Google, or AI integration. Two value sets required by §6 and §8 are
+**not specified by any canonical source and are deferred to owner lock before
+production**:
+
+1. **Port-math `PortConfig` numeric defaults** (`terminalBufferMinutes`,
+   `defaultContingencyMinutes`, `minimumUsableMinutes`). The §6 *formulas* are
+   fully specified and implemented as a pure, config-driven engine. The numeric
+   defaults are not in this spec, `docs/00-current-brief.md`, or the mobile app
+   (`PortData` holds only geography). The Master Research Dump provides ranges
+   (gangway 30–60 min; all-aboard 30 min before departure; Cruise Critic ~60-min
+   independent-excursion return cushion; terminal re-entry “not separately
+   quantified”). `data/ports/nassau.ts` carries research-cited **proposed**
+   values, clearly labeled pending owner lock; unit tests use explicit fixture
+   configs and do not depend on the proposed production values.
+
+2. **Excursion engine-critical fields.** The mobile catalog
+   (`lib/data/excursions_data.dart`) supplies id, title, duration string,
+   category, match tags, price tier, and the exact Viator affiliate URL — but
+   **not** `outboundTravelMinutes`, `returnTravelMinutes`, `startTimeFlexibility`,
+   `partyTypes`, `minAge`, `familyFit`, `logisticsEase`, `vendorPressureFit`, or
+   per-excursion `minimumUsableMinutes`. The eligibility/ranking engine (§8) is
+   implemented and unit-tested against fixtures; `data/excursions/nassau.ts`
+   contains only the verified mobile extract (exact URLs preserved) and is **not**
+   a production ranking catalog until the owner curates the missing fields.
