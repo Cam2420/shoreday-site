@@ -51,7 +51,10 @@ export type ExcursionIneligibilityReason =
   | 'exceeds_window'
   | 'below_min_usable'
   | 'min_age_not_met'
-  | 'fixed_start_unverifiable';
+  /** Fixed-start tour with no meeting-time data — excluded under fail-closed policy. */
+  | 'fixed_start_unverifiable'
+  /** Missing or out-of-range required catalog fields — excluded under fail-closed policy. */
+  | 'incomplete_data';
 
 /** Result of the deterministic eligibility check (spec §8). */
 export interface ExcursionEligibility {

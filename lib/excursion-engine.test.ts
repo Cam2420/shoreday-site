@@ -98,10 +98,27 @@ describe('evaluateEligibility — window math (spec §8)', () => {
     expect(e.reasons).toContain('min_age_not_met');
   });
 
-  it('flags fixed-start tours as a non-fatal advisory (still eligible)', () => {
+  it('excludes fixed-start tours (fail-closed; meeting time unverifiable)', () => {
     const e = evaluateEligibility(makeExc({ id: 'fix', startTimeFlexibility: 'fixed' }), input());
-    expect(e.eligible).toBe(true);
+    expect(e.eligible).toBe(false);
     expect(e.reasons).toContain('fixed_start_unverifiable');
+  });
+
+  it('excludes excursions with incomplete or out-of-range data (fail-closed)', () => {
+    const zeroDuration = evaluateEligibility(makeExc({ id: 'z', durationMinutes: 0 }), input());
+    expect(zeroDuration.eligible).toBe(false);
+    expect(zeroDuration.reasons).toContain('incomplete_data');
+
+    const negTravel = evaluateEligibility(makeExc({ id: 'n', outboundTravelMinutes: -5 }), input());
+    expect(negTravel.eligible).toBe(false);
+    expect(negTravel.reasons).toContain('incomplete_data');
+
+    const badFit = evaluateEligibility(
+      makeExc({ id: 'f', logisticsEase: 9 as unknown as Excursion['logisticsEase'] }),
+      input(),
+    );
+    expect(badFit.eligible).toBe(false);
+    expect(badFit.reasons).toContain('incomplete_data');
   });
 });
 
@@ -235,6 +252,18 @@ describe('recommendExcursions — fallback behavior', () => {
     );
     const r = recommendExcursions([makeExc({ id: 'a' })], input({ portMath: invalidPM }));
     expect(r.eligibleCount).toBe(0);
+    expect(r.fallback).toBe(true);
+  });
+
+  it('fail-closed: excludes fixed-start and incomplete entries from recommendations', () => {
+    const catalog = [
+      makeExc({ id: 'good', priorities: ['beach'] }),
+      makeExc({ id: 'fixed', startTimeFlexibility: 'fixed', priorities: ['beach'] }),
+      makeExc({ id: 'incomplete', durationMinutes: 0, priorities: ['beach'] }),
+    ];
+    const r = recommendExcursions(catalog, input());
+    expect(r.eligibleCount).toBe(1);
+    expect(r.recommendations.map((x) => x.excursion.id)).toEqual(['good']);
     expect(r.fallback).toBe(true);
   });
 });

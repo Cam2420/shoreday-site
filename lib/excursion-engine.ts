@@ -15,6 +15,12 @@
  *
  * Output: exactly three labelled cards (Best value / Easiest logistics / Best
  * fit for your group) when possible, else a deterministic fallback.
+ *
+ * FAIL-CLOSED: an excursion is recommended only when it can be POSITIVELY
+ * verified. Any reason at all makes it ineligible — including a fixed start time
+ * we cannot verify (no meeting-time data) or incomplete/out-of-range catalog
+ * fields. Invalid port-math yields zero recommendations. The engine never pads
+ * results with ineligible options and never invents missing catalog values.
  */
 
 import type {
@@ -44,15 +50,6 @@ export interface ExcursionEngineInput {
   budgetPreference?: BudgetPreference;
 }
 
-/** Reasons that make an excursion ineligible (advisory reasons excluded). */
-const FATAL_REASONS: readonly ExcursionIneligibilityReason[] = [
-  'wrong_port',
-  'inactive',
-  'exceeds_window',
-  'below_min_usable',
-  'min_age_not_met',
-];
-
 /** Map a 1–5 fit rating onto a 0–`max` point band, monotonic and deterministic. */
 function scaleFit(fit: number, max: number): number {
   const clamped = Math.min(5, Math.max(1, fit));
@@ -61,19 +58,65 @@ function scaleFit(fit: number, max: number): number {
 
 const BUDGET_TIER_INDEX = { low: 0, mid: 1, premium: 2 } as const;
 
-/* ───────────────────────── Eligibility ───────────────────────── */
+function isFiniteNonNeg(n: unknown): n is number {
+  return typeof n === 'number' && Number.isFinite(n) && n >= 0;
+}
+function isFitScore(n: unknown): boolean {
+  return typeof n === 'number' && Number.isInteger(n) && n >= 1 && n <= 5;
+}
+
+/**
+ * Fail-closed completeness check: every field the engine relies on must be
+ * present and in range. Incomplete/malformed entries are excluded rather than
+ * ranked from partial data (defends against an under-curated production catalog).
+ */
+function hasCompleteData(e: Excursion): boolean {
+  return (
+    typeof e.id === 'string' &&
+    e.id.length > 0 &&
+    typeof e.affiliateUrl === 'string' &&
+    e.affiliateUrl.length > 0 &&
+    isFiniteNonNeg(e.durationMinutes) &&
+    e.durationMinutes > 0 &&
+    isFiniteNonNeg(e.outboundTravelMinutes) &&
+    isFiniteNonNeg(e.returnTravelMinutes) &&
+    isFiniteNonNeg(e.minimumUsableMinutes) &&
+    isFitScore(e.familyFit) &&
+    isFitScore(e.logisticsEase) &&
+    isFitScore(e.vendorPressureFit) &&
+    (e.budgetTier === 'low' || e.budgetTier === 'mid' || e.budgetTier === 'premium') &&
+    Array.isArray(e.priorities) &&
+    Array.isArray(e.partyTypes) &&
+    (e.startTimeFlexibility === 'fixed' ||
+      e.startTimeFlexibility === 'multiple' ||
+      e.startTimeFlexibility === 'open')
+  );
+}
+
+/* ───────────────────────── Eligibility (fail-closed) ───────────────────────── */
 
 export function evaluateEligibility(
   excursion: Excursion,
   input: ExcursionEngineInput,
 ): ExcursionEligibility {
   const { portMath, config } = input;
-  const reasons: ExcursionIneligibilityReason[] = [];
-
   const availableWindowMinutes = portMath.valid
     ? portMath.scheduledPersonalWindowMinutes
     : 0;
 
+  // Fail-closed: incomplete/malformed data is excluded immediately.
+  if (!hasCompleteData(excursion)) {
+    return {
+      excursionId: typeof excursion.id === 'string' ? excursion.id : '',
+      eligible: false,
+      requiredWindowMinutes: 0,
+      availableWindowMinutes,
+      returnMarginMinutes: 0,
+      reasons: ['incomplete_data'],
+    };
+  }
+
+  const reasons: ExcursionIneligibilityReason[] = [];
   const requiredWindowMinutes =
     excursion.durationMinutes +
     excursion.outboundTravelMinutes +
@@ -100,17 +143,17 @@ export function evaluateEligibility(
   ) {
     reasons.push('min_age_not_met');
   }
-  // Fixed-start tours: the catalog has no meeting time, so reachability cannot be
-  // verified (spec §8). Surfaced as a NON-fatal advisory, not an exclusion.
+  // Fail-closed: a fixed start time cannot be verified without meeting-time data
+  // (absent from the catalog, spec §8), so such tours are excluded — not surfaced
+  // with an advisory.
   if (excursion.startTimeFlexibility === 'fixed') {
     reasons.push('fixed_start_unverifiable');
   }
 
-  const eligible = !reasons.some((r) => FATAL_REASONS.includes(r));
-
+  // Any reason at all makes the excursion ineligible (fail-closed).
   return {
     excursionId: excursion.id,
-    eligible,
+    eligible: reasons.length === 0,
     requiredWindowMinutes,
     availableWindowMinutes,
     returnMarginMinutes: availableWindowMinutes - requiredWindowMinutes,
