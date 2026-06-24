@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { PLAN_MODE_LINKS } from "@/lib/funnel-plan";
 import "./nassau.css";
 
 // Development route — keep out of search indexes until an SEO decision is approved.
@@ -24,12 +25,12 @@ export default function NassauLanding() {
 
       <section className="nl-hero">
         <p className="nl-eyebrow">Nassau cruise port planner</p>
-        <h1>Plan your Nassau day around the time you actually have.</h1>
+        <h1>Your Nassau day, timed around your ship.</h1>
         <p className="nl-sub">
-          Your scheduled port call looks long on paper — but disembarkation, the
-          all-aboard cut-off, and the trip back to the pier all take a bite out of
-          it. ShoreDay turns the times you enter into a realistic usable window and
-          a simple plan to match.
+          Your printed port call isn&rsquo;t the time you actually get ashore.
+          ShoreDay turns your step-off time and your official all-aboard time into a
+          realistic usable window — with a return-to-pier buffer built in — so you
+          can step off calm and head back with margin to spare.
         </p>
         <Link href="/nassau/plan" className="nl-cta nl-cta-primary">
           Calculate My Port Window
@@ -39,6 +40,42 @@ export default function NassauLanding() {
           <li>No app required to view your result</li>
           <li>Always follow your cruise line&rsquo;s official instructions</li>
         </ul>
+
+        <div className="nl-sample" aria-label="Example timing card">
+          <span className="nl-sample-tag">Example</span>
+          <div className="nl-sample-rows">
+            <div className="nl-sample-row">
+              <span>Scheduled stop</span>
+              <span>8:00 AM &ndash; 5:00 PM</span>
+            </div>
+            <div className="nl-sample-row">
+              <span>Real usable window</span>
+              <span>about 8 hours</span>
+            </div>
+            <div className="nl-sample-row nl-sample-hero">
+              <span>Back at pier by</span>
+              <span>4:15 PM</span>
+            </div>
+          </div>
+          <p className="nl-sample-note">
+            Illustration only — your plan uses the times you enter.
+          </p>
+        </div>
+
+        <div className="nl-paths">
+          <Link href={PLAN_MODE_LINKS.times} className="nl-path-card">
+            <span className="nl-path-title">I know my times</span>
+            <span className="nl-path-copy">
+              Enter your step-off and all-aboard time for the clearest plan.
+            </span>
+          </Link>
+          <Link href={PLAN_MODE_LINKS.fast} className="nl-path-card">
+            <span className="nl-path-title">Help me plan fast</span>
+            <span className="nl-path-copy">
+              Use a guided planner to turn your Nassau stop into one simple day.
+            </span>
+          </Link>
+        </div>
 
         <div className="nl-hero-photo">
           <Image
@@ -124,7 +161,7 @@ export default function NassauLanding() {
 
       <footer className="nl-footer">
         <p>
-          Planning recommendations only. ShoreDay does not monitor live schedule
+          Planning recommendations only. ShoreDay does not adjust for schedule
           changes, traffic, or weather, and cannot guarantee a return to your ship.
           Your cruise line&rsquo;s official all-aboard time is the final authority.
         </p>

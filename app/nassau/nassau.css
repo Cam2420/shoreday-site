@@ -140,6 +140,84 @@
   box-shadow: 0 16px 32px rgba(14, 90, 103, 0.16);
 }
 
+/* Sample timing card (clearly an example) */
+.nl-sample {
+  margin-top: 1.75rem;
+  background: var(--color-sea-glass);
+  border: 1px solid rgba(14, 90, 103, 0.18);
+  border-radius: 16px;
+  padding: 1.1rem 1.2rem;
+}
+.nl-sample-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-deep-teal);
+  background: rgba(44, 200, 183, 0.2);
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 0.8rem;
+}
+.nl-sample-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.nl-sample-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.96rem;
+  color: var(--color-ocean-ink-muted);
+}
+.nl-sample-row span:last-child {
+  font-weight: 700;
+  color: var(--color-ocean-ink);
+}
+.nl-sample-hero span:last-child {
+  color: var(--color-deep-teal);
+  font-size: 1.1rem;
+}
+.nl-sample-note {
+  margin: 0.85rem 0 0;
+  font-size: 0.8rem;
+  color: var(--color-ocean-ink-muted);
+}
+
+/* Path choice cards */
+.nl-paths {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+.nl-path-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  text-decoration: none;
+  background: var(--color-sand);
+  border: 1.5px solid rgba(14, 90, 103, 0.18);
+  border-radius: 14px;
+  padding: 1.1rem 1.2rem;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+.nl-path-card:hover {
+  border-color: var(--color-deep-teal);
+  box-shadow: 0 10px 22px rgba(14, 90, 103, 0.14);
+}
+.nl-path-title {
+  font-weight: 800;
+  color: var(--color-ocean-ink);
+  font-size: 1.05rem;
+}
+.nl-path-copy {
+  color: var(--color-ocean-ink-muted);
+  font-size: 0.92rem;
+}
+
 /* Explainer */
 .nl-explainer h2,
 .nl-preview h2,
@@ -270,6 +348,9 @@
   }
   .nl-explainer-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .nl-paths {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
