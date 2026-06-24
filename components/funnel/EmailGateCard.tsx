@@ -29,8 +29,8 @@ export default function EmailGateCard({
     <div className="fn-gate">
       <h3 className="fn-gate-title">Unlock Your Full Nassau Plan</h3>
       <p className="fn-gate-sub">
-        Save your timing, basic itinerary and excursion matches, and receive a link
-        you can reopen later.
+        Unlock your Nassau timing, a simple port-day structure, and a safe next step
+        for checking excursion availability.
       </p>
 
       <div className="fn-field">
@@ -72,7 +72,7 @@ export default function EmailGateCard({
       ) : null}
 
       <button type="button" className="fn-btn fn-btn-primary fn-btn-block" onClick={onSubmit}>
-        Save my plan &amp; email me a link
+        View my full plan
       </button>
 
       {submitted ? (
@@ -82,7 +82,7 @@ export default function EmailGateCard({
       ) : null}
 
       <p className="fn-gate-fineprint">
-        Saving your plan is a separate action from the optional marketing opt-in
+        Viewing your plan is a separate action from the optional marketing opt-in
         above. We won&rsquo;t add you to marketing unless you check the box.
       </p>
     </div>

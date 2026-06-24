@@ -132,7 +132,7 @@ export default function PlanBuilder({ initialMode = "default" }: { initialMode?:
       setGateError(
         check.reason === "invalid_email"
           ? "Please enter a valid email address."
-          : "Please confirm you'd like your plan emailed.",
+          : "Please confirm to view your plan.",
       );
       return;
     }

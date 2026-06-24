@@ -121,10 +121,10 @@ export default function PrototypeResult({ planId }: { planId: string }) {
         </section>
 
         <section className="nr-app" aria-label="ShoreDay app">
-          <h2 className="nr-h2">Want your Nassau plan in your pocket on port day?</h2>
+          <h2 className="nr-h2">Want ShoreDay in your pocket on port day?</h2>
           <p>
-            Save your plan, set a departure reminder, and ask the in-app concierge for
-            local ideas — from the ShoreDay app.
+            Plan your port day, set a departure reminder, and ask the in-app concierge
+            for local ideas — right in the ShoreDay app.
           </p>
           <div className="nr-badges">
             <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">

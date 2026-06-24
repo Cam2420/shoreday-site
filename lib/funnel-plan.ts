@@ -369,7 +369,7 @@ export const PARTIAL_RESULT_CONTRACT = {
 export const LOCKED_TEASER = {
   heading: 'Unlock your full Nassau plan',
   body:
-    'Your full plan unlocks your Nassau port-day plan built around your window, plus three excursion matches that fit — with a link you can save and reopen.',
+    'Your full plan unlocks your Nassau timing, a simple port-day structure, and a safe next step for checking excursion availability.',
 } as const;
 
 /* ───────────────────────── Email-gate consent (local only) ───────────────────────── */

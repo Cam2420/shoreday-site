@@ -291,10 +291,12 @@ describe('Step 1 validation (invalid-time recovery + required states)', () => {
   });
 });
 
-describe('locked teaser copy (single port day)', () => {
-  it('uses port-day wording and avoids "day-by-day"', () => {
-    expect(LOCKED_TEASER.body).toContain('port-day plan');
+describe('locked teaser copy (claim-safe, single port day)', () => {
+  it('uses port-day wording and promises no email delivery or fixed match count', () => {
+    expect(LOCKED_TEASER.body).toContain('port-day');
     expect(LOCKED_TEASER.body).not.toMatch(/day-by-day/i);
+    expect(LOCKED_TEASER.body).not.toMatch(/three excursion|excursion matches/i);
+    expect(LOCKED_TEASER.body).not.toMatch(/email|reopen/i);
   });
 });
 

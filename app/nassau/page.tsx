@@ -137,17 +137,18 @@ export default function NassauLanding() {
             activity, and your return.
           </li>
           <li>
-            <strong>A few excursion ideas that fit your window</strong> — matched to
-            your interests and time.
+            <strong>A claim-safe excursion availability step via Viator</strong> — a
+            safe way to check Nassau options.
           </li>
           <li>
-            <strong>A copy you can save</strong> — keep your plan and reopen it later.
+            <strong>A results page you can revisit</strong> — reopen your plan in this
+            browser.
           </li>
         </ul>
         <p className="nl-affiliate-disclosure">
-          Disclosure: excursion ideas link to Viator, and ShoreDay may earn a
-          commission if you book through one of those links. It doesn&rsquo;t change
-          the price you pay.
+          Disclosure: the excursion step links to Viator, and ShoreDay may earn a
+          commission if you book through a Viator link. It doesn&rsquo;t change the
+          price you pay.
         </p>
       </section>
 
