@@ -90,7 +90,22 @@ scope for this foundation build.
   completed bookings, 30-day attribution window; Standard/Basic access provides
   aggregate reporting, **not** named-user booking confirmation — hence spec §21.5
   forbids automated `booked` states.
-- No Viator API integration is required or in scope for V1 (no booking-level data).
+- No Viator API integration is required or in scope for the V1 funnel logic (no
+  booking-level data); affiliate links alone drive conversion.
+
+### Viator Basic Sandbox API — status (2026-06-23)
+
+Viator Basic Sandbox access is unresolved. The documented sandbox host and
+endpoint were used, but the request returned HTTP 404. The Viator dashboard
+states that key activation can take up to 24 hours. No additional retries or
+production-key fallback were attempted. Retest once after the activation window;
+if 404 persists, validate through Viator's official Postman collection or Partner
+Support.
+
+Secret handling for the diagnosis: the sandbox key (`.env.local` →
+`VIATOR_API_KEY`, git-ignored and untracked) was never printed in any form (no
+value, prefix, suffix, or hash); no raw headers were logged; the raw API response
+was stored only under `/tmp` and is not in Git.
 
 ---
 
