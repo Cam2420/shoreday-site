@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { parseMode } from "@/lib/funnel-plan";
 import PlanBuilder from "./PlanBuilder";
 import "./plan.css";
 
@@ -11,6 +12,11 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function NassauPlanPage() {
-  return <PlanBuilder />;
+export default async function NassauPlanPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ mode?: string }>;
+}) {
+  const { mode } = await searchParams;
+  return <PlanBuilder initialMode={parseMode(mode)} />;
 }

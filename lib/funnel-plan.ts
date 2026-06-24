@@ -6,6 +6,7 @@
  */
 
 import type {
+  BasicItinerary,
   BudgetPreference,
   IndependencePreference,
   Interest,
@@ -415,3 +416,154 @@ export function checkEmailGateSubmit(c: ConsentState): EmailGateSubmitCheck {
 /** Dev-only placeholder state — NOT a production submission, never sent anywhere. */
 export const EMAIL_GATE_DEV_MESSAGE =
   'Email delivery will be connected in the next integration step.';
+
+/** Clear a stale email error as soon as the current value is valid (no resubmit). */
+export function shouldClearEmailError(hasError: boolean, email: string): boolean {
+  return hasError && isValidEmail(email);
+}
+
+/* ───────────────────────── Planner entry mode ───────────────────────── */
+
+export const PLANNER_MODES = ['default', 'times', 'fast'] as const;
+export type PlannerMode = (typeof PLANNER_MODES)[number];
+
+/** Parse the `mode` query param; unknown/missing falls back to `default`. */
+export function parseMode(raw: string | null | undefined): PlannerMode {
+  return raw === 'times' || raw === 'fast' ? raw : 'default';
+}
+
+/** Landing path-card destinations. */
+export const PLAN_MODE_LINKS = {
+  times: '/nassau/plan?mode=times',
+  fast: '/nassau/plan?mode=fast',
+} as const;
+
+/** Mode-specific helper copy. Same planner logic underneath — copy only. */
+export const MODE_INTRO: Record<PlannerMode, string> = {
+  default: 'Answer a few quick questions and we’ll map your Nassau stop into one simple day.',
+  times: 'Enter your step-off and all-aboard times for the clearest plan.',
+  fast: 'A few quick questions and we’ll turn your Nassau stop into one simple day.',
+};
+
+/* ───────────────────────── Prototype plan payload (local-only) ───────────────────────── */
+
+export interface PlanDayShapeBlock {
+  type: string;
+  label: string;
+  startTime: string;
+  endTime: string;
+}
+
+/**
+ * Display-ready, local-only prototype plan. Stored in browser storage at unlock
+ * to render `/nassau/results/[planId]` without re-computation. Contains NO email,
+ * NO secrets, NO API keys — prototype only, never production persistence.
+ */
+export interface PlanPrototypePayload {
+  schema: 1;
+  planId: string;
+  createdAt: string;
+  mode: PlannerMode;
+  portDate: string;
+  stepOffTime: string;
+  allAboardTime: string;
+  shipName: string;
+  valid: boolean;
+  scheduledWindowLabel: string;
+  usableWindowLabel: string;
+  recommendedTerminalReturnLabel?: string;
+  isShort: boolean;
+  shortMessage?: string;
+  partyType: TravelerGroup | null;
+  interests: Interest[];
+  budgetPreference: BudgetPreference | null;
+  independencePreference: IndependencePreference | null;
+  dayShape: PlanDayShapeBlock[];
+}
+
+export interface PlanPayloadInput {
+  planId: string;
+  mode: PlannerMode;
+  form: PlanFormState;
+  portMath: PortMathResult;
+  itinerary: BasicItinerary;
+  /** Defaults to now; injectable for deterministic tests. */
+  createdAt?: string;
+}
+
+/** Build the display-ready payload from validated state. Pure (given `createdAt`). */
+export function buildPlanPayload(input: PlanPayloadInput): PlanPrototypePayload {
+  const view = buildPartialResultView(input.portMath);
+  const payload: PlanPrototypePayload = {
+    schema: 1,
+    planId: input.planId,
+    createdAt: input.createdAt ?? new Date().toISOString(),
+    mode: input.mode,
+    portDate: input.form.portDate,
+    stepOffTime: input.form.expectedStepOffTime,
+    allAboardTime: input.form.allAboardTime,
+    shipName: input.form.shipName.trim(),
+    valid: view.valid,
+    scheduledWindowLabel: view.scheduledWindowLabel,
+    usableWindowLabel: view.usableWindowLabel,
+    isShort: view.isShort,
+    partyType: input.form.partyType,
+    interests: input.form.interests,
+    budgetPreference: input.form.budgetPreference,
+    independencePreference: input.form.independencePreference,
+    dayShape: input.itinerary.blocks.map((b) => ({
+      type: b.type,
+      label: b.label,
+      startTime: b.startTime,
+      endTime: b.endTime,
+    })),
+  };
+  if (view.recommendedTerminalReturnLabel !== undefined) {
+    payload.recommendedTerminalReturnLabel = view.recommendedTerminalReturnLabel;
+  }
+  if (view.shortMessage !== undefined) payload.shortMessage = view.shortMessage;
+  return payload;
+}
+
+/** Local prototype plan id (not a real persisted record). */
+export function makePlanId(): string {
+  return `local-${Date.now()}`;
+}
+
+export function planStorageKey(planId: string): string {
+  return `shoreday:plan:${planId}`;
+}
+
+/** Parse stored JSON into a payload; returns null for missing/invalid (recovery). */
+export function parsePlanPayload(raw: string | null): PlanPrototypePayload | null {
+  if (!raw) return null;
+  try {
+    const p = JSON.parse(raw) as Partial<PlanPrototypePayload>;
+    if (p && p.schema === 1 && typeof p.planId === 'string' && Array.isArray(p.dayShape)) {
+      return p as PlanPrototypePayload;
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+/** Save the prototype payload to browser storage (no-op outside the browser). */
+export function savePlanPayload(payload: PlanPrototypePayload): void {
+  if (typeof window === 'undefined') return;
+  try {
+    window.localStorage.setItem(planStorageKey(payload.planId), JSON.stringify(payload));
+  } catch {
+    /* storage unavailable — prototype is best-effort, non-production */
+  }
+}
+
+/** Load + parse the prototype payload; null when missing (recovery state). */
+export function loadPlanPayload(planId: string): PlanPrototypePayload | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    return parsePlanPayload(window.localStorage.getItem(planStorageKey(planId)));
+  } catch {
+    return null;
+  }
+}

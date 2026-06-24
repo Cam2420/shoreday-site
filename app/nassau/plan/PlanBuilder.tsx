@@ -1,6 +1,8 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
+import { buildBasicItinerary } from "@/lib/basic-itinerary";
 import ChoiceCard from "@/components/funnel/ChoiceCard";
 import EmailGateCard from "@/components/funnel/EmailGateCard";
 import ExcursionPreviewSkeleton from "@/components/funnel/ExcursionPreviewSkeleton";
@@ -8,10 +10,11 @@ import FunnelProgress from "@/components/funnel/FunnelProgress";
 import FunnelStepShell from "@/components/funnel/FunnelStepShell";
 import PartialResultCard from "@/components/funnel/PartialResultCard";
 import TimeInput from "@/components/funnel/TimeInput";
-import { NASSAU_PORT_CONFIG } from "@/data/ports/nassau";
+import { NASSAU_ITINERARY_SHAPE, NASSAU_PORT_CONFIG } from "@/data/ports/nassau";
 import {
   BUDGET_OPTIONS,
   buildPartialResultView,
+  buildPlanPayload,
   checkEmailGateSubmit,
   EMAIL_GATE_DEV_MESSAGE,
   FUNNEL_STEP_IDS,
@@ -22,21 +25,27 @@ import {
   initialFormState,
   isStepComplete,
   LOCKED_TEASER,
+  makePlanId,
   MAX_INTERESTS,
+  MODE_INTRO,
   partialResultSections,
   PLANNING_DISCLAIMER,
+  savePlanPayload,
+  shouldClearEmailError,
   toggleInterest,
   TRAVELER_GROUP_OPTIONS,
   validateBasicsStep,
   type BasicsError,
   type ConsentState,
   type PlanFormState,
+  type PlannerMode,
 } from "@/lib/funnel-plan";
 import { validatePortMathInput } from "@/lib/funnel-validation";
 import { computePortMath } from "@/lib/port-math";
 import type { PortMathResult } from "@/types/funnel";
 
-export default function PlanBuilder() {
+export default function PlanBuilder({ initialMode = "default" }: { initialMode?: PlannerMode }) {
+  const router = useRouter();
   const [stepIndex, setStepIndex] = useState(0);
   const [phase, setPhase] = useState<"wizard" | "result">("wizard");
   const [form, setForm] = useState<PlanFormState>(initialFormState);
@@ -128,7 +137,17 @@ export default function PlanBuilder() {
       return;
     }
     setGateError(undefined);
-    setSubmitted(true); // dev-only state — no network, no Kit, no Firebase.
+    if (!result) return;
+    // Local-only prototype unlock: build + store a display-ready payload (no email
+    // stored, no network, no Kit, no Firebase, no account), then navigate to the
+    // local results route.
+    const planId = makePlanId();
+    const itinerary = buildBasicItinerary(
+      { portMath: result, terminalName: NASSAU_PORT_CONFIG.terminalName },
+      NASSAU_ITINERARY_SHAPE,
+    );
+    savePlanPayload(buildPlanPayload({ planId, mode: initialMode, form, portMath: result, itinerary }));
+    router.push(`/nassau/results/${planId}`);
   }
 
   function restart() {
@@ -172,7 +191,13 @@ export default function PlanBuilder() {
                     key={id}
                     email={consent.email}
                     marketingConsent={consent.marketingConsent}
-                    onEmailChange={(email) => setConsent((c) => ({ ...c, email }))}
+                    onEmailChange={(email) => {
+                      setConsent((c) => ({ ...c, email }));
+                      // P1 fix: clear stale error as soon as the value is valid.
+                      if (shouldClearEmailError(gateError !== undefined, email)) {
+                        setGateError(undefined);
+                      }
+                    }}
                     onMarketingToggle={(marketingConsent) =>
                       setConsent((c) => ({ ...c, marketingConsent }))
                     }
@@ -219,6 +244,7 @@ export default function PlanBuilder() {
         >
           {stepId === "basics" ? (
             <div className="fn-stack">
+              <p className="fn-mode-intro">{MODE_INTRO[initialMode]}</p>
               {basicsErrors.length > 0 ? (
                 <div
                   ref={errorSummaryRef}

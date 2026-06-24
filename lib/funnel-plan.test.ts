@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { NASSAU_PORT_CONFIG } from '../data/ports/nassau';
+import { NASSAU_ITINERARY_SHAPE, NASSAU_PORT_CONFIG } from '../data/ports/nassau';
+import { buildBasicItinerary } from './basic-itinerary';
 import { validatePlanInput } from './funnel-validation';
 import { computePortMath } from './port-math';
 import {
@@ -7,6 +8,7 @@ import {
   basicsStepIsValid,
   buildPartialResultView,
   buildPlanInput,
+  buildPlanPayload,
   checkEmailGateSubmit,
   consentIsSeparate,
   DEFAULT_PLANNING_STATE,
@@ -21,10 +23,16 @@ import {
   isStepComplete,
   isValidEmail,
   LOCKED_TEASER,
+  makePlanId,
   MAX_INTERESTS,
+  parseMode,
+  parsePlanPayload,
   PARTIAL_RESULT_CONTRACT,
   partialResultSections,
+  PLAN_MODE_LINKS,
+  planStorageKey,
   selectShortWindowMessage,
+  shouldClearEmailError,
   to12Hour,
   toggleInterest,
   validateBasicsStep,
@@ -299,5 +307,71 @@ describe('marketing consent stays optional', () => {
     expect(
       checkEmailGateSubmit({ email: 'a@b.com', deliveryConsent: true, marketingConsent: true }),
     ).toEqual({ ok: true });
+  });
+});
+
+describe('planner mode parsing', () => {
+  it('parses known modes and falls back to default', () => {
+    expect(parseMode('times')).toBe('times');
+    expect(parseMode('fast')).toBe('fast');
+    expect(parseMode('default')).toBe('default');
+    expect(parseMode(undefined)).toBe('default');
+    expect(parseMode(null)).toBe('default');
+    expect(parseMode('anything-else')).toBe('default');
+  });
+
+  it('exposes the landing path-card links', () => {
+    expect(PLAN_MODE_LINKS.times).toBe('/nassau/plan?mode=times');
+    expect(PLAN_MODE_LINKS.fast).toBe('/nassau/plan?mode=fast');
+  });
+});
+
+describe('prototype plan payload (local-only)', () => {
+  const portMath = computePortMath(
+    { port: 'nassau', portDate: '2026-07-15', expectedStepOffTime: '08:00', allAboardTime: '17:00' },
+    NASSAU_PORT_CONFIG,
+  );
+  const itinerary = buildBasicItinerary({ portMath }, NASSAU_ITINERARY_SHAPE);
+  const payload = buildPlanPayload({
+    planId: 'local-123',
+    mode: 'times',
+    form: completeForm(),
+    portMath,
+    itinerary,
+    createdAt: '2026-07-01T00:00:00.000Z',
+  });
+
+  it('builds a display-ready payload with timing + day shape', () => {
+    expect(payload.schema).toBe(1);
+    expect(payload.planId).toBe('local-123');
+    expect(payload.mode).toBe('times');
+    expect(payload.recommendedTerminalReturnLabel).toBe('4:15 PM');
+    expect(payload.scheduledWindowLabel).toBe('9h');
+    expect(payload.dayShape.length).toBeGreaterThanOrEqual(3);
+  });
+
+  it('never stores the email address (or any email-like value)', () => {
+    expect('email' in payload).toBe(false);
+    expect(JSON.stringify(payload)).not.toContain('@');
+  });
+
+  it('round-trips through parse and recovers gracefully when missing/invalid', () => {
+    expect(parsePlanPayload(JSON.stringify(payload))).toEqual(payload);
+    expect(parsePlanPayload(null)).toBeNull(); // missing → recovery state
+    expect(parsePlanPayload('not json')).toBeNull();
+    expect(parsePlanPayload('{"schema":2}')).toBeNull(); // wrong schema
+  });
+
+  it('makes a local plan id and storage key', () => {
+    expect(makePlanId()).toMatch(/^local-\d+$/);
+    expect(planStorageKey('local-9')).toBe('shoreday:plan:local-9');
+  });
+});
+
+describe('email stale-error clearing (P1)', () => {
+  it('clears a stale error only once the current value is valid', () => {
+    expect(shouldClearEmailError(true, 'qa@example.com')).toBe(true);
+    expect(shouldClearEmailError(true, 'still-bad')).toBe(false);
+    expect(shouldClearEmailError(false, 'qa@example.com')).toBe(false);
   });
 });
