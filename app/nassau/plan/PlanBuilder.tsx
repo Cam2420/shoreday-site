@@ -21,7 +21,9 @@ import {
   initialConsentState,
   initialFormState,
   isStepComplete,
+  LOCKED_TEASER,
   MAX_INTERESTS,
+  partialResultSections,
   PLANNING_DISCLAIMER,
   toggleInterest,
   TRAVELER_GROUP_OPTIONS,
@@ -100,61 +102,49 @@ export default function PlanBuilder() {
 
   if (phase === "result" && result) {
     const view = buildPartialResultView(result);
+    const sections = partialResultSections(view);
     return (
       <main className="nassau-plan">
         <div className="np-shell">
-          <h1 className="np-h1">Your Nassau timing</h1>
-          <PartialResultCard view={view} disclaimer={PLANNING_DISCLAIMER} />
-
-          {view.valid ? (
-            <>
-              <section className="np-locked" aria-label="Your full plan preview">
-                <h2 className="np-locked-h">Your full plan also includes</h2>
-
-                {/* 1 → 2: basic day structure tease (no specific times revealed yet) */}
-                <ol className="np-dayshape">
-                  <li>
-                    <span className="np-dayshape-k">Step ashore</span> get oriented near
-                    the pier
-                  </li>
-                  <li>
-                    <span className="np-dayshape-k">One main activity</span> chosen to fit
-                    your window
-                  </li>
-                  <li>
-                    <span className="np-dayshape-k">Head back</span> with your return buffer
-                    built in
-                  </li>
-                </ol>
-
-                {/* 3: excursion recommendations (neutral skeleton only) */}
-                <h3 className="np-locked-sub">Excursion matches</h3>
-                <ExcursionPreviewSkeleton />
-
-                {/* 4: app-download upsell — intentionally AFTER excursions */}
-                <div className="np-app-upsell">
-                  <p className="np-app-upsell-k">Want to go deeper on port day?</p>
-                  <p>
-                    The ShoreDay app builds your full day and keeps your all-aboard time
-                    front and center. App options appear here after your excursion matches.
-                  </p>
-                </div>
-              </section>
-
-              <EmailGateCard
-                email={consent.email}
-                marketingConsent={consent.marketingConsent}
-                onEmailChange={(email) => setConsent((c) => ({ ...c, email }))}
-                onMarketingToggle={(marketingConsent) =>
-                  setConsent((c) => ({ ...c, marketingConsent }))
-                }
-                onSubmit={handleGateSubmit}
-                submitted={submitted}
-                devMessage={EMAIL_GATE_DEV_MESSAGE}
-                error={gateError}
-              />
-            </>
-          ) : null}
+          {sections.map((id) => {
+            switch (id) {
+              case "timing_result":
+                return (
+                  <div key={id}>
+                    <h1 className="np-h1">Your Nassau timing</h1>
+                    <PartialResultCard view={view} disclaimer={PLANNING_DISCLAIMER} />
+                  </div>
+                );
+              case "locked_teaser":
+                return (
+                  <section key={id} className="np-locked" aria-label="Locked plan preview">
+                    <span className="np-lock-badge">🔒 Locked preview</span>
+                    <h2 className="np-locked-h">{LOCKED_TEASER.heading}</h2>
+                    <p className="np-locked-body">{LOCKED_TEASER.body}</p>
+                  </section>
+                );
+              case "excursion_skeleton":
+                return <ExcursionPreviewSkeleton key={id} />;
+              case "email_gate":
+                return (
+                  <EmailGateCard
+                    key={id}
+                    email={consent.email}
+                    marketingConsent={consent.marketingConsent}
+                    onEmailChange={(email) => setConsent((c) => ({ ...c, email }))}
+                    onMarketingToggle={(marketingConsent) =>
+                      setConsent((c) => ({ ...c, marketingConsent }))
+                    }
+                    onSubmit={handleGateSubmit}
+                    submitted={submitted}
+                    devMessage={EMAIL_GATE_DEV_MESSAGE}
+                    error={gateError}
+                  />
+                );
+              default:
+                return null;
+            }
+          })}
 
           <button type="button" className="fn-btn fn-btn-ghost np-restart" onClick={restart}>
             Start over

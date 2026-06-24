@@ -285,63 +285,34 @@
   color: var(--color-ocean-ink-muted);
 }
 
-/* Locked preview */
+/* Locked preview teaser */
 .np-locked {
   margin-top: 1.5rem;
   padding: 1.4rem 1.3rem;
   background: var(--color-sand);
-  border: 1px solid var(--np-line);
+  border: 1px dashed rgba(14, 90, 103, 0.4);
   border-radius: 18px;
+}
+.np-lock-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-deep-teal);
+  background: var(--color-sea-glass);
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
 }
 .np-locked-h {
   font-size: 1.2rem;
   font-weight: 800;
-  margin: 0 0 1rem;
+  margin: 0 0 0.6rem;
 }
-.np-locked-sub {
-  font-size: 1rem;
-  font-weight: 800;
-  margin: 1.4rem 0 0.75rem;
-  color: var(--color-ocean-ink);
-}
-.np-dayshape {
-  list-style: none;
-  counter-reset: dayshape;
-  padding: 0;
+.np-locked-body {
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-.np-dayshape li {
-  counter-increment: dayshape;
-  position: relative;
-  padding: 0.7rem 0.9rem 0.7rem 2.6rem;
-  background: #ffffff;
-  border: 1px solid var(--np-line);
-  border-radius: 12px;
   color: var(--color-ocean-ink-muted);
-}
-.np-dayshape li::before {
-  content: counter(dayshape);
-  position: absolute;
-  left: 0.8rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 22px;
-  height: 22px;
-  border-radius: 999px;
-  background: var(--color-lagoon);
-  color: var(--color-ocean-ink);
-  font-weight: 800;
-  font-size: 0.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.np-dayshape-k {
-  font-weight: 800;
-  color: var(--color-ocean-ink);
 }
 
 /* Skeleton cards */
@@ -386,24 +357,6 @@
   margin: 0.6rem 0 0;
   font-size: 0.8rem;
   color: var(--color-ocean-ink-muted);
-}
-
-/* App upsell teaser */
-.np-app-upsell {
-  margin-top: 1.4rem;
-  padding: 1.1rem 1.2rem;
-  background: var(--color-sea-glass);
-  border-radius: 14px;
-  font-size: 0.92rem;
-  color: var(--color-ocean-ink-muted);
-}
-.np-app-upsell-k {
-  font-weight: 800;
-  color: var(--color-ocean-ink);
-  margin: 0 0 0.3rem;
-}
-.np-app-upsell p {
-  margin: 0;
 }
 
 /* Email gate */
