@@ -1,0 +1,271 @@
+/* Nassau landing page — Lagoon + Sand, mobile-first. Scoped to .nassau-landing. */
+
+.nassau-landing {
+  --nl-line: rgba(14, 90, 103, 0.16);
+  min-height: 100vh;
+  background-image: linear-gradient(
+    180deg,
+    var(--color-sand) 0%,
+    var(--color-sand) 55%,
+    var(--color-sea-glass) 100%
+  );
+  color: var(--color-ocean-ink);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+}
+
+.nassau-landing * {
+  box-sizing: border-box;
+}
+
+/* Nav */
+.nl-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.25rem 0;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+.nl-logo {
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: -0.5px;
+  color: var(--color-ocean-ink);
+}
+.nl-logo span {
+  color: var(--color-deep-teal);
+}
+.nl-port-chip {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-deep-teal);
+  background: rgba(44, 200, 183, 0.16);
+  border: 1px solid rgba(44, 200, 183, 0.4);
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+/* Shared section width */
+.nl-hero,
+.nl-explainer,
+.nl-preview,
+.nl-final {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem;
+}
+
+/* Hero */
+.nl-eyebrow {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-deep-teal);
+  margin: 0 0 0.75rem;
+}
+.nl-hero h1 {
+  font-size: 2rem;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  font-weight: 800;
+  margin: 0 0 1rem;
+  color: var(--color-ocean-ink);
+}
+.nl-sub {
+  font-size: 1.05rem;
+  color: var(--color-ocean-ink-muted);
+  margin: 0 0 1.75rem;
+}
+
+/* CTA */
+.nl-cta {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.05rem;
+  padding: 15px 28px;
+  border-radius: 14px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+.nl-cta-primary {
+  background: var(--color-deep-teal);
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(14, 90, 103, 0.28);
+}
+.nl-cta-primary:hover {
+  background: var(--color-ocean-ink);
+  transform: translateY(-2px);
+}
+
+/* Trust points */
+.nl-trust {
+  list-style: none;
+  padding: 0;
+  margin: 1.75rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.nl-trust li {
+  position: relative;
+  padding-left: 1.6rem;
+  font-size: 0.95rem;
+  color: var(--color-ocean-ink-muted);
+}
+.nl-trust li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-deep-teal);
+  font-weight: 800;
+}
+
+/* Explainer */
+.nl-explainer h2,
+.nl-preview h2,
+.nl-final h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  margin: 0 0 1.25rem;
+  color: var(--color-ocean-ink);
+}
+.nl-explainer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.nl-explainer-card {
+  background: var(--color-sand);
+  border: 1px solid var(--nl-line);
+  border-left: 4px solid var(--color-lagoon);
+  border-radius: 14px;
+  padding: 1.1rem 1.2rem;
+  box-shadow: 0 8px 20px rgba(14, 90, 103, 0.08);
+}
+.nl-explainer-card p {
+  margin: 0.5rem 0 0;
+  color: var(--color-ocean-ink-muted);
+  font-size: 0.96rem;
+}
+.nl-chip {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-deep-teal);
+  background: var(--color-sea-glass);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.nl-explainer-note {
+  margin: 1.5rem 0 0;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--color-ocean-ink-muted);
+  border-top: 1px solid var(--nl-line);
+  padding-top: 1rem;
+}
+
+/* Preview */
+.nl-preview {
+  background: var(--color-sea-glass);
+  border-radius: 20px;
+  max-width: 760px;
+}
+.nl-preview-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.nl-preview-list li {
+  position: relative;
+  padding-left: 1.9rem;
+  color: var(--color-ocean-ink-muted);
+}
+.nl-preview-list li strong {
+  color: var(--color-ocean-ink);
+}
+.nl-preview-list li::before {
+  content: "›";
+  position: absolute;
+  left: 0.3rem;
+  top: -0.1rem;
+  color: var(--color-deep-teal);
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+.nl-affiliate-disclosure {
+  margin: 1.5rem 0 0;
+  font-size: 0.82rem;
+  color: var(--color-ocean-ink-muted);
+}
+
+/* Final CTA */
+.nl-final {
+  text-align: center;
+}
+.nl-final p {
+  color: var(--color-ocean-ink-muted);
+  margin: 0 0 1.5rem;
+}
+
+/* Footer */
+.nl-footer {
+  margin-top: auto;
+  background: var(--color-deep-teal);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 1.75rem 1.25rem;
+  font-size: 0.85rem;
+  text-align: center;
+}
+.nl-footer p {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.nl-footer-links {
+  margin-top: 0.75rem !important;
+}
+.nl-footer-links a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Tablet / desktop */
+@media (min-width: 768px) {
+  .nl-hero {
+    padding-top: 3.5rem;
+  }
+  .nl-hero h1 {
+    font-size: 2.6rem;
+  }
+  .nl-trust {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+  .nl-explainer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Respect reduced-motion preferences (CSS only). */
+@media (prefers-reduced-motion: reduce) {
+  .nl-cta {
+    transition: none;
+  }
+  .nl-cta-primary:hover {
+    transform: none;
+  }
+}

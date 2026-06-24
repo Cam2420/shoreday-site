@@ -110,13 +110,16 @@ export const portMathInputSchema = z
 
 /* ───────────────────────── Email gate ───────────────────────── */
 
+/** Shared email-field schema, reused by the gate schema and the UI shell. */
+export const emailFieldSchema = z.email().max(320);
+
 /**
  * Email gate (spec §7): email + delivery consent required; marketing consent is
  * separate and optional. No email is accepted without explicit delivery consent.
  */
 export const emailGateSchema = z.strictObject({
   planId: z.string().trim().min(1).max(200),
-  email: z.email().max(320),
+  email: emailFieldSchema,
   deliveryConsent: z.literal(true),
   marketingConsent: z.boolean().optional().default(false),
 });
