@@ -152,8 +152,8 @@ export default function PrototypeResult({ planId }: { planId: string }) {
         <footer className="nr-footer">
           <p>
             Planning recommendations only. ShoreDay does not adjust for schedule
-            changes, traffic, or weather, and cannot guarantee a return to your ship.
-            Your cruise line&rsquo;s official all-aboard time is the final authority.
+            changes, traffic, or weather. Your cruise line&rsquo;s official all-aboard
+            time is the final authority.
           </p>
           <Link href="/nassau/plan" className="nr-edit-link">
             Edit my times

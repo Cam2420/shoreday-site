@@ -1,8 +1,8 @@
 /**
  * Neutral, locked placeholder for the excursion-availability step. Intentionally
- * uses NO real titles, images, prices, ratings, availability, or Book Now — and
- * promises no specific number of matches. Real excursion cards appear only once a
- * production-safe catalog exists.
+ * uses NO real titles, images, prices, ratings, availability, or purchase CTA,
+ * and promises no specific number of matches. Real excursion cards appear only
+ * once a production-safe catalog exists.
  */
 export default function ExcursionPreviewSkeleton() {
   return (

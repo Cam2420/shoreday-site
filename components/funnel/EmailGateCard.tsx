@@ -12,8 +12,8 @@ interface EmailGateCardProps {
 /**
  * Email-gate UI shell. The submit button IS the (separate) plan-delivery action;
  * marketing consent is an independent checkbox. This shell does NOT call Kit,
- * create any record, or claim an email was sent — on submit it enters a clearly
- * labelled development-only state.
+ * create any record, or imply external delivery happened — on submit it enters
+ * a clearly labelled development-only state.
  */
 export default function EmailGateCard({
   email,

@@ -165,65 +165,73 @@ export default function PlanBuilder({ initialMode = "default" }: { initialMode?:
     const sections = partialResultSections(view);
     return (
       <main className="nassau-plan">
-        <div className="np-shell">
-          {sections.map((id) => {
-            switch (id) {
-              case "timing_result":
-                return (
-                  <div key={id}>
-                    <h1 className="np-h1">Your Nassau timing</h1>
-                    <PartialResultCard view={view} disclaimer={PLANNING_DISCLAIMER} />
-                  </div>
-                );
-              case "locked_teaser":
-                return (
-                  <section key={id} className="np-locked" aria-label="Locked plan preview">
-                    <span className="np-lock-badge">🔒 Locked preview</span>
-                    <h2 className="np-locked-h">{LOCKED_TEASER.heading}</h2>
-                    <p className="np-locked-body">{LOCKED_TEASER.body}</p>
-                  </section>
-                );
-              case "excursion_skeleton":
-                return <ExcursionPreviewSkeleton key={id} />;
-              case "email_gate":
-                return (
-                  <EmailGateCard
-                    key={id}
-                    email={consent.email}
-                    marketingConsent={consent.marketingConsent}
-                    onEmailChange={(email) => {
-                      setConsent((c) => ({ ...c, email }));
-                      // P1 fix: clear stale error as soon as the value is valid.
-                      if (shouldClearEmailError(gateError !== undefined, email)) {
-                        setGateError(undefined);
-                      }
-                    }}
-                    onMarketingToggle={(marketingConsent) =>
-                      setConsent((c) => ({ ...c, marketingConsent }))
-                    }
-                    onSubmit={handleGateSubmit}
-                    submitted={submitted}
-                    devMessage={EMAIL_GATE_DEV_MESSAGE}
-                    error={gateError}
-                  />
-                );
-              default:
-                return null;
-            }
-          })}
+        <div className="np-shell np-shell-result">
+          <header className="np-topbar" aria-label="Nassau planner">
+            <span className="np-brand">ShoreDay</span>
+            <span className="np-port-chip">Nassau planner</span>
+          </header>
 
-          <div className="np-recovery">
-            <button
-              type="button"
-              className={`fn-btn ${view.valid ? "fn-btn-ghost" : "fn-btn-primary"}`}
-              onClick={editTimes}
-            >
-              Edit My Times
-            </button>
-            <button type="button" className="fn-btn fn-btn-ghost" onClick={restart}>
-              Start over
-            </button>
-          </div>
+          <section className="np-result-stack" aria-label="Timing preview and unlock">
+            {sections.map((id) => {
+              switch (id) {
+                case "timing_result":
+                  return (
+                    <div key={id}>
+                      <p className="np-kicker">Instant timing result</p>
+                      <h1 className="np-h1">Your Nassau timing</h1>
+                      <PartialResultCard view={view} disclaimer={PLANNING_DISCLAIMER} />
+                    </div>
+                  );
+                case "locked_teaser":
+                  return (
+                    <section key={id} className="np-locked" aria-label="Locked plan preview">
+                      <span className="np-lock-badge">Locked preview</span>
+                      <h2 className="np-locked-h">{LOCKED_TEASER.heading}</h2>
+                      <p className="np-locked-body">{LOCKED_TEASER.body}</p>
+                    </section>
+                  );
+                case "excursion_skeleton":
+                  return <ExcursionPreviewSkeleton key={id} />;
+                case "email_gate":
+                  return (
+                    <EmailGateCard
+                      key={id}
+                      email={consent.email}
+                      marketingConsent={consent.marketingConsent}
+                      onEmailChange={(email) => {
+                        setConsent((c) => ({ ...c, email }));
+                        // P1 fix: clear stale error as soon as the value is valid.
+                        if (shouldClearEmailError(gateError !== undefined, email)) {
+                          setGateError(undefined);
+                        }
+                      }}
+                      onMarketingToggle={(marketingConsent) =>
+                        setConsent((c) => ({ ...c, marketingConsent }))
+                      }
+                      onSubmit={handleGateSubmit}
+                      submitted={submitted}
+                      devMessage={EMAIL_GATE_DEV_MESSAGE}
+                      error={gateError}
+                    />
+                  );
+                default:
+                  return null;
+              }
+            })}
+
+            <div className="np-recovery">
+              <button
+                type="button"
+                className={`fn-btn ${view.valid ? "fn-btn-ghost" : "fn-btn-primary"}`}
+                onClick={editTimes}
+              >
+                Edit My Times
+              </button>
+              <button type="button" className="fn-btn fn-btn-ghost" onClick={restart}>
+                Start over
+              </button>
+            </div>
+          </section>
         </div>
       </main>
     );
@@ -232,16 +240,32 @@ export default function PlanBuilder({ initialMode = "default" }: { initialMode?:
   return (
     <main className="nassau-plan">
       <div className="np-shell">
-        <FunnelProgress current={stepIndex + 1} total={FUNNEL_STEP_IDS.length} />
+        <header className="np-topbar" aria-label="Nassau planner">
+          <span className="np-brand">ShoreDay</span>
+          <span className="np-port-chip">Nassau planner</span>
+        </header>
 
-        <FunnelStepShell
-          title={FUNNEL_STEP_TITLES[stepId]}
-          onBack={handleBack}
-          onContinue={handleContinue}
-          continueLabel={isLastStep ? "Calculate my window" : "Continue"}
-          continueDisabled={stepId === "basics" ? false : !stepComplete}
-          showBack={stepIndex > 0}
-        >
+        <div className="np-planner-layout">
+          <section className="np-planner-card" aria-labelledby="np-page-title">
+            <div className="np-card-intro">
+              <p className="np-kicker">Port-window calculator</p>
+              <h1 id="np-page-title">Build your Nassau port window</h1>
+              <p>
+                Answer a few quick questions, then see your timing result before the
+                full plan unlock.
+              </p>
+            </div>
+
+            <FunnelProgress current={stepIndex + 1} total={FUNNEL_STEP_IDS.length} />
+
+            <FunnelStepShell
+              title={FUNNEL_STEP_TITLES[stepId]}
+              onBack={handleBack}
+              onContinue={handleContinue}
+              continueLabel={isLastStep ? "Calculate my window" : "Continue"}
+              continueDisabled={stepId === "basics" ? false : !stepComplete}
+              showBack={stepIndex > 0}
+            >
           {stepId === "basics" ? (
             <div className="fn-stack">
               <p className="fn-mode-intro">{MODE_INTRO[initialMode]}</p>
@@ -410,7 +434,22 @@ export default function PlanBuilder({ initialMode = "default" }: { initialMode?:
               ))}
             </div>
           ) : null}
-        </FunnelStepShell>
+            </FunnelStepShell>
+          </section>
+
+          <aside className="np-sidecar" aria-label="What ShoreDay will calculate">
+            <span className="np-sidecar-pill">Result preview</span>
+            <h2>First payoff: your return target.</h2>
+            <div className="np-mini-result">
+              <span>Back at pier by</span>
+              <strong>4:15 PM</strong>
+            </div>
+            <p>
+              The actual result uses your step-off time, all-aboard time, and the
+              planning buffer built into ShoreDay&rsquo;s Nassau model.
+            </p>
+          </aside>
+        </div>
       </div>
     </main>
   );
