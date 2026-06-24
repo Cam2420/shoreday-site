@@ -36,6 +36,10 @@ export default function EmailGateCard({
       <div className="fn-field">
         <label htmlFor="fn-email" className="fn-label">
           Email
+          <span className="fn-req">
+            {" "}
+            Required<span className="fn-sr-only"> field</span>
+          </span>
         </label>
         <input
           id="fn-email"
@@ -45,6 +49,8 @@ export default function EmailGateCard({
           className="fn-input"
           value={email}
           onChange={(e) => onEmailChange(e.target.value)}
+          required
+          aria-required="true"
           aria-invalid={error ? true : undefined}
           aria-describedby={error ? "fn-gate-error" : undefined}
         />

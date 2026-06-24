@@ -4,6 +4,7 @@ import { validatePlanInput } from './funnel-validation';
 import { computePortMath } from './port-math';
 import {
   approxHoursLabel,
+  basicsStepIsValid,
   buildPartialResultView,
   buildPlanInput,
   checkEmailGateSubmit,
@@ -19,12 +20,14 @@ import {
   isPlanComplete,
   isStepComplete,
   isValidEmail,
+  LOCKED_TEASER,
   MAX_INTERESTS,
   PARTIAL_RESULT_CONTRACT,
   partialResultSections,
   selectShortWindowMessage,
   to12Hour,
   toggleInterest,
+  validateBasicsStep,
   type PlanFormState,
 } from './funnel-plan';
 
@@ -243,5 +246,58 @@ describe('pre-results phase composition (email gate before app upsell)', () => {
     expect(PARTIAL_RESULT_CONTRACT.hasBookNowCta).toBe(false);
     expect(PARTIAL_RESULT_CONTRACT.rendersRealExcursion).toBe(false);
     expect(PARTIAL_RESULT_CONTRACT.excursionPreviewIsLockedSkeletonOnly).toBe(true);
+  });
+});
+
+describe('Step 1 validation (invalid-time recovery + required states)', () => {
+  it('blocks an all-aboard time equal to step-off', () => {
+    const f = { ...completeForm(), expectedStepOffTime: '12:00', allAboardTime: '12:00' };
+    expect(validateBasicsStep(f).some((e) => e.field === 'timeOrder')).toBe(true);
+    expect(basicsStepIsValid(f)).toBe(false);
+  });
+
+  it('blocks an all-aboard time earlier than step-off', () => {
+    const f = { ...completeForm(), expectedStepOffTime: '17:00', allAboardTime: '09:00' };
+    expect(validateBasicsStep(f).some((e) => e.field === 'timeOrder')).toBe(true);
+    expect(basicsStepIsValid(f)).toBe(false);
+  });
+
+  it('allows a valid time order to continue', () => {
+    const f = { ...completeForm(), expectedStepOffTime: '08:00', allAboardTime: '17:00' };
+    expect(validateBasicsStep(f)).toEqual([]);
+    expect(basicsStepIsValid(f)).toBe(true);
+  });
+
+  it('flags every missing required field, but never the optional ship name', () => {
+    const fields = validateBasicsStep(initialFormState()).map((e) => e.field);
+    expect(fields).toContain('portDate');
+    expect(fields).toContain('expectedStepOffTime');
+    expect(fields).toContain('allAboardTime');
+    expect(fields).toContain('allAboardConfirmed');
+    expect(fields as string[]).not.toContain('shipName');
+  });
+
+  it('requires the all-aboard confirmation acknowledgement', () => {
+    const f = { ...completeForm(), allAboardConfirmed: false };
+    expect(validateBasicsStep(f).some((e) => e.field === 'allAboardConfirmed')).toBe(true);
+  });
+});
+
+describe('locked teaser copy (single port day)', () => {
+  it('uses port-day wording and avoids "day-by-day"', () => {
+    expect(LOCKED_TEASER.body).toContain('port-day plan');
+    expect(LOCKED_TEASER.body).not.toMatch(/day-by-day/i);
+  });
+});
+
+describe('marketing consent stays optional', () => {
+  it('defaults marketing off and never gates submission on it', () => {
+    expect(initialConsentState().marketingConsent).toBe(false);
+    expect(
+      checkEmailGateSubmit({ email: 'a@b.com', deliveryConsent: true, marketingConsent: false }),
+    ).toEqual({ ok: true });
+    expect(
+      checkEmailGateSubmit({ email: 'a@b.com', deliveryConsent: true, marketingConsent: true }),
+    ).toEqual({ ok: true });
   });
 });

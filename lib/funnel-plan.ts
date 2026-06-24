@@ -15,6 +15,7 @@ import type {
   TravelerGroup,
 } from '../types/funnel';
 import { emailFieldSchema } from './funnel-validation';
+import { isValidDateString, isValidTimeString, timeToMinutes } from './time';
 
 /* ───────────────────────── Step model ───────────────────────── */
 
@@ -138,6 +139,63 @@ export function firstIncompleteStep(f: PlanFormState): FunnelStepId | null {
 
 export function isPlanComplete(f: PlanFormState): boolean {
   return FUNNEL_STEP_IDS.every((s) => isStepComplete(s, f));
+}
+
+/* ───────────────────────── Step 1 (basics) validation ───────────────────────── */
+
+export type BasicsErrorField =
+  | 'portDate'
+  | 'expectedStepOffTime'
+  | 'allAboardTime'
+  | 'allAboardConfirmed'
+  | 'timeOrder';
+
+export interface BasicsError {
+  field: BasicsErrorField;
+  message: string;
+}
+
+/**
+ * Validate Step 1 before the user leaves it — including the time relationship
+ * (all-aboard must be later than step-off). Pure: returns one error per problem
+ * so the UI can show inline, field-associated messages, keep the user on Step 1,
+ * and preserve every entered value. Times are never altered here.
+ */
+export function validateBasicsStep(f: PlanFormState): BasicsError[] {
+  const errors: BasicsError[] = [];
+  if (!isValidDateString(f.portDate)) {
+    errors.push({ field: 'portDate', message: 'Enter your Nassau port date.' });
+  }
+  if (!isValidTimeString(f.expectedStepOffTime)) {
+    errors.push({
+      field: 'expectedStepOffTime',
+      message: 'Enter when you expect to step off the ship.',
+    });
+  }
+  if (!isValidTimeString(f.allAboardTime)) {
+    errors.push({ field: 'allAboardTime', message: 'Enter your all-aboard time.' });
+  }
+  if (
+    isValidTimeString(f.expectedStepOffTime) &&
+    isValidTimeString(f.allAboardTime) &&
+    timeToMinutes(f.allAboardTime) <= timeToMinutes(f.expectedStepOffTime)
+  ) {
+    errors.push({
+      field: 'timeOrder',
+      message: 'Your all-aboard time must be later than your step-off time.',
+    });
+  }
+  if (!f.allAboardConfirmed) {
+    errors.push({
+      field: 'allAboardConfirmed',
+      message: 'Please confirm you’ll use your ship’s official all-aboard time.',
+    });
+  }
+  return errors;
+}
+
+export function basicsStepIsValid(f: PlanFormState): boolean {
+  return validateBasicsStep(f).length === 0;
 }
 
 /* ───────────────────────── Mapping to canonical PlanInput ───────────────────────── */
@@ -310,7 +368,7 @@ export const PARTIAL_RESULT_CONTRACT = {
 export const LOCKED_TEASER = {
   heading: 'Unlock your full Nassau plan',
   body:
-    'Your full plan unlocks a day-by-day itinerary built around your window, plus three excursion matches that fit — with a link you can save and reopen.',
+    'Your full plan unlocks your Nassau port-day plan built around your window, plus three excursion matches that fit — with a link you can save and reopen.',
 } as const;
 
 /* ───────────────────────── Email-gate consent (local only) ───────────────────────── */
