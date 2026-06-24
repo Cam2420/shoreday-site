@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import type { PortConfig, PortMathInput } from '../types/funnel';
+import { NASSAU_PORT_CONFIG } from '../data/ports/nassau';
 import { computeLeaveFinalStopByMinutes, computePortMath } from './port-math';
+import { minutesToTime } from './time';
 
 /**
  * Explicit fixture config with round numbers. The engine is config-driven, so
@@ -197,5 +199,51 @@ describe('computeLeaveFinalStopByMinutes', () => {
   it('returns null for an invalid base result', () => {
     const r = computePortMath({ ...base, allAboardTime: '25:00' }, CONFIG);
     expect(computeLeaveFinalStopByMinutes(r, 60, CONFIG)).toBeNull();
+  });
+});
+
+describe('locked Nassau policy — NASSAU_PORT_CONFIG (45 / 15 / 120)', () => {
+  it('uses the owner-approved locked values', () => {
+    expect(NASSAU_PORT_CONFIG.configStatus).toBe('locked');
+    expect(NASSAU_PORT_CONFIG.terminalBufferMinutes).toBe(45);
+    expect(NASSAU_PORT_CONFIG.defaultContingencyMinutes).toBe(15);
+    expect(NASSAU_PORT_CONFIG.minimumUsableMinutes).toBe(120);
+  });
+
+  it('all-aboard 4:30 PM produces a terminal target of 3:45 PM', () => {
+    const r = computePortMath(
+      { port: 'nassau', portDate: '2026-07-15', expectedStepOffTime: '08:00', allAboardTime: '16:30' },
+      NASSAU_PORT_CONFIG,
+    );
+    expect(r.recommendedTerminalReturn).toBe('15:45');
+  });
+
+  it('with zero return travel, leave-final-stop deadline is 3:30 PM', () => {
+    const r = computePortMath(
+      { port: 'nassau', portDate: '2026-07-15', expectedStepOffTime: '08:00', allAboardTime: '16:30' },
+      NASSAU_PORT_CONFIG,
+    );
+    const leaveBy = computeLeaveFinalStopByMinutes(r, 0, NASSAU_PORT_CONFIG)!;
+    expect(minutesToTime(leaveBy)).toBe('15:30');
+  });
+
+  it('with 20 minutes return travel, leave-final-stop deadline is 3:10 PM', () => {
+    const r = computePortMath(
+      { port: 'nassau', portDate: '2026-07-15', expectedStepOffTime: '08:00', allAboardTime: '16:30' },
+      NASSAU_PORT_CONFIG,
+    );
+    const leaveBy = computeLeaveFinalStopByMinutes(r, 20, NASSAU_PORT_CONFIG)!;
+    expect(minutesToTime(leaveBy)).toBe('15:10');
+  });
+
+  it('classifies a usable window below 120 minutes as short', () => {
+    // step 14:00, all-aboard 16:30 ⇒ return 15:45; usable 105 < 120.
+    const r = computePortMath(
+      { port: 'nassau', portDate: '2026-07-15', expectedStepOffTime: '14:00', allAboardTime: '16:30' },
+      NASSAU_PORT_CONFIG,
+    );
+    expect(r.valid).toBe(true);
+    expect(r.usablePlanningWindowMinutes).toBe(105);
+    expect(r.belowMinimumUsable).toBe(true);
   });
 });
