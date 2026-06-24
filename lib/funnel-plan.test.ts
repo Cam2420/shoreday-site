@@ -8,17 +8,20 @@ import {
   buildPlanInput,
   checkEmailGateSubmit,
   consentIsSeparate,
+  DEFAULT_PLANNING_STATE,
   defaultPartySize,
   firstIncompleteStep,
   formatDurationLabel,
   FUNNEL_STEP_IDS,
   initialConsentState,
   initialFormState,
+  INTEREST_OPTIONS,
   isPlanComplete,
   isStepComplete,
   isValidEmail,
   MAX_INTERESTS,
-  planningStateFrom,
+  PARTIAL_RESULT_CONTRACT,
+  partialResultSections,
   selectShortWindowMessage,
   to12Hour,
   toggleInterest,
@@ -86,6 +89,27 @@ describe('interest selection (cap at two)', () => {
   });
 });
 
+describe('interest parity (Nature supported)', () => {
+  it('offers the mobile-parity set plus spec-defined Adventure', () => {
+    expect(INTEREST_OPTIONS.map((o) => o.value)).toEqual([
+      'local_food',
+      'beach',
+      'history',
+      'nature',
+      'adventure',
+    ]);
+    expect(INTEREST_OPTIONS.map((o) => o.value)).toContain('nature');
+  });
+
+  it('lets Nature be selected and survive the mapping into a valid PlanInput', () => {
+    const interests = toggleInterest([], 'nature');
+    expect(interests).toEqual(['nature']);
+    const input = buildPlanInput({ ...completeForm(), interests });
+    expect(input.interests).toContain('nature');
+    expect(validatePlanInput(input).success).toBe(true);
+  });
+});
+
 describe('mapping form state into PlanInput', () => {
   it('produces a PlanInput that passes the canonical schema', () => {
     const result = validatePlanInput(buildPlanInput(completeForm()));
@@ -100,11 +124,17 @@ describe('mapping form state into PlanInput', () => {
     expect(family.childrenPresent).toBe(true);
   });
 
-  it('derives planning state from independence preference', () => {
-    expect(planningStateFrom('independent')).toBe('mostly_diy');
-    expect(planningStateFrom('guided')).toBe('unbooked_anchor');
-    expect(planningStateFrom('no_preference')).toBe('undecided');
-    expect(planningStateFrom(null)).toBe('undecided');
+  it('uses the neutral default planning state, independent of independence preference', () => {
+    const base = completeForm();
+    const guided = buildPlanInput({ ...base, independencePreference: 'guided' });
+    const independent = buildPlanInput({ ...base, independencePreference: 'independent' });
+    const none = buildPlanInput({ ...base, independencePreference: 'no_preference' });
+    expect(DEFAULT_PLANNING_STATE).toBe('undecided');
+    expect(guided.planningState).toBe(DEFAULT_PLANNING_STATE);
+    expect(independent.planningState).toBe(DEFAULT_PLANNING_STATE);
+    expect(none.planningState).toBe(DEFAULT_PLANNING_STATE);
+    // Regression: changing independence preference must NOT change planningState.
+    expect(new Set([guided.planningState, independent.planningState, none.planningState]).size).toBe(1);
   });
 
   it('does not mask a missing ship name (schema catches it)', () => {
@@ -181,5 +211,37 @@ describe('email-gate consent separation', () => {
     expect(checkEmailGateSubmit({ email: 'a@b.com', deliveryConsent: true, marketingConsent: false })).toEqual({
       ok: true,
     });
+  });
+});
+
+describe('pre-results phase composition (email gate before app upsell)', () => {
+  const validView = buildPartialResultView(pm('08:00', '17:00'));
+  const invalidView = buildPartialResultView(pm('17:00', '09:00'));
+
+  it('orders the partial result: timing → locked teaser → skeleton → email gate', () => {
+    expect(partialResultSections(validView)).toEqual([
+      'timing_result',
+      'locked_teaser',
+      'excursion_skeleton',
+      'email_gate',
+    ]);
+  });
+
+  it('places the email gate after the locked teaser', () => {
+    const s = partialResultSections(validView);
+    expect(s.indexOf('email_gate')).toBeGreaterThan(s.indexOf('locked_teaser'));
+    expect(s).toContain('timing_result');
+  });
+
+  it('shows only the timing result for an invalid window (no gate, no teaser)', () => {
+    expect(partialResultSections(invalidView)).toEqual(['timing_result']);
+  });
+
+  it('renders no app upsell, no Book Now, and no real excursion before the gate', () => {
+    expect((partialResultSections(validView) as string[])).not.toContain('app_upsell');
+    expect(PARTIAL_RESULT_CONTRACT.hasAppCta).toBe(false);
+    expect(PARTIAL_RESULT_CONTRACT.hasBookNowCta).toBe(false);
+    expect(PARTIAL_RESULT_CONTRACT.rendersRealExcursion).toBe(false);
+    expect(PARTIAL_RESULT_CONTRACT.excursionPreviewIsLockedSkeletonOnly).toBe(true);
   });
 });

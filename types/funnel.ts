@@ -28,6 +28,7 @@ export const INTERESTS = [
   'beach',
   'local_food',
   'history',
+  'nature',
   'family_easy',
   'adventure',
   'low_vendor_pressure',

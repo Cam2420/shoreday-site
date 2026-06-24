@@ -78,7 +78,7 @@ Logistics class is a **proposal** (port-adjacent / road-transfer / bridge-or-fer
 - **mobile interest tags:** Beaches, Instagram Spots
 - **mobile price tier:** `$$$$$`
 - **unknown fields:** all public-page fields above
-- **proposed logistics class:** road-transfer (low confidence)
+- **proposed logistics class (HYPOTHESIS_ONLY — OWNER REVIEW REQUIRED):** road-transfer (low confidence)
 - **status:** `INCOMPLETE`
 
 ### 2. Rum Tasting and Food Walking Tour in Nassau Bahamas
@@ -104,7 +104,7 @@ Logistics class is a **proposal** (port-adjacent / road-transfer / bridge-or-fer
 - **mobile interest tags:** Local Food, Culture & History
 - **mobile price tier:** `$$$`
 - **unknown fields:** all public-page fields above
-- **proposed logistics class:** port-adjacent (downtown walking tour; low confidence)
+- **proposed logistics class (HYPOTHESIS_ONLY — OWNER REVIEW REQUIRED):** port-adjacent (downtown walking tour; low confidence)
 - **status:** `INCOMPLETE`
 
 ### 3. Discover Nassau Bahamas Guided City Tour and Historic Sites
@@ -130,7 +130,7 @@ Logistics class is a **proposal** (port-adjacent / road-transfer / bridge-or-fer
 - **mobile interest tags:** Culture & History, Instagram Spots
 - **mobile price tier:** `$$$$`
 - **unknown fields:** all public-page fields above
-- **proposed logistics class:** road-transfer (low confidence)
+- **proposed logistics class (HYPOTHESIS_ONLY — OWNER REVIEW REQUIRED):** road-transfer (low confidence)
 - **status:** `INCOMPLETE`
 
 ### 4. Rose Island Swimming Pigs & Beach Snorkeling Experience Nassau
@@ -156,7 +156,7 @@ Logistics class is a **proposal** (port-adjacent / road-transfer / bridge-or-fer
 - **mobile interest tags:** Nature & Wildlife, Beaches, Water Sports
 - **mobile price tier:** `$$$`
 - **unknown fields:** all public-page fields above
-- **proposed logistics class:** boat-or-remote (Rose Island reached by boat; low confidence)
+- **proposed logistics class (HYPOTHESIS_ONLY — OWNER REVIEW REQUIRED):** boat-or-remote (Rose Island reached by boat; low confidence)
 - **status:** `INCOMPLETE`
 
 ### 5. Exclusive Swimming Pigs: Snorkeling, Lunch & Private Beach Club
@@ -182,7 +182,7 @@ Logistics class is a **proposal** (port-adjacent / road-transfer / bridge-or-fer
 - **mobile interest tags:** Nature & Wildlife, Beaches, Local Food
 - **mobile price tier:** `$$$`
 - **unknown fields:** all public-page fields above
-- **proposed logistics class:** boat-or-remote (speed-boat package; low confidence)
+- **proposed logistics class (HYPOTHESIS_ONLY — OWNER REVIEW REQUIRED):** boat-or-remote (speed-boat package; low confidence)
 - **status:** `INCOMPLETE`
 
 ### 6. FUN ATV Tour + JetSki Bundle with Beach Break
@@ -209,7 +209,7 @@ Logistics class is a **proposal** (port-adjacent / road-transfer / bridge-or-fer
 - **mobile price tier:** `$$$$$`
 - **note:** mobile title vs. URL slug differ (bundle title vs. 3-passenger ATV slug) — owner to confirm the product on the public page.
 - **unknown fields:** all public-page fields above
-- **proposed logistics class:** road-transfer (low confidence)
+- **proposed logistics class (HYPOTHESIS_ONLY — OWNER REVIEW REQUIRED):** road-transfer (low confidence)
 - **status:** `INCOMPLETE`
 
 ### 7. 3 Hour Smart Eco Segway Adventure in Nassau
@@ -235,7 +235,7 @@ Logistics class is a **proposal** (port-adjacent / road-transfer / bridge-or-fer
 - **mobile interest tags:** Nature & Wildlife, Culture & History
 - **mobile price tier:** `$$$`
 - **unknown fields:** all public-page fields above
-- **proposed logistics class:** port-adjacent (low confidence; Nassau Segway routes are often near the waterfront)
+- **proposed logistics class (HYPOTHESIS_ONLY — OWNER REVIEW REQUIRED):** port-adjacent (low confidence; Nassau Segway routes are often near the waterfront)
 - **status:** `INCOMPLETE`
 
 ### 8. Nassau Jeep Tour with Full Bahamian Lunch and Drink
@@ -261,7 +261,7 @@ Logistics class is a **proposal** (port-adjacent / road-transfer / bridge-or-fer
 - **mobile interest tags:** Local Food, Culture & History
 - **mobile price tier:** `$$$$`
 - **unknown fields:** all public-page fields above; duration discrepancy (mobile 3h vs URL slug 2h)
-- **proposed logistics class:** road-transfer (low confidence)
+- **proposed logistics class (HYPOTHESIS_ONLY — OWNER REVIEW REQUIRED):** road-transfer (low confidence)
 - **status:** `INCOMPLETE`
 
 ---
@@ -279,6 +279,11 @@ Logistics class is a **proposal** (port-adjacent / road-transfer / bridge-or-fer
 **Proposed logistics classes (8):** port-adjacent ×2 (Rum, Segway), road-transfer
 ×4 (Massage, City, ATV+JetSki, Jeep), boat-or-remote ×2 (Rose Island, Swimming
 Pigs). No numeric travel buffers assigned.
+
+> **Every logistics class above is `HYPOTHESIS_ONLY — OWNER REVIEW REQUIRED`.**
+> These are unverified proposals, not facts, and **must not be imported into
+> production ranking data**. Affiliate URLs are unchanged. No new Viator research
+> was performed in this pass.
 
 **Blocker:** public Viator product pages are not accessible to automated read-only
 fetch (HTTP 403). The §8 engine-critical fields (travel minutes,

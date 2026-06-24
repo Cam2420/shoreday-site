@@ -74,13 +74,15 @@ export const TRAVELER_GROUP_OPTIONS: ChoiceOption<TravelerGroup>[] = [
   { value: 'friends', label: 'Friends', description: 'A small group' },
 ];
 
-// Only interests supported by the canonical `Interest` type are offered.
-// ("Nature" is intentionally omitted — not in the current type/spec.)
+// Web onboarding interests = the mobile source-of-truth set (Local Food, Beaches,
+// History, Nature) plus Adventure, which the canonical funnel spec §5 defines as a
+// valid priority. All map to the canonical `Interest` type.
 export const INTEREST_OPTIONS: ChoiceOption<Interest>[] = [
   { value: 'local_food', label: 'Local food', description: 'Bahamian flavors' },
   { value: 'beach', label: 'Beaches', description: 'Sand & water' },
   { value: 'history', label: 'History', description: 'Forts & old town' },
-  { value: 'adventure', label: 'Adventure', description: 'Active & outdoors' },
+  { value: 'nature', label: 'Nature', description: 'Wildlife & the outdoors' },
+  { value: 'adventure', label: 'Adventure', description: 'Active & on the move' },
 ];
 
 /** Spec §5: choose up to two interests. */
@@ -164,19 +166,12 @@ export function defaultPartySize(group: TravelerGroup): number {
  * `childrenPresent` are derived V1 defaults from the chosen group.
  */
 /**
- * Planning state is not a step in Slice A; derive a reasonable value from the
- * independence preference, defaulting to `undecided`. Documented V1 default.
+ * Neutral, canonical default planning state. `planningState` and
+ * `independencePreference` are INDEPENDENT concepts: planning state is NOT derived
+ * from the independence choice. Slice A has no planning-state step, so every plan
+ * uses this neutral default until a dedicated canonical step exists.
  */
-export function planningStateFrom(ip: IndependencePreference | null): PlanningState {
-  switch (ip) {
-    case 'independent':
-      return 'mostly_diy';
-    case 'guided':
-      return 'unbooked_anchor';
-    default:
-      return 'undecided';
-  }
-}
+export const DEFAULT_PLANNING_STATE: PlanningState = 'undecided';
 
 export function buildPlanInput(f: PlanFormState): PlanInput {
   const partyType = f.partyType ?? 'solo';
@@ -190,7 +185,7 @@ export function buildPlanInput(f: PlanFormState): PlanInput {
     partyType,
     partySize: defaultPartySize(partyType),
     childrenPresent: partyType === 'family',
-    planningState: planningStateFrom(f.independencePreference),
+    planningState: DEFAULT_PLANNING_STATE,
     interests: f.interests,
   };
   if (f.budgetPreference !== null) input.budgetPreference = f.budgetPreference;
@@ -285,6 +280,38 @@ export function buildPartialResultView(pm: PortMathResult): PartialResultView {
 /** Required, claim-safe disclaimer shown with every calculated result. */
 export const PLANNING_DISCLAIMER =
   "Planning estimate only. Confirm your ship's official all-aboard time and account for current conditions.";
+
+/* ───────────────────────── Pre-results phase composition ───────────────────────── */
+
+/**
+ * Ordered sections of the Slice-A pre-results experience. The email gate ALWAYS
+ * follows the locked teaser. There is no app-download CTA, no Book Now, and no
+ * real excursion record before the gate — those belong on
+ * `/nassau/results/[planId]`, after the unlocked excursion recommendations. A
+ * locked, non-interactive excursion skeleton may appear before the gate as a
+ * preview only.
+ */
+export type ResultSectionId = 'timing_result' | 'locked_teaser' | 'excursion_skeleton' | 'email_gate';
+
+export function partialResultSections(view: PartialResultView): ResultSectionId[] {
+  if (!view.valid) return ['timing_result'];
+  return ['timing_result', 'locked_teaser', 'excursion_skeleton', 'email_gate'];
+}
+
+/** Guarantees about the pre-gate experience (asserted in tests + verified in-DOM). */
+export const PARTIAL_RESULT_CONTRACT = {
+  hasAppCta: false,
+  hasBookNowCta: false,
+  rendersRealExcursion: false,
+  excursionPreviewIsLockedSkeletonOnly: true,
+} as const;
+
+/** Copy for the single locked teaser shown before the email gate. */
+export const LOCKED_TEASER = {
+  heading: 'Unlock your full Nassau plan',
+  body:
+    'Your full plan unlocks a day-by-day itinerary built around your window, plus three excursion matches that fit — with a link you can save and reopen.',
+} as const;
 
 /* ───────────────────────── Email-gate consent (local only) ───────────────────────── */
 
