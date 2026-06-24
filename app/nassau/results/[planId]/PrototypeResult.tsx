@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
@@ -121,18 +122,30 @@ export default function PrototypeResult({ planId }: { planId: string }) {
         </section>
 
         <section className="nr-app" aria-label="ShoreDay app">
-          <h2 className="nr-h2">Want ShoreDay in your pocket on port day?</h2>
-          <p>
-            Plan your port day, set a departure reminder, and ask the in-app concierge
-            for local ideas — right in the ShoreDay app.
-          </p>
-          <div className="nr-badges">
-            <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
-              <img src={APPLE_BADGE} alt="Download ShoreDay on the App Store" height={44} />
-            </a>
-            <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer">
-              <img src={PLAY_BADGE} alt="Get ShoreDay on Google Play" height={44} />
-            </a>
+          <div className="nr-app-media">
+            <Image
+              className="nr-app-phone"
+              src="/app-front.png"
+              alt="The ShoreDay app on a phone screen"
+              width={180}
+              height={391}
+              sizes="180px"
+            />
+          </div>
+          <div className="nr-app-body">
+            <h2 className="nr-h2">Want ShoreDay in your pocket on port day?</h2>
+            <p>
+              Plan your port day, set a departure reminder, and ask the in-app concierge
+              for local ideas — right in the ShoreDay app.
+            </p>
+            <div className="nr-badges">
+              <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
+                <img src={APPLE_BADGE} alt="Download ShoreDay on the App Store" height={44} />
+              </a>
+              <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer">
+                <img src={PLAY_BADGE} alt="Get ShoreDay on Google Play" height={44} />
+              </a>
+            </div>
           </div>
         </section>
 

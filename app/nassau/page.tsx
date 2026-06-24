@@ -79,8 +79,8 @@ export default function NassauLanding() {
 
         <div className="nl-hero-photo">
           <Image
-            src="/nassau_aerial.jpg"
-            alt="Aerial view of Nassau harbour and the turquoise Bahamian coastline"
+            src="/nassau-aerial-web.jpg"
+            alt="Nassau harbour and the turquoise Bahamian coastline in warm morning light"
             fill
             sizes="(max-width: 800px) 100vw, 760px"
             style={{ objectFit: "cover" }}
@@ -91,34 +91,47 @@ export default function NassauLanding() {
 
       <section className="nl-explainer">
         <h2>Your scheduled port call isn&rsquo;t your real beach time</h2>
-        <div className="nl-explainer-grid">
-          <div className="nl-explainer-card">
-            <span className="nl-chip">After you dock</span>
-            <p>
-              It takes time before guests can step ashore, so your day starts later
-              than the printed arrival time.
+        <div className="nl-explainer-cols">
+          <div className="nl-explainer-main">
+            <div className="nl-explainer-grid">
+              <div className="nl-explainer-card">
+                <span className="nl-chip">After you dock</span>
+                <p>
+                  It takes time before guests can step ashore, so your day starts
+                  later than the printed arrival time.
+                </p>
+              </div>
+              <div className="nl-explainer-card">
+                <span className="nl-chip">All-aboard, not departure</span>
+                <p>
+                  You must be back by the all-aboard time, which is earlier than when
+                  the ship actually leaves.
+                </p>
+              </div>
+              <div className="nl-explainer-card">
+                <span className="nl-chip">The trip back</span>
+                <p>
+                  Getting from your last stop to the terminal — plus a sensible buffer
+                  — comes off the top of your day, too.
+                </p>
+              </div>
+            </div>
+            <p className="nl-explainer-note">
+              ShoreDay&rsquo;s estimate is a planning aid, not your cruise line&rsquo;s
+              official schedule. Confirm your ship&rsquo;s all-aboard time and account
+              for current conditions.
             </p>
           </div>
-          <div className="nl-explainer-card">
-            <span className="nl-chip">All-aboard, not departure</span>
-            <p>
-              You must be back by the all-aboard time, which is earlier than when the
-              ship actually leaves.
-            </p>
-          </div>
-          <div className="nl-explainer-card">
-            <span className="nl-chip">The trip back</span>
-            <p>
-              Getting from your last stop to the terminal — plus a sensible buffer —
-              comes off the top of your day, too.
-            </p>
+          <div className="nl-explainer-media">
+            <Image
+              src="/nassau-people-web.jpg"
+              alt="A street near the Nassau cruise port with everyday local movement"
+              fill
+              sizes="(max-width: 800px) 100vw, 360px"
+              style={{ objectFit: "cover" }}
+            />
           </div>
         </div>
-        <p className="nl-explainer-note">
-          ShoreDay&rsquo;s estimate is a planning aid, not your cruise line&rsquo;s
-          official schedule. Confirm your ship&rsquo;s all-aboard time and account
-          for current conditions.
-        </p>
       </section>
 
       <section className="nl-preview">
