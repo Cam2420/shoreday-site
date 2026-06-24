@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import "./nassau.css";
 
@@ -38,6 +39,17 @@ export default function NassauLanding() {
           <li>No app required to view your result</li>
           <li>Always follow your cruise line&rsquo;s official instructions</li>
         </ul>
+
+        <div className="nl-hero-photo">
+          <Image
+            src="/nassau_aerial.jpg"
+            alt="Aerial view of Nassau harbour and the turquoise Bahamian coastline"
+            fill
+            sizes="(max-width: 800px) 100vw, 760px"
+            style={{ objectFit: "cover" }}
+            priority
+          />
+        </div>
       </section>
 
       <section className="nl-explainer">

@@ -127,6 +127,19 @@
   font-weight: 800;
 }
 
+/* Hero scenic band — restrained Nassau destination visual, no dark overlay.
+   Sits below the CTA so the calculator value reads first. */
+.nl-hero-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 5 / 2;
+  margin-top: 2rem;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(14, 90, 103, 0.18);
+  box-shadow: 0 16px 32px rgba(14, 90, 103, 0.16);
+}
+
 /* Explainer */
 .nl-explainer h2,
 .nl-preview h2,
