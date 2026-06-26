@@ -67,6 +67,21 @@ export function minutesToTime(minutes: number): string {
 }
 
 /**
+ * Convert 24-hour `HH:mm` to a friendly 12-hour label, e.g. "3:45 PM".
+ * Returns the input unchanged if it is not a valid `HH:mm` string.
+ * Canonical formatter — import from here so all layers (server route, UI,
+ * itinerary engine) use the same output format.
+ */
+export function to12Hour(hhmm: string): string {
+  const m = /^([01]\d|2[0-3]):([0-5]\d)$/.exec(hhmm);
+  if (!m) return hhmm;
+  const h = Number(m[1]);
+  const period = h >= 12 ? 'PM' : 'AM';
+  const h12 = h % 12 === 0 ? 12 : h % 12;
+  return `${h12}:${m[2]} ${period}`;
+}
+
+/**
  * Whole calendar days from `fromDate` to `toDate` (both `YYYY-MM-DD`), measured
  * at UTC midnight. Positive when `toDate` is later. Used for `days_to_port`.
  * @throws if either date string is not a real calendar date.

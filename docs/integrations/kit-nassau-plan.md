@@ -34,11 +34,22 @@ IDs are non-secret and live in `lib/kit-nassau-config.ts`.
 | `Lead - Starter Plan` | 20655660 | `planMode === "starter"` |
 | `Consent - Nassau Tips` | 20655661 | **only** if the optional tips checkbox is checked |
 
-**Custom fields** (key = label): `shoreday_plan_type` (1297550),
+**Custom fields** (key = label, created 2026-06-26):
+
+*Machine-readable (HH:mm 24-hour)*: `shoreday_plan_type` (1297550),
 `shoreday_return_target` (1297551), `shoreday_all_aboard_time` (1297552),
 `shoreday_step_off_time` (1297553), `shoreday_group_type` (1297554),
 `shoreday_worry` (1297555), `shoreday_budget` (1297556), `shoreday_plan_mode`
 (1297557), `shoreday_source` (1297558).
+
+*Display fields (12-hour AM/PM — use these in email merge tags)*:
+`shoreday_return_target_display` (1298233),
+`shoreday_step_off_time_display` (1298234),
+`shoreday_all_aboard_time_display` (1298235).
+
+The route writes both sets on every save. Display fields are the AM/PM
+equivalents of the three time fields (e.g. `15:45` → `3:45 PM`) and should be
+used in all Kit email merge tags instead of the raw fields.
 
 **Form** — none created. Kit forms cannot be created via API. The older
 `ShoreDay Nassau Port Playbook` form (id 9599500) is a different lead magnet and
@@ -46,13 +57,14 @@ is **not** reused. To attach a real form, create "Nassau Plan Save" in the Kit
 dashboard and set `KIT_NASSAU_PLAN_FORM_ID`.
 
 **Sequence (plan delivery)** — `Nassau Plan Delivery` (id **2807323**, sender
-`cam@shoredayapp.com`, sends daily at 11:00 ET, repeat off). Contains one email
-(id **10009134**, subject "Your Nassau return target is saved", delay 0h) that
-thanks the saver, restates the recommended return target via the
-`{{ subscriber.shoreday_return_target }}` Liquid tag (with a default fallback),
-and links back to `https://shoredayapp.com/nassau/plan`. It does **not** claim to
-contain the full itinerary (stops are computed client-side and not stored) and
-makes no return guarantee.
+`ShoreDay <explore@shoredayapp.com>`, sends daily at 20:00 ET, repeat off).
+Contains one email (id **10009134**, subject "Your Nassau return target is saved",
+delay 0h) that thanks the saver, restates the recommended return target via the
+`{{ subscriber.shoreday_return_target_display | strip | default: "…" }}` Liquid
+tag (12-hour AM/PM display field), and links back to
+`https://shoredayapp.com/nassau/plan`. It does **not** claim to contain the full
+itinerary (stops are computed client-side and not stored) and makes no return
+guarantee.
 
 > ⚠️ The email is created as an **unpublished draft**. Enrollment works as soon
 > as `KIT_NASSAU_PLAN_SEQUENCE_ID` is set, but it **must be reviewed and published

@@ -16,7 +16,8 @@ import type {
   TravelerGroup,
 } from '../types/funnel';
 import { emailFieldSchema } from './funnel-validation';
-import { isValidDateString, isValidTimeString, timeToMinutes } from './time';
+import { isValidDateString, isValidTimeString, timeToMinutes, to12Hour } from './time';
+export { to12Hour };
 
 /* ───────────────────────── Step model ───────────────────────── */
 
@@ -272,15 +273,6 @@ export function approxHoursLabel(minutes: number): string {
   return `about ${text} hours`;
 }
 
-/** Convert 24h `HH:mm` to a friendly 12-hour label, e.g. "3:45 PM". */
-export function to12Hour(hhmm: string): string {
-  const m = /^([01]\d|2[0-3]):([0-5]\d)$/.exec(hhmm);
-  if (!m) return hhmm;
-  const h = Number(m[1]);
-  const period = h >= 12 ? 'PM' : 'AM';
-  const h12 = h % 12 === 0 ? 12 : h % 12;
-  return `${h12}:${m[2]} ${period}`;
-}
 
 export interface PartialResultView {
   valid: boolean;

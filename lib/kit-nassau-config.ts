@@ -60,6 +60,12 @@ export const KIT_FIELD_KEYS = {
   budget: 'shoreday_budget',
   planMode: 'shoreday_plan_mode',
   source: 'shoreday_source',
+  // Display fields — 12-hour AM/PM formatted versions of the three time fields,
+  // written alongside the raw HH:mm fields so Kit email merge tags can show
+  // "3:45 PM" instead of "15:45". Created 2026-06-26.
+  returnTargetDisplay: 'shoreday_return_target_display',
+  stepOffTimeDisplay: 'shoreday_step_off_time_display',
+  allAboardTimeDisplay: 'shoreday_all_aboard_time_display',
 } as const;
 
 /** True when the server has a Kit API key configured. Server-only check. */
