@@ -8,6 +8,7 @@ import {
   KIT_NASSAU_PLAN_SEQUENCE_ID_ENV,
   KIT_TAGS,
 } from "@/lib/kit-nassau-config";
+import { to12Hour } from "@/lib/time";
 
 // Server-only route. The Kit API key is read from server env and never returned
 // to the client. No key in any response body, header, or log line.
@@ -60,10 +61,16 @@ function buildFields(p: Payload): Record<string, string> {
   const set = (key: string, value?: string) => {
     if (value && value.length > 0) fields[key] = value;
   };
+  const set12h = (key: string, value?: string) => {
+    if (value && value.length > 0) fields[key] = to12Hour(value);
+  };
   set(KIT_FIELD_KEYS.planType, p.planType);
   set(KIT_FIELD_KEYS.returnTarget, p.returnTarget);
+  set12h(KIT_FIELD_KEYS.returnTargetDisplay, p.returnTarget);
   set(KIT_FIELD_KEYS.allAboardTime, p.allAboardTime);
+  set12h(KIT_FIELD_KEYS.allAboardTimeDisplay, p.allAboardTime);
   set(KIT_FIELD_KEYS.stepOffTime, p.stepOffTime);
+  set12h(KIT_FIELD_KEYS.stepOffTimeDisplay, p.stepOffTime);
   set(KIT_FIELD_KEYS.groupType, p.groupType);
   set(KIT_FIELD_KEYS.worry, p.worry);
   set(KIT_FIELD_KEYS.budget, p.budget);
