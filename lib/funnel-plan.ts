@@ -345,10 +345,9 @@ export const PLANNING_DISCLAIMER =
 /**
  * Ordered sections of the Slice-A pre-results experience. The email gate ALWAYS
  * follows the locked teaser. There is no app-download CTA, no Book Now, and no
- * real excursion record before the gate — those belong on
- * `/nassau/results/[planId]`, after the unlocked excursion recommendations. A
- * locked, non-interactive excursion skeleton may appear before the gate as a
- * preview only.
+ * real excursion record before the gate — those appear only in the unlocked
+ * full plan on `/nassau/plan`, after the reveal gate. A locked, non-interactive
+ * excursion skeleton may appear before the gate as a preview only.
  */
 export type ResultSectionId = 'timing_result' | 'locked_teaser' | 'excursion_skeleton' | 'email_gate';
 
@@ -440,9 +439,9 @@ export const PLAN_MODE_LINKS = {
 
 /** Mode-specific helper copy. Same planner logic underneath — copy only. */
 export const MODE_INTRO: Record<PlannerMode, string> = {
-  default: 'Answer a few quick questions and we’ll map your Nassau stop into one simple day.',
-  times: 'Enter your step-off and all-aboard times for the clearest plan.',
-  fast: 'A few quick questions and we’ll turn your Nassau stop into one simple day.',
+  default: 'Start with your ship times so ShoreDay can calculate the usable window first.',
+  times: 'Enter your step-off and all-aboard times first for the clearest plan.',
+  fast: 'Add your official ship times only when you are ready for the exact return calculation.',
 };
 
 /* ───────────────────────── Prototype plan payload (local-only) ───────────────────────── */
@@ -455,9 +454,11 @@ export interface PlanDayShapeBlock {
 }
 
 /**
- * Display-ready, local-only prototype plan. Stored in browser storage at unlock
- * to render `/nassau/results/[planId]` without re-computation. Contains NO email,
- * NO secrets, NO API keys — prototype only, never production persistence.
+ * Display-ready, local-only prototype plan payload. Retained for the test
+ * contract and a future saved-plan feature; the legacy `/nassau/results/[planId]`
+ * route that consumed it is retired (the funnel now reveals the full plan in
+ * place on `/nassau/plan`). Contains NO email, NO secrets, NO API keys —
+ * prototype only, never production persistence.
  */
 export interface PlanPrototypePayload {
   schema: 1;

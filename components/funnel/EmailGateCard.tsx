@@ -1,45 +1,70 @@
 interface EmailGateCardProps {
+  /**
+   * True when the server has a Kit API key configured. Drives whether we collect
+   * an email (real save) or fall back to a truthful local-only reveal.
+   */
+  kitConfigured: boolean;
   email: string;
   marketingConsent: boolean;
   onEmailChange: (value: string) => void;
   onMarketingToggle: (value: boolean) => void;
   onSubmit: () => void;
-  submitted: boolean;
-  devMessage: string;
+  submitting?: boolean;
   error?: string;
 }
 
 /**
- * Email-gate UI shell. The submit button IS the (separate) plan-delivery action;
- * marketing consent is an independent checkbox. This shell does NOT call Kit,
- * create any record, or imply external delivery happened — on submit it enters
- * a clearly labelled development-only state.
+ * Email save gate.
+ *
+ * When Kit is configured server-side, this captures the email (a transactional
+ * "save my plan" action) plus an OPTIONAL, separate marketing-tips consent, and
+ * the submit POSTs to /api/kit/nassau-plan. When Kit is NOT configured, it falls
+ * back to a truthful local-only reveal that collects no email — we never ask for
+ * an email that would go nowhere.
  */
 export default function EmailGateCard({
+  kitConfigured,
   email,
   marketingConsent,
   onEmailChange,
   onMarketingToggle,
   onSubmit,
-  submitted,
-  devMessage,
+  submitting = false,
   error,
 }: EmailGateCardProps) {
+  if (!kitConfigured) {
+    return (
+      <div className="fn-gate">
+        <h3 className="fn-gate-title">See your full Nassau plan</h3>
+        <p className="fn-gate-sub">
+          Your full plan lays out the timeline, return buffer, and Nassau options
+          that fit your ship time.
+        </p>
+
+        <button type="button" className="fn-btn fn-btn-primary fn-btn-block" onClick={onSubmit}>
+          Show My Full Plan
+        </button>
+
+        <p className="fn-gate-fineprint">
+          Email saving is coming soon. You can view the full plan here for now.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="fn-gate">
-      <h3 className="fn-gate-title">Unlock Your Full Nassau Plan</h3>
+      <h3 className="fn-gate-title">Save your Nassau plan</h3>
       <p className="fn-gate-sub">
-        Unlock your Nassau timing, a simple port-day structure, and a safe next step
-        for checking excursion availability.
+        Save this so you&rsquo;re not rebuilding the day from scratch at the pier.
+        Your full plan shows the timeline, return buffer, and Nassau options that
+        fit your ship time.
       </p>
 
       <div className="fn-field">
         <label htmlFor="fn-email" className="fn-label">
-          Email
-          <span className="fn-req">
-            {" "}
-            Required<span className="fn-sr-only"> field</span>
-          </span>
+          Where should we send it?
+          <span className="fn-sr-only"> Required field</span>
         </label>
         <input
           id="fn-email"
@@ -53,6 +78,7 @@ export default function EmailGateCard({
           aria-required="true"
           aria-invalid={error ? true : undefined}
           aria-describedby={error ? "fn-gate-error" : undefined}
+          disabled={submitting}
         />
       </div>
 
@@ -61,8 +87,9 @@ export default function EmailGateCard({
           type="checkbox"
           checked={marketingConsent}
           onChange={(e) => onMarketingToggle(e.target.checked)}
+          disabled={submitting}
         />
-        <span>Send me occasional ShoreDay tips and Nassau ideas (optional).</span>
+        <span>Send occasional Nassau tips. Optional.</span>
       </label>
 
       {error ? (
@@ -71,19 +98,17 @@ export default function EmailGateCard({
         </p>
       ) : null}
 
-      <button type="button" className="fn-btn fn-btn-primary fn-btn-block" onClick={onSubmit}>
-        View my full plan
+      <button
+        type="button"
+        className="fn-btn fn-btn-primary fn-btn-block"
+        onClick={onSubmit}
+        disabled={submitting}
+      >
+        {submitting ? "Saving…" : "Save & Show My Full Plan"}
       </button>
 
-      {submitted ? (
-        <p className="fn-gate-dev" role="status">
-          {devMessage}
-        </p>
-      ) : null}
-
       <p className="fn-gate-fineprint">
-        Viewing your plan is a separate action from the optional marketing opt-in
-        above. We won&rsquo;t add you to marketing unless you check the box.
+        We&rsquo;ll email your return target and plan notes once. Nassau tips only if you check the box.
       </p>
     </div>
   );

@@ -1,6 +1,18 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "dynamic-media.tacdn.com",
+      },
+      {
+        protocol: "https",
+        hostname: "media.tacdn.com",
+      },
+    ],
+  },
   async redirects() {
     return [
       {

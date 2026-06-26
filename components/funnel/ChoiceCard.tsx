@@ -1,12 +1,13 @@
 interface ChoiceCardProps {
   label: string;
   description?: string;
+  badge?: string;
   selected: boolean;
   onSelect: () => void;
 }
 
 /** Large, keyboard-accessible selectable card. `aria-pressed` conveys selection. */
-export default function ChoiceCard({ label, description, selected, onSelect }: ChoiceCardProps) {
+export default function ChoiceCard({ label, description, badge, selected, onSelect }: ChoiceCardProps) {
   return (
     <button
       type="button"
@@ -14,6 +15,11 @@ export default function ChoiceCard({ label, description, selected, onSelect }: C
       aria-pressed={selected}
       onClick={onSelect}
     >
+      {badge ? (
+        <span className="fn-choice-badge" aria-hidden="true">
+          {badge}
+        </span>
+      ) : null}
       <span className="fn-choice-text">
         <span className="fn-choice-label">{label}</span>
         {description ? <span className="fn-choice-desc">{description}</span> : null}

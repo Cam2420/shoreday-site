@@ -1,19 +1,9 @@
-import type { Metadata } from "next";
-import PrototypeResult from "./PrototypeResult";
-import "./results.css";
+import { redirect } from "next/navigation";
 
-// Prototype-only route — keep out of search indexes.
-export const metadata: Metadata = {
-  title: { absolute: "Your Nassau Plan | ShoreDay" },
-  description: "Your saved Nassau port-day plan.",
-  robots: { index: false, follow: false },
-};
-
-export default async function NassauResultPage({
-  params,
-}: {
-  params: Promise<{ planId: string }>;
-}) {
-  const { planId } = await params;
-  return <PrototypeResult planId={planId} />;
+// Legacy prototype route. The funnel now computes the timing result and reveals
+// the full plan IN PLACE on /nassau/plan, so this saved-result route is retired.
+// It previously rendered placeholder location cards with generic Nassau photos;
+// to avoid any misleading imagery it now redirects to the canonical planner.
+export default function NassauResultPage() {
+  redirect("/nassau/plan");
 }

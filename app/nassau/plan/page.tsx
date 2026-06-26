@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { parseMode } from "@/lib/funnel-plan";
+import { isNassauPlanDeliveryConfigured } from "@/lib/kit-nassau-config";
 import PlanBuilder from "./PlanBuilder";
 import "./plan.css";
 
@@ -18,5 +19,7 @@ export default async function NassauPlanPage({
   searchParams: Promise<{ mode?: string }>;
 }) {
   const { mode } = await searchParams;
-  return <PlanBuilder initialMode={parseMode(mode)} />;
+  // Server-side check: only enable email capture when Kit is fully wired for
+  // delivery (API key + delivery sequence). Only this boolean reaches the client.
+  return <PlanBuilder initialMode={parseMode(mode)} kitConfigured={isNassauPlanDeliveryConfigured()} />;
 }
