@@ -1,0 +1,32 @@
+interface ChoiceCardProps {
+  label: string;
+  description?: string;
+  badge?: string;
+  selected: boolean;
+  onSelect: () => void;
+}
+
+/** Large, keyboard-accessible selectable card. `aria-pressed` conveys selection. */
+export default function ChoiceCard({ label, description, badge, selected, onSelect }: ChoiceCardProps) {
+  return (
+    <button
+      type="button"
+      className={`fn-choice${selected ? " is-selected" : ""}`}
+      aria-pressed={selected}
+      onClick={onSelect}
+    >
+      {badge ? (
+        <span className="fn-choice-badge" aria-hidden="true">
+          {badge}
+        </span>
+      ) : null}
+      <span className="fn-choice-text">
+        <span className="fn-choice-label">{label}</span>
+        {description ? <span className="fn-choice-desc">{description}</span> : null}
+      </span>
+      <span className="fn-choice-check" aria-hidden="true">
+        {selected ? "✓" : ""}
+      </span>
+    </button>
+  );
+}

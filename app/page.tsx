@@ -32,11 +32,6 @@ export default function Home() {
             Shore<span>Day</span>
           </div>
         </Link>
-        <div className="nav-links">
-          <a href="https://vi.me/s/shoredayapp" target="_blank" rel="noopener noreferrer">
-            Book Excursions ↗
-          </a>
-        </div>
       </nav>
 
       <main className="hero">
@@ -49,7 +44,27 @@ export default function Home() {
             Bimini. Built around your exact all-aboard time.
           </p>
 
+          <div className="hero-cta-stack" aria-label="Primary ShoreDay actions">
+            <div className="hero-cta-group">
+              <Link href="/nassau/plan" className="hero-primary-cta">
+                Start My Nassau Plan
+              </Link>
+              <a
+                href="https://vi.me/s/shoredayapp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-secondary-cta"
+              >
+                Book Excursions ↗
+              </a>
+            </div>
+            <p className="hero-microcopy">
+              Takes about 60 seconds. Exact timing uses your actual all-aboard time.
+            </p>
+          </div>
+
           <div className="app-actions">
+            <p className="app-actions-label">Port-day app companion</p>
             <div className="app-buttons">
               <a
                 href="https://apps.apple.com/app/id6761083487"

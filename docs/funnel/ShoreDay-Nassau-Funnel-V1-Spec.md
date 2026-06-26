@@ -877,3 +877,155 @@ Launch is validated only when the funnel produces:
 
 The first optimization target is the largest measured drop-off, not the feature
 that feels most exciting.
+
+---
+
+## 21. Owner Decisions — 2026-06-23 (Funnel V1 Foundation Gate)
+
+These decisions are locked for the V1 foundation build. They refine, but do not
+override, the research-backed decisions in §0. Where this section is silent, the
+preceding sections govern.
+
+### 21.1 Funnel order
+
+1. Nassau cruise onboarding.
+2. Interactive deterministic all-aboard calculator.
+3. Partial result preview.
+4. Email gate to unlock and save the full plan.
+5. Full results page.
+6. Three app-style excursion recommendations.
+7. **Book Now** routes through the exact existing ShoreDay mobile-app Viator
+   affiliate URL (preserved verbatim, including `pid=`; no PII appended).
+8. Follow-up email based on observed funnel actions.
+9. ShoreDay app download/upgrade presented **after** the excursion recommendations.
+
+### 21.2 Free web value (finite)
+
+The unlocked web result provides one useful but finite basic plan:
+
+- Calculated usable port window.
+- Recommended return-to-pier target.
+- One deterministic day structure.
+- Selected traveler profile and interests.
+- Three timing-eligible excursion recommendations.
+- One saved-plan URL.
+
+It does **not** provide: unlimited itinerary generation; multiple AI itinerary
+alternatives; full concierge access; complete interactive maps; complete
+insider-tips access; guaranteed-return language; booking confirmation.
+
+### 21.3 App monetization
+
+The imported or saved basic plan may later remain viewable in ShoreDay without
+immediately forcing a paywall. Premium value remains: multiple itinerary
+generations, regeneration/alternatives, full AI concierge, full map, complete
+insider tips, and other premium capabilities **actually enforced by the apps**.
+
+> Do not market entitlement distinctions that the live apps do not yet enforce.
+> Audit finding (Mobile Integration Map §E): the shipped app grants a single
+> `premium` unlock — the Port Pass non-subscription and the Premium Explorer
+> access level flip the same flag, with no code-enforced per-port limitation.
+
+### 21.4 App handoff
+
+Full web-to-app plan import and cross-device email authentication are deferred to
+**V1.1**. Nassau Funnel V1 must **not** require app download, ShoreDay account
+creation, Firebase email authentication, or password creation. The V1 results
+page may promote the app after the excursion cards.
+
+### 21.5 Excursion conversion (primary V1 revenue objective)
+
+- CTA may say **Book Now**; it does not need to say “Book on Viator.”
+- An affiliate disclosure must remain visible adjacent to the excursion CTA group.
+- ShoreDay logs: excursion impression, excursion click, outbound affiliate
+  navigation.
+- ShoreDay must **not** claim a booking is confirmed.
+- Until a verified booking-data integration exists, lifecycle segmentation uses
+  `excursion_clicked` / `did not click excursion`. Do **not** use automated
+  `booked` / `did not book` states.
+
+### 21.6 Google services
+
+Google Maps, Places, live traffic, and ETA APIs are deferred. V1 excursion timing
+uses only: deterministic all-aboard calculations, controlled excursion-duration
+data, and controlled transport/buffer classifications.
+
+### 21.7 Firebase
+
+Prefer sharing the existing ShoreDay mobile Firebase project (`bah-tourist-app`)
+if the read-only audit confirms it is appropriate. Use a **separate** Firestore
+`plans` collection/schema for the web funnel. V1 does not require the browser to
+use Firebase Auth. The first integration favors server-side plan creation and
+retrieval to minimize complexity. No credentials in the documents.
+
+### 21.8 Basic itinerary
+
+The web itinerary is deterministic and finite, not AI-generated. Day shape:
+step ashore / orientation → one anchor activity or excursion → optional flexible
+local time → begin return → recommended terminal/pier target. No invented exact
+times beyond values produced by the port-math engine.
+
+### 21.9 Routes
+
+Keep the spec routes: `/nassau`, `/nassau/plan`, `/nassau/results/[planId]`,
+`/nassau/plan/[planId]`. Existing route paths remain available until a separately
+approved production cutover.
+
+### 21.10 Foundation-build implementation notes (2026-06-23)
+
+The foundation build (this branch, `feat/nassau-funnel-v1`) delivers deterministic
+logic, schemas, validation, and unit tests only — no routes, UI, Firestore, Kit,
+Vercel, Google, or AI integration. Two value sets required by §6 and §8 are
+**not specified by any canonical source and are deferred to owner lock before
+production**:
+
+1. **Port-math `PortConfig` numeric values — LOCKED 2026-06-23 (owner-approved
+   product policy).** The §6 *formulas* are implemented as a pure, config-driven
+   engine. The approved ShoreDay Nassau V1 planning defaults in
+   `data/ports/nassau.ts` (`configStatus: 'locked'`) are `terminalBufferMinutes =
+   45`, `defaultContingencyMinutes = 15`, and `minimumUsableMinutes = 120`. These
+   are ShoreDay **product-policy** planning defaults — not external facts and not
+   guarantees. They are planning recommendations only; users must confirm the
+   official ship-provided all-aboard time (the final authority); V1 does not
+   monitor live schedule changes, traffic, weather, or port conditions; no
+   itinerary or recommendation guarantees a return to the ship; and the 120-minute
+   minimum-usable threshold is a ShoreDay conservative product threshold, not an
+   externally verified universal rule. (Broader ~45–60-minute return practices in
+   cruise guidance are retained only as contextual research, not as the locked
+   configuration.) The itinerary *shape* config (block lengths) remains `proposed`.
+   Unit tests cover both fixture configs and this locked policy.
+
+2. **Excursion engine-critical fields.** The mobile catalog
+   (`lib/data/excursions_data.dart`) supplies id, title, duration string,
+   category, match tags, price tier, and the exact Viator affiliate URL — but
+   **not** `outboundTravelMinutes`, `returnTravelMinutes`, `startTimeFlexibility`,
+   `partyTypes`, `minAge`, `familyFit`, `logisticsEase`, `vendorPressureFit`, or
+   per-excursion `minimumUsableMinutes`. The eligibility/ranking engine (§8) is
+   implemented and unit-tested against fixtures; `data/excursions/nassau.ts`
+   contains only the verified mobile extract (exact URLs preserved) and is **not**
+   a production ranking catalog until the owner curates the missing fields.
+
+### 21.11 Corrective pass (2026-06-23)
+
+- **Nassau timing policy locked** — see §21.10 item 1.
+- **Fail-closed excursion ranking** — the engine now excludes any excursion it
+  cannot positively verify: fixed-start tours (no meeting-time data) and entries
+  with incomplete/invalid required fields are treated as ineligible, not surfaced
+  with advisories. Invalid port-math yields zero recommendations. The result never
+  pads with ineligible options.
+- **Analytics event count reconciled** — spec §12 defines **14 web events** (the
+  funnel's scope) and **12 app events** (verified separately in the mobile app).
+  The "17" referenced during authorization matches neither list; the implemented
+  web contract uses the spec's 14 web events. `lib/funnel-events.ts` documents both
+  sets.
+- **Viator sandbox API — UNRESOLVED.** Basic sandbox access is unresolved: the
+  documented sandbox host and endpoint
+  (`https://api.sandbox.viator.com/partner/v1/taxonomy/destinations`, headers
+  `exp-api-key`, `Accept-Language: en-US`, `Accept: application/json;version=2.0`)
+  were used and the request returned **HTTP 404**. No production key was used, no
+  retries were attempted, and no API-derived catalog values were invented. See
+  `docs/funnel/ShoreDay-Nassau-V1-External-Preflight.md` for the current status and
+  retest guidance; API-based excursion enrichment is held until it returns HTTP 200.
+- **Vercel** — the `shoreday-site` project (`prj_bdEVOQRilc2EsKtJNEDyAtuUeFVo`,
+  Next.js, `live: false`, no deployment, no custom domains) is the owner-verified
+  Next.js host; `shoredayapp.com` remains on GitHub Pages.
