@@ -93,11 +93,65 @@ export interface FunnelEventProperties {
   offer_priority?: string;
   /** Step index for planner_step_view / planner_step_complete (1–5). */
   step?: number;
+  /**
+   * Privacy-safe operational dimensions for the web funnel instrumentation.
+   * None of these carry PII — they are coarse, enumerable categories used to
+   * segment funnel behaviour (not user identity).
+   */
+  /** Planner path the user is on. */
+  mode?: 'default' | 'times' | 'fast';
+  /** Derived plan-style bucket (e.g. "Low-Stress Independent Planner") — a category, never free user text. */
+  result_type?: string;
+  /** Where in the UI the event originated (e.g. "home_hero", "starter_card"). */
+  surface?: string;
+  /** App store for app_store_click. */
+  store?: 'apple' | 'google';
 }
 
 export interface FunnelEvent {
   name: FunnelEventName;
   properties: FunnelEventProperties;
+}
+
+/**
+ * The complete allow-list of property keys an event may carry. Anything not in
+ * this set is an unknown key and must be dropped before storage. Kept in sync
+ * with `FunnelEventProperties` above.
+ */
+export const FUNNEL_EVENT_PROPERTY_KEYS = [
+  'plan_id',
+  'port',
+  'days_to_port_bucket',
+  'party_type',
+  'planning_state',
+  'angle',
+  'source',
+  'campaign',
+  'creative_id',
+  'excursion_id',
+  'offer_priority',
+  'step',
+  'mode',
+  'result_type',
+  'surface',
+  'store',
+] as const;
+
+const ALLOWED_PROPERTY_KEYS: ReadonlySet<string> = new Set(FUNNEL_EVENT_PROPERTY_KEYS);
+
+/**
+ * Return a copy of `properties` containing only allow-listed keys. Unknown keys
+ * are silently dropped — a defensive filter so an unexpected (or PII-shaped) key
+ * never reaches a future durable store. Does NOT mutate the input.
+ */
+export function pickAllowedProperties(
+  properties: Record<string, unknown>,
+): Record<string, unknown> {
+  const out: Record<string, unknown> = {};
+  for (const key of Object.keys(properties)) {
+    if (ALLOWED_PROPERTY_KEYS.has(key)) out[key] = properties[key];
+  }
+  return out;
 }
 
 /** Property keys that must never appear on an event (defensive PII guard). */
