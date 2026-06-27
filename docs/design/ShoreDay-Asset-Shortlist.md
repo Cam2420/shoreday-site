@@ -82,11 +82,20 @@ are for **category framing**, not specific-tour claims.
 | `shutterstock_2422234633.jpg` | 01_Nassau_Images | image/jpeg | ~25.3 MB | [view](https://drive.google.com/file/d/15iR7BGu6uAvxp6F0FAVonVshxIvMeGLj/view) | History / heritage | Pirates of Nassau museum, historic downtown = culture category | Very large; recompress; museum-specific |
 | `shutterstock_2422229805.jpg` | 01_Nassau_Images | image/jpeg | ~31.1 MB | [view](https://drive.google.com/file/d/1EpDF27B3zIuz136bO3uni9J1T1eyUIZP/view) | History / heritage | Heritage Village / Gray Cliff, historic Nassau = heritage category | Very large; recompress |
 
-**Category gaps (no true match in the library):** **Food/local**, **Queen's
-Staircase/forts specifically**, **snorkel (underwater)**, and **family-safe
-contained**. For these, keep the existing "Photo coming soon" placeholder or use
-the Viator catalog image for the specific tour — **do not** repurpose an
-unrelated image (doctrine: no implied experience that the image doesn't match).
+**Category gaps:**
+- **Food/local — candidate found, pending founder visual approval.** A real
+  Bahamian beachside-food still (`Bahamasfoodfull.jpg`, "cracked conch and conch
+  salad") exists in the nested `01_Nassau_Images/Shutterstock` folder — see
+  "Nested Folder Follow-Up Candidates" below.
+- **Queen's Staircase / forts specifically — still missing.** (We do have the
+  Pirates of Nassau museum and Heritage Village shots above for general culture.)
+- **Snorkel (underwater) — still missing.**
+- **Family-safe contained — still missing.**
+
+For the still-missing categories, keep the existing "Photo coming soon"
+placeholder or use the Viator catalog image for the specific tour — **do not**
+repurpose an unrelated image (doctrine: no implied experience the image doesn't
+match).
 
 ---
 
@@ -129,6 +138,41 @@ sound; never competing with the CTA or the timing answer.
 
 ---
 
+## Nested Folder Follow-Up Candidates
+
+Read-only audit of the nested **`01_Nassau_Images/Shutterstock`** folder
+([folder](https://drive.google.com/drive/folders/1vfcBQQPvZVXHGUjRZrG8yvvJYhvFRLO1))
+on 2026-06-27 (no files downloaded, moved, renamed, or modified). Folder mapping
+confirmed: `Shutterstock` is the only subfolder under `01_Nassau_Images` (no
+deeper nesting); `02_App_Screenshots_UI` nests `03_Generated_Content/demo_video_v1`
+(generated app-demo promo clips, noted at the end); `03_Nassau_Videos` has no
+subfolders.
+
+All items below need **founder visual approval**, **licensing confirmation**
+(Shutterstock-sourced), and **optimization before import** (resize → WebP/AVIF →
+alt text). They are not approved or imported here.
+
+| File | Folder path | Mime | Size | Drive | Proposed use | Why it fits | Risks / conditions |
+|---|---|---|---|---|---|---|---|
+| `Bahamasfoodfull.jpg` | 01_Nassau_Images/Shutterstock | image/jpeg | ~3.5 MB | [view](https://drive.google.com/file/d/15HnWVvwXMfCZRdfrgGBDzcMw2Lrk9PIK/view) | **Excursion "Food/local" category card**; optional "taste Nassau" support accent | Real Bahamian beachside food — **cracked conch + conch salad** with turquoise water behind; authentic local-food trust, warm and calm, matches the planner's "local food and culture" interest path | Confirm no restaurant brand/signage in frame; label as "local food," not a specific named tour |
+| `Nassau_people.jpeg` | 01_Nassau_Images/Shutterstock | image/jpeg | ~0.85 MB | [view](https://drive.google.com/file/d/164b9aKt8LO6D-mOxZY9oH2fKGvxhTgbG/view) | Homepage support / "already there" street-life accent | Warm Nassau street/people scene; small file, human, on-brand | Identifiable faces — check model-release; ensure it reads calm, not crowded |
+| `Nassau_Jitney.jpg` | 01_Nassau_Images/Shutterstock | image/jpeg | ~2.1 MB | [view](https://drive.google.com/file/d/1MXPVDLLVtwKGQpmStlvv4-Loq8qRS-m8/view) | Optional "getting around Nassau" support accent | Pastel-pink downtown + local jitney bus = practical local-transport context (calm, real) | Local transport, not a hero; only if a "getting around" section exists |
+| `ShoreBreak_Image.jpg` | 01_Nassau_Images/Shutterstock | image/jpeg | ~3.8 MB | [view](https://drive.google.com/file/d/1ZJnhUmX7QCSxFWuY-Sjizn4ftEq5qBII/view) | Homepage support (arrival) | New Nassau cruise complex; calm arrival framing | Infrastructure shot; confirm it isn't redundant with terminal shots already shortlisted |
+
+**Category outcomes from this nested pass:**
+- **Food/local:** ✅ candidate found — `Bahamasfoodfull.jpg` (pending founder visual approval).
+- **Heritage (Queen's Staircase / forts):** ❌ still missing — no match in the nested folder.
+- **Snorkel / underwater adventure:** ❌ still missing — no new boat/snorkel stills here (use main-folder boating shots for general "adventure" framing only).
+- **Family-safe / contained:** ❌ still missing — no match.
+
+**Generated content note:** `02_App_Screenshots_UI/03_Generated_Content/demo_video_v1`
+holds 8 small generated app-demo promo MP4s (`shot_01_hook` … `shot_08_cta`,
+~1.8–5.7 MB each). These are a marketing/demo sequence, **not** Nassau stills and
+**not** for trust imagery; any use is video (Video Use Rules apply) and needs
+separate approval after a performance review.
+
+---
+
 ## Do not use / avoid
 
 - `shutterstock_2789439165.jpg` — MSC Meraviglia pool **in Barcelona** (not Nassau).
@@ -136,6 +180,15 @@ sound; never competing with the CTA or the timing answer.
 - `shutterstock_1495289183.jpg`, `shutterstock_1495289216.jpg`,
   `shutterstock_1599524398.jpg` — **Hurricane Dorian damage/aftermath**
   (anxiety-inducing, off-message).
+- `shutterstock_1495289180.jpg` (01_Nassau_Images/Shutterstock) — same **Dorian**
+  series + Banana Bay souvenir-shop signage; avoid.
+- `chaotictourist.png` / `chaotictourist.2.jpg` / `chaotictourist.3.jpeg`
+  (01_Nassau_Images/Shutterstock) — "chaotic tourist" / crowded theme; the
+  opposite of ShoreDay's calm-control feel. Avoid.
+- `Welcome2Nassau.jpg`, `NassauTaxi1full.jpg`, `NassauTraffic2.jpeg` /
+  `NassauTraffic2.full.jpg` (01_Nassau_Images/Shutterstock) — busy
+  signage/traffic and Dorian-era descriptions; not calm/on-brand. Avoid as
+  hero/support (visual check before any use).
 - The ~28 MB `shutterstock_2155156285.jpg` and ~28 MB `shutterstock_2137204119.jpg`
   — prefer their smaller equivalents / recompress; avoid shipping at source size.
 - Any Atlantis/resort-interior image used in a way that implies a ShoreDay-owned
