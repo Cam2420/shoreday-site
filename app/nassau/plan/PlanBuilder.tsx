@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { track } from "@/lib/analytics";
 import ChoiceCard from "@/components/funnel/ChoiceCard";
 import EmailGateCard from "@/components/funnel/EmailGateCard";
 import FunnelProgress from "@/components/funnel/FunnelProgress";
@@ -56,14 +57,6 @@ type AvoidConcern =
 type PacePreference = "low_stress" | "balanced" | "packed_realistic" | "safest_easiest";
 type BudgetChoice = "free_cheap" | "under_100" | "mid_200" | "premium_ease";
 type TimingChoice = "exact" | "starter" | "research";
-type QuizEvent =
-  | "quiz_start"
-  | "quiz_step_answered"
-  | "quiz_complete"
-  | "email_capture_started"
-  | "email_capture_completed"
-  | "viator_click"
-  | "app_store_click";
 type PlannerStepId = FunnelStepId | "planning_status" | "avoid" | "pace" | "timing_choice";
 
 const PLANNING_STATUS_OPTIONS: Array<{
@@ -298,10 +291,18 @@ function isFunnelStepId(step: PlannerStepId): step is FunnelStepId {
   );
 }
 
-function trackQuizEvent(event: QuizEvent, details?: Record<string, string | number | boolean>) {
-  void event;
-  void details;
-  // TODO: Wire to analytics when the production tracker exists.
+// Respect prefers-reduced-motion for programmatic scrolling: skip the smooth
+// animation for users who asked to reduce motion. (This slice adds no visual
+// motion — it only makes existing JS scrolling honour the preference.)
+function reducedMotionScrollBehavior(): ScrollBehavior {
+  if (
+    typeof window !== "undefined" &&
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
+    return "auto";
+  }
+  return "smooth";
 }
 
 export default function PlanBuilder({
@@ -332,6 +333,17 @@ export default function PlanBuilder({
   const [gateError, setGateError] = useState<string | undefined>(undefined);
   const [gateSubmitting, setGateSubmitting] = useState(false);
   const errorSummaryRef = useRef<HTMLDivElement>(null);
+  // planner_start = the user actually begins a planner flow (quiz, exact-intro, or
+  // direct mode=times). This guard fires it exactly once per session regardless of
+  // which entry path they take, so reaching the exact-time form after the quiz does
+  // not double-count.
+  const plannerStartedRef = useRef(false);
+
+  function firePlannerStart(surface: string) {
+    if (plannerStartedRef.current) return;
+    plannerStartedRef.current = true;
+    track("planner_start", { port: "nassau", mode: initialMode, surface });
+  }
 
   const steps = MODE_STEP_IDS[initialMode] ?? MODE_STEP_IDS.default;
   const stepId = steps[stepIndex] ?? steps[0];
@@ -357,6 +369,72 @@ export default function PlanBuilder({
               : false;
   const isLastStep = stepIndex === steps.length - 1;
 
+  // --- Canonical funnel view/impression events (lib/funnel-events.ts) ---------
+  // These fire on screen entry. Click/submit events are fired inline at their
+  // handlers. All payloads are privacy-safe (no email, ship name, raw times/date).
+
+  // Each wizard question becomes visible.
+  useEffect(() => {
+    if (phase !== "wizard") return;
+    track("planner_step_view", { port: "nassau", mode: initialMode, step: stepIndex + 1 });
+  }, [phase, stepIndex, initialMode]);
+
+  // Exact-time form screen becomes visible. This is also where the exact-time and
+  // direct mode=times paths register their planner_start (the once-guard makes it
+  // a no-op for quiz users who already started, so no double-count).
+  useEffect(() => {
+    if (phase !== "timing") return;
+    firePlannerStart(isQuizMode ? "exact_intro" : "times_direct");
+    track("planner_step_view", { port: "nassau", mode: initialMode, surface: "exact_timing_form" });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase]);
+
+  // Starter (non-exact) result screen: app card + excursion impressions.
+  useEffect(() => {
+    if (phase !== "starter") return;
+    track("app_card_view", { port: "nassau", mode: initialMode, surface: "starter_plan" });
+    starterExcursions().forEach((card, i) =>
+      track("excursion_card_view", {
+        port: "nassau",
+        mode: initialMode,
+        surface: "starter_card",
+        excursion_id: card.id,
+        offer_priority: String(i + 1),
+      }),
+    );
+    // starterExcursions reads current quiz answers; intentionally keyed on phase only.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase]);
+
+  // A valid return target was computed and is being shown. This is the true
+  // "calculator completed" moment (planner_complete), followed by the partial
+  // result impression (port_math_view) and the email gate impression.
+  useEffect(() => {
+    if (phase !== "result" || !result) return;
+    if (!buildPartialResultView(result).valid) return;
+    track("planner_complete", { port: "nassau", mode: initialMode, result_type: planStyleLabel() });
+    track("port_math_view", { port: "nassau", mode: initialMode, result_type: planStyleLabel() });
+    track("email_gate_view", { port: "nassau", mode: initialMode });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase, result]);
+
+  // Full plan unlocked: results + app card + excursion impressions.
+  useEffect(() => {
+    if (!submitted) return;
+    track("results_view", { port: "nassau", mode: initialMode, result_type: planStyleLabel() });
+    track("app_card_view", { port: "nassau", mode: initialMode, surface: "unlocked_result" });
+    starterExcursions().forEach((card, i) =>
+      track("excursion_card_view", {
+        port: "nassau",
+        mode: initialMode,
+        surface: "unlocked_result_card",
+        excursion_id: card.id,
+        offer_priority: String(i + 1),
+      }),
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [submitted]);
+
   const errFor = (field: BasicsError["field"]) =>
     basicsErrors.find((e) => e.field === field)?.message;
   const dateError = errFor("portDate");
@@ -375,11 +453,13 @@ export default function PlanBuilder({
   }
 
   function scrollToTop() {
-    if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: reducedMotionScrollBehavior() });
+    }
   }
 
   function startQuiz() {
-    trackQuizEvent("quiz_start", { mode: initialMode });
+    firePlannerStart("planner_intro");
     setPhase("wizard");
     scrollToTop();
   }
@@ -427,7 +507,9 @@ export default function PlanBuilder({
     if (!stepComplete) return;
     if (isLastStep) {
       if (isQuizMode) {
-        trackQuizEvent("quiz_complete", { timing_choice: timingChoice ?? "unset" });
+        // planner_complete fires when the CALCULATOR completes (a valid return
+        // target is computed) — see the result effect — not merely when the quiz
+        // ends, since a quiz can end at the starter screen with no calculation.
         if (timingChoice === "exact") {
           startExactTiming();
           return;
@@ -481,7 +563,7 @@ export default function PlanBuilder({
     requestAnimationFrame(() => {
       const fullPlan = document.getElementById("np-full-plan");
       fullPlan?.scrollIntoView({
-        behavior: "smooth",
+        behavior: reducedMotionScrollBehavior(),
         block: "start",
       });
       fullPlan?.focus({ preventScroll: true });
@@ -535,7 +617,7 @@ export default function PlanBuilder({
         .json()
         .catch(() => null);
       if (res.ok && data?.ok) {
-        trackQuizEvent("email_capture_completed", { mode: initialMode });
+        track("email_submitted", { port: "nassau", mode: initialMode });
         revealFullPlan();
       } else if (data?.error === "kit_not_configured" || data?.error === "delivery_not_configured") {
         // Email saving isn't wired up server-side. Fall back to the honest local
@@ -690,7 +772,14 @@ export default function PlanBuilder({
             href={card.affiliateUrl}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackQuizEvent("viator_click", { surface })}
+            onClick={() =>
+              track("excursion_click", {
+                port: "nassau",
+                mode: initialMode,
+                surface,
+                excursion_id: card.id,
+              })
+            }
           >
             Book Now →
           </a>
@@ -700,13 +789,12 @@ export default function PlanBuilder({
   }
 
   function selectQuizAnswer(step: PlannerStepId, label: string, action: () => void) {
+    void step;
+    void label;
     action();
-    trackQuizEvent("quiz_step_answered", {
-      mode: initialMode,
-      question: step,
-      answer: label,
-      step: stepIndex + 1,
-    });
+    // Canonical step-completion event. We send the step INDEX only — never the
+    // free-text answer label, which is not a canonical (allow-listed) field.
+    track("planner_step_complete", { port: "nassau", mode: initialMode, step: stepIndex + 1 });
   }
 
   function startExactTiming() {
@@ -874,7 +962,14 @@ export default function PlanBuilder({
                         href={card.affiliateUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        onClick={() => trackQuizEvent("viator_click", { surface: "starter_card" })}
+                        onClick={() =>
+                          track("excursion_click", {
+                            port: "nassau",
+                            mode: initialMode,
+                            surface: "starter_card",
+                            excursion_id: card.id,
+                          })
+                        }
                       >
                         Book Now →
                       </a>
@@ -888,7 +983,13 @@ export default function PlanBuilder({
                 href={VIATOR_STOREFRONT}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackQuizEvent("viator_click", { surface: "starter_plan" })}
+                onClick={() =>
+                  track("excursion_click", {
+                    port: "nassau",
+                    mode: initialMode,
+                    surface: "browse_all_starter",
+                  })
+                }
               >
                 Browse all ShoreDay Excursions
               </a>
@@ -906,7 +1007,14 @@ export default function PlanBuilder({
                   href={APP_STORE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => trackQuizEvent("app_store_click", { store: "apple", surface: "starter_plan" })}
+                  onClick={() =>
+                    track("app_store_click", {
+                      port: "nassau",
+                      mode: initialMode,
+                      store: "apple",
+                      surface: "starter_plan",
+                    })
+                  }
                 >
                   <img src={APPLE_BADGE} alt="Download on the App Store" />
                 </a>
@@ -914,7 +1022,14 @@ export default function PlanBuilder({
                   href={PLAY_STORE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => trackQuizEvent("app_store_click", { store: "google", surface: "starter_plan" })}
+                  onClick={() =>
+                    track("app_store_click", {
+                      port: "nassau",
+                      mode: initialMode,
+                      store: "google",
+                      surface: "starter_plan",
+                    })
+                  }
                 >
                   <img src={PLAY_BADGE} alt="Get it on Google Play" />
                 </a>
@@ -1256,7 +1371,13 @@ export default function PlanBuilder({
                       href={VIATOR_STOREFRONT}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={() => trackQuizEvent("viator_click", { surface: "unlocked_result" })}
+                      onClick={() =>
+                        track("excursion_click", {
+                          port: "nassau",
+                          mode: initialMode,
+                          surface: "browse_all_unlocked",
+                        })
+                      }
                     >
                       Browse all ShoreDay Excursions
                     </a>
@@ -1274,7 +1395,14 @@ export default function PlanBuilder({
                       href={APP_STORE_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={() => trackQuizEvent("app_store_click", { store: "apple", surface: "unlocked_result" })}
+                      onClick={() =>
+                        track("app_store_click", {
+                          port: "nassau",
+                          mode: initialMode,
+                          store: "apple",
+                          surface: "unlocked_result",
+                        })
+                      }
                     >
                       <img src={APPLE_BADGE} alt="Download on the App Store" />
                     </a>
@@ -1282,7 +1410,14 @@ export default function PlanBuilder({
                       href={PLAY_STORE_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={() => trackQuizEvent("app_store_click", { store: "google", surface: "unlocked_result" })}
+                      onClick={() =>
+                        track("app_store_click", {
+                          port: "nassau",
+                          mode: initialMode,
+                          store: "google",
+                          surface: "unlocked_result",
+                        })
+                      }
                     >
                       <img src={PLAY_BADGE} alt="Get it on Google Play" />
                     </a>

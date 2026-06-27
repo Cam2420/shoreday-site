@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import HomeAnalytics from "./HomeAnalytics";
 import "./home.css";
 
 export const metadata: Metadata = {
@@ -21,6 +22,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="home" id="top">
+      <HomeAnalytics />
       <nav>
         <Link href="/" className="logo">
           <img
@@ -46,6 +48,10 @@ export default function Home() {
 
           <div className="hero-cta-stack" aria-label="Primary ShoreDay actions">
             <div className="hero-cta-group">
+              {/* Intentionally untracked: this is an internal navigation to the
+                  planner route, not the start of the planner flow. planner_start
+                  is fired inside the planner itself (PlanBuilder) when the user
+                  actually begins, so tracking the click here would double-count. */}
               <Link href="/nassau/plan" className="hero-primary-cta">
                 Start My Nassau Plan
               </Link>
@@ -54,6 +60,8 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hero-secondary-cta"
+                data-analytics-event="excursion_click"
+                data-analytics-surface="home_hero"
               >
                 Book Excursions ↗
               </a>
@@ -71,6 +79,9 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="store-badge"
+                data-analytics-event="app_store_click"
+                data-analytics-store="apple"
+                data-analytics-surface="home_app_badges"
               >
                 <img
                   src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
@@ -82,6 +93,9 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="store-badge"
+                data-analytics-event="app_store_click"
+                data-analytics-store="google"
+                data-analytics-surface="home_app_badges"
               >
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
@@ -150,6 +164,8 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className="primary-btn"
+            data-analytics-event="excursion_click"
+            data-analytics-surface="home_excursions_cta"
           >
             Shop Excursions Online
           </a>
