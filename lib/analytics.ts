@@ -26,6 +26,35 @@ import {
 
 const INTERNAL_SINK = "/api/funnel-events";
 
+// Privacy-safe, opaque per-browser analytics id. Persisted in localStorage so it
+// is stable across sessions, sent to the internal sink as `anonymous_id`, and used
+// server-side as the Mixpanel distinct_id. It is random and carries NO PII — never
+// an email, name, or any user-entered value.
+const ANON_ID_STORAGE_KEY = "shoreday_anon_id";
+let cachedAnonymousId: string | undefined;
+
+function getAnonymousId(): string | undefined {
+  if (cachedAnonymousId) return cachedAnonymousId;
+  try {
+    const existing = window.localStorage.getItem(ANON_ID_STORAGE_KEY);
+    if (existing) {
+      cachedAnonymousId = existing;
+      return existing;
+    }
+    const generated =
+      typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
+        ? crypto.randomUUID()
+        : `anon-${Math.random().toString(36).slice(2)}-${Date.now().toString(36)}`;
+    window.localStorage.setItem(ANON_ID_STORAGE_KEY, generated);
+    cachedAnonymousId = generated;
+    return generated;
+  } catch {
+    // Storage blocked (e.g. private mode / disabled cookies). Proceed without an
+    // id — events still forward, just without a stable distinct_id.
+    return undefined;
+  }
+}
+
 /** Runtime allow-list of canonical web event names (defence in depth vs. types). */
 const VALID_EVENT_NAMES: ReadonlySet<string> = new Set(FUNNEL_EVENTS);
 
@@ -89,7 +118,11 @@ function forwardToVendors(event: FunnelEvent): void {
 
 /** Beacon to the same-origin internal sink, falling back to keepalive fetch. */
 function sendToInternalSink(event: FunnelEvent): void {
-  const body = JSON.stringify(event);
+  // Attach the anonymous id as a top-level wire field (kept separate from the
+  // canonical funnel properties). The server maps it to the Mixpanel distinct_id.
+  const anonymousId = getAnonymousId();
+  const payload = anonymousId ? { ...event, anonymous_id: anonymousId } : event;
+  const body = JSON.stringify(payload);
   try {
     if (typeof navigator !== "undefined" && typeof navigator.sendBeacon === "function") {
       const blob = new Blob([body], { type: "application/json" });
