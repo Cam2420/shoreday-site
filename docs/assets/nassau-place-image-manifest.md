@@ -43,7 +43,7 @@ endpoint yet, so those places stay on the placeholder until that route exists.
 | Pompey Square | `pompey-square` | _(placeholder — no file)_ | None owned | N/A (no stored asset) | `needs replacement` | Rendered stop (family/low-stress variant). |
 | Nassau Straw Market | `straw-market` | _(placeholder — no file)_ | None owned | N/A (no stored asset) | `needs replacement` | Rendered stop (food/culture variant). |
 | Nassau Cruise Port | `nassau-cruise-port` | `public/nassau-aerial-web.jpg` | ShoreDay Media Library (`nassau_aerial.jpg` → web-optimized) | Owned / licensed ShoreDay media | `approved` | Owned aerial that truthfully shows the port + cruise terminal. Registry-only today. |
-| Return to the pier | `return-buffer` | `public/images/nassau/places/nassau-harbor-approach.jpg` | ShoreDay Media Library (Nassau harbor approach) | Owned / licensed ShoreDay media | `approved` | Rendered as the final bookend stop. Owned harbor/pier image, contextually correct. |
+| Return to the pier | `return-buffer` | `public/images/nassau/places/return-to-ship.webp` | ShoreDay Media Library (`shutterstock_2634928729.jpg`, Nassau Cruise Port village → web-optimized) | Owned / licensed ShoreDay media | `approved` | Rendered as the final bookend stop ("Start returning back to the ship"). Owned, place-true cruise-port village image; because an owned image exists, this stop never requests a Google Places photo (no attribution overlay). |
 
 **Summary:** 2 `approved` (owned port/harbor images) · 9 `needs replacement` · 0 `dynamic only`.
 
@@ -54,7 +54,7 @@ watlings, fort, fish, nassau, beach, port` across:
 
 | Location | Result |
 | --- | --- |
-| Web repo `public/` (incl. `public/images/nassau/places/`) | General Nassau assets: `nassau-aerial-web.jpg`, `nassau-people-web.jpg`, `Nassau_people.full.jpg`, `nassau_aerial.jpg`, `swimmingpig_bird.jpg`, plus the owned harbor fallback `nassau-harbor-approach.jpg` (used by `return-buffer`). No place-specific landmark/venue photos. The two unused generic fallbacks (`bahamas-beach-fallback.jpg`, `itinerary-desk-fallback.jpg`) were **deleted** in the 2026-06-26 corrective pass. |
+| Web repo `public/` (incl. `public/images/nassau/places/`) | General Nassau assets: `nassau-aerial-web.jpg`, `nassau-people-web.jpg`, `Nassau_people.full.jpg`, `nassau_aerial.jpg`, `swimmingpig_bird.jpg`, plus the owned cruise-port village image `return-to-ship.webp` (used by `return-buffer`). No place-specific landmark/venue photos. The two unused generic fallbacks (`bahamas-beach-fallback.jpg`, `itinerary-desk-fallback.jpg`) were **deleted** in the 2026-06-26 corrective pass. |
 | Mobile app `assets/images/` + `pubspec.yaml` | Only generic/stock (`bg_imag.jpeg`, `trip1–7.png`, `Gallery5.png`, `love_bahamas_beach_original.jpeg`, `nassau_hero_fallback.jpg`) and app UI icons. **No bundled place photos** — the app fetches them from Google Places at runtime (`getPhotoUrlForPlace`), even falling back to an Unsplash URL. |
 | ShoreDay Drive Media Library (`cam@shoredayapp.com`) | Place-term query returned **nothing**. Only general Nassau imagery: `nassau_aerial.jpg` (port/terminal aerial — already in repo), `Nassau_people.full.jpg` (already in repo), street/jitney shots (`NassauTraffic2`, `Nassau_Jitney`), and one food photo (`Bahamasfoodfull.jpg`, conch). Two **Hurricane Dorian** disaster photos (`Welcome2Nassau.jpg`, `NassauTaxi1full.jpg`) are explicitly **excluded**. |
 
