@@ -161,7 +161,7 @@ a.np-port-chip:hover {
 .np-intro-heading {
   width: 100%;
   max-width: 680px;
-  margin: auto auto 1rem;
+  margin: clamp(2rem, 8vh, 4rem) auto 1rem;
   text-align: center;
   color: var(--color-ocean-ink);
   font-family: var(--np-display);
@@ -174,7 +174,7 @@ a.np-port-chip:hover {
 .np-intro-card {
   width: 100%;
   max-width: 680px;
-  margin: 0 auto auto;
+  margin: 0 auto clamp(2rem, 6vh, 3rem);
   padding: clamp(1.25rem, 5vw, 2.5rem);
   background: var(--np-card);
   border: 1px solid var(--np-line-strong);
@@ -195,7 +195,7 @@ a.np-port-chip:hover {
 .np-intro-cta {
   width: 100%;
   max-width: 320px;
-  margin: 1.45rem auto 0.75rem;
+  margin: 0 auto 0.75rem;
   box-shadow:
     0 14px 30px rgba(14, 90, 103, 0.25),
     0 0 0 7px rgba(44, 200, 183, 0.14);
@@ -620,8 +620,18 @@ a.np-port-chip:hover {
   padding-left: 38px;
 }
 
-/* --------------------------------------------------- Timing port-day card -- */
-/* The port date + step-off + all-aboard fields read as one cohesive card. */
+/* Light tint groups the three required date/time fields without a nested card.
+   No border, no box-shadow — just enough surface lift to signal they belong
+   together. The fields' own .fn-input borders provide all the visual edge. */
+.fn-time-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  background: rgba(14, 90, 103, 0.04);
+  border-radius: 14px;
+  padding: 1rem;
+}
+
 /* Checkbox */
 .fn-checkbox {
   display: flex;
