@@ -6,7 +6,7 @@ came from, and whether it is production-ready.
 
 - **Code:** [`lib/nassau-place-assets.ts`](../../lib/nassau-place-assets.ts) — the registry these rows mirror.
 - **Render:** [`components/funnel/ItineraryStopCard.tsx`](../../components/funnel/ItineraryStopCard.tsx) — shows the owned image, or the intentional placeholder. These cards render only on `/nassau/plan`; the legacy `/nassau/results/[planId]` route (which previously used generic location photos) is retired and now redirects to `/nassau/plan`.
-- **Future dynamic source:** [`lib/google-place-photo-types.ts`](../../lib/google-place-photo-types.ts) + `app/api/places/photo/route.ts`.
+- **Google Places photo source (wired):** [`lib/google-place-photo-types.ts`](../../lib/google-place-photo-types.ts) + [`app/api/places/photo/route.ts`](../../app/api/places/photo/route.ts) — server-side route that resolves a place and returns a short-lived photo URI + attribution. Used only for unlocked, post-email itinerary cards that have no owned image. Preview/locked cards never fetch it. Key stays server-only; attribution is mandatory; failures fall back silently to the placeholder.
 
 ## Image-honesty policy
 
@@ -18,8 +18,12 @@ Showing an honest placeholder is required behaviour — a generic stand-in
 (beach, cruise ship, street scene) for an unrelated venue is **not** allowed.
 
 The ShoreDay mobile app fills these same places from **Google Places at runtime**
-(`getPhotoUrlForPlace(query, loc)`); the web funnel has no server-side Places
-endpoint yet, so those places stay on the placeholder until that route exists.
+(`getPhotoUrlForPlace(query, loc)`). The web funnel now has a wired server-side
+Places photo route (`app/api/places/photo/route.ts`): on the **unlocked,
+post-email** itinerary timeline, a card with no owned image can receive a
+real Google Places photo (with required attribution) overlaid on the placeholder.
+Preview/locked cards never request it. Owned/approved images always take
+precedence — a card with an owned `src` never contacts Google Places.
 
 ### Status legend
 
@@ -27,7 +31,7 @@ endpoint yet, so those places stay on the placeholder until that route exists.
 | --- | --- |
 | `approved` | ShoreDay owns/licenses an image that truthfully shows this place. Safe for production. |
 | `needs replacement` | No owned place-true image yet. Web shows the intentional placeholder. Production source is Google Places (mobile parity). |
-| `dynamic only` | Served only from a dynamic/remote source at runtime, never stored locally. Reserved for once the server-side Places route exists — **nothing uses it in web V1.** |
+| `dynamic only` | Served only from a dynamic/remote source at runtime, never stored locally. The server-side Places route now exists — but no slug is currently set to this status; `needs replacement` slugs receive Google Photos as an overlay enhancement, not a replacement source. |
 
 ## Manifest
 
@@ -60,8 +64,10 @@ watlings, fort, fish, nassau, beach, port` across:
 
 **Conclusion:** No owned/approved photo exists for any of the nine activity
 places. Only the Nassau **port/harbor** shots truthfully depict a slug, so only
-`nassau-cruise-port` and `return-buffer` are `approved`. Everything else uses the
-intentional placeholder until the server-side Google Places route is built.
+`nassau-cruise-port` and `return-buffer` are `approved`. Everything else shows
+the intentional placeholder; on the unlocked post-email itinerary, the wired
+Google Places route (`app/api/places/photo/route.ts`) can overlay a real photo
+(with required attribution) on those placeholder cards.
 
 ## Related: excursion imagery
 
