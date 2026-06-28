@@ -76,7 +76,7 @@ export default function Home() {
                 <a
                   href="https://vi.me/s/shoredayapp"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="sponsored noopener noreferrer"
                   className="hero-secondary-cta"
                   data-analytics-event="excursion_click"
                   data-analytics-surface="home_hero"
@@ -337,7 +337,7 @@ export default function Home() {
           <a
             href="https://vi.me/s/shoredayapp"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="sponsored noopener noreferrer"
             className="primary-btn"
             data-analytics-event="excursion_click"
             data-analytics-surface="home_excursions_cta"

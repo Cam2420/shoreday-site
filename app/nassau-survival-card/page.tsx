@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ViatorOutboundLink from "@/components/funnel/ViatorOutboundLink";
 import "./survival.css";
 
 export const metadata: Metadata = {
@@ -172,14 +173,9 @@ export default function NassauSurvivalCard() {
               alt="Get it on Google Play"
             />
           </a>
-          <a
-            className="shop"
-            href="https://vi.me/s/shoredayapp"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <ViatorOutboundLink surface="survival_card" className="shop">
             Browse curated Nassau excursions →
-          </a>
+          </ViatorOutboundLink>
         </div>
         <p className="affiliate-disclosure">
           Disclosure: ShoreDay may earn a commission if you book through a Viator link.
