@@ -1133,7 +1133,7 @@ export default function PlanBuilder({
                 setPhase("intro");
               }}
               onContinue={handleExactTimingSubmit}
-              continueLabel="Calculate my back-at-the-pier time"
+              continueLabel="Calculate my return time"
               showBack={isQuizMode}
             >
               <div className="fn-stack">
