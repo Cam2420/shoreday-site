@@ -193,13 +193,16 @@ export const nassauPlaceAssets: Record<NassauPlaceAssetKey, NassauPlaceAsset> = 
   },
   'return-buffer': {
     placeName: 'Return to the pier',
-    src: '/images/nassau/places/nassau-harbor-approach.jpg',
-    alt: 'Nassau harbor and pier seen on the approach back to the ship',
+    src: '/images/nassau/places/return-to-ship.webp',
+    alt: 'Colorful shops and cruise visitors at the Nassau Cruise Port village by the pier',
     status: 'approved',
-    source: 'ShoreDay Media Library — Nassau harbor approach',
+    source: 'ShoreDay Media Library — shutterstock_2634928729.jpg (Nassau Cruise Port village), web-optimized as return-to-ship.webp',
     license: 'Owned/licensed ShoreDay media',
     googlePlaceQuery: 'Prince George Wharf Nassau',
-    notes: 'Owned harbor/pier image, contextually correct for the return-buffer bookend.',
+    notes:
+      'Owned, place-true Nassau Cruise Port image for the return-to-ship bookend. ' +
+      'Because an approved owned image exists, this stop never requests a Google Places ' +
+      'photo, so no attribution overlay appears.',
   },
 };
 
