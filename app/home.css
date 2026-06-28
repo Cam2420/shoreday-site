@@ -1,21 +1,41 @@
-/* Homepage — faithful port of the original index.html styles, namespaced
-   under .home to avoid collisions with other pages' global CSS. */
+/* ShoreDay homepage — "Bahamas Editorial Control Tower".
+   Warm shell/sand base, lagoon + harbor decision tones, blush as a quiet accent,
+   Fraunces for selective editorial headings, Plus Jakarta Sans for everything
+   functional. Real Nassau photography carries the vacation-trust feeling.
+   Scoped under .home; warm palette vars are defined locally (globals.css tokens
+   are left untouched). */
 
 .home {
-  /* Sand-dominant page wash, biased to the left so the text column stays highly
-     readable while the right side reveals the harbor/ships clearly. Lighter than
-     the prior near-opaque wash so the photo reads as authentic destination proof
-     rather than background texture — without returning to a dark-navy hero. */
-  background-image: linear-gradient(
-      to right,
-      rgba(255, 248, 238, 0.92) 0%,
-      rgba(255, 248, 238, 0.7) 42%,
-      rgba(234, 247, 245, 0.42) 100%
+  /* Warm coastal palette — directional tokens, scoped to the homepage. */
+  --shell: #f6f1e7;
+  --shell-2: #efe6d6;
+  --cream-card: #fffaf2;
+  --sand-warm: #f3ead9;
+  --aqua-mist: #d8efee;
+  --lagoon: #4f8d90;
+  --harbor: #2f4d66;
+  --blush: #f4b7c3;
+  --line: rgba(47, 77, 102, 0.16);
+  --line-strong: rgba(47, 77, 102, 0.26);
+  --display: var(--font-fraunces), "Georgia", "Times New Roman", serif;
+  /* Original procedural sand grain — a tiny grayscale fractal-noise SVG baked at
+     ~4.5% opacity (no external/Pinterest asset, no image file). Reads as soft
+     resort paper, not dirt; far too faint to affect text contrast. */
+  --sand-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23s)' opacity='0.045'/%3E%3C/svg%3E");
+
+  background:
+    /* fine sand grain */
+    var(--sand-grain),
+    /* soft diagonal dune sweep (static — reads as gentle beach-sand movement) */
+    linear-gradient(
+      115deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(214, 196, 166, 0.06) 34%,
+      rgba(255, 255, 255, 0.04) 60%,
+      rgba(214, 196, 166, 0.05) 100%
     ),
-    url("https://images.unsplash.com/photo-1548574505-5e239809ee19?q=80&w=2564&auto=format&fit=crop");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+    radial-gradient(120% 80% at 85% -10%, var(--aqua-mist) 0%, transparent 45%),
+    linear-gradient(180deg, var(--shell) 0%, var(--shell-2) 100%);
   color: var(--color-ocean-ink);
   line-height: 1.6;
   display: flex;
@@ -28,8 +48,11 @@
 .home nav {
   display: flex;
   justify-content: space-between;
-  padding: 2rem 5%;
+  padding: 1.5rem 5%;
   align-items: center;
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
 }
 .home .logo {
   font-size: 1.5rem;
@@ -42,233 +65,312 @@
   text-decoration: none;
 }
 .home .logo span {
-  color: var(--color-deep-teal);
-}
-.home .nav-links a {
-  color: var(--color-ocean-ink);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.2s;
-}
-.home .nav-links a:hover {
-  color: var(--color-deep-teal);
+  color: var(--lagoon);
 }
 
-/* Hero Layout */
+/* ---------------------------------------------------------------- Hero ----- */
 .home .hero {
+  position: relative;
+  isolation: isolate;
+  width: 92%;
+  max-width: 1240px;
+  margin: 0.25rem auto 0;
+  border-radius: 28px;
+  overflow: hidden;
+  padding: clamp(2rem, 5vw, 4.5rem) clamp(1.25rem, 4vw, 3.5rem);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 4rem 5% 4rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  flex: 1;
-  gap: 4rem;
+  min-height: min(78vh, 680px);
+  box-shadow: 0 30px 60px rgba(23, 50, 77, 0.22);
 }
 
-/* Hero Left: Text & Buttons */
+/* Real Nassau photo + an on-brand deep-teal scrim. The wash is kept deliberately
+   light so the photo's clarity comes through — it's concentrated behind the
+   left-hand text column (a directional gradient) and clears almost entirely over
+   the right ~40% of the image (resort, beach, palms). White headline/CTAs stay
+   legible via this focused wash plus their own text-shadow halo. */
+.home .hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.home .hero-media picture,
+.home .hero-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.home .hero-media img {
+  object-fit: cover;
+  object-position: 60% center;
+}
+.home .hero-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      100deg,
+      rgba(11, 38, 51, 0.72) 0%,
+      rgba(11, 38, 51, 0.46) 32%,
+      rgba(11, 38, 51, 0.12) 62%,
+      rgba(11, 38, 51, 0) 82%
+    ),
+    linear-gradient(180deg, rgba(11, 38, 51, 0) 58%, rgba(11, 38, 51, 0.2) 100%);
+}
+
+.home .hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+  width: 100%;
+}
+
 .home .hero-text-content {
-  flex: 1;
-  max-width: 600px;
+  max-width: 620px;
   text-align: left;
+  color: #fff;
 }
 .home .badge {
   display: inline-block;
-  background: rgba(44, 200, 183, 0.18);
-  color: var(--color-deep-teal);
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
   padding: 6px 16px;
-  border-radius: 20px;
+  border-radius: 999px;
   font-weight: 800;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 1.5rem;
-  border: 1px solid rgba(44, 200, 183, 0.45);
+  margin-bottom: 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 .home h1 {
-  font-size: 3.5rem;
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-  letter-spacing: -1px;
-  color: var(--color-ocean-ink);
+  font-family: var(--display);
+  font-optical-sizing: auto;
+  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  font-weight: 600;
+  line-height: 1.04;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.5px;
+  color: #fff;
+  text-shadow: 0 2px 24px rgba(8, 28, 38, 0.45);
 }
 .home p.subtitle {
-  font-size: 1.2rem;
-  color: var(--color-ocean-ink-muted);
-  margin-bottom: 1.35rem;
+  font-size: clamp(1.02rem, 1.6vw, 1.18rem);
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 1.5rem;
+  max-width: 38rem;
+  text-shadow: 0 1px 18px rgba(8, 28, 38, 0.6), 0 1px 3px rgba(8, 28, 38, 0.4);
 }
 
 .home .hero-cta-stack {
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
-  margin-bottom: 1.35rem;
+  margin-bottom: 1.4rem;
 }
-
 .home .hero-cta-group {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
   align-items: center;
 }
-
 .home .hero-primary-cta,
 .home .hero-secondary-cta {
-  min-height: 52px;
+  min-height: 54px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  padding: 14px 24px;
+  padding: 15px 28px;
   font-weight: 800;
   font-size: 1rem;
   line-height: 1;
   text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
 }
-
 .home .hero-primary-cta {
   background: var(--color-deep-teal);
   border: 2px solid var(--color-deep-teal);
-  color: #ffffff;
-  box-shadow: 0 14px 28px rgba(14, 90, 103, 0.26);
+  color: #fff;
+  box-shadow: 0 14px 30px rgba(8, 28, 38, 0.4);
 }
-
 .home .hero-primary-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 18px 34px rgba(14, 90, 103, 0.32);
+  background: #0c4d58;
+  box-shadow: 0 18px 38px rgba(8, 28, 38, 0.5);
 }
-
 .home .hero-secondary-cta {
-  background: rgba(255, 250, 242, 0.74);
-  border: 2px solid rgba(14, 90, 103, 0.3);
-  color: var(--color-deep-teal);
+  background: rgba(255, 255, 255, 0.14);
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
-
 .home .hero-secondary-cta:hover {
-  background: var(--color-sand);
+  background: rgba(255, 255, 255, 0.24);
   transform: translateY(-2px);
+}
+.home .hero-primary-cta:active,
+.home .hero-secondary-cta:active {
+  transform: translateY(0) scale(0.99);
+}
+.home .hero-microcopy {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-shadow: 0 1px 12px rgba(8, 28, 38, 0.55);
+}
+.home .trust-bar {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 600;
+  text-shadow: 0 1px 12px rgba(8, 28, 38, 0.55);
 }
 
 .home .hero-primary-cta:focus-visible,
 .home .hero-secondary-cta:focus-visible,
 .home .store-badge:focus-visible,
-.home .nav-links a:focus-visible,
 .home .primary-btn:focus-visible,
 .home .secondary-btn:focus-visible {
   outline: 3px solid var(--color-lagoon);
   outline-offset: 4px;
 }
 
-.home .hero-microcopy {
-  margin: 0;
-  color: var(--color-ocean-ink-muted);
-  font-size: 0.9rem;
-  font-weight: 700;
+/* Port-day control tower card */
+.home .port-control {
+  background: rgba(255, 250, 242, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 22px;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  box-shadow: 0 22px 44px rgba(8, 28, 38, 0.28);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--color-ocean-ink);
 }
-
-/* Button Layout */
-.home .app-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 2rem;
-}
-
-.home .app-actions-label {
-  margin: 0;
-  color: var(--color-deep-teal);
-  font-size: 0.74rem;
+.home .port-control-kicker {
+  margin: 0 0 0.4rem;
+  color: var(--harbor);
+  font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
-  line-height: 1;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
 }
-
-.home .app-buttons {
-  display: flex;
-  gap: 15px;
+.home .port-control-title {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1.12;
+  margin: 0 0 1.1rem;
+  color: var(--color-ocean-ink);
+}
+.home .port-control-steps {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+.home .port-control-steps li {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 0.7rem;
+  align-items: start;
+}
+.home .port-control-steps li span {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--color-deep-teal);
+  color: #fff;
+  font-weight: 800;
 }
-.home .app-buttons img {
-  height: 48px;
-  width: auto;
-  transition: transform 0.2s, filter 0.2s;
+.home .port-control-steps strong {
+  display: block;
+  color: var(--color-ocean-ink);
+  font-size: 0.98rem;
 }
-.home .app-buttons a.store-badge:hover img {
-  transform: translateY(-3px);
-  filter: brightness(1.1);
-}
-
-/* Subtle Social Proof */
-.home .trust-bar {
-  font-size: 0.85rem;
+.home .port-control-steps p {
+  margin: 0.1rem 0 0;
   color: var(--color-ocean-ink-muted);
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+.home .port-control-note {
+  margin: 0;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--line);
+  color: var(--color-ocean-ink-muted);
+  font-size: 0.82rem;
   font-weight: 600;
 }
 
-/* Side-by-Side Mockup Layout */
-.home .hero-mockups {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
+/* -------------------------------------------------------------- Sections --- */
+.section-kicker {
+  display: block;
+  color: var(--lagoon);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
 }
-.home .mockup-left,
-.home .mockup-right {
-  width: 240px;
-  border-radius: 35px;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.home .mockup-left:hover,
-.home .mockup-right:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 35px 60px rgba(0, 0, 0, 0.7);
+.home .section-lead {
+  color: var(--color-ocean-ink-muted);
+  font-size: 1.02rem;
+  max-width: 52ch;
 }
 
 /* Features */
 .home .features {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  padding: 2rem 5% 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: clamp(2.5rem, 5vw, 4rem) 5% 1rem;
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
 }
 .home .feature-card {
-  background: var(--color-sand);
-  padding: 2.5rem 2rem;
-  border-radius: 16px;
-  border: 1px solid rgba(44, 200, 183, 0.35);
+  background: var(--cream-card);
+  padding: 2rem 1.75rem;
+  border-radius: 20px;
+  border: 1px solid var(--line);
   text-align: left;
-  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 12px 26px rgba(23, 50, 77, 0.08);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 .home .feature-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--color-deep-teal);
-  box-shadow: 0 12px 28px rgba(14, 90, 103, 0.18);
+  transform: translateY(-4px);
+  border-color: var(--lagoon);
+  box-shadow: 0 18px 34px rgba(23, 50, 77, 0.14);
 }
-/* Sand is the dominant card surface; Sea Glass returns as an icon-chip accent. */
 .home .feature-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
-  border-radius: 14px;
-  background: var(--color-sea-glass);
-  font-size: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: var(--aqua-mist);
+  font-size: 1.9rem;
   margin-bottom: 1rem;
 }
 .home .feature-card h3 {
+  font-family: var(--display);
   font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-ocean-ink);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.15;
 }
 .home .feature-card p {
   color: var(--color-ocean-ink-muted);
@@ -276,38 +378,119 @@
   line-height: 1.5;
 }
 
-/* Excursions CTA Section — the one deliberate dark accent panel. A lighter
-   Deep Teal → Ocean Ink overlay keeps the swimming-pig photography visible
-   while preserving white-text legibility. */
-.home .excursions-cta {
+/* Experience Nassau — real photography band */
+.home .experience {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(2rem, 4vw, 3.5rem) 5% 1rem;
+}
+.home .experience-head {
+  max-width: 60ch;
+  margin-bottom: 1.75rem;
+}
+.home .experience-head h2 {
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.08;
+  margin: 0 0 0.6rem;
+  color: var(--color-ocean-ink);
+}
+.home .experience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.home .exp-card {
+  position: relative;
+  margin: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  min-height: 220px;
+  box-shadow: 0 14px 30px rgba(23, 50, 77, 0.12);
+  background: var(--sand-warm);
+}
+.home .exp-card-wide {
+  grid-column: 1 / -1;
+  min-height: 260px;
+}
+.home .exp-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.home .exp-card:hover img {
+  transform: scale(1.04);
+}
+.home .exp-card figcaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1.7rem 1.1rem 1.15rem;
+  color: #fff;
   background: linear-gradient(
-      rgba(14, 90, 103, 0.55),
-      rgba(23, 50, 77, 0.78)
-    ),
+    180deg,
+    rgba(13, 42, 56, 0) 0%,
+    rgba(13, 42, 56, 0.5) 42%,
+    rgba(13, 42, 56, 0.88) 100%
+  );
+}
+/* Category chip: small, decorative (non-interactive) label pinned to the
+   upper-left, well away from the bottom copy. Near-opaque white + soft shadow
+   keeps it legible over bright sky/water without needing its own scrim. */
+.home .exp-tag {
+  position: absolute;
+  top: 0.7rem;
+  left: 0.7rem;
+  z-index: 2;
+  padding: 3px 8px;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--harbor);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-shadow: none;
+  box-shadow: 0 2px 8px rgba(8, 28, 38, 0.22);
+}
+.home .exp-copy {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-shadow: 0 1px 10px rgba(8, 28, 38, 0.6);
+  text-wrap: balance;
+}
+
+/* Excursions CTA — the one deliberate dark accent panel (kept on-brand). */
+.home .excursions-cta {
+  background: linear-gradient(rgba(13, 42, 56, 0.62), rgba(23, 50, 77, 0.82)),
     url("/swimmingpig_bird.jpg");
   background-size: cover;
   background-position: center;
-  border: 1px solid rgba(44, 200, 183, 0.5);
-  padding: 4rem 5%;
+  border: 1px solid rgba(79, 141, 144, 0.5);
+  padding: clamp(2.5rem, 5vw, 4rem) 5%;
   text-align: center;
-  margin: 2rem auto 5rem;
-  width: 90%;
-  max-width: 1000px;
+  margin: 2.5rem auto 4rem;
+  width: 92%;
+  max-width: 1080px;
   border-radius: 24px;
-  box-shadow: 0 20px 40px rgba(14, 90, 103, 0.35);
+  box-shadow: 0 22px 44px rgba(23, 50, 77, 0.28);
 }
-
-/* Credibility Badges */
 .home .credibility-stack {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  margin-bottom: 1.25rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
 }
 .home .viator-text {
-  color: #e2e8f0;
+  color: #e8eef2;
   font-size: 0.9rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -317,27 +500,25 @@
   color: #34e0a1;
   font-weight: 800;
 }
-
 .home .excursions-cta h2 {
-  font-size: 2.5rem;
-  font-weight: 800;
+  font-family: var(--display);
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 600;
   margin-bottom: 1rem;
-  color: white;
-  letter-spacing: -0.5px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 4px 20px rgba(0, 0, 0, 0.6);
+  color: #fff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
 }
 .home .excursions-cta p {
-  font-size: 1.15rem;
-  color: #f8fafc;
-  margin-bottom: 2.5rem;
+  font-size: 1.1rem;
+  color: #f4f8fb;
+  margin-bottom: 2rem;
   max-width: 750px;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
   font-weight: 500;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
-
 .home .cta-button-group {
   display: flex;
   gap: 15px;
@@ -350,151 +531,305 @@
   font-weight: 500;
   margin: 1rem auto 0;
   max-width: 620px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 .home .primary-btn {
   display: inline-block;
   background: var(--color-deep-teal);
-  color: #ffffff;
-  padding: 16px 36px;
-  border-radius: 50px;
+  color: #fff;
+  padding: 15px 34px;
+  border-radius: 999px;
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
   border: 2px solid var(--color-deep-teal);
 }
 .home .primary-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(14, 90, 103, 0.55);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(8, 28, 38, 0.5);
 }
 .home .secondary-btn {
   display: inline-block;
-  background: rgba(23, 50, 77, 0.55);
-  color: white;
-  padding: 16px 36px;
-  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  padding: 15px 34px;
+  border-radius: 999px;
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  transition: background 0.2s, transform 0.2s;
+  transition: background 0.18s ease, transform 0.18s ease;
 }
 .home .secondary-btn:hover {
-  background: rgba(23, 50, 77, 0.8);
-  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.22);
+  transform: translateY(-2px);
 }
 
-/* Footer — compact Deep Teal anchor band (part of the ~20% dark allowance). */
+/* App companion */
+.home .app-cta {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+  width: 92%;
+  max-width: 1120px;
+  margin: 0 auto 4rem;
+  padding: clamp(1.75rem, 3.5vw, 3rem);
+  border-radius: 28px;
+  background:
+    radial-gradient(120% 100% at 100% 0%, var(--aqua-mist) 0%, transparent 55%),
+    var(--cream-card);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 38px rgba(23, 50, 77, 0.1);
+}
+.home .app-cta-copy h2 {
+  font-family: var(--display);
+  font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0 0 0.75rem;
+  color: var(--color-ocean-ink);
+}
+.home .app-cta-copy > p {
+  color: var(--color-ocean-ink-muted);
+  font-size: 1.02rem;
+  margin: 0 0 1.1rem;
+  max-width: 46ch;
+}
+.home .app-feature-list {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem 1rem;
+}
+.home .app-feature-list li {
+  position: relative;
+  padding-left: 1.4rem;
+  color: var(--color-ocean-ink);
+  font-weight: 600;
+  font-size: 0.94rem;
+}
+.home .app-feature-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--lagoon);
+}
+.home .app-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.home .app-actions-label {
+  margin: 0;
+  color: var(--harbor);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.home .app-buttons {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.home .app-buttons img {
+  height: 46px;
+  width: auto;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+.home .app-buttons a.store-badge:hover img {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+/* App screenshots — soft device-less framing */
+.home .app-cta-shots {
+  position: relative;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home .app-shot {
+  width: 46%;
+  max-width: 230px;
+  border-radius: 22px;
+  box-shadow: 0 18px 40px rgba(23, 50, 77, 0.22);
+  border: 4px solid #fff;
+  background: #fff;
+}
+.home .app-shot-front {
+  position: relative;
+  z-index: 2;
+  transform: translateX(14%) rotate(2deg);
+}
+.home .app-shot-back {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-14%) rotate(-3deg);
+}
+
+/* Footer — deep teal anchor band */
 .home footer {
-  border-top: 1px solid rgba(44, 200, 183, 0.4);
+  border-top: 1px solid rgba(79, 141, 144, 0.4);
   padding: 2rem 5%;
   text-align: center;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.88);
   font-size: 0.9rem;
   margin-top: auto;
-  background: var(--color-deep-teal);
+  background: var(--harbor);
 }
 .home footer a {
-  color: #ffffff;
+  color: #fff;
   text-decoration: underline;
   margin: 0 10px;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 .home footer a:hover {
   color: var(--color-lagoon);
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .home .mockup-left,
-  .home .mockup-right {
-    width: 200px;
+/* ----------------------------------------------------- Hero load motion ---- */
+@keyframes home-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-@media (max-width: 960px) {
+.home .badge,
+.home h1,
+.home p.subtitle,
+.home .hero-cta-stack,
+.home .trust-bar,
+.home .port-control {
+  animation: home-rise 0.55s ease both;
+}
+.home .badge {
+  animation-delay: 0.04s;
+}
+.home h1 {
+  animation-delay: 0.12s;
+}
+.home p.subtitle {
+  animation-delay: 0.2s;
+}
+.home .hero-cta-stack {
+  animation-delay: 0.27s;
+}
+.home .trust-bar {
+  animation-delay: 0.33s;
+}
+.home .port-control {
+  animation-delay: 0.36s;
+}
+
+/* --------------------------------------------------------- Responsive ------ */
+
+/* Mobile / small-tablet hero — ART-DIRECTED, not shrunk.
+   On phones the desktop "text over a scrimmed photo" pattern is abandoned
+   entirely. Instead the photo becomes a clear postcard band at the top (shown
+   at full clarity — no heavy tint to fight), and the headline, CTAs, and the
+   port-control card sit below on a solid deep-teal sheet. That gives a
+   thumb-friendly single reading column, perfect white-on-teal contrast, and a
+   premium hotel-app feel — a different composition from desktop, not a reflow. */
+@media (max-width: 860px) {
   .home .hero {
-    flex-direction: column;
-    text-align: center;
-    padding-top: 2rem;
-    gap: 3rem;
+    display: block;
+    align-items: stretch;
+    min-height: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #0d2a38 0%, #0a2230 100%);
+  }
+  .home .hero-media {
+    position: relative;
+    inset: auto;
+    z-index: 0;
+    height: clamp(200px, 46vw, 300px);
+  }
+  .home .hero-media img {
+    object-position: center 38%;
+  }
+  /* Photo stays clear; only a soft bottom fade blends it into the teal sheet. */
+  .home .hero-scrim {
+    background: linear-gradient(180deg, rgba(13, 42, 56, 0) 50%, #0d2a38 100%);
+  }
+  .home .hero-inner {
+    display: block;
+    grid-template-columns: none;
+    padding: clamp(1.4rem, 5vw, 2rem) 7% clamp(1.6rem, 6vw, 2.25rem);
   }
   .home .hero-text-content {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    max-width: 100%;
   }
+  /* The lighter desktop wash is irrelevant here, but reset the headline shadow
+     to a gentler one since text now sits on a solid sheet, not a photo. */
   .home h1 {
-    font-size: 2.8rem;
+    text-shadow: none;
   }
-  .home .app-buttons {
-    justify-content: center;
+  .home p.subtitle,
+  .home .hero-microcopy,
+  .home .trust-bar {
+    text-shadow: none;
   }
-  .home .hero-cta-group {
-    justify-content: center;
-  }
-  .home .excursions-cta h2 {
-    font-size: 2rem;
-  }
-}
-@media (max-width: 600px) {
-  .home nav {
-    padding: 1.15rem 5% 0.75rem;
-  }
-
-  .home .nav-links a {
-    font-size: 0.9rem;
-  }
-
-  .home .hero {
-    padding-top: 1rem;
-    gap: 2rem;
-  }
-
-  .home h1 {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
-  }
-
-  .home p.subtitle {
-    font-size: 1rem;
-    margin-bottom: 1.1rem;
-  }
-
   .home .hero-cta-stack,
-  .home .hero-cta-group {
-    width: 100%;
-  }
-
+  .home .hero-cta-group,
   .home .hero-primary-cta,
   .home .hero-secondary-cta {
     width: 100%;
   }
+  .home .port-control {
+    margin-top: 1.5rem;
+  }
+}
 
-  .home .app-actions {
-    align-items: center;
-    margin-bottom: 0.5rem;
+@media (max-width: 720px) {
+  .home nav {
+    padding: 1.1rem 6%;
   }
-  .home .app-buttons {
-    flex-direction: column;
-    gap: 10px;
+  .home .hero {
+    width: 94%;
+    border-radius: 22px;
   }
-  .home .app-buttons img {
-    height: 42px;
+  .home .experience-grid {
+    grid-template-columns: 1fr;
   }
-  .home .hero-mockups {
-    gap: 10px;
+  .home .exp-card,
+  .home .exp-card-wide {
+    min-height: 200px;
   }
-  .home .mockup-left,
-  .home .mockup-right {
-    width: 160px;
+  .home .hero-cta-stack,
+  .home .hero-cta-group {
+    width: 100%;
   }
-  .home .excursions-cta {
-    padding: 3rem 1.5rem;
-    width: 95%;
+  .home .hero-primary-cta,
+  .home .hero-secondary-cta {
+    width: 100%;
+  }
+  .home .app-cta {
+    grid-template-columns: 1fr;
+  }
+  .home .app-cta-shots {
+    order: -1;
+    min-height: 300px;
+  }
+  .home .app-feature-list {
+    grid-template-columns: 1fr;
   }
   .home .cta-button-group {
     flex-direction: column;
@@ -504,5 +839,74 @@
   .home .secondary-btn {
     width: 100%;
     text-align: center;
+  }
+  .home .app-buttons img {
+    height: 48px;
+  }
+
+  /* Features: an intentional single-column mobile layout (not an auto-fit
+     accident), with comfortable card padding. */
+  .home .features {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: clamp(2rem, 8vw, 2.75rem) 6% 0.5rem;
+  }
+  .home .feature-card {
+    padding: 1.5rem 1.4rem;
+  }
+
+  /* Experience cards on a phone: keep the bottom copy clearly readable, and the
+     upper-left chip small but legible. Chip stays pinned top-left (away from the
+     copy), so there is no collision in the single-column layout. */
+  .home .exp-card figcaption {
+    padding: 1.7rem 1rem 1.1rem;
+  }
+  .home .exp-copy {
+    font-size: 1rem;
+  }
+  .home .exp-tag {
+    top: 0.6rem;
+    left: 0.6rem;
+    font-size: 0.62rem;
+  }
+
+  /* Footer: turn small inline links into thumb-friendly targets. */
+  .home footer {
+    font-size: 0.95rem;
+  }
+  .home footer a {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 4px 4px;
+  }
+}
+
+/* --------------------------------------------------- Reduced motion -------- */
+@media (prefers-reduced-motion: reduce) {
+  .home .badge,
+  .home h1,
+  .home p.subtitle,
+  .home .hero-cta-stack,
+  .home .trust-bar,
+  .home .port-control {
+    animation: none;
+  }
+  .home .hero-primary-cta,
+  .home .hero-secondary-cta,
+  .home .feature-card,
+  .home .primary-btn,
+  .home .secondary-btn,
+  .home .app-buttons img,
+  .home .exp-card img {
+    transition: none;
+  }
+  .home .hero-primary-cta:hover,
+  .home .hero-secondary-cta:hover,
+  .home .feature-card:hover,
+  .home .primary-btn:hover,
+  .home .secondary-btn:hover,
+  .home .exp-card:hover img,
+  .home .app-buttons a.store-badge:hover img {
+    transform: none;
   }
 }

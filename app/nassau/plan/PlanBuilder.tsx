@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { track } from "@/lib/analytics";
 import ChoiceCard from "@/components/funnel/ChoiceCard";
 import EmailGateCard from "@/components/funnel/EmailGateCard";
@@ -809,8 +810,25 @@ export default function PlanBuilder({
       <main className="nassau-plan">
         <div className="np-shell np-shell-intro">
           <header className="np-topbar" aria-label="Nassau planner">
-            <span className="np-brand">ShoreDay</span>
-            <span className="np-port-chip">Nassau planner</span>
+            <Link href="/" className="np-brand">
+              <img src="/logo_transparent.png" alt="" aria-hidden="true" className="np-brand-icon" />
+              ShoreDay
+            </Link>
+            <a
+              href={VIATOR_STOREFRONT}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="np-port-chip"
+              onClick={() =>
+                track("excursion_click", {
+                  port: "nassau",
+                  mode: initialMode,
+                  surface: "planner_topbar",
+                })
+              }
+            >
+              Book Excursions ↗
+            </a>
           </header>
 
           <section className="np-intro-card" aria-labelledby="np-intro-title">
@@ -855,7 +873,10 @@ export default function PlanBuilder({
       <main className="nassau-plan">
         <div className="np-shell np-shell-result">
           <header className="np-topbar" aria-label="Nassau planner">
-            <span className="np-brand">ShoreDay</span>
+            <Link href="/" className="np-brand">
+              <img src="/logo_transparent.png" alt="" aria-hidden="true" className="np-brand-icon" />
+              ShoreDay
+            </Link>
             <span className="np-port-chip">Nassau planner</span>
           </header>
 
@@ -1062,23 +1083,42 @@ export default function PlanBuilder({
       <main className="nassau-plan">
         <div className="np-shell np-shell-result">
           <header className="np-topbar" aria-label="Nassau planner">
-            <span className="np-brand">ShoreDay</span>
-            <span className="np-port-chip">Nassau planner</span>
+            <Link href="/" className="np-brand">
+              <img src="/logo_transparent.png" alt="" aria-hidden="true" className="np-brand-icon" />
+              ShoreDay
+            </Link>
+            <a
+              href={VIATOR_STOREFRONT}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="np-port-chip"
+              onClick={() =>
+                track("excursion_click", {
+                  port: "nassau",
+                  mode: initialMode,
+                  surface: "planner_topbar",
+                })
+              }
+            >
+              Book Excursions ↗
+            </a>
           </header>
 
           <section className="np-planner-card" aria-labelledby="np-timing-title">
             <div className="np-card-intro">
               <p className="np-kicker">Recommended timing</p>
-              <h1 id="np-timing-title">Add your official ship times</h1>
+              <h1 id="np-timing-title">
+                Let ShoreDay calculate your recommended back-at-the-pier time
+              </h1>
               <p>
-                ShoreDay will only calculate a recommended return target after you
-                enter your Nassau date, step-off time, and official all-aboard time.
-                Verify official all-aboard time with your cruise line.
+                Add your Nassau date and official ship times. Always verify your
+                all-aboard time with your cruise line.
               </p>
             </div>
 
             <FunnelStepShell
-              title="Calculate your recommended return target"
+              title="Calculate your recommended back-at-the-pier time"
+              hideTitle
               onBack={() => {
                 setBasicsErrors([]);
                 if (planningStatus === "booked_times") {
@@ -1093,7 +1133,7 @@ export default function PlanBuilder({
                 setPhase("intro");
               }}
               onContinue={handleExactTimingSubmit}
-              continueLabel="Calculate recommended return target"
+              continueLabel="Calculate my back-at-the-pier time"
               showBack={isQuizMode}
             >
               <div className="fn-stack">
@@ -1131,50 +1171,55 @@ export default function PlanBuilder({
                   />
                 </div>
 
-                <div className="fn-field">
-                  <label htmlFor="np-fast-date" className="fn-label">
-                    Nassau port date
-                    <span className="fn-req">
-                      {" "}
-                      Required<span className="fn-sr-only"> field</span>
-                    </span>
-                  </label>
-                  <input
-                    id="np-fast-date"
-                    type="date"
-                    className="fn-input"
-                    value={form.portDate}
-                    onChange={(e) => updateBasics({ portDate: e.target.value })}
-                    required
-                    aria-required="true"
-                    aria-invalid={dateError ? true : undefined}
-                    aria-describedby={dateError ? "np-fast-date-error" : undefined}
-                  />
-                  {dateError ? (
-                    <span id="np-fast-date-error" className="fn-error">
-                      {dateError}
-                    </span>
-                  ) : null}
-                </div>
+                <div className="np-timing-card">
+                  <div className="fn-field">
+                    <label htmlFor="np-fast-date" className="fn-label">
+                      Nassau port date
+                      <span className="fn-req">
+                        {" "}
+                        Required<span className="fn-sr-only"> field</span>
+                      </span>
+                    </label>
+                    <input
+                      id="np-fast-date"
+                      type="date"
+                      className="fn-input"
+                      value={form.portDate}
+                      min={new Date().toLocaleDateString("en-CA")}
+                      onChange={(e) => updateBasics({ portDate: e.target.value })}
+                      required
+                      aria-required="true"
+                      aria-invalid={dateError ? true : undefined}
+                      aria-describedby={dateError ? "np-fast-date-error" : undefined}
+                    />
+                    {dateError ? (
+                      <span id="np-fast-date-error" className="fn-error">
+                        {dateError}
+                      </span>
+                    ) : null}
+                  </div>
 
-                <TimeInput
-                  id="np-fast-stepoff"
-                  label="When do you expect to step off the ship?"
-                  value={form.expectedStepOffTime}
-                  onChange={(v) => updateBasics({ expectedStepOffTime: v })}
-                  hint="Local Nassau time"
-                  required
-                  error={stepOffError}
-                />
-                <TimeInput
-                  id="np-fast-allaboard"
-                  label="Your all-aboard time"
-                  value={form.allAboardTime}
-                  onChange={(v) => updateBasics({ allAboardTime: v })}
-                  hint="The passenger all-aboard time — not the ship's departure time"
-                  required
-                  error={allAboardError}
-                />
+                  <div className="np-timing-card-times">
+                    <TimeInput
+                      id="np-fast-stepoff"
+                      label="When do you expect to step off the ship?"
+                      value={form.expectedStepOffTime}
+                      onChange={(v) => updateBasics({ expectedStepOffTime: v })}
+                      hint="Local Nassau time"
+                      required
+                      error={stepOffError}
+                    />
+                    <TimeInput
+                      id="np-fast-allaboard"
+                      label="Your all-aboard time"
+                      value={form.allAboardTime}
+                      onChange={(v) => updateBasics({ allAboardTime: v })}
+                      hint="The passenger all-aboard time — not the ship's departure time"
+                      required
+                      error={allAboardError}
+                    />
+                  </div>
+                </div>
 
                 <div className="fn-field">
                   <label className="fn-checkbox">
@@ -1231,8 +1276,25 @@ export default function PlanBuilder({
         <main className="nassau-plan">
           <div className="np-shell np-shell-result">
             <header className="np-topbar" aria-label="Nassau planner">
-              <span className="np-brand">ShoreDay</span>
-              <span className="np-port-chip">Nassau planner</span>
+              <Link href="/" className="np-brand">
+                <img src="/logo_transparent.png" alt="" aria-hidden="true" className="np-brand-icon" />
+                ShoreDay
+              </Link>
+              <a
+                href={VIATOR_STOREFRONT}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="np-port-chip"
+                onClick={() =>
+                  track("excursion_click", {
+                    port: "nassau",
+                    mode: initialMode,
+                    surface: "planner_topbar",
+                  })
+                }
+              >
+                Book Excursions ↗
+              </a>
             </header>
 
             <section className="np-result-stack" aria-label="Timing error">
@@ -1257,14 +1319,19 @@ export default function PlanBuilder({
       <main className="nassau-plan">
         <div className="np-shell np-shell-result">
           <header className="np-topbar" aria-label="Nassau planner">
-            <span className="np-brand">ShoreDay</span>
+            <Link href="/" className="np-brand">
+              <img src="/logo_transparent.png" alt="" aria-hidden="true" className="np-brand-icon" />
+              ShoreDay
+            </Link>
             <span className="np-port-chip">Nassau planner</span>
           </header>
 
           <section className="np-result-stack np-result-stack-payoff" aria-label="Timing result and plan unlock">
             <section className="np-payoff-hero" aria-labelledby="np-payoff-title">
+              <h1 id="np-payoff-title" className="fn-sr-only">
+                Your recommended Nassau return time
+              </h1>
               <p className="np-kicker">Instant timing result</p>
-              <h1 id="np-payoff-title">Be back at the pier by {returnTargetLabel}</h1>
               <p className="np-payoff-sub">
                 Based on your ship times, ShoreDay recommends this return target
                 with a planning buffer. Confirm your official all-aboard time with
@@ -1448,8 +1515,25 @@ export default function PlanBuilder({
     <main className="nassau-plan">
       <div className="np-shell">
         <header className="np-topbar" aria-label="Nassau planner">
-          <span className="np-brand">ShoreDay</span>
-          <span className="np-port-chip">Nassau planner</span>
+          <Link href="/" className="np-brand">
+            <img src="/logo_transparent.png" alt="" aria-hidden="true" className="np-brand-icon" />
+            ShoreDay
+          </Link>
+          <a
+            href={VIATOR_STOREFRONT}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="np-port-chip"
+            onClick={() =>
+              track("excursion_click", {
+                port: "nassau",
+                mode: initialMode,
+                surface: "planner_topbar",
+              })
+            }
+          >
+            Book Excursions ↗
+          </a>
         </header>
 
         <div className="np-planner-layout np-planner-layout-single">

@@ -4,13 +4,29 @@
   --np-line: rgba(14, 90, 103, 0.16);
   --np-line-strong: rgba(14, 90, 103, 0.28);
   --np-card: #fffaf2;
+  /* Warm editorial display for selective headings; numerals + body stay on the
+     legible Plus Jakarta Sans. Harbor + aqua accents echo the homepage. */
+  --np-display: var(--font-fraunces), "Georgia", "Times New Roman", serif;
+  --np-harbor: #2f4d66;
+  --np-aqua-mist: #d8efee;
+  /* Same original procedural sand grain as the homepage (no external asset). */
+  --np-sand-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23s)' opacity='0.04'/%3E%3C/svg%3E");
   min-height: 100vh;
-  background-image: linear-gradient(
-    180deg,
-    var(--color-sand) 0%,
-    var(--color-sand) 42%,
-    var(--color-sea-glass) 100%
-  );
+  background-image:
+    var(--np-sand-grain),
+    linear-gradient(
+      115deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(214, 196, 166, 0.06) 34%,
+      rgba(255, 255, 255, 0.04) 60%,
+      rgba(214, 196, 166, 0.05) 100%
+    ),
+    linear-gradient(
+      180deg,
+      var(--color-sand) 0%,
+      var(--color-sand) 42%,
+      var(--color-sea-glass) 100%
+    );
   color: var(--color-ocean-ink);
   line-height: 1.6;
   padding: 1rem;
@@ -47,9 +63,21 @@
 }
 
 .np-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-weight: 800;
   font-size: 1.25rem;
   color: var(--color-ocean-ink);
+  text-decoration: none;
+}
+.np-brand:hover {
+  color: var(--color-ocean-ink);
+}
+.np-brand-icon {
+  height: 28px;
+  width: auto;
+  display: block;
 }
 
 .np-port-chip,
@@ -69,6 +97,11 @@
   padding: 5px 11px;
   border-radius: 999px;
   white-space: nowrap;
+  text-decoration: none;
+}
+a.np-port-chip:hover {
+  background: rgba(44, 200, 183, 0.28);
+  border-color: rgba(44, 200, 183, 0.6);
 }
 
 .np-planner-layout {
@@ -110,12 +143,13 @@
 
 .np-card-intro h1,
 .np-h1 {
-  font-size: 1.75rem;
-  line-height: 1.12;
-  font-weight: 800;
+  font-family: var(--np-display);
+  font-size: 1.85rem;
+  line-height: 1.1;
+  font-weight: 600;
   margin: 0 0 0.55rem;
   color: var(--color-ocean-ink);
-  letter-spacing: 0;
+  letter-spacing: -0.3px;
 }
 
 .np-card-intro p {
@@ -142,10 +176,11 @@
 .np-intro-copy h1 {
   margin: 0 0 0.9rem;
   color: var(--color-ocean-ink);
-  font-size: clamp(2.1rem, 9vw, 4.3rem);
-  line-height: 0.98;
-  font-weight: 800;
-  letter-spacing: 0;
+  font-family: var(--np-display);
+  font-size: clamp(2.1rem, 8vw, 3.9rem);
+  line-height: 1.0;
+  font-weight: 600;
+  letter-spacing: -0.5px;
 }
 
 .np-intro-copy p {
@@ -416,9 +451,9 @@
 
 .fn-progress-fill {
   height: 100%;
-  background: var(--color-lagoon);
+  background: linear-gradient(90deg, var(--color-deep-teal), var(--color-lagoon));
   border-radius: 999px;
-  transition: width 0.25s ease;
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .fn-progress-question,
@@ -451,10 +486,11 @@
 }
 
 .fn-step-title {
-  font-size: clamp(1.65rem, 7vw, 2.55rem);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: 0;
+  font-family: var(--np-display);
+  font-size: clamp(1.6rem, 6.5vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.3px;
   margin: 0 0 1.1rem;
   color: var(--color-ocean-ink);
 }
@@ -504,6 +540,11 @@
   opacity: 0.45;
   cursor: not-allowed;
   box-shadow: none;
+}
+
+/* Calm, practical press feedback instead of a jumpy bounce. */
+.fn-btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.985);
 }
 
 .fn-btn-ghost {
@@ -584,6 +625,43 @@
   margin: 0 0 0.9rem;
 }
 
+/* Time field with a leading clock icon (cosmetic; native input preserved). */
+.fn-input-wrap {
+  position: relative;
+  display: block;
+}
+.fn-input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-ocean-ink-muted);
+  pointer-events: none;
+}
+.fn-input-iconed {
+  padding-left: 38px;
+}
+
+/* --------------------------------------------------- Timing port-day card -- */
+/* The port date + step-off + all-aboard fields read as one cohesive card. */
+.np-timing-card {
+  background: var(--np-card);
+  border: 1px solid var(--np-line);
+  border-radius: 20px;
+  padding: 1.1rem;
+  box-shadow: 0 10px 26px rgba(14, 90, 103, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.np-timing-card-times {
+  display: flex;
+  flex-direction: column;
+  gap: 1.05rem;
+  border-top: 1px solid var(--np-line);
+  padding-top: 1rem;
+}
+
 /* Checkbox */
 .fn-checkbox {
   display: flex;
@@ -631,7 +709,8 @@
 
 .fn-choice.is-selected {
   border-color: var(--color-deep-teal);
-  box-shadow: 0 0 0 3px rgba(44, 200, 183, 0.35);
+  background: linear-gradient(180deg, var(--np-aqua-mist), var(--np-card));
+  box-shadow: 0 0 0 3px rgba(44, 200, 183, 0.4), 0 10px 22px rgba(14, 90, 103, 0.12);
 }
 
 .fn-choice-badge {
@@ -713,6 +792,42 @@
   box-shadow: 0 14px 30px rgba(14, 90, 103, 0.08);
 }
 
+/* Return-time payoff reveal — one calm, one-shot settle when the result screen
+   mounts. No count-up, no pulsing. Disabled under prefers-reduced-motion. */
+@keyframes np-payoff-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes np-payoff-settle {
+  from { opacity: 0; transform: translateY(8px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.np-payoff-hero {
+  animation: np-payoff-rise 0.45s ease both;
+}
+.np-payoff-hero .np-return-target-card {
+  animation: np-payoff-settle 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+/* Itinerary stagger — calm cascade when the full plan unlocks (scoped to
+   .np-full-plan so the short preview timeline stays still). Opacity + small
+   translate only. */
+@keyframes np-row-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.np-full-plan .np-itinerary-row {
+  animation: np-row-in 0.4s ease both;
+}
+.np-full-plan .np-itinerary-row:nth-child(1) { animation-delay: 0.04s; }
+.np-full-plan .np-itinerary-row:nth-child(2) { animation-delay: 0.1s; }
+.np-full-plan .np-itinerary-row:nth-child(3) { animation-delay: 0.16s; }
+.np-full-plan .np-itinerary-row:nth-child(4) { animation-delay: 0.22s; }
+.np-full-plan .np-itinerary-row:nth-child(5) { animation-delay: 0.28s; }
+.np-full-plan .np-itinerary-row:nth-child(6) { animation-delay: 0.34s; }
+.np-full-plan .np-itinerary-row:nth-child(7) { animation-delay: 0.4s; }
+.np-full-plan .np-itinerary-row:nth-child(n + 8) { animation-delay: 0.46s; }
+
 .np-payoff-hero h1 {
   margin: 0 0 0.75rem;
   color: var(--color-ocean-ink);
@@ -730,44 +845,56 @@
 
 .np-return-target-card {
   display: grid;
-  gap: 0.25rem;
-  margin: 1rem 0 0.8rem;
-  padding: clamp(1rem, 4vw, 1.35rem);
-  background: rgba(44, 200, 183, 0.2);
-  border: 1px solid rgba(14, 90, 103, 0.14);
-  border-radius: 20px;
+  gap: 0.3rem;
+  margin: 1.1rem 0 0.85rem;
+  padding: clamp(1.1rem, 4vw, 1.6rem);
+  background:
+    radial-gradient(120% 130% at 100% 0%, rgba(44, 200, 183, 0.28), transparent 60%),
+    linear-gradient(180deg, var(--np-aqua-mist), #ffffff);
+  border: 1px solid rgba(47, 77, 102, 0.18);
+  border-radius: 22px;
+  box-shadow: 0 16px 34px rgba(14, 90, 103, 0.14);
 }
 
 .np-return-target-card span {
-  color: var(--color-deep-teal);
+  color: var(--np-harbor);
   font-size: 0.78rem;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
+/* The return time stays on the legible sans (never the editorial serif) so the
+   payoff reads as a confident, trustworthy operations readout. */
 .np-return-target-card strong {
   color: var(--color-ocean-ink);
-  font-size: clamp(3rem, 17vw, 5.5rem);
+  /* Calmer vw scaling so the payoff reads as confident, not overwhelming, on a
+     phone; the desktop cap (5.5rem) is unchanged. */
+  font-size: clamp(2.8rem, 14vw, 5.5rem);
   line-height: 0.95;
   font-weight: 800;
-  letter-spacing: 0;
+  letter-spacing: -1px;
+  font-variant-numeric: tabular-nums;
 }
 
+/* Mobile: a compact 2-up grid of stat tiles (label stacked over value) reads as a
+   tidy dashboard rather than full-width rows whose labels wrap awkwardly. Desktop
+   restores the side-by-side row layout in the 520px block. */
 .np-result-metrics {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.65rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
   margin: 0;
 }
 
 .np-result-metrics div {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.25rem;
   min-width: 0;
-  padding: 0.72rem 0.85rem;
+  padding: 0.7rem 0.8rem;
   background: var(--color-sea-glass);
   border-radius: 14px;
 }
@@ -785,7 +912,7 @@
   color: var(--color-ocean-ink);
   font-size: 1rem;
   font-weight: 800;
-  text-align: right;
+  text-align: left;
 }
 
 .np-plan-style-note {
@@ -808,9 +935,10 @@
 .np-full-plan h2 {
   margin: 0;
   color: var(--color-ocean-ink);
-  font-size: 1.45rem;
+  font-family: var(--np-display);
+  font-size: 1.5rem;
   line-height: 1.1;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .np-move-grid,
@@ -1407,9 +1535,10 @@
 .np-section-head h2 {
   margin: 0;
   color: var(--color-ocean-ink);
-  font-size: 1.35rem;
+  font-family: var(--np-display);
+  font-size: 1.4rem;
   line-height: 1.12;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .np-section-head p:last-child {
@@ -1448,7 +1577,9 @@
 }
 
 .np-excursion-image {
-  aspect-ratio: 16 / 10;
+  /* Taller crop on mobile (single-column, full-width) for better product
+     visibility; restored to 16/10 on the narrower multi-column desktop cards. */
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   background: var(--color-sea-glass);
 }
@@ -1463,7 +1594,7 @@
 .np-excursion-body {
   display: grid;
   gap: 0.65rem;
-  padding: 0.9rem;
+  padding: 1rem;
 }
 
 .np-excursion-body h3 {
@@ -1554,9 +1685,9 @@
 
 .np-store-badges img {
   display: block;
-  height: 42px;
+  height: 48px;
   width: auto;
-  max-width: 148px;
+  max-width: 152px;
 }
 
 .fn-gate-title {
@@ -1659,8 +1790,16 @@
 }
 
 @media (min-width: 520px) {
-  .np-result-metrics {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .np-result-metrics div {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.72rem 0.85rem;
+  }
+
+  .np-result-metrics dd {
+    text-align: right;
   }
 
   .np-stop-card {
@@ -1706,8 +1845,12 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .np-excursion-image {
+    aspect-ratio: 16 / 10;
+  }
+
   .np-store-badges img {
-    height: 45px;
+    height: 48px;
   }
 }
 
@@ -1752,6 +1895,37 @@
   .fn-choice-check {
     width: 18px;
     height: 18px;
+  }
+}
+
+/* Mobile thumb-zone action bar — the step's Back/Continue row is pinned to the
+   bottom of the viewport so the primary action is always in reach. Used by every
+   quiz step and the timing form (all render FunnelStepShell). Only one step is
+   mounted at a time, so only one bar exists. `position: fixed` (not sticky)
+   because .nassau-plan has overflow-x: hidden, which can trap sticky. */
+@media (max-width: 720px) {
+  .fn-step-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    gap: 0.7rem;
+    padding: 0.7rem 5%;
+    padding-bottom: calc(0.7rem + env(safe-area-inset-bottom));
+    background: rgba(246, 241, 231, 0.86);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid var(--np-line);
+    box-shadow: 0 -8px 24px rgba(14, 90, 103, 0.1);
+  }
+  .fn-step-nav .fn-btn {
+    flex: 1;
+  }
+  /* Lift the card clear of the fixed bar so nothing hides behind it. Scoped to
+     .fn-step, so the result/starter pages (no step nav) get no extra padding. */
+  .fn-step {
+    margin-bottom: 5.5rem;
   }
 }
 
@@ -1850,13 +2024,17 @@
   .fn-progress-fill,
   .fn-btn,
   .fn-choice,
-  .fn-step {
+  .fn-step,
+  .np-payoff-hero,
+  .np-payoff-hero .np-return-target-card,
+  .np-full-plan .np-itinerary-row {
     animation: none;
     transition: none;
   }
 
   .fn-btn-primary:hover:not(:disabled),
-  .fn-choice:hover {
+  .fn-choice:hover,
+  .fn-btn:active:not(:disabled) {
     transform: none;
   }
 }
