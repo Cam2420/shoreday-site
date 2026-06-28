@@ -62,13 +62,7 @@ export default function Home() {
 
         <div className="hero-inner">
           <div className="hero-text-content">
-            <div className="badge">Now Live On iOS &amp; Android</div>
             <h1>Your Bahamas Port Day, Perfectly Timed.</h1>
-            <p className="subtitle">
-              AI-powered itineraries, ship countdowns, and local secrets to make
-              the most of your cruise stop, currently in Nassau, Freeport &amp;
-              Bimini. Built around your exact all-aboard time.
-            </p>
 
             <div className="hero-cta-stack" aria-label="Primary ShoreDay actions">
               <div className="hero-cta-group">
@@ -134,33 +128,6 @@ export default function Home() {
           </aside>
         </div>
       </main>
-
-      <section className="features" aria-label="What ShoreDay does">
-        <div className="feature-card">
-          <div className="feature-icon">⏱️</div>
-          <h3>Built Around Your All-Aboard Time</h3>
-          <p>
-            Our AI builds your entire port day around your exact &ldquo;All-Aboard&rdquo;
-            time, including built-in buffer zones.
-          </p>
-        </div>
-        <div className="feature-card">
-          <div className="feature-icon">🌴</div>
-          <h3>Curated Excursions</h3>
-          <p>
-            Skip the tourist traps. Instantly discover and book
-            traveler-friendly local experiences and walkable hidden gems.
-          </p>
-        </div>
-        <div className="feature-card">
-          <div className="feature-icon">💬</div>
-          <h3>AI Concierge</h3>
-          <p>
-            Need a quick recommendation or looking for a hidden beach? Ask your
-            pocket AI concierge for local recommendations.
-          </p>
-        </div>
-      </section>
 
       {/* Experience Nassau — real island photography so the page feels like a
           Bahamas vacation planner. Captions are day-type inspiration, never a
@@ -320,6 +287,33 @@ export default function Home() {
             loading="lazy"
             decoding="async"
           />
+        </div>
+      </section>
+
+      <section className="features" aria-label="What ShoreDay does">
+        <div className="feature-card">
+          <div className="feature-icon">⏱️</div>
+          <h3>Built Around Your All-Aboard Time</h3>
+          <p>
+            Our AI builds your entire port day around your exact &ldquo;All-Aboard&rdquo;
+            time, including built-in buffer zones.
+          </p>
+        </div>
+        <div className="feature-card">
+          <div className="feature-icon">🌴</div>
+          <h3>Curated Excursions</h3>
+          <p>
+            Skip the tourist traps. Instantly discover and book
+            traveler-friendly local experiences and walkable hidden gems.
+          </p>
+        </div>
+        <div className="feature-card">
+          <div className="feature-icon">💬</div>
+          <h3>AI Concierge</h3>
+          <p>
+            Need a quick recommendation or looking for a hidden beach? Ask your
+            pocket AI concierge for local recommendations.
+          </p>
         </div>
       </section>
 
