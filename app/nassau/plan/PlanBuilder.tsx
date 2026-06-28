@@ -772,7 +772,7 @@ export default function PlanBuilder({
             className="np-book-link"
             href={card.affiliateUrl}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="sponsored noopener noreferrer"
             onClick={() =>
               track("excursion_click", {
                 port: "nassau",
@@ -817,7 +817,7 @@ export default function PlanBuilder({
             <a
               href={VIATOR_STOREFRONT}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="sponsored noopener noreferrer"
               className="np-port-chip"
               onClick={() =>
                 track("excursion_click", {
@@ -969,7 +969,7 @@ export default function PlanBuilder({
                         className="np-book-link"
                         href={card.affiliateUrl}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="sponsored noopener noreferrer"
                         onClick={() =>
                           track("excursion_click", {
                             port: "nassau",
@@ -990,7 +990,7 @@ export default function PlanBuilder({
                 className="fn-btn fn-btn-ghost"
                 href={VIATOR_STOREFRONT}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="sponsored noopener noreferrer"
                 onClick={() =>
                   track("excursion_click", {
                     port: "nassau",
@@ -1080,7 +1080,7 @@ export default function PlanBuilder({
             <a
               href={VIATOR_STOREFRONT}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="sponsored noopener noreferrer"
               className="np-port-chip"
               onClick={() =>
                 track("excursion_click", {
@@ -1285,7 +1285,7 @@ export default function PlanBuilder({
               <a
                 href={VIATOR_STOREFRONT}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="sponsored noopener noreferrer"
                 className="np-port-chip"
                 onClick={() =>
                   track("excursion_click", {
@@ -1440,7 +1440,7 @@ export default function PlanBuilder({
                       className="fn-btn fn-btn-ghost"
                       href={VIATOR_STOREFRONT}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="sponsored noopener noreferrer"
                       onClick={() =>
                         track("excursion_click", {
                           port: "nassau",
@@ -1528,7 +1528,7 @@ export default function PlanBuilder({
           <a
             href={VIATOR_STOREFRONT}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="sponsored noopener noreferrer"
             className="np-port-chip"
             onClick={() =>
               track("excursion_click", {

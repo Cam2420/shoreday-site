@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import KitForm from "./KitForm";
+import ViatorOutboundLink from "@/components/funnel/ViatorOutboundLink";
 import "./cheat.css";
 
 export const metadata: Metadata = {
@@ -43,9 +44,9 @@ export default function NassauCheatSheet() {
 
         <div className="floor-cta">
           Already have your day planned? <br />
-          <a href="https://vi.me/s/shoredayapp" target="_blank" rel="noopener noreferrer">
+          <ViatorOutboundLink surface="cheat_sheet">
             Browse &amp; Book Nassau Excursions Directly (Save up to 60%)
-          </a>
+          </ViatorOutboundLink>
           <p className="affiliate-disclosure">
             Disclosure: ShoreDay may earn a commission if you book through a Viator link.
           </p>
