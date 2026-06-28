@@ -116,7 +116,6 @@ a.np-port-chip:hover {
   margin: 0 auto;
 }
 
-.np-planner-card,
 .np-result-stack {
   background: var(--np-card);
   border: 1px solid var(--np-line-strong);
@@ -124,7 +123,6 @@ a.np-port-chip:hover {
   box-shadow: 0 18px 38px rgba(14, 90, 103, 0.12);
 }
 
-.np-planner-card,
 .np-result-stack {
   padding: 1rem;
 }
@@ -158,10 +156,25 @@ a.np-port-chip:hover {
   font-size: 0.96rem;
 }
 
+/* Editorial heading sits *above* the intro card (not inside it) so mobile users
+   see the promise + both CTAs without scrolling. */
+.np-intro-heading {
+  width: 100%;
+  max-width: 680px;
+  margin: auto auto 1rem;
+  text-align: center;
+  color: var(--color-ocean-ink);
+  font-family: var(--np-display);
+  font-size: clamp(1.5rem, 5vw, 2.4rem);
+  line-height: 1.12;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
 .np-intro-card {
   width: 100%;
   max-width: 680px;
-  margin: auto;
+  margin: 0 auto auto;
   padding: clamp(1.25rem, 5vw, 2.5rem);
   background: var(--np-card);
   border: 1px solid var(--np-line-strong);
@@ -171,16 +184,6 @@ a.np-port-chip:hover {
 
 .np-intro-copy {
   text-align: center;
-}
-
-.np-intro-copy h1 {
-  margin: 0 0 0.9rem;
-  color: var(--color-ocean-ink);
-  font-family: var(--np-display);
-  font-size: clamp(1.5rem, 5vw, 2.4rem);
-  line-height: 1.12;
-  font-weight: 600;
-  letter-spacing: -0.3px;
 }
 
 .np-intro-copy p {
@@ -474,14 +477,17 @@ a.np-port-chip:hover {
 }
 
 .fn-step-body {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
 }
 
+/* Rendered as a sibling *outside* the .fn-step card, in normal document flow
+   beneath it at every breakpoint (no fixed bar that can hide the last answer). */
 .fn-step-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 0.8rem;
+  margin-top: 1rem;
 }
 
 /* Buttons */
@@ -616,24 +622,6 @@ a.np-port-chip:hover {
 
 /* --------------------------------------------------- Timing port-day card -- */
 /* The port date + step-off + all-aboard fields read as one cohesive card. */
-.np-timing-card {
-  background: var(--np-card);
-  border: 1px solid var(--np-line);
-  border-radius: 20px;
-  padding: 1.1rem;
-  box-shadow: 0 10px 26px rgba(14, 90, 103, 0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.np-timing-card-times {
-  display: flex;
-  flex-direction: column;
-  gap: 1.05rem;
-  border-top: 1px solid var(--np-line);
-  padding-top: 1rem;
-}
-
 /* Checkbox */
 .fn-checkbox {
   display: flex;
@@ -1903,41 +1891,18 @@ a.np-port-chip:hover {
   }
 }
 
-/* Mobile thumb-zone action bar — the step's Back/Continue row is pinned to the
-   bottom of the viewport so the primary action is always in reach. Used by every
-   quiz step and the timing form (all render FunnelStepShell). Only one step is
-   mounted at a time, so only one bar exists. `position: fixed` (not sticky)
-   because .nassau-plan has overflow-x: hidden, which can trap sticky. */
+/* Mobile Back/Continue — equal-width buttons in normal document flow directly
+   beneath the step card. No fixed bar: the buttons can never overlay the last
+   answer card or the timing acknowledgement, and the card needs no clearance
+   reservation underneath it. */
 @media (max-width: 720px) {
   .fn-step-nav {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 50;
     gap: 0.7rem;
-    padding: 0.7rem 5%;
-    padding-bottom: calc(0.7rem + env(safe-area-inset-bottom));
-    background: rgba(246, 241, 231, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-top: 1px solid var(--np-line);
-    box-shadow: 0 -8px 24px rgba(14, 90, 103, 0.1);
   }
-  /* Keep the bar compact: a slightly smaller, tighter label stays at most ~2
-     lines even for longer CTAs, so the fixed bar never balloons over content. */
   .fn-step-nav .fn-btn {
     flex: 1;
     font-size: 0.95rem;
     line-height: 1.15;
-  }
-  /* Lift the card clear of the fixed bar so nothing hides behind it. Generous so
-     even a 2-line CTA bar leaves a gap; scroll-margin keeps programmatic scrolls
-     above the bar. Scoped to .fn-step, so the result/starter pages (no step nav)
-     get no extra padding. */
-  .fn-step {
-    margin-bottom: 6.75rem;
-    scroll-margin-bottom: 6.75rem;
   }
 }
 
@@ -2006,12 +1971,10 @@ a.np-port-chip:hover {
     align-items: center;
   }
 
-  .np-planner-card,
   .np-result-stack {
     border-radius: 28px;
   }
 
-  .np-planner-card,
   .np-result-stack {
     padding: 1.25rem;
   }

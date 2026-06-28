@@ -831,12 +831,13 @@ export default function PlanBuilder({
             </a>
           </header>
 
+          <h1 id="np-intro-title" className="np-intro-heading">
+            Most cruisers plan around the brochure. ShoreDay plans around your
+            real port window, group, budget, and all-aboard buffer.
+          </h1>
+
           <section className="np-intro-card" aria-labelledby="np-intro-title">
             <div className="np-intro-copy">
-              <h1 id="np-intro-title">
-                Most cruisers plan around the brochure. ShoreDay plans around your
-                real port window, group, budget, and all-aboard buffer.
-              </h1>
               <button type="button" className="fn-btn fn-btn-primary np-intro-cta" onClick={startQuiz}>
                 Start My Nassau Plan
               </button>
@@ -1093,18 +1094,19 @@ export default function PlanBuilder({
             </a>
           </header>
 
-          <section className="np-planner-card" aria-labelledby="np-timing-title">
-            <div className="np-card-intro">
-              <h1 id="np-timing-title" className="fn-sr-only">
-                Let ShoreDay calculate your recommended back-at-the-pier time
-              </h1>
-              <p>
-                Add your Nassau date and official ship times. Always verify your
-                all-aboard time with your cruise line.
-              </p>
-            </div>
-
+          <div className="np-planner-layout np-planner-layout-single">
             <FunnelStepShell
+              header={
+                <div className="np-card-intro">
+                  <h1 id="np-timing-title" className="fn-sr-only">
+                    Let ShoreDay calculate your recommended back-at-the-pier time
+                  </h1>
+                  <p>
+                    Add your Nassau date and official ship times. Always verify your
+                    all-aboard time with your cruise line.
+                  </p>
+                </div>
+              }
               title="Calculate your recommended back-at-the-pier time"
               hideTitle
               onBack={() => {
@@ -1159,55 +1161,51 @@ export default function PlanBuilder({
                   />
                 </div>
 
-                <div className="np-timing-card">
-                  <div className="fn-field">
-                    <label htmlFor="np-fast-date" className="fn-label">
-                      Nassau port date
-                      <span className="fn-req">
-                        {" "}
-                        Required<span className="fn-sr-only"> field</span>
-                      </span>
-                    </label>
-                    <input
-                      id="np-fast-date"
-                      type="date"
-                      className="fn-input"
-                      value={form.portDate}
-                      min={new Date().toLocaleDateString("en-CA")}
-                      onChange={(e) => updateBasics({ portDate: e.target.value })}
-                      required
-                      aria-required="true"
-                      aria-invalid={dateError ? true : undefined}
-                      aria-describedby={dateError ? "np-fast-date-error" : undefined}
-                    />
-                    {dateError ? (
-                      <span id="np-fast-date-error" className="fn-error">
-                        {dateError}
-                      </span>
-                    ) : null}
-                  </div>
-
-                  <div className="np-timing-card-times">
-                    <TimeInput
-                      id="np-fast-stepoff"
-                      label="When do you expect to step off the ship?"
-                      value={form.expectedStepOffTime}
-                      onChange={(v) => updateBasics({ expectedStepOffTime: v })}
-                      hint="Local Nassau time"
-                      required
-                      error={stepOffError}
-                    />
-                    <TimeInput
-                      id="np-fast-allaboard"
-                      label="Your all-aboard time"
-                      value={form.allAboardTime}
-                      onChange={(v) => updateBasics({ allAboardTime: v })}
-                      hint="The passenger all-aboard time — not the ship's departure time"
-                      required
-                      error={allAboardError}
-                    />
-                  </div>
+                <div className="fn-field">
+                  <label htmlFor="np-fast-date" className="fn-label">
+                    Nassau port date
+                    <span className="fn-req">
+                      {" "}
+                      Required<span className="fn-sr-only"> field</span>
+                    </span>
+                  </label>
+                  <input
+                    id="np-fast-date"
+                    type="date"
+                    className="fn-input"
+                    value={form.portDate}
+                    min={new Date().toLocaleDateString("en-CA")}
+                    onChange={(e) => updateBasics({ portDate: e.target.value })}
+                    required
+                    aria-required="true"
+                    aria-invalid={dateError ? true : undefined}
+                    aria-describedby={dateError ? "np-fast-date-error" : undefined}
+                  />
+                  {dateError ? (
+                    <span id="np-fast-date-error" className="fn-error">
+                      {dateError}
+                    </span>
+                  ) : null}
                 </div>
+
+                <TimeInput
+                  id="np-fast-stepoff"
+                  label="When do you expect to step off the ship?"
+                  value={form.expectedStepOffTime}
+                  onChange={(v) => updateBasics({ expectedStepOffTime: v })}
+                  hint="Local Nassau time"
+                  required
+                  error={stepOffError}
+                />
+                <TimeInput
+                  id="np-fast-allaboard"
+                  label="Your all-aboard time"
+                  value={form.allAboardTime}
+                  onChange={(v) => updateBasics({ allAboardTime: v })}
+                  hint="The passenger all-aboard time — not the ship's departure time"
+                  required
+                  error={allAboardError}
+                />
 
                 <div className="fn-field">
                   <label className="fn-checkbox">
@@ -1236,7 +1234,7 @@ export default function PlanBuilder({
                 </div>
               </div>
             </FunnelStepShell>
-          </section>
+          </div>
         </div>
       </main>
     );
@@ -1529,17 +1527,17 @@ export default function PlanBuilder({
         </header>
 
         <div className="np-planner-layout np-planner-layout-single">
-          <section className="np-planner-card" aria-labelledby="np-page-title">
-            <h1 id="np-page-title" className="fn-sr-only">{pageCopy.title}</h1>
+          <h1 id="np-page-title" className="fn-sr-only">{pageCopy.title}</h1>
 
-            <FunnelProgress
-              current={stepIndex + 1}
-              total={steps.length}
-              label={isQuizMode ? "Question" : "Step"}
-              showPercentage={isQuizMode}
-            />
-
-            <FunnelStepShell
+          <FunnelStepShell
+              header={
+                <FunnelProgress
+                  current={stepIndex + 1}
+                  total={steps.length}
+                  label={isQuizMode ? "Question" : "Step"}
+                  showPercentage={isQuizMode}
+                />
+              }
               title={stepTitle}
               onBack={handleBack}
               onContinue={handleContinue}
@@ -1819,7 +1817,6 @@ export default function PlanBuilder({
             </div>
           ) : null}
             </FunnelStepShell>
-          </section>
         </div>
       </div>
     </main>
