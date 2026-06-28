@@ -8,6 +8,9 @@ interface FunnelStepShellProps {
   continueLabel?: string;
   continueDisabled?: boolean;
   showBack?: boolean;
+  /** Keep the title for screen readers (aria-labelledby) but hide it visually,
+   *  e.g. when the surrounding page already shows a single branded heading. */
+  hideTitle?: boolean;
 }
 
 /** One onboarding step: title, body, and back/continue controls. */
@@ -19,10 +22,11 @@ export default function FunnelStepShell({
   continueLabel = "Continue",
   continueDisabled = false,
   showBack = true,
+  hideTitle = false,
 }: FunnelStepShellProps) {
   return (
     <section className="fn-step" aria-labelledby="fn-step-title">
-      <h2 id="fn-step-title" className="fn-step-title">
+      <h2 id="fn-step-title" className={hideTitle ? "fn-step-title fn-sr-only" : "fn-step-title"}>
         {title}
       </h2>
       <div className="fn-step-body">{children}</div>

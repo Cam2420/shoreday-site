@@ -1,4 +1,5 @@
 import Image from "next/image";
+import GooglePlacePhoto from "@/components/funnel/GooglePlacePhoto";
 import type { WebItineraryCategory, WebItineraryStop } from "@/lib/nassau-web-itinerary";
 
 function travelLabel(stop: WebItineraryStop) {
@@ -22,12 +23,26 @@ interface ItineraryStopCardProps {
   stop: WebItineraryStop;
   index: number;
   preview?: boolean;
+  /**
+   * Only true on the unlocked, post-email timeline. Gates the (non-blocking)
+   * Google Places photo enhancement — never set in preview/locked states.
+   */
+  enableGooglePlacePhoto?: boolean;
 }
 
-export default function ItineraryStopCard({ stop, index, preview = false }: ItineraryStopCardProps) {
+export default function ItineraryStopCard({
+  stop,
+  index,
+  preview = false,
+  enableGooglePlacePhoto = false,
+}: ItineraryStopCardProps) {
   const trip = travelLabel(stop);
   const hasDetails = Boolean(stop.description || stop.safetyNote);
   const categorySlug = stop.category.toLowerCase();
+  // Enhance only stops that lack an owned, place-true photo (those currently
+  // showing the "Photo coming soon" placeholder). Owned/approved imagery is left
+  // untouched to preserve image honesty.
+  const showGooglePhoto = enableGooglePlacePhoto && !stop.imageSrc;
 
   return (
     <article className="np-stop-card" aria-label={`${stop.title} itinerary stop`}>
@@ -59,6 +74,13 @@ export default function ItineraryStopCard({ stop, index, preview = false }: Itin
             </span>
           </div>
         )}
+
+        {showGooglePhoto ? (
+          <GooglePlacePhoto
+            assetKey={stop.assetKey}
+            alt={stop.imageAlt ?? `${stop.title} in Nassau`}
+          />
+        ) : null}
       </div>
 
       <div className="np-stop-body">

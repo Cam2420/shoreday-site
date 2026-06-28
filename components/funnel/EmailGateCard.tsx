@@ -54,7 +54,7 @@ export default function EmailGateCard({
 
   return (
     <div className="fn-gate">
-      <h3 className="fn-gate-title">Save your Nassau plan</h3>
+      <h3 className="fn-gate-title">Unlock your Nassau plan</h3>
       <p className="fn-gate-sub">
         Save this so you&rsquo;re not rebuilding the day from scratch at the pier.
         Your full plan shows the timeline, return buffer, and Nassau options that

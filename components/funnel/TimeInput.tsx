@@ -32,17 +32,36 @@ export default function TimeInput({
           </span>
         ) : null}
       </label>
-      <input
-        id={id}
-        type="time"
-        className="fn-input"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        required={required}
-        aria-required={required || undefined}
-        aria-invalid={error ? true : undefined}
-        aria-describedby={describedBy}
-      />
+      <span className="fn-input-wrap">
+        <svg
+          className="fn-input-icon"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" />
+          <path
+            d="M12 7.5V12l3 2"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+        <input
+          id={id}
+          type="time"
+          className="fn-input fn-input-iconed"
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          required={required}
+          aria-required={required || undefined}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={describedBy}
+        />
+      </span>
       {hint ? (
         <span id={hintId} className="fn-hint">
           {hint}

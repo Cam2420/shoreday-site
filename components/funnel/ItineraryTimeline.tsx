@@ -6,12 +6,18 @@ interface ItineraryTimelineProps {
   stops: WebItineraryStop[];
   lockedTeaser?: string;
   compact?: boolean;
+  /**
+   * Gates the per-stop Google Places photo enhancement. Set true ONLY for the
+   * unlocked, post-email full timeline — never for the locked/preview teaser.
+   */
+  enableGooglePlacePhoto?: boolean;
 }
 
 export default function ItineraryTimeline({
   stops,
   lockedTeaser,
   compact = false,
+  enableGooglePlacePhoto = false,
 }: ItineraryTimelineProps) {
   return (
     <div className={`np-itinerary-timeline${compact ? " is-compact" : ""}`}>
@@ -20,7 +26,12 @@ export default function ItineraryTimeline({
           <div className="np-itinerary-time">
             <ItineraryTimeChip timeLabel={stop.timeLabel} />
           </div>
-          <ItineraryStopCard stop={stop} index={index} preview={compact} />
+          <ItineraryStopCard
+            stop={stop}
+            index={index}
+            preview={compact}
+            enableGooglePlacePhoto={enableGooglePlacePhoto}
+          />
         </div>
       ))}
 
