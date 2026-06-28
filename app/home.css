@@ -760,7 +760,7 @@
     position: relative;
     inset: auto;
     z-index: 0;
-    height: clamp(200px, 46vw, 300px);
+    height: clamp(150px, 38vw, 230px);
   }
   .home .hero-media img {
     object-position: center 38%;
@@ -772,15 +772,32 @@
   .home .hero-inner {
     display: block;
     grid-template-columns: none;
-    padding: clamp(1.4rem, 5vw, 2rem) 7% clamp(1.6rem, 6vw, 2.25rem);
+    padding: clamp(1.1rem, 4vw, 1.5rem) 7% clamp(1.4rem, 5vw, 1.9rem);
   }
   .home .hero-text-content {
     max-width: 100%;
   }
+  /* Tighten the vertical rhythm so the badge, headline, subtitle, and BOTH CTAs
+     land in the first viewport with the photo still showing. */
+  .home .badge {
+    margin-bottom: 0.85rem;
+  }
   /* The lighter desktop wash is irrelevant here, but reset the headline shadow
-     to a gentler one since text now sits on a solid sheet, not a photo. */
+     to a gentler one since text now sits on a solid sheet, not a photo. A smaller
+     mobile size keeps the headline to ~2–3 lines instead of pushing CTAs down. */
   .home h1 {
+    font-size: clamp(2rem, 8.5vw, 2.75rem);
+    line-height: 1.05;
+    margin-bottom: 0.85rem;
     text-shadow: none;
+  }
+  .home p.subtitle {
+    font-size: clamp(0.95rem, 3.6vw, 1.05rem);
+    margin-bottom: 1rem;
+  }
+  .home .hero-cta-stack {
+    gap: 0.6rem;
+    margin-bottom: 1rem;
   }
   .home p.subtitle,
   .home .hero-microcopy,
