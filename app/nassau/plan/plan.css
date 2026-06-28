@@ -210,34 +210,6 @@ a.np-port-chip:hover {
   font-weight: 700;
 }
 
-.np-intro-proof {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.65rem 0.75rem;
-  margin-top: 1.5rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--np-line);
-  text-align: left;
-}
-
-.np-intro-proof span {
-  width: 30px;
-  height: 30px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  background: var(--color-deep-teal);
-  color: #ffffff;
-  font-weight: 800;
-}
-
-.np-intro-proof p {
-  margin: 0;
-  color: var(--color-ocean-ink);
-  font-weight: 800;
-}
-
 .np-path-picker {
   max-width: 880px;
   margin: 0 auto;
@@ -1592,10 +1564,6 @@ a.np-port-chip:hover {
   border: 1px solid var(--np-line);
   border-radius: 22px;
   box-shadow: 0 12px 28px rgba(14, 90, 103, 0.08);
-}
-
-.np-disclosure-before {
-  margin: 0;
 }
 
 .np-excursion-card-grid {

@@ -62,13 +62,7 @@ export default function Home() {
 
         <div className="hero-inner">
           <div className="hero-text-content">
-            <div className="badge">Now Live On iOS &amp; Android</div>
             <h1>Your Bahamas Port Day, Perfectly Timed.</h1>
-            <p className="subtitle">
-              AI-powered itineraries, ship countdowns, and local secrets to make
-              the most of your cruise stop, currently in Nassau, Freeport &amp;
-              Bimini. Built around your exact all-aboard time.
-            </p>
 
             <div className="hero-cta-stack" aria-label="Primary ShoreDay actions">
               <div className="hero-cta-group">

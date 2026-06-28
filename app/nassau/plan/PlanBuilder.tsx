@@ -833,8 +833,7 @@ export default function PlanBuilder({
 
           <section className="np-intro-card" aria-labelledby="np-intro-title">
             <div className="np-intro-copy">
-              <p className="np-kicker">Nassau port day planner</p>
-              <h1 id="np-intro-title">Build the Nassau day that actually fits your ship time</h1>
+              <h1 id="np-intro-title" className="fn-sr-only">Build the Nassau day that actually fits your ship time</h1>
               <p>
                 Most cruisers plan around the brochure. ShoreDay plans around your
                 real port window, group, budget, and all-aboard buffer.
@@ -850,15 +849,6 @@ export default function PlanBuilder({
                 I have my ship times — calculate my return target
               </button>
               <p className="np-intro-micro">Takes about 60 seconds. No cruise-brochure fluff. Just the plan.</p>
-            </div>
-
-            <div className="np-intro-proof" aria-label="How ShoreDay plans">
-              <span>1</span>
-              <p>Answer the Nassau questions.</p>
-              <span>2</span>
-              <p>See the day shape that fits.</p>
-              <span>3</span>
-              <p>Add ship times for a recommended return target.</p>
             </div>
           </section>
         </div>
@@ -957,9 +947,6 @@ export default function PlanBuilder({
                   official ship times before booking anything far from port.
                 </p>
               </div>
-              <p className="fn-affiliate-disclosure np-disclosure-before">
-                Disclosure: ShoreDay may earn a commission if you book through a Viator link. It doesn&rsquo;t change the price you pay.
-              </p>
               <div className="np-excursion-card-grid">
                 {recommendations.map((card) => (
                   <article key={card.id} className="np-excursion-card">
@@ -1015,6 +1002,9 @@ export default function PlanBuilder({
                 Browse all ShoreDay Excursions
               </a>
               </div>
+              <p className="fn-affiliate-disclosure">
+                Disclosure: ShoreDay may earn a commission if you book through a Viator link. It doesn&rsquo;t change the price you pay.
+              </p>
             </section>
 
             <section className="np-app-soft" aria-label="ShoreDay app">
@@ -1106,8 +1096,7 @@ export default function PlanBuilder({
 
           <section className="np-planner-card" aria-labelledby="np-timing-title">
             <div className="np-card-intro">
-              <p className="np-kicker">Recommended timing</p>
-              <h1 id="np-timing-title">
+              <h1 id="np-timing-title" className="fn-sr-only">
                 Let ShoreDay calculate your recommended back-at-the-pier time
               </h1>
               <p>
@@ -1430,9 +1419,6 @@ export default function PlanBuilder({
                       your official all-aboard time before booking anything far from port.
                     </p>
                   </div>
-                  <p className="fn-affiliate-disclosure np-disclosure-before">
-                    Disclosure: ShoreDay may earn a commission if you book through a Viator link. It doesn&rsquo;t change the price you pay.
-                  </p>
                   <div className="np-excursion-card-grid">
                     {renderExcursionCards(recommendations, "unlocked_result_card")}
                   </div>
@@ -1453,6 +1439,9 @@ export default function PlanBuilder({
                       Browse all ShoreDay Excursions
                     </a>
                   </div>
+                  <p className="fn-affiliate-disclosure">
+                    Disclosure: ShoreDay may earn a commission if you book through a Viator link. It doesn&rsquo;t change the price you pay.
+                  </p>
                 </section>
 
                 <section className="np-app-soft" aria-label="ShoreDay app">
@@ -1542,11 +1531,7 @@ export default function PlanBuilder({
 
         <div className="np-planner-layout np-planner-layout-single">
           <section className="np-planner-card" aria-labelledby="np-page-title">
-            <div className="np-card-intro">
-              <p className="np-kicker">{pageCopy.kicker}</p>
-              <h1 id="np-page-title">{pageCopy.title}</h1>
-              <p>{pageCopy.body}</p>
-            </div>
+            <h1 id="np-page-title" className="fn-sr-only">{pageCopy.title}</h1>
 
             <FunnelProgress
               current={stepIndex + 1}
