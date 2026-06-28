@@ -1161,51 +1161,67 @@ export default function PlanBuilder({
                   />
                 </div>
 
-                <div className="fn-field">
-                  <label htmlFor="np-fast-date" className="fn-label">
-                    Nassau port date
-                    <span className="fn-req">
-                      {" "}
-                      Required<span className="fn-sr-only"> field</span>
+                <div className="fn-time-group">
+                  <div className="fn-field">
+                    <label htmlFor="np-fast-date" className="fn-label">
+                      Nassau port date
+                      <span className="fn-req">
+                        {" "}
+                        Required<span className="fn-sr-only"> field</span>
+                      </span>
+                    </label>
+                    <span className="fn-input-wrap">
+                      <svg
+                        className="fn-input-icon"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <rect x="3" y="4" width="18" height="18" rx="3" stroke="currentColor" strokeWidth="2" />
+                        <path d="M3 9h18" stroke="currentColor" strokeWidth="2" />
+                        <path d="M8 2v4M16 2v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                      </svg>
+                      <input
+                        id="np-fast-date"
+                        type="date"
+                        className="fn-input fn-input-iconed"
+                        value={form.portDate}
+                        min={new Date().toLocaleDateString("en-CA")}
+                        onChange={(e) => updateBasics({ portDate: e.target.value })}
+                        required
+                        aria-required="true"
+                        aria-invalid={dateError ? true : undefined}
+                        aria-describedby={dateError ? "np-fast-date-error" : undefined}
+                      />
                     </span>
-                  </label>
-                  <input
-                    id="np-fast-date"
-                    type="date"
-                    className="fn-input"
-                    value={form.portDate}
-                    min={new Date().toLocaleDateString("en-CA")}
-                    onChange={(e) => updateBasics({ portDate: e.target.value })}
-                    required
-                    aria-required="true"
-                    aria-invalid={dateError ? true : undefined}
-                    aria-describedby={dateError ? "np-fast-date-error" : undefined}
-                  />
-                  {dateError ? (
-                    <span id="np-fast-date-error" className="fn-error">
-                      {dateError}
-                    </span>
-                  ) : null}
-                </div>
+                    {dateError ? (
+                      <span id="np-fast-date-error" className="fn-error">
+                        {dateError}
+                      </span>
+                    ) : null}
+                  </div>
 
-                <TimeInput
-                  id="np-fast-stepoff"
-                  label="When do you expect to step off the ship?"
-                  value={form.expectedStepOffTime}
-                  onChange={(v) => updateBasics({ expectedStepOffTime: v })}
-                  hint="Local Nassau time"
-                  required
-                  error={stepOffError}
-                />
-                <TimeInput
-                  id="np-fast-allaboard"
-                  label="Your all-aboard time"
-                  value={form.allAboardTime}
-                  onChange={(v) => updateBasics({ allAboardTime: v })}
-                  hint="The passenger all-aboard time — not the ship's departure time"
-                  required
-                  error={allAboardError}
-                />
+                  <TimeInput
+                    id="np-fast-stepoff"
+                    label="When do you expect to step off the ship?"
+                    value={form.expectedStepOffTime}
+                    onChange={(v) => updateBasics({ expectedStepOffTime: v })}
+                    hint="Local Nassau time"
+                    required
+                    error={stepOffError}
+                  />
+                  <TimeInput
+                    id="np-fast-allaboard"
+                    label="Your all-aboard time"
+                    value={form.allAboardTime}
+                    onChange={(v) => updateBasics({ allAboardTime: v })}
+                    hint="The passenger all-aboard time — not the ship's departure time"
+                    required
+                    error={allAboardError}
+                  />
+                </div>
 
                 <div className="fn-field">
                   <label className="fn-checkbox">
