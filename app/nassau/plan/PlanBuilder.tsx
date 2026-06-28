@@ -833,11 +833,10 @@ export default function PlanBuilder({
 
           <section className="np-intro-card" aria-labelledby="np-intro-title">
             <div className="np-intro-copy">
-              <h1 id="np-intro-title" className="fn-sr-only">Build the Nassau day that actually fits your ship time</h1>
-              <p>
+              <h1 id="np-intro-title">
                 Most cruisers plan around the brochure. ShoreDay plans around your
                 real port window, group, budget, and all-aboard buffer.
-              </p>
+              </h1>
               <button type="button" className="fn-btn fn-btn-primary np-intro-cta" onClick={startQuiz}>
                 Start My Nassau Plan
               </button>
