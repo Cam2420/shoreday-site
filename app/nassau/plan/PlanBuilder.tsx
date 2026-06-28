@@ -1414,8 +1414,12 @@ export default function PlanBuilder({
                 </div>
 
                 <div className="np-itinerary-panel">
-                  <ItineraryTimeline stops={itineraryStops} />
+                  {/* Unlocked, post-email timeline — the only place Google Places
+                      photos are enabled. The preview/locked timeline above never
+                      sets this, so no place photo is fetched before email capture. */}
+                  <ItineraryTimeline stops={itineraryStops} enableGooglePlacePhoto />
                 </div>
+
 
                 <section className="np-starter-excursions np-unlocked-excursions" aria-labelledby="np-unlocked-excursions-title">
                   <div className="np-section-head">

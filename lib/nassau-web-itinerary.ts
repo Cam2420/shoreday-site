@@ -7,6 +7,13 @@ export type WebItineraryTravelMode = 'walk' | 'drive' | 'taxi' | 'bus';
 
 export interface WebItineraryStop {
   id: string;
+  /**
+   * Canonical place-asset key for this stop (distinct from `id`, which carries a
+   * time-offset suffix for React keys). Used by the unlocked card to request a
+   * server-resolved Google Places photo. Always a known key from
+   * `lib/nassau-place-assets.ts`.
+   */
+  assetKey: NassauPlaceAssetKey;
   timeLabel: string;
   title: string;
   category: WebItineraryCategory;
@@ -198,6 +205,7 @@ export function buildNassauWebItinerary(input: NassauWebItineraryInput): WebItin
       const asset = getNassauPlaceAsset(stop.id);
       return {
         id: `${stop.id}-${stop.offsetMinutes}`,
+        assetKey: stop.id,
         timeLabel: safeTimeLabel(startMinutes + stop.offsetMinutes),
         title: stop.title,
         category: stop.category,
@@ -217,6 +225,7 @@ export function buildNassauWebItinerary(input: NassauWebItineraryInput): WebItin
     ...stops,
     {
       id: 'return-buffer',
+      assetKey: 'return-buffer',
       timeLabel: safeTimeLabel(returnMinutes),
       title: 'Start return buffer',
       category: 'Return',

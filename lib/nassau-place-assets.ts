@@ -5,14 +5,18 @@
  * -------------------------------------------------------------------
  * The ShoreDay mobile app fetches a place-specific photo for every itinerary
  * stop from Google Places at runtime (`getPhotoUrlForPlace(query, loc)`). The
- * web funnel has NO server-side Places photo endpoint yet (see
- * `lib/google-place-photo-types.ts` and the documented future route
- * `app/api/places/photo/route.ts`), so it must NOT invent place-specific photos.
+ * web funnel now has a server-side Places photo endpoint too
+ * (`app/api/places/photo/route.ts`, contract in `lib/google-place-photo-types.ts`):
+ * on the UNLOCKED, post-email timeline, a slug with no owned `src` can request a
+ * real Google Places photo (with required attribution) that overlays its
+ * placeholder. The key stays server-only and nothing is stored locally.
  *
- * A slug therefore only receives a local `src` when ShoreDay genuinely owns or
- * licenses an image that ACTUALLY depicts that place. Everything else has no
- * `src` and `status: 'needs replacement'`; `ItineraryStopCard` then renders an
- * intentional "Photo coming soon" placeholder instead of a misleading stand-in.
+ * This registry stays the source of truth either way: a slug only receives a
+ * local `src` when ShoreDay genuinely owns or licenses an image that ACTUALLY
+ * depicts that place. Everything else has no `src` and `status: 'needs
+ * replacement'`; `ItineraryStopCard` renders the intentional "Photo coming soon"
+ * placeholder (enhanced by a Google photo only when the route succeeds) rather
+ * than a misleading owned stand-in.
  *
  * Owned-media audit (2026-06-25) — searched web `public/`, the mobile app
  * (`assets/images/`, `pubspec.yaml`), and the ShoreDay Drive Media Library for:
@@ -39,11 +43,12 @@ export type NassauPlaceAssetKey =
 
 /**
  * - `approved`          — ShoreDay owns/licenses an image that actually shows this place.
- * - `needs replacement` — no owned place-true image yet; web shows an intentional
- *                         placeholder. Production source is Google Places (mobile parity).
+ * - `needs replacement` — no owned place-true image yet; web shows the intentional
+ *                         placeholder, which the unlocked timeline can enhance with
+ *                         a server-resolved Google Places photo (mobile parity).
  * - `dynamic only`      — image is only ever served from a dynamic/remote source at
- *                         runtime and never stored locally (reserved for once the
- *                         server-side Places route exists; nothing uses it in web V1).
+ *                         runtime and never stored locally. The server-side Places
+ *                         route now exists; no slug is set to this status today.
  */
 export type NassauPlaceImageStatus = 'approved' | 'needs replacement' | 'dynamic only';
 
@@ -66,18 +71,28 @@ export interface NassauPlaceAsset {
   license: string;
   /**
    * Canonical Google Places text query the mobile app already uses for this
-   * place. Reused as the lookup key by the future web Places photo route so web
-   * and app resolve the same canonical place.
+   * place. Reused as the lookup key by the web Places photo route so web and app
+   * resolve the same canonical place.
    */
   googlePlaceQuery: string;
+  /**
+   * OPTIONAL stable Google Place ID (e.g. "ChIJ..."). Preferred over
+   * `googlePlaceQuery` because Place Details is cheaper and avoids ambiguous Text
+   * Search matches. Intentionally ABSENT for every slug today — none has been
+   * safely derived/verified yet. Do NOT invent values; enriching these is a
+   * later hardening step (resolve once, offline, then store the verified id).
+   */
+  placeId?: string;
   /** Operator-facing provenance note. */
   notes: string;
 }
 
 const DYNAMIC_NOTE =
   'Mobile app loads this from Google Places at runtime. No owned web asset exists; ' +
-  'the card shows the intentional "Photo coming soon" placeholder until the server-side ' +
-  'Places photo route (see lib/google-place-photo-types.ts) is wired.';
+  'the card shows the intentional "Photo coming soon" placeholder, which the unlocked ' +
+  'post-email timeline can enhance with a server-resolved Google Places photo via ' +
+  'app/api/places/photo (see lib/google-place-photo-types.ts). Key stays server-only; ' +
+  'attribution and placeholder fallback are mandatory.';
 
 export const nassauPlaceAssets: Record<NassauPlaceAssetKey, NassauPlaceAsset> = {
   'pirates-of-nassau': {
@@ -190,6 +205,15 @@ export const nassauPlaceAssets: Record<NassauPlaceAssetKey, NassauPlaceAsset> = 
 
 export function getNassauPlaceAsset(key: NassauPlaceAssetKey): NassauPlaceAsset {
   return nassauPlaceAssets[key];
+}
+
+/**
+ * Narrow an untrusted string to a known place-asset key. Used by the server
+ * Places photo route to reject unknown `?assetKey=` values before any Google
+ * call. Keys are a fixed, code-defined allowlist — never user-derived.
+ */
+export function isNassauPlaceAssetKey(value: string): value is NassauPlaceAssetKey {
+  return Object.prototype.hasOwnProperty.call(nassauPlaceAssets, value);
 }
 
 /**
