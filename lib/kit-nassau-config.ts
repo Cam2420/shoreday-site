@@ -66,6 +66,22 @@ export const KIT_FIELD_KEYS = {
   returnTargetDisplay: 'shoreday_return_target_display',
   stepOffTimeDisplay: 'shoreday_step_off_time_display',
   allAboardTimeDisplay: 'shoreday_all_aboard_time_display',
+  // UTM attribution — written ONLY when the matching utm_* param is present on the
+  // planner URL. Lets Kit segment leads by social-launch campaign. Added 2026-06-29.
+  utmSource: 'shoreday_utm_source',
+  utmMedium: 'shoreday_utm_medium',
+  utmCampaign: 'shoreday_utm_campaign',
+  utmContent: 'shoreday_utm_content',
+  utmTerm: 'shoreday_utm_term',
+  // Port-date fields + derived pre-port reminder timestamps for date-based Kit
+  // automations. `*_at` values are `yyyy-mm-dd HH:MM` (mid-morning) and are only
+  // written when they fall in the future, never in the past. Added 2026-06-29.
+  portDate: 'shoreday_port_date',
+  portDateDisplay: 'shoreday_port_date_display',
+  daysToPort: 'shoreday_days_to_port',
+  preport7dAt: 'shoreday_preport_7d_at',
+  preport3dAt: 'shoreday_preport_3d_at',
+  preport1dAt: 'shoreday_preport_1d_at',
 } as const;
 
 /** True when the server has a Kit API key configured. Server-only check. */

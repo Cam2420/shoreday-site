@@ -8,7 +8,14 @@ import {
   KIT_NASSAU_PLAN_SEQUENCE_ID_ENV,
   KIT_TAGS,
 } from "@/lib/kit-nassau-config";
-import { to12Hour } from "@/lib/time";
+import {
+  addDays,
+  daysBetweenDates,
+  isValidDateString,
+  to12Hour,
+  toDisplayDate,
+  todayDateStringUtc,
+} from "@/lib/time";
 
 // Server-only route. The Kit API key is read from server env and never returned
 // to the client. No key in any response body, header, or log line.
@@ -17,6 +24,11 @@ export const dynamic = "force-dynamic";
 
 const PayloadSchema = z.object({
   email: emailFieldSchema,
+  // Plan-delivery consent is REQUIRED server-side, not just in the UI: the route
+  // must never create a subscriber for a caller that did not consent to the
+  // one-time delivery email. Marketing consent is kept SEPARATE (below) so plan
+  // delivery never implies a marketing opt-in.
+  deliveryConsent: z.literal(true),
   marketingConsent: z.boolean().default(false),
   planMode: z.enum(["exact-time", "starter"]),
   planType: z.string().trim().max(160).optional(),
@@ -26,6 +38,16 @@ const PayloadSchema = z.object({
   groupType: z.string().trim().max(80).optional(),
   worry: z.string().trim().max(120).optional(),
   budget: z.string().trim().max(80).optional(),
+  // Nassau port date (YYYY-MM-DD). Optional — not every entry path collects it.
+  // Shape-capped here; calendar realness is re-checked before any date math.
+  portDate: z.string().trim().max(40).optional(),
+  // Marketing attribution copied from the planner URL. All optional, capped, and
+  // never PII — written to Kit only when present.
+  utmSource: z.string().trim().max(200).optional(),
+  utmMedium: z.string().trim().max(200).optional(),
+  utmCampaign: z.string().trim().max(200).optional(),
+  utmContent: z.string().trim().max(200).optional(),
+  utmTerm: z.string().trim().max(200).optional(),
   source: z.string().trim().max(60).default("nassau-plan"),
   currentPath: z.string().trim().max(200).optional(),
 });
@@ -76,7 +98,46 @@ function buildFields(p: Payload): Record<string, string> {
   set(KIT_FIELD_KEYS.budget, p.budget);
   set(KIT_FIELD_KEYS.planMode, p.planMode);
   set(KIT_FIELD_KEYS.source, p.source);
+  set(KIT_FIELD_KEYS.utmSource, p.utmSource);
+  set(KIT_FIELD_KEYS.utmMedium, p.utmMedium);
+  set(KIT_FIELD_KEYS.utmCampaign, p.utmCampaign);
+  set(KIT_FIELD_KEYS.utmContent, p.utmContent);
+  set(KIT_FIELD_KEYS.utmTerm, p.utmTerm);
+  addPortDateFields(fields, p.portDate);
   return fields;
+}
+
+// Safe mid-morning send time for derived reminders — deliberately NOT port-morning
+// precision, so a reminder email never competes with the user's real departure timing.
+const REMINDER_TIME = "09:00";
+// Pre-port reminder windows (days before the port date) → Kit custom-field key.
+const PREPORT_WINDOWS: ReadonlyArray<{ days: number; key: string }> = [
+  { days: 7, key: KIT_FIELD_KEYS.preport7dAt },
+  { days: 3, key: KIT_FIELD_KEYS.preport3dAt },
+  { days: 1, key: KIT_FIELD_KEYS.preport1dAt },
+];
+
+/**
+ * Write the port-date custom fields plus safe, future-only pre-port reminder
+ * timestamps. Everything is omitted when no valid port date is supplied. A reminder
+ * window is written ONLY when the port date is strictly more than N days away —
+ * that guarantees the `yyyy-mm-dd HH:MM` value is at least a full day in the future,
+ * so it is never in the past regardless of the server's time-of-day or timezone.
+ * Windows that are already too soon are simply skipped.
+ */
+function addPortDateFields(fields: Record<string, string>, portDate?: string): void {
+  if (!portDate || !isValidDateString(portDate)) return;
+  const daysToPort = daysBetweenDates(todayDateStringUtc(), portDate);
+
+  fields[KIT_FIELD_KEYS.portDate] = portDate;
+  fields[KIT_FIELD_KEYS.portDateDisplay] = toDisplayDate(portDate);
+  fields[KIT_FIELD_KEYS.daysToPort] = String(daysToPort);
+
+  for (const { days, key } of PREPORT_WINDOWS) {
+    if (daysToPort > days) {
+      fields[key] = `${addDays(portDate, -days)} ${REMINDER_TIME}`;
+    }
+  }
 }
 
 function kitPost(apiKey: string, path: string, body: unknown) {
