@@ -886,14 +886,7 @@ export default function PlanBuilder({
               <button type="button" className="fn-btn fn-btn-primary np-intro-cta" onClick={startQuiz}>
                 Start My Nassau Plan
               </button>
-              <button
-                type="button"
-                className="fn-btn fn-btn-ghost np-intro-secondary"
-                onClick={startExactTiming}
-              >
-                I have my ship times — calculate my return target
-              </button>
-              <p className="np-intro-micro">Takes about 60 seconds. No cruise-brochure fluff. Just the plan.</p>
+              <p className="np-intro-micro">Takes about 60 seconds. Exact timing comes after the quiz.</p>
             </div>
           </section>
         </div>
@@ -1158,7 +1151,7 @@ export default function PlanBuilder({
                 setBasicsErrors([]);
                 if (planningStatus === "booked_times") {
                   setPhase("wizard");
-                  setStepIndex(0);
+                  setStepIndex(steps.length - 1);
                   return;
                 }
                 if (planningStatus || timingChoice === "starter" || timingChoice === "research") {
@@ -1415,32 +1408,40 @@ export default function PlanBuilder({
               {view.shortMessage ? <p className="fn-result-warn">{view.shortMessage}</p> : null}
             </section>
 
-            <section className="np-preview-moves" aria-labelledby="np-preview-moves-title">
-              <p className="np-kicker">Plan preview</p>
-              <h2 id="np-preview-moves-title">Preview your Nassau timeline</h2>
-              <p className="np-preview-copy">
-                Here&rsquo;s the start of a plan that keeps you close, clear, and on time.
-              </p>
-              <ItineraryTimeline
-                stops={previewTimelineStops}
-                compact
-                lockedTeaser="Your full plan shows the rest of the timeline, return buffer, and Nassau options that fit your ship time."
-              />
-            </section>
+            {!submitted ? (
+              <>
+                <section className="np-preview-moves" aria-labelledby="np-preview-moves-title">
+                  <p className="np-kicker">Plan preview</p>
+                  <h2 id="np-preview-moves-title">Preview your Nassau timeline</h2>
+                  <p className="np-preview-copy">
+                    Here&rsquo;s the start of a plan that keeps you close, clear, and on time.
+                  </p>
+                  <ItineraryTimeline
+                    stops={previewTimelineStops}
+                    compact
+                    lockedTeaser="Your full plan shows the rest of the timeline, return buffer, and Nassau options that fit your ship time."
+                  />
+                </section>
 
-            <EmailGateCard
-              kitConfigured={kitConfigured}
-              email={email}
-              marketingConsent={marketingConsent}
-              onEmailChange={(value) => {
-                setEmail(value);
-                if (gateError) setGateError(undefined);
-              }}
-              onMarketingToggle={setMarketingConsent}
-              onSubmit={handleGateSubmit}
-              submitting={gateSubmitting}
-              error={gateError}
-            />
+                <EmailGateCard
+                  kitConfigured={kitConfigured}
+                  email={email}
+                  marketingConsent={marketingConsent}
+                  onEmailChange={(value) => {
+                    setEmail(value);
+                    if (gateError) setGateError(undefined);
+                  }}
+                  onMarketingToggle={setMarketingConsent}
+                  onSubmit={handleGateSubmit}
+                  submitting={gateSubmitting}
+                  error={gateError}
+                />
+              </>
+            ) : (
+              <p className="np-unlock-confirm" role="status">
+                Plan unlocked.{kitConfigured ? " We also sent your Nassau Playbook to your inbox." : ""}
+              </p>
+            )}
 
             {submitted ? (
               <section
@@ -1626,10 +1627,7 @@ export default function PlanBuilder({
                   onSelect={() =>
                     selectQuizAnswer("planning_status", o.label, () => {
                       setPlanningStatus(o.value);
-                      if (o.value === "booked_times") {
-                        startExactTiming();
-                        return;
-                      }
+                      if (o.value === "booked_times") setTimingChoice("exact");
                       if (o.value === "booked_no_times") setTimingChoice("starter");
                       if (o.value === "still_deciding") setTimingChoice("research");
                     })

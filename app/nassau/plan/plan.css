@@ -201,13 +201,6 @@ a.np-port-chip:hover {
     0 0 0 7px rgba(44, 200, 183, 0.14);
 }
 
-.np-intro-secondary {
-  width: 100%;
-  max-width: 420px;
-  margin: 0 auto 0.75rem;
-  background: rgba(255, 255, 255, 0.58);
-}
-
 .np-intro-micro {
   font-size: 0.86rem;
   font-weight: 700;
@@ -1364,6 +1357,17 @@ a.np-port-chip:hover {
 .np-full-plan:focus-visible {
   outline: 3px solid var(--color-lagoon);
   outline-offset: 4px;
+}
+
+.np-unlock-confirm {
+  margin: 0;
+  padding: 0.9rem 1.1rem;
+  border-radius: 14px;
+  background: rgba(44, 200, 183, 0.14);
+  border: 1px solid rgba(14, 90, 103, 0.18);
+  color: var(--color-ocean-ink);
+  font-weight: 700;
+  font-size: 0.95rem;
 }
 
 .np-unlocked-excursions {
