@@ -110,8 +110,17 @@ export const portMathInputSchema = z
 
 /* ───────────────────────── Email gate ───────────────────────── */
 
-/** Shared email-field schema, reused by the gate schema and the UI shell. */
-export const emailFieldSchema = z.email().max(320);
+/**
+ * Shared email-field schema, reused by the gate schema, the server route, and the
+ * UI shell. Normalizes BEFORE validating: trims surrounding whitespace and
+ * lowercases, then applies the existing email-format + max-length checks. Callers
+ * always receive a canonical `foo@bar.com` value, and validation behavior is
+ * unchanged for already-clean input (malformed addresses are still rejected).
+ */
+export const emailFieldSchema = z.preprocess(
+  (value) => (typeof value === 'string' ? value.trim().toLowerCase() : value),
+  z.email().max(320),
+);
 
 /**
  * Email gate (spec §7): email + delivery consent required; marketing consent is

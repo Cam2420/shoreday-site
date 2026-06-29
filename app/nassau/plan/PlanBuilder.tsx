@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { track } from "@/lib/analytics";
+import type { FunnelEventProperties } from "@/lib/funnel-events";
 import ChoiceCard from "@/components/funnel/ChoiceCard";
 import EmailGateCard from "@/components/funnel/EmailGateCard";
 import FunnelProgress from "@/components/funnel/FunnelProgress";
@@ -306,6 +307,43 @@ function reducedMotionScrollBehavior(): ScrollBehavior {
   return "smooth";
 }
 
+/** Marketing attribution captured from the planner URL (present values only). */
+type UtmParams = {
+  utmSource?: string;
+  utmMedium?: string;
+  utmCampaign?: string;
+  utmContent?: string;
+  utmTerm?: string;
+};
+
+/** Read utm_* params from the current URL, keeping only non-empty, trimmed values. */
+function readUtmParams(): UtmParams {
+  if (typeof window === "undefined") return {};
+  const q = new URLSearchParams(window.location.search);
+  const pick = (key: string) => {
+    const trimmed = q.get(key)?.trim();
+    return trimmed ? trimmed : undefined;
+  };
+  return {
+    utmSource: pick("utm_source"),
+    utmMedium: pick("utm_medium"),
+    utmCampaign: pick("utm_campaign"),
+    utmContent: pick("utm_content"),
+    utmTerm: pick("utm_term"),
+  };
+}
+
+/** Map captured utm_* values to canonical Mixpanel event properties (present-only). */
+function utmEventProps(utm: UtmParams): FunnelEventProperties {
+  const props: FunnelEventProperties = {};
+  if (utm.utmSource) props.utm_source = utm.utmSource;
+  if (utm.utmMedium) props.utm_medium = utm.utmMedium;
+  if (utm.utmCampaign) props.utm_campaign = utm.utmCampaign;
+  if (utm.utmContent) props.utm_content = utm.utmContent;
+  if (utm.utmTerm) props.utm_term = utm.utmTerm;
+  return props;
+}
+
 export default function PlanBuilder({
   initialMode = "default",
   kitConfigured = false,
@@ -571,12 +609,16 @@ export default function PlanBuilder({
     });
   }
 
-  function buildKitPayload(emailValue: string) {
+  function buildKitPayload(emailValue: string, utm: UtmParams) {
     const planMode: "exact-time" | "starter" = result?.recommendedTerminalReturn
       ? "exact-time"
       : "starter";
     return {
       email: emailValue,
+      // Submitting the gate (with the "we'll email your plan" copy shown) is the
+      // delivery consent. Sent explicitly so the server can require it. Marketing
+      // consent stays the separate, optional checkbox below.
+      deliveryConsent: true as const,
       marketingConsent,
       planMode,
       planType: planStyleLabel(),
@@ -586,8 +628,10 @@ export default function PlanBuilder({
       groupType: groupChoice ?? form.partyType ?? undefined,
       worry: avoidConcern ?? undefined,
       budget: budgetChoice ?? form.budgetPreference ?? undefined,
+      portDate: form.portDate || undefined,
       source: "nassau-plan",
       currentPath: typeof window !== "undefined" ? window.location.pathname : undefined,
+      ...utm,
     };
   }
 
@@ -601,24 +645,25 @@ export default function PlanBuilder({
       return;
     }
 
-    const trimmed = email.trim();
-    if (!emailFieldSchema.safeParse(trimmed).success) {
+    const normalizedEmail = email.trim().toLowerCase();
+    if (!emailFieldSchema.safeParse(normalizedEmail).success) {
       setGateError("Please enter a valid email address.");
       return;
     }
     setGateError(undefined);
     setGateSubmitting(true);
+    const utm = readUtmParams();
     try {
       const res = await fetch("/api/kit/nassau-plan", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(buildKitPayload(trimmed)),
+        body: JSON.stringify(buildKitPayload(normalizedEmail, utm)),
       });
       const data: { ok?: boolean; error?: string; message?: string } | null = await res
         .json()
         .catch(() => null);
       if (res.ok && data?.ok) {
-        track("email_submitted", { port: "nassau", mode: initialMode });
+        track("email_submitted", { port: "nassau", mode: initialMode, ...utmEventProps(utm) });
         revealFullPlan();
       } else if (data?.error === "kit_not_configured" || data?.error === "delivery_not_configured") {
         // Email saving isn't wired up server-side. Fall back to the honest local

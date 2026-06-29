@@ -98,3 +98,46 @@ export function daysBetweenDates(fromDate: string, toDate: string): number {
   const to = Date.UTC(ty, tm - 1, td);
   return Math.round((to - from) / 86_400_000);
 }
+
+/**
+ * Add `days` (negative to subtract) to a `YYYY-MM-DD` date and return the new
+ * `YYYY-MM-DD`. UTC-based for the same DST-free stability as `daysBetweenDates`;
+ * month/year roll-over is handled by `Date.UTC` normalization.
+ * @throws if `date` is not a real calendar date.
+ */
+export function addDays(date: string, days: number): string {
+  if (!isValidDateString(date)) {
+    throw new RangeError(`Invalid date string: ${JSON.stringify(date)}`);
+  }
+  const [y, m, d] = date.split('-').map(Number);
+  const shifted = new Date(Date.UTC(y, m - 1, d + days));
+  const yy = shifted.getUTCFullYear();
+  const mm = String(shifted.getUTCMonth() + 1).padStart(2, '0');
+  const dd = String(shifted.getUTCDate()).padStart(2, '0');
+  return `${yy}-${mm}-${dd}`;
+}
+
+/**
+ * Format a `YYYY-MM-DD` calendar date as a friendly label, e.g. "Jun 29, 2026".
+ * Returns the input unchanged if it is not a real calendar date. Formatted in UTC
+ * so the label never shifts a day due to the server's local timezone.
+ */
+export function toDisplayDate(date: string): string {
+  if (!isValidDateString(date)) return date;
+  const [y, m, d] = date.split('-').map(Number);
+  return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
+}
+
+/** Today's date as `YYYY-MM-DD`, measured in UTC (matches the day math above). */
+export function todayDateStringUtc(): string {
+  const now = new Date();
+  const yy = now.getUTCFullYear();
+  const mm = String(now.getUTCMonth() + 1).padStart(2, '0');
+  const dd = String(now.getUTCDate()).padStart(2, '0');
+  return `${yy}-${mm}-${dd}`;
+}

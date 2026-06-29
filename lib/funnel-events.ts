@@ -106,6 +106,15 @@ export interface FunnelEventProperties {
   surface?: string;
   /** App store for app_store_click. */
   store?: 'apple' | 'google';
+  /**
+   * Marketing attribution copied verbatim from the landing URL's utm_* query
+   * params. Campaign metadata only — never user identity, so safe for analytics.
+   */
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_content?: string;
+  utm_term?: string;
 }
 
 export interface FunnelEvent {
@@ -135,6 +144,11 @@ export const FUNNEL_EVENT_PROPERTY_KEYS = [
   'result_type',
   'surface',
   'store',
+  'utm_source',
+  'utm_medium',
+  'utm_campaign',
+  'utm_content',
+  'utm_term',
 ] as const;
 
 const ALLOWED_PROPERTY_KEYS: ReadonlySet<string> = new Set(FUNNEL_EVENT_PROPERTY_KEYS);
