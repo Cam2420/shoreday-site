@@ -15,10 +15,10 @@ export default function NassauSurvivalCard() {
     <div className="survival">
       <main className="card">
         <span className="eyebrow">NASSAU PORT PLAYBOOK</span>
-        <h1>Timing, Taxi Fares &amp; the Traps to Skip</h1>
+        <h1>Make Nassau feel simple before you step off the ship</h1>
         <p className="lede">
-          A practical one-page guide to help you plan around your all-aboard time
-          and spend smarter in Nassau.
+          A practical one-page guide to timing, taxis, and choosing one good thing
+          to do — without turning your port day into a race.
         </p>
 
         <div className="rule">
@@ -31,16 +31,16 @@ export default function NassauSurvivalCard() {
               fontWeight: 600,
             }}
           >
-            The one rule that matters
+            The rule that protects the day
           </div>
-          <b>Be back onboard 45–60 minutes before all-aboard.</b>
+          <b>Aim to be back at the pier 45–60 minutes before all-aboard.</b>
           <p style={{ margin: "8px 0 0" }}>
-            &quot;All-aboard&quot; is 30–60 minutes before the ship departs — and
-            you must be on by <em>all-aboard</em>, not departure. Confirm the exact
-            time on your daily planner.
+            Your ship&apos;s all-aboard time is the passenger deadline — not the
+            departure time. Use your cruise line&apos;s official time as the final
+            word, then build your day with margin.
           </p>
           <span className="ex">
-            Ship leaves 5:00 PM → all-aboard ≈ 4:30 PM → you&apos;re back by ≈ 3:45 PM
+            Example: all-aboard 4:30 PM → aim for the pier around 3:45 PM
           </span>
         </div>
 
@@ -52,13 +52,20 @@ export default function NassauSurvivalCard() {
           &quot;head back now&quot; decision against it.
         </p>
 
-        <h2>Know who the ship waits for</h2>
+        <h2>Choose your booking style before you book</h2>
         <p>
-          On a <b>cruise-line excursion</b> and running late? The ship waits.{" "}
-          <b>On your own</b>{" "}
-          and late? It leaves — and you&apos;re responsible for
-          catching up to it at the next port, at your own expense. Independent days
-          are cheaper and better; they&apos;re only risky when you wing the timing.
+          Cruise-line excursions buy convenience and coordination. Independent
+          excursions can offer better value, smaller groups, and more flexibility.
+          Neither is automatically right. The smart move is choosing the option
+          that fits your group, distance from port, and return buffer.
+        </p>
+
+        <h2>Pick one anchor activity</h2>
+        <p>
+          Most bad port days come from trying to do too much. Choose the one thing
+          you would be glad you did — beach, food tour, history stop, snorkel,
+          resort day — then leave room for walking, photos, food, and getting back
+          calmly.
         </p>
 
         <h2>Distance = risk</h2>
@@ -77,7 +84,7 @@ export default function NassauSurvivalCard() {
           </li>
         </ul>
 
-        <h2>Taxi rules (don&apos;t get ripped off)</h2>
+        <h2>Taxi basics (agree the fare first)</h2>
         <ul>
           <li>
             <b>Agree the fare before the wheels move.</b> No agreed price means an
@@ -120,9 +127,9 @@ export default function NassauSurvivalCard() {
             No agreed price = an inflated one when you arrive. Lock the fare first.
           </div>
           <div className="trap">
-            <div className="tn">Trap 2 — The $150+ bus tour</div>
-            The cruise line&apos;s package is the pricey option. Independent is
-            cheaper and better — just manage the time.
+            <div className="tn">Trap 2 — The overpriced group tour</div>
+            Big, generic group tours can run $150+. Compare your options on value,
+            group size, and timing before you commit.
           </div>
           <div className="trap">
             <div className="tn">Trap 3 — The &quot;free&quot; ride to a shop</div>
@@ -133,25 +140,37 @@ export default function NassauSurvivalCard() {
 
         <div className="miss">
           <h2 style={{ marginTop: 0, color: "#c2453a" }}>
-            If you miss the ship (you won&apos;t, but just in case)
+            If plans start slipping
           </h2>
           <p style={{ margin: 0 }}>
-            Call the ship&apos;s <b>port agent</b>{" "}
-            — the number is on your daily
-            planner (photo it every morning). You&apos;ll arrange and pay for travel
-            to the next port, so keep your <b>passport or a photo of it</b>, a card,
-            and a charged phone on you.
+            Take a photo of your ship&apos;s daily planner each morning, including
+            the port agent number. Keep your <b>passport or a passport photo</b>, a
+            payment card, and a charged phone with you. You probably will not need
+            this — but prepared travelers make calmer decisions.
           </p>
         </div>
 
-        <h2>Stop timing it by hand — let ShoreDay do it</h2>
+        <h2>Turn this into a port-day plan</h2>
         <p>
-          ShoreDay builds your whole Nassau day around your ship&apos;s all-aboard
-          time: a minute-by-minute plan with real local prices, insider stops, and
-          the return-to-ship buffer baked in. Ask the in-app concierge anything,
-          free, before any paywall.
+          ShoreDay builds your Nassau day around your ship time, group, budget, and
+          return buffer — so you can choose one good activity without guessing if
+          it fits.
         </p>
 
+        {/* Primary CTA — Viator storefront (affiliate). */}
+        <div className="cta">
+          <ViatorOutboundLink surface="survival_card" className="shop">
+            Browse curated Nassau excursions →
+          </ViatorOutboundLink>
+        </div>
+        <p className="affiliate-disclosure">
+          Disclosure: ShoreDay may earn a commission if you book through a Viator link.
+        </p>
+
+        {/* Secondary CTA — download the app. */}
+        <p style={{ fontWeight: 600, margin: "8px 0 12px" }}>
+          Download ShoreDay before your port day
+        </p>
         <div className="cta">
           <a
             href="https://apps.apple.com/us/app/shoreday/id6761083487"
@@ -173,13 +192,7 @@ export default function NassauSurvivalCard() {
               alt="Get it on Google Play"
             />
           </a>
-          <ViatorOutboundLink surface="survival_card" className="shop">
-            Browse curated Nassau excursions →
-          </ViatorOutboundLink>
         </div>
-        <p className="affiliate-disclosure">
-          Disclosure: ShoreDay may earn a commission if you book through a Viator link.
-        </p>
 
         <p className="disclaimer">
           Government-regulated taxi fares shown are typical one-way prices for two
