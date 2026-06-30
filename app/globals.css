@@ -47,10 +47,7 @@ select:focus-visible,
   box-shadow: 0 0 0 6px rgba(44, 200, 183, 0.4);
 }
 
-/* Shared ShoreDay wordmark accent — "Day" in brand teal. Surface-scoped rules
-   (.home .logo span, .nl-logo span, .cheat .logo span) override this where a
-   surface defines its own teal; headers without an override (e.g. the Nassau
-   planner) use this default. */
+/* Shared ShoreDay wordmark accent — "Day" in lagoon teal (#4f8d90). */
 .sd-day {
-  color: var(--color-deep-teal);
+  color: #4f8d90;
 }
