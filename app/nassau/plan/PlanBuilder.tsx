@@ -11,6 +11,7 @@ import FunnelStepShell from "@/components/funnel/FunnelStepShell";
 import ItineraryTimeline from "@/components/funnel/ItineraryTimeline";
 import PoweredByAiBadge from "@/components/funnel/PoweredByAiBadge";
 import TimeInput from "@/components/funnel/TimeInput";
+import ShoreDayWordmark from "@/components/brand/ShoreDayWordmark";
 import { NASSAU_PORT_CONFIG } from "@/data/ports/nassau";
 import {
   NASSAU_MOBILE_EXCURSIONS,
@@ -857,7 +858,7 @@ export default function PlanBuilder({
           <header className="np-topbar" aria-label="Nassau planner">
             <Link href="/" className="np-brand">
               <img src="/logo_transparent.png" alt="" aria-hidden="true" className="np-brand-icon" />
-              ShoreDay
+              <span className="np-brand-word"><ShoreDayWordmark /></span>
             </Link>
             <a
               href={VIATOR_STOREFRONT}
@@ -903,7 +904,7 @@ export default function PlanBuilder({
           <header className="np-topbar" aria-label="Nassau planner">
             <Link href="/" className="np-brand">
               <img src="/logo_transparent.png" alt="" aria-hidden="true" className="np-brand-icon" />
-              ShoreDay
+              <span className="np-brand-word"><ShoreDayWordmark /></span>
             </Link>
             <span className="np-port-chip">Nassau planner</span>
           </header>
@@ -1113,7 +1114,7 @@ export default function PlanBuilder({
           <header className="np-topbar" aria-label="Nassau planner">
             <Link href="/" className="np-brand">
               <img src="/logo_transparent.png" alt="" aria-hidden="true" className="np-brand-icon" />
-              ShoreDay
+              <span className="np-brand-word"><ShoreDayWordmark /></span>
             </Link>
             <a
               href={VIATOR_STOREFRONT}
@@ -1318,7 +1319,7 @@ export default function PlanBuilder({
             <header className="np-topbar" aria-label="Nassau planner">
               <Link href="/" className="np-brand">
                 <img src="/logo_transparent.png" alt="" aria-hidden="true" className="np-brand-icon" />
-                ShoreDay
+                <span className="np-brand-word"><ShoreDayWordmark /></span>
               </Link>
               <a
                 href={VIATOR_STOREFRONT}
@@ -1361,7 +1362,7 @@ export default function PlanBuilder({
           <header className="np-topbar" aria-label="Nassau planner">
             <Link href="/" className="np-brand">
               <img src="/logo_transparent.png" alt="" aria-hidden="true" className="np-brand-icon" />
-              ShoreDay
+              <span className="np-brand-word"><ShoreDayWordmark /></span>
             </Link>
             <span className="np-port-chip">Nassau planner</span>
           </header>
@@ -1569,7 +1570,7 @@ export default function PlanBuilder({
         <header className="np-topbar" aria-label="Nassau planner">
           <Link href="/" className="np-brand">
             <img src="/logo_transparent.png" alt="" aria-hidden="true" className="np-brand-icon" />
-            ShoreDay
+            <span className="np-brand-word"><ShoreDayWordmark /></span>
           </Link>
           <a
             href={VIATOR_STOREFRONT}

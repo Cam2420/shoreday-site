@@ -80,6 +80,12 @@
   display: block;
 }
 
+/* Keep the wordmark as one flex item so the flex gap sits between the icon and
+   "ShoreDay" — not between "Shore" and "Day". */
+.np-brand-word {
+  white-space: nowrap;
+}
+
 .np-port-chip,
 .np-kicker,
 .np-path-index,

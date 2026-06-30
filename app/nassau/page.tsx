@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import ShoreDayWordmark from "@/components/brand/ShoreDayWordmark";
 import "./nassau.css";
 
 // Development route — keep out of search indexes until an SEO decision is approved.
@@ -17,7 +18,7 @@ export default function NassauLanding() {
     <main className="nassau-landing">
       <header className="nl-nav">
         <div className="nl-logo">
-          Shore<span>Day</span>
+          <ShoreDayWordmark />
         </div>
         <span className="nl-port-chip">Nassau · Bahamas</span>
       </header>

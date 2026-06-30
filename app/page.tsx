@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import HomeAnalytics from "./HomeAnalytics";
+import ShoreDayWordmark from "@/components/brand/ShoreDayWordmark";
 import "./home.css";
 
 export const metadata: Metadata = {
@@ -31,7 +32,7 @@ export default function Home() {
             style={{ height: 36, width: "auto" }}
           />
           <div>
-            Shore<span>Day</span>
+            <ShoreDayWordmark />
           </div>
         </Link>
       </nav>
