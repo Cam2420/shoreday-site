@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import KitForm from "./KitForm";
 import ViatorOutboundLink from "@/components/funnel/ViatorOutboundLink";
+import ShoreDayWordmark from "@/components/brand/ShoreDayWordmark";
 import "./cheat.css";
 
 export const metadata: Metadata = {
@@ -16,7 +17,7 @@ export default function NassauCheatSheet() {
     <div className="cheat">
       <div className="container">
         <div className="logo">
-          Shore<span>Day</span>
+          <ShoreDayWordmark />
         </div>
 
         <h1>The Nassau Port Playbook</h1>

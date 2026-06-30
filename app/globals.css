@@ -46,3 +46,8 @@ select:focus-visible,
   outline-offset: 2px;
   box-shadow: 0 0 0 6px rgba(44, 200, 183, 0.4);
 }
+
+/* Shared ShoreDay wordmark accent — "Day" in lagoon teal (#4f8d90). */
+.sd-day {
+  color: #4f8d90;
+}
