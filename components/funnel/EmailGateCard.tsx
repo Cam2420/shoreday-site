@@ -54,16 +54,16 @@ export default function EmailGateCard({
 
   return (
     <div className="fn-gate">
-      <h3 className="fn-gate-title">Unlock your Nassau plan</h3>
+      <h3 className="fn-gate-title">Unlock your full Nassau plan</h3>
       <p className="fn-gate-sub">
-        Save this so you&rsquo;re not rebuilding the day from scratch at the pier.
-        Your full plan shows the timeline, return buffer, and Nassau options that
-        fit your ship time.
+        Enter your email to unlock the full timeline now. We&rsquo;ll also send
+        your Nassau Port Playbook with timing tips, taxi basics, and port-day
+        recommendations so you can find it before you dock.
       </p>
 
       <div className="fn-field">
         <label htmlFor="fn-email" className="fn-label">
-          Where should we send it?
+          Where should we send your Playbook?
           <span className="fn-sr-only"> Required field</span>
         </label>
         <input
@@ -89,7 +89,7 @@ export default function EmailGateCard({
           onChange={(e) => onMarketingToggle(e.target.checked)}
           disabled={submitting}
         />
-        <span>Send occasional Nassau tips. Optional.</span>
+        <span>Send me Nassau port-day tips, timing reminders, and excursion ideas before my cruise. Optional.</span>
       </label>
 
       {error ? (
@@ -104,11 +104,13 @@ export default function EmailGateCard({
         onClick={onSubmit}
         disabled={submitting}
       >
-        {submitting ? "Saving…" : "Save & Show My Full Plan"}
+        {submitting ? "Unlocking…" : "Unlock My Full Plan"}
       </button>
 
       <p className="fn-gate-fineprint">
-        We&rsquo;ll email your return target and plan notes once. Nassau tips only if you check the box.
+        We&rsquo;ll email your return target and Nassau Playbook once. If you
+        don&rsquo;t see it in your main inbox, check Promotions. Nassau tips only
+        if you check the box.
       </p>
     </div>
   );

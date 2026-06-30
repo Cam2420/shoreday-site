@@ -112,7 +112,7 @@ export default function ItineraryStopCard({
 
           {hasDetails && !preview ? (
             <details className="np-stop-details">
-              <summary>Details</summary>
+              <summary>ShoreTip</summary>
               {stop.safetyNote ? <p>{stop.safetyNote}</p> : null}
             </details>
           ) : null}
