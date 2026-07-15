@@ -14,7 +14,7 @@ const EVENT_NAMES = new Set<string>(FUNNEL_EVENTS);
  */
 export default function HomeAnalytics() {
   useEffect(() => {
-    track("landing_view", { port: "nassau", source: "home" });
+    track("landing_view", { port: "nassau", source: "home", surface: "home_page" });
 
     function onClick(e: MouseEvent) {
       const target = e.target as HTMLElement | null;

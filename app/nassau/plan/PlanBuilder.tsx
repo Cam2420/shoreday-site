@@ -345,6 +345,20 @@ function utmEventProps(utm: UtmParams): FunnelEventProperties {
   return props;
 }
 
+/**
+ * Hostname-only referrer (e.g. "www.tiktok.com") for the landing impression —
+ * never the full referrer URL. Returns undefined when there is no referrer or it
+ * cannot be parsed. Privacy-safe: hostname carries the source, not any user data.
+ */
+function referrerHost(): string | undefined {
+  try {
+    if (typeof document === "undefined" || !document.referrer) return undefined;
+    return new URL(document.referrer).hostname || undefined;
+  } catch {
+    return undefined;
+  }
+}
+
 export default function PlanBuilder({
   initialMode = "default",
   kitConfigured = false,
@@ -379,10 +393,22 @@ export default function PlanBuilder({
   // not double-count.
   const plannerStartedRef = useRef(false);
 
+  // Fires once per page load (StrictMode-safe via the ref), independent of the
+  // planner_start guard: this counts EVERY arrival on /nassau/plan — including
+  // visitors who never tap "Start" — so social traffic is visible and attributable.
+  const landingViewFiredRef = useRef(false);
+
   function firePlannerStart(surface: string) {
     if (plannerStartedRef.current) return;
     plannerStartedRef.current = true;
-    track("planner_start", { port: "nassau", mode: initialMode, surface });
+    // Rider A2: carry the same UTM attribution as email_submitted so planner_start
+    // is directly attributable to a source without a funnel join.
+    track("planner_start", {
+      port: "nassau",
+      mode: initialMode,
+      surface,
+      ...utmEventProps(readUtmParams()),
+    });
   }
 
   const steps = MODE_STEP_IDS[initialMode] ?? MODE_STEP_IDS.default;
@@ -412,6 +438,25 @@ export default function PlanBuilder({
   // --- Canonical funnel view/impression events (lib/funnel-events.ts) ---------
   // These fire on screen entry. Click/submit events are fired inline at their
   // handlers. All payloads are privacy-safe (no email, ship name, raw times/date).
+
+  // Planner page landing impression. Fires once per page load (ref guard also
+  // absorbs React StrictMode's dev double-mount), regardless of whether the user
+  // ever starts. Carries UTM attribution, the pathname only, and the hostname-only
+  // referrer — never a full URL — so bio/social arrivals are counted and separable.
+  useEffect(() => {
+    if (landingViewFiredRef.current) return;
+    landingViewFiredRef.current = true;
+    const host = referrerHost();
+    track("landing_view", {
+      port: "nassau",
+      surface: "planner_page",
+      mode: initialMode,
+      page_path: window.location.pathname,
+      ...(host ? { referrer_host: host } : {}),
+      ...utmEventProps(readUtmParams()),
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Each wizard question becomes visible.
   useEffect(() => {
