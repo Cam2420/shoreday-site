@@ -36,6 +36,29 @@ describe('analytics — canonical event construction', () => {
     expect(e.properties.result_type).toBe('Low-Stress Independent Planner');
     expect(e.properties.mode).toBe('default');
   });
+
+  it('constructs the planner landing_view payload (path + referrer host + utm, no PII)', () => {
+    // Mirrors the /nassau/plan mount effect: pathname only (never a full URL),
+    // hostname-only referrer, and structured UTM attribution.
+    const props: FunnelEventProperties = {
+      port: 'nassau',
+      surface: 'planner_page',
+      mode: 'default',
+      page_path: '/nassau/plan',
+      referrer_host: 'www.tiktok.com',
+      utm_source: 'tiktok',
+      utm_medium: 'social',
+      utm_campaign: 'nassau_planner_bio',
+    };
+    const e = createFunnelEvent('landing_view', props);
+    expect(e.properties.surface).toBe('planner_page');
+    expect(e.properties.page_path).toBe('/nassau/plan');
+    expect(e.properties.referrer_host).toBe('www.tiktok.com');
+    expect(e.properties.utm_source).toBe('tiktok');
+    // page_path must never carry a query string or full origin.
+    expect(e.properties.page_path).not.toContain('?');
+    expect(e.properties.page_path).not.toContain('://');
+  });
 });
 
 describe('analytics — runtime event-name allow-list (isTrackableEvent)', () => {
@@ -83,6 +106,8 @@ describe('analytics — server property sanitisation (pickAllowedProperties)', (
       store: 'google',
       excursion_id: 'x1',
       step: 3,
+      page_path: '/nassau/plan',
+      referrer_host: 'l.instagram.com',
       // Unknown / unsafe keys that must be dropped:
       email: 'a@b.com',
       ship_name: 'Carnival Celebration',
@@ -97,6 +122,8 @@ describe('analytics — server property sanitisation (pickAllowedProperties)', (
       store: 'google',
       excursion_id: 'x1',
       step: 3,
+      page_path: '/nassau/plan',
+      referrer_host: 'l.instagram.com',
     });
     expect('email' in cleaned).toBe(false);
     expect('ship_name' in cleaned).toBe(false);

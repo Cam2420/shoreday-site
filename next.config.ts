@@ -35,6 +35,22 @@ const nextConfig: NextConfig = {
         destination: "/nassau-survival-card",
         permanent: true,
       },
+      // Short social bio links → the Nassau planner, pre-tagged with UTM
+      // attribution so TikTok vs Instagram is separable and top-of-funnel
+      // arrivals are measurable. `permanent: false` (307): never cached by the
+      // browser, so campaign params can be retargeted later without stale hops.
+      {
+        source: "/tiktok",
+        destination:
+          "/nassau/plan?utm_source=tiktok&utm_medium=social&utm_campaign=nassau_planner_bio",
+        permanent: false,
+      },
+      {
+        source: "/ig",
+        destination:
+          "/nassau/plan?utm_source=instagram&utm_medium=social&utm_campaign=nassau_planner_bio",
+        permanent: false,
+      },
     ];
   },
   async headers() {

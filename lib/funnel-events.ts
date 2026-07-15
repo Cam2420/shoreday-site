@@ -115,6 +115,15 @@ export interface FunnelEventProperties {
   utm_campaign?: string;
   utm_content?: string;
   utm_term?: string;
+  /**
+   * Origin context for a page-landing impression. Both are deliberately coarse to
+   * avoid PII: `page_path` is the pathname ONLY (never the full URL or query
+   * string — UTM values are captured as the structured utm_* fields above), and
+   * `referrer_host` is the referrer's hostname ONLY (e.g. "l.instagram.com"),
+   * never the full referrer URL.
+   */
+  page_path?: string;
+  referrer_host?: string;
 }
 
 export interface FunnelEvent {
@@ -149,6 +158,8 @@ export const FUNNEL_EVENT_PROPERTY_KEYS = [
   'utm_campaign',
   'utm_content',
   'utm_term',
+  'page_path',
+  'referrer_host',
 ] as const;
 
 const ALLOWED_PROPERTY_KEYS: ReadonlySet<string> = new Set(FUNNEL_EVENT_PROPERTY_KEYS);
