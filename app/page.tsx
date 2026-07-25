@@ -78,7 +78,7 @@ export default function Home() {
                   href="https://vi.me/s/shoredayapp"
                   target="_blank"
                   rel="sponsored noopener noreferrer"
-                  className="hero-secondary-cta"
+                  className="hero-excursions-link"
                   data-analytics-event="excursion_click"
                   data-analytics-surface="home_hero"
                 >

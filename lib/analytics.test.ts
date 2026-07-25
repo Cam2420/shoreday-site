@@ -39,7 +39,7 @@ describe('analytics — canonical event construction', () => {
 });
 
 describe('analytics — runtime event-name allow-list (isTrackableEvent)', () => {
-  it('accepts only the 14 canonical web events', () => {
+  it('accepts every canonical web event name', () => {
     for (const name of FUNNEL_EVENTS) {
       expect(isTrackableEvent(name)).toBe(true);
     }

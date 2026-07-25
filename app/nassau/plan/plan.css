@@ -300,6 +300,7 @@ a.np-port-chip:hover {
 
 .np-starter-card,
 .np-app-soft,
+.np-playbook-card,
 .np-personalize {
   background: #ffffff;
   border: 1px solid var(--np-line);
@@ -320,7 +321,8 @@ a.np-port-chip:hover {
 }
 
 .np-starter-card h2,
-.np-app-soft h2 {
+.np-app-soft h2,
+.np-playbook-card h2 {
   margin: 0 0 0.5rem;
   color: var(--color-ocean-ink);
   font-size: 1.18rem;
@@ -330,9 +332,19 @@ a.np-port-chip:hover {
 
 .np-starter-card p,
 .np-app-soft p,
+.np-playbook-card p,
 .np-personalize p {
   margin: 0;
   color: var(--color-ocean-ink-muted);
+}
+
+/* Paid Nassau Port Day Playbook (Etsy) card — post-gate result only. Reuses the
+   shared white-card chrome above; this only sets the internal rhythm. Keeps its
+   box-shadow (matching .np-app-soft rather than the flattened
+   .np-unlocked-excursions) so the paid offer reads as a distinct soft card. */
+.np-playbook-card {
+  display: grid;
+  gap: 0.6rem;
 }
 
 .np-personalize {

@@ -57,13 +57,13 @@ export default function EmailGateCard({
       <h3 className="fn-gate-title">Unlock your full Nassau plan</h3>
       <p className="fn-gate-sub">
         Enter your email to unlock the full timeline now. We&rsquo;ll also send
-        your Nassau Port Playbook with timing tips, taxi basics, and port-day
+        your Nassau Survival Card with timing tips, taxi basics, and port-day
         recommendations so you can find it before you dock.
       </p>
 
       <div className="fn-field">
         <label htmlFor="fn-email" className="fn-label">
-          Where should we send your Playbook?
+          Where should we send your Survival Card?
           <span className="fn-sr-only"> Required field</span>
         </label>
         <input
@@ -108,7 +108,7 @@ export default function EmailGateCard({
       </button>
 
       <p className="fn-gate-fineprint">
-        We&rsquo;ll email your return target and Nassau Playbook once. If you
+        We&rsquo;ll email your return target and Nassau Survival Card once. If you
         don&rsquo;t see it in your main inbox, check Promotions. Nassau tips only
         if you check the box.
       </p>
