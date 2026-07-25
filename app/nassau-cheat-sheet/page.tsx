@@ -5,9 +5,9 @@ import ShoreDayWordmark from "@/components/brand/ShoreDayWordmark";
 import "./cheat.css";
 
 export const metadata: Metadata = {
-  title: { absolute: "Free Nassau Port Playbook | ShoreDay" },
+  title: { absolute: "Free Nassau Survival Card | ShoreDay" },
   description:
-    "Get the free Nassau Port Playbook with all-aboard timing, taxi-fare guidance, and practical tips for your cruise stop.",
+    "Get the free Nassau Survival Card with all-aboard timing, taxi-fare guidance, and practical tips for your cruise stop.",
   alternates: { canonical: "/nassau-cheat-sheet" },
   robots: { index: false, follow: false },
 };
@@ -20,7 +20,7 @@ export default function NassauCheatSheet() {
           <ShoreDayWordmark />
         </div>
 
-        <h1>The Nassau Port Playbook</h1>
+        <h1>The Nassau Survival Card</h1>
         <div className="subtitle">Timing, Taxi Fares &amp; the Traps to Skip</div>
 
         <p className="description">

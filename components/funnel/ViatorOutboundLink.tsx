@@ -1,6 +1,7 @@
 "use client";
 
 import { track } from "@/lib/analytics";
+import type { FunnelEventProperties } from "@/lib/funnel-events";
 
 /**
  * Thin client wrapper for the Viator storefront shortlink.
@@ -9,10 +10,18 @@ import { track } from "@/lib/analytics";
  */
 export default function ViatorOutboundLink({
   surface,
+  mode,
   children,
   className,
 }: {
   surface: string;
+  /**
+   * Planner path. OPTIONAL: when omitted the payload is exactly
+   * `{ port, surface }`, so the static Nassau pages keep their existing event
+   * shape byte-for-byte. The planner passes its mode so planner clicks stay
+   * segmentable by path.
+   */
+  mode?: FunnelEventProperties["mode"];
   children: React.ReactNode;
   className?: string;
 }) {
@@ -22,7 +31,18 @@ export default function ViatorOutboundLink({
       target="_blank"
       rel="sponsored noopener noreferrer"
       className={className}
-      onClick={() => track("excursion_click", { port: "nassau", surface })}
+      onClick={() =>
+        // Branch rather than assigning `mode: undefined`: forwardToVendors pushes
+        // this object straight into dataLayer/gtag/plausible, where an explicit
+        // undefined key is observable via Object.keys(). Key order also matches
+        // the planner's previous inline calls, so the JSON stays byte-identical.
+        track(
+          "excursion_click",
+          mode === undefined
+            ? { port: "nassau", surface }
+            : { port: "nassau", mode, surface },
+        )
+      }
     >
       {children}
     </a>

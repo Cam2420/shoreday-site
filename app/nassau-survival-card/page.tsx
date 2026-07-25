@@ -3,7 +3,7 @@ import ViatorOutboundLink from "@/components/funnel/ViatorOutboundLink";
 import "./survival.css";
 
 export const metadata: Metadata = {
-  title: { absolute: "Nassau Port Playbook | ShoreDay" },
+  title: { absolute: "Nassau Survival Card | ShoreDay" },
   description:
     "A practical guide to all-aboard timing, taxi-fare guidance, and avoiding common tourist traps during a Nassau cruise stop.",
   alternates: { canonical: "/nassau-survival-card" },
@@ -14,7 +14,7 @@ export default function NassauSurvivalCard() {
   return (
     <div className="survival">
       <main className="card">
-        <span className="eyebrow">NASSAU PORT PLAYBOOK</span>
+        <span className="eyebrow">NASSAU SURVIVAL CARD</span>
         <h1>Make Nassau feel simple before you step off the ship</h1>
         <p className="lede">
           A practical one-page guide to timing, taxis, and choosing one good thing

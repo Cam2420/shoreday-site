@@ -11,6 +11,7 @@ import FunnelStepShell from "@/components/funnel/FunnelStepShell";
 import ItineraryTimeline from "@/components/funnel/ItineraryTimeline";
 import PoweredByAiBadge from "@/components/funnel/PoweredByAiBadge";
 import TimeInput from "@/components/funnel/TimeInput";
+import ViatorOutboundLink from "@/components/funnel/ViatorOutboundLink";
 import ShoreDayWordmark from "@/components/brand/ShoreDayWordmark";
 import { NASSAU_PORT_CONFIG } from "@/data/ports/nassau";
 import {
@@ -43,7 +44,11 @@ import type {
   TravelerGroup,
 } from "@/types/funnel";
 
-const VIATOR_STOREFRONT = "https://vi.me/s/shoredayapp";
+// ShoreDay's OWN paid Etsy product — NOT an affiliate link, so `rel` is
+// deliberately "noopener noreferrer" WITHOUT "sponsored", and it carries no
+// affiliate disclosure (unlike the Viator links).
+const ETSY_PLAYBOOK_URL =
+  "https://www.etsy.com/listing/4540468636/nassau-cruise-port-day-planner-pdf";
 const APP_STORE_URL = "https://apps.apple.com/app/id6761083487";
 const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.vmamanagement.shoreday";
 const APPLE_BADGE = "https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg";
@@ -507,6 +512,7 @@ export default function PlanBuilder({
   useEffect(() => {
     if (!submitted) return;
     track("results_view", { port: "nassau", mode: initialMode, result_type: planStyleLabel() });
+    track("playbook_card_view", playbookEventProps());
     track("app_card_view", { port: "nassau", mode: initialMode, surface: "unlocked_result" });
     starterExcursions().forEach((card, i) =>
       track("excursion_card_view", {
@@ -841,6 +847,21 @@ export default function PlanBuilder({
     return dayTypeTitle().replace(/^Your Nassau Day Type:\s*/, "");
   }
 
+  /**
+   * Non-PII properties for the paid Playbook card events. `destination` and
+   * `plan_type` are coarse categories; UTM values are copied verbatim from the
+   * landing URL. Read fresh at call time — readUtmParams() is window-only, so it
+   * must not be hoisted into SSR-initialized state.
+   */
+  function playbookEventProps(): FunnelEventProperties {
+    return {
+      surface: "unlocked_result",
+      destination: "nassau",
+      plan_type: planStyleLabel(),
+      ...utmEventProps(readUtmParams()),
+    };
+  }
+
   function renderExcursionCards(recommendations: NassauMobileExcursionRecord[], surface: string) {
     return recommendations.map((card) => (
       <article key={card.id} className="np-excursion-card">
@@ -905,21 +926,13 @@ export default function PlanBuilder({
               <img src="/logo_transparent.png" alt="" aria-hidden="true" className="np-brand-icon" />
               <span className="np-brand-word"><ShoreDayWordmark /></span>
             </Link>
-            <a
-              href={VIATOR_STOREFRONT}
-              target="_blank"
-              rel="sponsored noopener noreferrer"
+            <ViatorOutboundLink
+              surface="planner_topbar"
+              mode={initialMode}
               className="np-port-chip"
-              onClick={() =>
-                track("excursion_click", {
-                  port: "nassau",
-                  mode: initialMode,
-                  surface: "planner_topbar",
-                })
-              }
             >
               Book Excursions ↗
-            </a>
+            </ViatorOutboundLink>
           </header>
 
           <h1 id="np-intro-title" className="np-intro-heading">
@@ -1070,21 +1083,13 @@ export default function PlanBuilder({
                 ))}
               </div>
               <div className="np-starter-actions np-browse-all">
-              <a
+              <ViatorOutboundLink
+                surface="browse_all_starter"
+                mode={initialMode}
                 className="fn-btn fn-btn-ghost"
-                href={VIATOR_STOREFRONT}
-                target="_blank"
-                rel="sponsored noopener noreferrer"
-                onClick={() =>
-                  track("excursion_click", {
-                    port: "nassau",
-                    mode: initialMode,
-                    surface: "browse_all_starter",
-                  })
-                }
               >
                 Browse all ShoreDay Excursions
-              </a>
+              </ViatorOutboundLink>
               </div>
               <p className="fn-affiliate-disclosure">
                 Disclosure: ShoreDay may earn a commission if you book through a Viator link. It doesn&rsquo;t change the price you pay.
@@ -1092,10 +1097,11 @@ export default function PlanBuilder({
             </section>
 
             <section className="np-app-soft" aria-label="ShoreDay app">
-              <h2>Want this on port day?</h2>
+              <h2>Your port-day companion</h2>
               <p>
-                Use the ShoreDay app for your saved plan, departure reminders,
-                map, and in-app concierge when you&rsquo;re actually in Nassau.
+                The ShoreDay app rides along in Nassau &mdash; your saved plan,
+                departure reminders, map, and in-app concierge while you&rsquo;re
+                ashore.
               </p>
               <div className="np-store-badges">
                 <a
@@ -1161,21 +1167,13 @@ export default function PlanBuilder({
               <img src="/logo_transparent.png" alt="" aria-hidden="true" className="np-brand-icon" />
               <span className="np-brand-word"><ShoreDayWordmark /></span>
             </Link>
-            <a
-              href={VIATOR_STOREFRONT}
-              target="_blank"
-              rel="sponsored noopener noreferrer"
+            <ViatorOutboundLink
+              surface="planner_topbar"
+              mode={initialMode}
               className="np-port-chip"
-              onClick={() =>
-                track("excursion_click", {
-                  port: "nassau",
-                  mode: initialMode,
-                  surface: "planner_topbar",
-                })
-              }
             >
               Book Excursions ↗
-            </a>
+            </ViatorOutboundLink>
           </header>
 
           <div className="np-planner-layout np-planner-layout-single">
@@ -1366,21 +1364,13 @@ export default function PlanBuilder({
                 <img src="/logo_transparent.png" alt="" aria-hidden="true" className="np-brand-icon" />
                 <span className="np-brand-word"><ShoreDayWordmark /></span>
               </Link>
-              <a
-                href={VIATOR_STOREFRONT}
-                target="_blank"
-                rel="sponsored noopener noreferrer"
+              <ViatorOutboundLink
+                surface="planner_topbar"
+                mode={initialMode}
                 className="np-port-chip"
-                onClick={() =>
-                  track("excursion_click", {
-                    port: "nassau",
-                    mode: initialMode,
-                    surface: "planner_topbar",
-                  })
-                }
               >
                 Book Excursions ↗
-              </a>
+              </ViatorOutboundLink>
             </header>
 
             <section className="np-result-stack" aria-label="Timing error">
@@ -1485,7 +1475,7 @@ export default function PlanBuilder({
               </>
             ) : (
               <p className="np-unlock-confirm" role="status">
-                Plan unlocked.{kitConfigured ? " We also sent your Nassau Playbook to your inbox." : ""}
+                Plan unlocked.{kitConfigured ? " We also sent your Nassau Survival Card to your inbox." : ""}
               </p>
             )}
 
@@ -1514,6 +1504,28 @@ export default function PlanBuilder({
                   <ItineraryTimeline stops={itineraryStops} enableGooglePlacePhoto />
                 </div>
 
+                {/* Paid Nassau Port Day Playbook (Etsy) — post-gate only, so it is
+                    never shown before the user has seen the free plan. This is
+                    ShoreDay's OWN product: no affiliate disclosure and no
+                    rel="sponsored" (unlike the Viator links below). */}
+                <section className="np-playbook-card" aria-labelledby="np-playbook-title">
+                  <h2 id="np-playbook-title">Want this plan in a printable backup?</h2>
+                  <p>
+                    Get the fillable Nassau Port Day Playbook with the timing
+                    worksheet, quick reference, and phone-first backup card.
+                  </p>
+                  <div className="np-starter-actions">
+                    <a
+                      className="fn-btn fn-btn-primary"
+                      href={ETSY_PLAYBOOK_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => track("playbook_click", playbookEventProps())}
+                    >
+                      Get the $5.99 Playbook
+                    </a>
+                  </div>
+                </section>
 
                 <section className="np-starter-excursions np-unlocked-excursions" aria-labelledby="np-unlocked-excursions-title">
                   <div className="np-section-head">
@@ -1528,21 +1540,13 @@ export default function PlanBuilder({
                     {renderExcursionCards(recommendations, "unlocked_result_card")}
                   </div>
                   <div className="np-starter-actions np-browse-all">
-                    <a
+                    <ViatorOutboundLink
+                      surface="browse_all_unlocked"
+                      mode={initialMode}
                       className="fn-btn fn-btn-ghost"
-                      href={VIATOR_STOREFRONT}
-                      target="_blank"
-                      rel="sponsored noopener noreferrer"
-                      onClick={() =>
-                        track("excursion_click", {
-                          port: "nassau",
-                          mode: initialMode,
-                          surface: "browse_all_unlocked",
-                        })
-                      }
                     >
                       Browse all ShoreDay Excursions
-                    </a>
+                    </ViatorOutboundLink>
                   </div>
                   <p className="fn-affiliate-disclosure">
                     Disclosure: ShoreDay may earn a commission if you book through a Viator link. It doesn&rsquo;t change the price you pay.
@@ -1550,10 +1554,11 @@ export default function PlanBuilder({
                 </section>
 
                 <section className="np-app-soft" aria-label="ShoreDay app">
-                  <h2>Want this on port day?</h2>
+                  <h2>Your port-day companion</h2>
                   <p>
-                    Use the ShoreDay app for your saved plan, departure reminders,
-                    map, and in-app concierge when you&rsquo;re actually in Nassau.
+                    The ShoreDay app rides along in Nassau &mdash; your saved plan,
+                    departure reminders, map, and in-app concierge while
+                    you&rsquo;re ashore.
                   </p>
                   <div className="np-store-badges">
                     <a
@@ -1617,21 +1622,13 @@ export default function PlanBuilder({
             <img src="/logo_transparent.png" alt="" aria-hidden="true" className="np-brand-icon" />
             <span className="np-brand-word"><ShoreDayWordmark /></span>
           </Link>
-          <a
-            href={VIATOR_STOREFRONT}
-            target="_blank"
-            rel="sponsored noopener noreferrer"
+          <ViatorOutboundLink
+            surface="planner_topbar"
+            mode={initialMode}
             className="np-port-chip"
-            onClick={() =>
-              track("excursion_click", {
-                port: "nassau",
-                mode: initialMode,
-                surface: "planner_topbar",
-              })
-            }
           >
             Book Excursions ↗
-          </a>
+          </ViatorOutboundLink>
         </header>
 
         <div className="np-planner-layout np-planner-layout-single">

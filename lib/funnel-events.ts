@@ -6,11 +6,13 @@
  * PII: no email, name, raw personal data, Firebase tokens, or affiliate
  * identifiers containing PII (spec §14).
  *
- * Count reconciliation: spec §12 defines exactly 14 WEB event names (below) and a
+ * Count reconciliation: spec §12 defines exactly 14 WEB event names and a
  * separate set of 12 APP events (`SPEC_APP_EVENTS`, verified in the mobile app,
  * not emitted here). The "17" referenced during authorization matches neither
- * list. The web funnel implements the spec's 14 web events; the app set is listed
- * only to account for the full analytics surface (14 + 12).
+ * list. `FUNNEL_EVENTS` below is the spec's 14 web events (a stable prefix)
+ * followed by 2 post-spec additions for the paid Nassau Port Day Playbook card,
+ * for 16 web events total. The app set is listed only to account for the full
+ * analytics surface (16 + 12).
  *
  * Owner concept (Phase 10) → spec event name:
  *   landing viewed          → landing_view
@@ -27,9 +29,17 @@
  *   app CTA viewed          → app_card_view
  *   app CTA clicked         → app_store_click
  *   saved plan viewed       → plan_share   (nearest spec event; saved-link views reuse it)
+ *   playbook card viewed    → playbook_card_view   (post-spec; paid Etsy Playbook)
+ *   playbook card clicked   → playbook_click       (post-spec; paid Etsy Playbook)
  */
 
-/** The exact 14 web event names from spec §12, in funnel order. */
+/**
+ * All canonical web event names, in funnel order.
+ *
+ * Indices 0–13 are the exact 14 spec §12 web events and MUST remain a stable
+ * prefix in that order (asserted in funnel-events.test.ts). Anything added after
+ * spec §12 is appended below the marker so the spec set stays greppable.
+ */
 export const FUNNEL_EVENTS = [
   'landing_view',
   'planner_start',
@@ -45,6 +55,10 @@ export const FUNNEL_EVENTS = [
   'app_card_view',
   'app_store_click',
   'plan_share',
+  // --- Added after spec §12 -------------------------------------------------
+  // Paid Nassau Port Day Playbook (Etsy) card in the post-gate planner result.
+  'playbook_card_view',
+  'playbook_click',
 ] as const;
 
 export type FunnelEventName = (typeof FUNNEL_EVENTS)[number];
@@ -82,6 +96,8 @@ export type DaysToPortBucket = (typeof DAYS_TO_PORT_BUCKETS)[number];
 export interface FunnelEventProperties {
   plan_id?: string;
   port?: 'nassau';
+  /** Coarse destination/port slug for cross-port reporting (e.g. "nassau"). Never free user text. */
+  destination?: string;
   days_to_port_bucket?: DaysToPortBucket;
   party_type?: string;
   planning_state?: string;
@@ -102,6 +118,12 @@ export interface FunnelEventProperties {
   mode?: 'default' | 'times' | 'fast';
   /** Derived plan-style bucket (e.g. "Low-Stress Independent Planner") — a category, never free user text. */
   result_type?: string;
+  /**
+   * Derived plan-style bucket for monetization-card events. Same vocabulary as
+   * `result_type` (which stays scoped to the planner-result events) — kept
+   * separate so Playbook conversion can be sliced without joining event types.
+   */
+  plan_type?: string;
   /** Where in the UI the event originated (e.g. "home_hero", "starter_card"). */
   surface?: string;
   /** App store for app_store_click. */
@@ -139,6 +161,7 @@ export interface FunnelEvent {
 export const FUNNEL_EVENT_PROPERTY_KEYS = [
   'plan_id',
   'port',
+  'destination',
   'days_to_port_bucket',
   'party_type',
   'planning_state',
@@ -151,6 +174,7 @@ export const FUNNEL_EVENT_PROPERTY_KEYS = [
   'step',
   'mode',
   'result_type',
+  'plan_type',
   'surface',
   'store',
   'utm_source',
