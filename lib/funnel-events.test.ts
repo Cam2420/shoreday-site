@@ -85,6 +85,8 @@ describe('funnel events — property allow-list stays in sync with the interface
       utm_campaign: 'c',
       utm_content: 'ct',
       utm_term: 't',
+      page_path: '/nassau/plan',
+      referrer_host: 'l.instagram.com',
     } satisfies Required<FunnelEventProperties>;
 
     expect(pickAllowedProperties(sample)).toEqual(sample);

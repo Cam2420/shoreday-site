@@ -943,7 +943,7 @@ export default function PlanBuilder({
           <section className="np-intro-card" aria-labelledby="np-intro-title">
             <div className="np-intro-copy">
               <button type="button" className="fn-btn fn-btn-primary np-intro-cta" onClick={startQuiz}>
-                Start My Nassau Plan
+                Continue to the 60-Second Quiz
               </button>
               <p className="np-intro-micro">Takes about 60 seconds. Exact timing comes after the quiz.</p>
             </div>
