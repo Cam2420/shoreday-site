@@ -54,7 +54,7 @@ export default function ConciergeTerms() {
         not an emergency service — in an emergency call 919 or 911.
       </p>
 
-      <p>Operated by VMA Management LLC, Miami, Florida.</p>
+      <p>Operated by VMAManagement LLC, Miami, Florida.</p>
     </main>
   );
 }
