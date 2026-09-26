@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { PAYMENT_LINK_URL, PREVIEW_BOT_UA } from "./lib/checkout";
 
 const nextConfig: NextConfig = {
   images: {
@@ -43,6 +44,15 @@ const nextConfig: NextConfig = {
         source: "/tiktok",
         destination:
           "/nassau/plan?utm_source=tiktok&utm_medium=social&utm_campaign=nassau_planner_bio",
+        permanent: false,
+      },
+      // ShoreDay concierge checkout: people go straight to the payment link;
+      // link-preview bots are let through to /checkout so chats show a
+      // ShoreDay preview card. See lib/checkout.ts.
+      {
+        source: "/checkout",
+        missing: [{ type: "header", key: "user-agent", value: PREVIEW_BOT_UA }],
+        destination: PAYMENT_LINK_URL,
         permanent: false,
       },
       {
