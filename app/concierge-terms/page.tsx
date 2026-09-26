@@ -50,7 +50,7 @@ export default function ConciergeTerms() {
       <h2>Support</h2>
       <p>
         Human help daily 12–5 pm ET in the same WhatsApp chat, or{" "}
-        <a href="mailto:cam@shoredayapp.com">cam@shoredayapp.com</a>. ShoreDay is
+        <a href="mailto:support@shoredayapp.com">support@shoredayapp.com</a>. ShoreDay is
         not an emergency service — in an emergency call 919 or 911.
       </p>
 
