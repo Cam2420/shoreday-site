@@ -18,4 +18,4 @@ export const PAYMENT_LINK_URL =
  * Case-sensitive JS regex (no inline flags) — tokens match real UA strings.
  */
 export const PREVIEW_BOT_UA =
-  ".*(facebookexternalhit|Facebot|meta-externalagent|WhatsApp|Twitterbot|Slackbot|TelegramBot|LinkedInBot|Discordbot|SkypeUriPreview|Googlebot|bingbot|Applebot|Pinterestbot|redditbot|Embedly).*";
+  ".*(facebookexternalhit|Facebot|meta-externalagent|WhatsApp|Twitterbot|Slackbot|TelegramBot|LinkedInBot|Discordbot|SkypeUriPreview|Applebot|Pinterestbot|redditbot|Embedly).*";
