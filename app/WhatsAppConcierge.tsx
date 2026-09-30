@@ -218,9 +218,8 @@ function WhatsAppPhone() {
                   loading="lazy"
                   decoding="async"
                 />
-                <p className="wa-card-text">{WELCOME_TEXT}</p>
-                <p className="wa-card-footer">
-                  Independent · Nassau only · Not an emergency service
+                <p className="wa-card-text">
+                  {WELCOME_TEXT}
                   <span className="wa-meta-spacer" />
                 </p>
                 <span className="wa-meta">

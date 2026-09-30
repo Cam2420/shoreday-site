@@ -1318,8 +1318,8 @@
   color: #53bdeb;
 }
 
-/* Interactive welcome card: header image, text, footer + time, then the
-   quick-reply rows inside the same bubble, split by hairlines. */
+/* Interactive welcome card: header image, text + time, then the quick-reply
+   rows inside the same bubble, split by hairlines. */
 .home .wa-card {
   width: calc(330 * var(--pt));
   max-width: none;
@@ -1334,15 +1334,9 @@
   height: auto;
   border-radius: calc(6 * var(--pt)) calc(6 * var(--pt)) 0 0;
 }
-.home .wa-card-text,
-.home .wa-card-footer {
+.home .wa-card-text {
   padding: calc(6 * var(--pt)) calc(7 * var(--pt)) 0;
   text-wrap: pretty;
-}
-.home .wa-card-footer {
-  padding-top: calc(4 * var(--pt));
-  color: #667781;
-  font-size: calc(13 * var(--pt));
 }
 .home .wa-card-replies span {
   display: flex;
