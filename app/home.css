@@ -940,9 +940,9 @@
 }
 
 /* ------------------------------------------ WhatsApp concierge section ----- */
-/* The $15 Nassau Concierge lives in WhatsApp. Copy + QR/button on the left, a
-   phone mockup of the real welcome card on the right. WhatsApp-like colours are
-   kept inside the mockup only; the section itself uses the homepage palette. */
+/* The $15 Nassau Concierge lives in WhatsApp. Copy + QR/button on the left, an
+   iPhone showing a sample chat on the right. WhatsApp-like colours are kept
+   inside the mockup only; the section itself uses the homepage palette. */
 .home .wa-concierge {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
@@ -1093,114 +1093,322 @@
   font-weight: 600;
 }
 
-/* Phone mockup (decorative). */
-.home .wa-phone {
+/* Phone mockup (decorative): an iPhone running the WhatsApp chat's first
+   exchange. WhatsApp and iOS colours live only inside it, and sizes are in px
+   because it mimics a device screen. */
+.home .wa-mockup {
   justify-self: center;
-  width: min(100%, 300px);
-  padding: 10px;
-  border-radius: 44px;
-  background: #121a22;
-  box-shadow:
-    0 30px 60px rgba(23, 50, 77, 0.28),
-    inset 0 0 0 2px #2a3440;
+  width: min(100%, 310px);
 }
-.home .wa-screen {
-  border-radius: 34px;
-  overflow: hidden;
-  background: #efeae2;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+.home .wa-mockup-caption {
+  margin-top: 0.9rem;
+  text-align: center;
+  color: var(--color-ocean-ink-muted);
+  font-size: 0.8rem;
 }
-.home .wa-chat-head {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 1.35rem 0.9rem 0.65rem;
-  background: #f7f8fa;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-.home .wa-chat-head img {
-  border-radius: 999px;
-  background: #fff;
-}
-.home .wa-chat-head strong {
-  display: block;
-  color: #111b21;
-  font-size: 0.86rem;
-  line-height: 1.2;
-}
-.home .wa-chat-head span {
-  color: #667781;
-  font-size: 0.7rem;
-}
-.home .wa-chat-body {
+
+/* Hardware: titanium band (gradient border), black bezel (padding), screen. */
+.home .wa-phone {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
-  padding: 0.8rem 0.7rem 1rem;
+  aspect-ratio: 9 / 19.5;
+  padding: 9px;
+  border: 3px solid transparent;
+  border-radius: 48px;
+  background:
+    linear-gradient(#0b0c0e, #0b0c0e) padding-box,
+    linear-gradient(145deg, #7a7d82 0%, #3b3d41 22%, #1e1f22 50%, #4d5055 78%, #27282b 100%) border-box;
+  box-shadow:
+    0 30px 60px rgba(23, 50, 77, 0.28),
+    0 8px 18px rgba(23, 50, 77, 0.14);
+}
+.home .wa-hw {
+  position: absolute;
+  left: -6px;
+  width: 3px;
+  border-radius: 2px 0 0 2px;
+  background: linear-gradient(90deg, #26282b, #6c6f74 55%, #3a3c40);
+}
+.home .wa-hw-action {
+  top: 15%;
+  height: 4.5%;
+}
+.home .wa-hw-vol-up {
+  top: 22.5%;
+  height: 8%;
+}
+.home .wa-hw-vol-down {
+  top: 32%;
+  height: 8%;
+}
+.home .wa-hw-power {
+  left: auto;
+  right: -6px;
+  top: 25%;
+  height: 12.5%;
+  border-radius: 0 2px 2px 0;
+  background: linear-gradient(270deg, #26282b, #6c6f74 55%, #3a3c40);
+}
+.home .wa-screen {
+  position: relative;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 36px;
+  background: #f6f5f3;
+  color: #111b21;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Segoe UI", Roboto,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
+  line-height: 1.35;
+  -webkit-font-smoothing: antialiased;
+}
+.home .wa-island {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 31%;
+  height: 26px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #000;
+}
+
+/* iOS status bar, vertically centred on the Dynamic Island. */
+.home .wa-status {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 44px;
+  padding: 0 22px 0 32px;
+  color: #000;
+}
+.home .wa-status-time {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.home .wa-status-icons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* WhatsApp chat header. */
+.home .wa-chat-head {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px 6px;
+  border-bottom: 0.5px solid rgba(11, 20, 26, 0.14);
+}
+.home .wa-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-right: 4px;
+  font-size: 16px;
+}
+.home .wa-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 0 0 0.5px rgba(11, 20, 26, 0.12);
+}
+.home .wa-contact {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Chat area: messages stack from the bottom like a real chat. Its natural
+   height is the welcome card plus a fixed slot for the outgoing bubble
+   (.wa-earlier), so the phone keeps its iPhone proportions until the card
+   needs more room, then grows a little taller. Anything older (the "Today"
+   chip) is clipped at the top; the card, its buttons and the input bar never
+   are. */
+.home .wa-chat {
+  position: relative;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  background: #efeae2;
+}
+.home .wa-wallpaper {
+  position: absolute;
+  inset: 0;
+  color: #1f2c34;
+  opacity: 0.06;
+}
+.home .wa-thread {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 8px 10px;
+}
+.home .wa-earlier {
+  height: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.home .wa-day {
+  align-self: center;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 1px 0.5px rgba(11, 20, 26, 0.13);
+  color: #54656f;
+  font-size: 12px;
+  font-weight: 500;
+}
+.home .wa-bubble {
+  position: relative;
+  padding: 6px 8px 7px 9px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 17px;
+  overflow-wrap: anywhere;
+  filter: drop-shadow(0 1px 0.5px rgba(11, 20, 26, 0.13));
+}
+.home .wa-bubble p {
+  white-space: pre-line;
+}
+/* Tail: a small triangle in the bubble colour on the top corner. */
+.home .wa-bubble::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 8px;
+  height: 13px;
+  background: inherit;
 }
 .home .wa-bubble-out {
   align-self: flex-end;
   max-width: 82%;
-  padding: 0.45rem 0.6rem 0.35rem;
-  border-radius: 10px 10px 2px 10px;
+  border-top-right-radius: 0;
   background: #d9fdd3;
-  color: #111b21;
-  font-size: 0.74rem;
-  line-height: 1.35;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
 }
-.home .wa-bubble-out time {
-  display: block;
-  text-align: right;
-  color: #667781;
-  font-size: 0.6rem;
-  margin-top: 0.1rem;
+.home .wa-bubble-out::before {
+  right: -8px;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
 }
-.home .wa-card {
+.home .wa-bubble-in {
   align-self: flex-start;
-  max-width: 92%;
-  border-radius: 10px 10px 10px 2px;
-  overflow: hidden;
+  max-width: 90%;
+  border-top-left-radius: 0;
   background: #fff;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
 }
-.home .wa-card > img {
-  display: block;
+.home .wa-bubble-in::before {
+  left: -8px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+/* Time (and ticks) sit at the end of the last line when it has room, like
+   WhatsApp: an invisible spacer reserves the space, the meta is positioned. */
+.home .wa-meta-spacer {
+  display: inline-block;
+  width: 40px;
+}
+.home .wa-bubble-out .wa-meta-spacer {
+  width: 60px;
+}
+.home .wa-meta {
+  position: absolute;
+  right: 8px;
+  bottom: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: #667781;
+  font-size: 11px;
+  line-height: 15px;
+}
+.home .wa-ticks {
+  color: #53bdeb;
+}
+
+/* Interactive welcome card: header image, text, footer + time, then the
+   quick-reply rows inside the same bubble, split by hairlines. */
+.home .wa-card {
+  width: calc(100% - 14px);
+  max-width: none;
+  padding: 0;
+}
+.home .wa-card-msg {
+  position: relative;
+  padding: 3px 3px 6px;
+}
+.home .wa-card-img {
   width: 100%;
   height: auto;
+  border-radius: 6px 6px 0 0;
 }
-.home .wa-card-body {
-  padding: 0.5rem 0.65rem 0.45rem;
-  color: #111b21;
-  font-size: 0.72rem;
-  line-height: 1.38;
+.home .wa-card-text {
+  padding: 5px 6px 0;
 }
-.home .wa-card-body p {
-  margin: 0;
-}
-.home .wa-card-body .wa-card-footer {
-  margin-top: 0.35rem;
+.home .wa-card-footer {
+  padding: 3px 6px 0;
   color: #667781;
-  font-size: 0.66rem;
+  font-size: 12px;
+  line-height: 16px;
 }
-.home .wa-card-buttons {
-  display: grid;
+.home .wa-card-replies span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 32px;
+  border-top: 0.5px solid rgba(11, 20, 26, 0.12);
+  color: #008069;
+  font-weight: 500;
 }
-.home .wa-card-buttons span {
-  padding: 0.5rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  color: #027eb5;
-  font-size: 0.74rem;
-  font-weight: 600;
-  text-align: center;
+
+/* Input bar + home indicator. */
+.home .wa-input {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 12px 0;
+  border-top: 0.5px solid rgba(11, 20, 26, 0.14);
+}
+.home .wa-input > svg {
+  flex: none;
+}
+.home .wa-field {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 32px;
+  padding: 0 7px;
+  border: 0.5px solid rgba(11, 20, 26, 0.16);
+  border-radius: 999px;
+  background: #fff;
+  color: #54656f;
+}
+.home .wa-home-indicator {
+  flex: none;
+  align-self: center;
+  width: 36%;
+  height: 5px;
+  margin: 12px 0 7px;
+  border-radius: 999px;
+  background: #000;
 }
 
 @media (max-width: 860px) {
   .home .wa-concierge {
     grid-template-columns: 1fr;
-  }
-  .home .wa-phone {
-    width: min(100%, 290px);
   }
 }
 @media (max-width: 720px) {
