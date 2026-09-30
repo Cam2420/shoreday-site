@@ -2,17 +2,18 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import HomeAnalytics from "./HomeAnalytics";
 import ShoreDayWordmark from "@/components/brand/ShoreDayWordmark";
+import WhatsAppConcierge from "./WhatsAppConcierge";
 import "./home.css";
 
 export const metadata: Metadata = {
-  title: { absolute: "ShoreDay | Bahamas Cruise Port AI Concierge" },
+  title: { absolute: "ShoreDay | Bahamas Cruise Port-Day Planning" },
   description:
-    "AI-powered Bahamas cruise port itineraries built around your all-aboard time, with ship countdowns, local tips, and curated excursions for Nassau, Freeport & Bimini.",
+    "Personal Bahamas cruise port-day plans built around your all-aboard time, with ship countdowns, local tips, and curated excursions for Nassau, Freeport & Bimini.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "ShoreDay | Bahamas Cruise Port AI Concierge",
+    title: "ShoreDay | Bahamas Cruise Port-Day Planning",
     description:
-      "Plan your Bahamas cruise port day around your all-aboard time with AI itineraries, ship countdowns, and curated local excursions.",
+      "Plan your Bahamas cruise port day around your all-aboard time with personal itineraries, ship countdowns, and curated local excursions.",
     url: "/",
     siteName: "ShoreDay",
     type: "website",
@@ -130,6 +131,10 @@ export default function Home() {
         </div>
       </main>
 
+      {/* Paid offer: the $15 Nassau Concierge on WhatsApp. Placed right after the
+          hero so the main revenue path is visible without scrolling far. */}
+      <WhatsAppConcierge />
+
       {/* Experience Nassau — real island photography so the page feels like a
           Bahamas vacation planner. Captions are day-type inspiration, never a
           claim about a specific bookable tour. */}
@@ -236,7 +241,7 @@ export default function Home() {
             <li>Your saved Nassau plan</li>
             <li>Departure reminders &amp; ship alerts</li>
             <li>Port-day map</li>
-            <li>In-app AI concierge</li>
+            <li>In-app concierge chat</li>
           </ul>
           <div className="app-actions">
             <p className="app-actions-label">Download free</p>
@@ -296,7 +301,7 @@ export default function Home() {
           <div className="feature-icon">⏱️</div>
           <h3>Built Around Your All-Aboard Time</h3>
           <p>
-            Our AI builds your entire port day around your exact &ldquo;All-Aboard&rdquo;
+            ShoreDay builds your entire port day around your exact &ldquo;All-Aboard&rdquo;
             time, including built-in buffer zones.
           </p>
         </div>
@@ -310,10 +315,10 @@ export default function Home() {
         </div>
         <div className="feature-card">
           <div className="feature-icon">💬</div>
-          <h3>AI Concierge</h3>
+          <h3>Concierge Help</h3>
           <p>
-            Need a quick recommendation or looking for a hidden beach? Ask your
-            pocket AI concierge for local recommendations.
+            Need a quick recommendation or a quieter beach? Ask the ShoreDay
+            concierge on WhatsApp or in the app.
           </p>
         </div>
       </section>
@@ -330,8 +335,8 @@ export default function Home() {
           Skip the tourist traps. Browse our curated selection of popular-style
           Bahamas tours perfectly timed to your ship&rsquo;s schedule.{" "}
           <strong>Shop instantly via the link below</strong>, or download the
-          ShoreDay app to book these same amazing experiences alongside our
-          powerful AI concierge and ship countdowns for the ultimate port day.
+          ShoreDay app to book these same amazing experiences alongside the
+          in-app concierge and ship countdowns for the ultimate port day.
         </p>
 
         <div className="cta-button-group">

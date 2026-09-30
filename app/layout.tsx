@@ -26,11 +26,11 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL("https://shoredayapp.com"),
   title: {
-    default: "ShoreDay | Bahamas Cruise Port AI Concierge",
+    default: "ShoreDay | Bahamas Cruise Port-Day Planning",
     template: "%s | ShoreDay",
   },
   description:
-    "Plan your Bahamas cruise port day around your all-aboard time with AI itineraries, ship countdowns, and curated local excursions.",
+    "Plan your Bahamas cruise port day around your all-aboard time with personal itineraries, ship countdowns, and curated local excursions.",
   icons: {
     icon: "/shoreday_icon.png",
   },

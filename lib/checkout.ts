@@ -10,7 +10,7 @@
  * update PAYMENT_LINK_URL here — it is the only place it lives.
  */
 export const PAYMENT_LINK_URL =
-  "https://links.vmamgmt.com/payment-link/6ab5e84ebaea3cadef54f388";
+  "https://vacation.shoredayapp.com/payment-link/6ab5e84ebaea3cadef54f388";
 
 /**
  * User agents of link-preview crawlers. These are NOT redirected, so they can
