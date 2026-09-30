@@ -10,9 +10,9 @@
  * separate set of 12 APP events (`SPEC_APP_EVENTS`, verified in the mobile app,
  * not emitted here). The "17" referenced during authorization matches neither
  * list. `FUNNEL_EVENTS` below is the spec's 14 web events (a stable prefix)
- * followed by 2 post-spec additions for the paid Nassau Port Day Playbook card,
- * for 16 web events total. The app set is listed only to account for the full
- * analytics surface (16 + 12).
+ * followed by 3 post-spec additions (2 for the paid Nassau Port Day Playbook
+ * card, 1 for the WhatsApp concierge button), for 17 web events total. The app
+ * set is listed only to account for the full analytics surface (17 + 12).
  *
  * Owner concept (Phase 10) → spec event name:
  *   landing viewed          → landing_view
@@ -31,6 +31,7 @@
  *   saved plan viewed       → plan_share   (nearest spec event; saved-link views reuse it)
  *   playbook card viewed    → playbook_card_view   (post-spec; paid Etsy Playbook)
  *   playbook card clicked   → playbook_click       (post-spec; paid Etsy Playbook)
+ *   WhatsApp button clicked → whatsapp_click       (post-spec; $15 Nassau Concierge)
  */
 
 /**
@@ -59,6 +60,8 @@ export const FUNNEL_EVENTS = [
   // Paid Nassau Port Day Playbook (Etsy) card in the post-gate planner result.
   'playbook_card_view',
   'playbook_click',
+  // "Open on WhatsApp" button for the $15 Nassau Concierge (homepage section).
+  'whatsapp_click',
 ] as const;
 
 export type FunnelEventName = (typeof FUNNEL_EVENTS)[number];

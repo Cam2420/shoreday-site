@@ -21,7 +21,7 @@ export default function PrivacyPolicy() {
     <main className="legal">
       <h1>ShoreDay Privacy Policy</h1>
       <p>
-        <strong>Last Updated: April 22, 2026</strong>
+        <strong>Last Updated: September 30, 2026</strong>
       </p>
       <p>
         This Privacy Notice for VMAManagement LLC (doing business as ShoreDay)
@@ -39,6 +39,10 @@ export default function PrivacyPolicy() {
           Use ShoreDay. ShoreDay is an AI-powered cruise day planning app for
           Bahamas port visitors. It generates personalized itineraries, provides
           a map of local venues, and includes an AI chat concierge.
+        </li>
+        <li>
+          Message ShoreDay on WhatsApp or buy the ShoreDay Nassau Concierge, a
+          one-time Nassau port-day planning service delivered in a WhatsApp chat
         </li>
         <li>
           Engage with us in other related ways, including any marketing or events
@@ -108,6 +112,15 @@ export default function PrivacyPolicy() {
           your purchases and unlock features. We do not directly collect or store
           your credit card information. You may find Adapty&apos;s privacy notice
           here: <a href="https://adapty.io/privacy/">https://adapty.io/privacy/</a>.
+        </li>
+        <li>
+          <strong>WhatsApp Concierge Data.</strong> When you message ShoreDay on
+          WhatsApp, we receive your WhatsApp phone number and profile name and the
+          messages, photos, and voice notes you send, plus the trip details you
+          share (such as your ship, Nassau date, all-aboard time, and group). If you
+          buy the Nassau Concierge, the checkout collects your name, email, and
+          phone number. Card and wallet payments are processed by{" "}
+          <strong>Stripe</strong>; we do not store your full card details.
         </li>
         <li>
           <strong>Application Data.</strong> We automatically collect device
@@ -202,6 +215,15 @@ export default function PrivacyPolicy() {
           <strong>Mapping Services:</strong> Google Maps
         </li>
         <li>
+          <strong>WhatsApp Messaging and Customer Support:</strong> Meta (WhatsApp
+          Business Platform) and HighLevel (LeadConnector), which hosts our
+          WhatsApp inbox, automated replies, and customer records
+        </li>
+        <li>
+          <strong>Payments for the Nassau Concierge:</strong> Stripe, through
+          HighLevel payment links
+        </li>
+        <li>
           <strong>Travel Bookings and Affiliate Partners:</strong> Viator (a
           TripAdvisor company). When you tap an excursion, we open Viator&apos;s
           website inside our app for booking. Viator operates under its own privacy
@@ -226,6 +248,12 @@ export default function PrivacyPolicy() {
         servers to produce this content. All personal information processed using
         our AI Products is handled in line with our Privacy Notice and safeguards
         your personal information.
+      </p>
+      <p>
+        Our WhatsApp concierge uses an automated assistant (HighLevel Conversation
+        AI) to answer questions and help build your port-day plan from the
+        messages you send. The owner supervises the chat, and you can type HUMAN
+        at any time to reach a person.
       </p>
 
       <h2>7. IS YOUR INFORMATION TRANSFERRED INTERNATIONALLY?</h2>
