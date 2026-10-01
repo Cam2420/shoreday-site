@@ -18,3 +18,16 @@ export const WHATSAPP_CHAT_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encode
 )}`;
 
 export const WHATSAPP_QR_SRC = "/images/shoreday/whatsapp/shoreday-whatsapp-qr.svg";
+
+/**
+ * "Send to a cruise buddy" share from the mobile share card. The link lands on
+ * the homepage WhatsApp section (id="whatsapp") with referral UTMs. Keep the
+ * text free of prices so it stays true if the offer changes.
+ */
+export const WHATSAPP_SHARE_URL =
+  "https://shoredayapp.com/?utm_source=share&utm_medium=referral&utm_campaign=cruise_buddy#whatsapp";
+
+export const WHATSAPP_SHARE_TITLE = "ShoreDay: Nassau port-day plan";
+
+export const WHATSAPP_SHARE_TEXT =
+  "Heading to Nassau? ShoreDay builds your port day around your ship's all-aboard time: where to go, what it costs, when to head back. Free to message, and you only pay if you want the plan.";

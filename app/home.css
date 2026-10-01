@@ -1396,6 +1396,86 @@
   background: #000;
 }
 
+/* Mobile share card ("Send to a cruise buddy"). Hidden by default and shown at
+   720px and below, where the desktop QR card is hidden. A quiet secondary
+   element: light surface, outline button, no shadow and no motion. */
+.home .wa-share {
+  display: none;
+  padding: 1.4rem 1.25rem 1.25rem;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: var(--shell);
+  text-align: center;
+}
+/* The shared kicker colour is too light for AA on this surface. */
+.home .wa-share .section-kicker {
+  color: var(--color-deep-teal);
+}
+.home .wa-share h3 {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+  color: var(--color-ocean-ink);
+  text-wrap: balance;
+}
+.home .wa-share-lead {
+  margin: 0 0 1.1rem;
+  color: var(--color-ocean-ink-muted);
+  font-size: 0.95rem;
+}
+.home .wa-share-button {
+  width: 100%;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: 2px solid var(--color-deep-teal);
+  background: #fff;
+  color: var(--color-deep-teal);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+}
+.home .wa-share-button:hover {
+  background: var(--color-sea-glass);
+}
+.home .wa-share-button:focus-visible {
+  outline: 3px solid var(--color-lagoon);
+  outline-offset: 4px;
+}
+.home .wa-share-status {
+  min-height: 1.25rem;
+  margin: 0.45rem 0 0;
+  color: var(--color-deep-teal);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.home .wa-share-qr-label {
+  margin: 0.5rem 0 0.6rem;
+  color: var(--color-ocean-ink-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.home .wa-share-qr {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+.home .wa-share-qr img {
+  display: block;
+  width: 150px;
+  height: 150px;
+}
+
 @media (max-width: 860px) {
   .home .wa-concierge {
     grid-template-columns: 1fr;
@@ -1419,6 +1499,9 @@
   }
   .home .wa-mockup {
     --phone-w: min(300px, 82vw);
+  }
+  .home .wa-share {
+    display: block;
   }
 }
 @media (prefers-reduced-motion: reduce) {
