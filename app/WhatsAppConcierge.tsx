@@ -4,7 +4,7 @@ import { WHATSAPP_CHAT_URL, WHATSAPP_PREFILL, WHATSAPP_QR_SRC } from "@/lib/what
 /**
  * Homepage section for the $15 ShoreDay Nassau Concierge on WhatsApp.
  *
- * Left: what you get, price, QR code (desktop) and an "Open on WhatsApp" button.
+ * Left: headline, price, QR code (desktop) and an "Open on WhatsApp" button.
  * Right: an iPhone showing the real first exchange in the WhatsApp chat: the
  * pre-filled entry message and the welcome card it gets back (including the
  * automated-assistant line). The phone is decorative (aria-hidden); the copy on
@@ -22,13 +22,6 @@ export default function WhatsAppConcierge() {
           Text ShoreDay your ship and all-aboard time. You get a personal plan built
           around it: where to go, what it costs, and when to head back to the pier.
         </p>
-
-        <ul className="wa-list">
-          <li>A personal plan built around your all-aboard time</li>
-          <li>The offline Playbook kit (PDF)</li>
-          <li>WhatsApp help all day ashore</li>
-          <li>Human help daily 12&ndash;5 pm ET (type HUMAN)</li>
-        </ul>
 
         <p className="wa-price">
           <strong>$15 one time for your whole group.</strong> Full refund any time
@@ -82,23 +75,24 @@ export default function WhatsAppConcierge() {
 }
 
 /* The welcome card the WhatsApp funnel sends in reply to the entry message.
-   Keep in step with the live Funnel 1 Welcome message. */
+   Keep in step with the live Funnel 1 Welcome message. The two \u00a0s (no-break
+   spaces) only stop "support." and the 🍹 from wrapping onto a line alone. */
 const WELCOME_TEXT = `Welcome to ShoreDay 👋
 Your Nassau port day, planned around your ship's all-aboard time.
 🗺️ A personal plan: where to go, what it costs, when to head back
 📘 The offline Playbook kit (PDF)
 💬 WhatsApp help all day ashore
-🤖 I'm ShoreDay's automated assistant. Type HUMAN anytime to reach support.
-$15 one time for your whole group. About the price of one cruise cocktail 🍹`;
+🤖 I'm ShoreDay's automated assistant. Type HUMAN anytime to reach\u00a0support.
+$15 one time for your whole group. About the price of one cruise cocktail\u00a0🍹`;
 
 const WELCOME_REPLIES = ["🗺️ See a sample", "💬 How it works", "✅ Get my plan"];
 
 /**
- * Decorative iPhone running a WhatsApp chat. Everything is drawn with divs and
- * inline SVG apart from the ShoreDay avatar and the welcome card's header image.
- * The chat stacks from the bottom like a real one: if the screen is short, the
- * oldest content is cut off at the top and the card, its reply buttons and the
- * input bar always stay visible.
+ * Decorative iPhone running a WhatsApp chat, drawn with divs and inline SVG
+ * apart from the ShoreDay avatar and the welcome card's header image. The
+ * screen is laid out in iPhone points (see .wa-screen in home.css), so every
+ * size inside it scales with the phone. Messages start at the top of the chat,
+ * and the whole first exchange fits on screen.
  */
 function WhatsAppPhone() {
   return (
@@ -114,13 +108,13 @@ function WhatsAppPhone() {
         <div className="wa-status">
           <span className="wa-status-time">9:41</span>
           <span className="wa-status-icons">
-            <svg viewBox="0 0 18 12" width="18" height="12">
+            <svg className="wa-i-signal" viewBox="0 0 18 12">
               <rect x="0" y="7.5" width="3" height="4.5" rx="1" fill="currentColor" />
               <rect x="5" y="5" width="3" height="7" rx="1" fill="currentColor" />
               <rect x="10" y="2.5" width="3" height="9.5" rx="1" fill="currentColor" />
               <rect x="15" y="0" width="3" height="12" rx="1" fill="currentColor" />
             </svg>
-            <svg viewBox="0 0 16 12" width="16" height="12">
+            <svg className="wa-i-wifi" viewBox="0 0 16 12">
               <path
                 d="M1.3 4.4a9.6 9.6 0 0 1 13.4 0M3.8 6.9a6 6 0 0 1 8.4 0"
                 fill="none"
@@ -130,7 +124,7 @@ function WhatsAppPhone() {
               />
               <path d="M8 11.3 5.9 9.2a3 3 0 0 1 4.2 0Z" fill="currentColor" />
             </svg>
-            <svg viewBox="0 0 27 13" width="25" height="12">
+            <svg className="wa-i-battery" viewBox="0 0 27 13">
               <rect x="0.5" y="0.5" width="23" height="12" rx="3.8" fill="none" stroke="currentColor" opacity="0.4" />
               <rect x="2" y="2" width="16.5" height="9" rx="2.3" fill="currentColor" />
               <path d="M25 4.4v4.2c.8-.3 1.4-1.1 1.4-2.1s-.6-1.8-1.4-2.1Z" fill="currentColor" opacity="0.45" />
@@ -140,7 +134,7 @@ function WhatsAppPhone() {
 
         <div className="wa-chat-head">
           <span className="wa-back">
-            <svg viewBox="0 0 12 20" width="11" height="19">
+            <svg className="wa-i-back" viewBox="0 0 12 20">
               <path
                 d="M10 2 2 10l8 8"
                 fill="none"
@@ -152,12 +146,14 @@ function WhatsAppPhone() {
             </svg>
             3
           </span>
-          <img className="wa-avatar" src="/shoreday_icon.png" alt="" width={34} height={34} />
+          <img className="wa-avatar" src="/shoreday_icon.png" alt="" width={36} height={36} />
           <strong className="wa-contact">ShoreDay</strong>
         </div>
 
         <div className="wa-chat">
-          <svg className="wa-wallpaper" width="100%" height="100%">
+          {/* viewBox is in points: taller than the chat so "slice" scales by
+              width, making one unit one point at any phone size. */}
+          <svg className="wa-wallpaper" viewBox="0 0 393 900" preserveAspectRatio="xMidYMin slice">
             <defs>
               <pattern id="wa-doodles" width="180" height="180" patternUnits="userSpaceOnUse">
                 <g
@@ -187,34 +183,28 @@ function WhatsAppPhone() {
                 </g>
               </pattern>
             </defs>
-            <rect width="100%" height="100%" fill="url(#wa-doodles)" />
+            <rect width="393" height="900" fill="url(#wa-doodles)" />
           </svg>
 
           <div className="wa-thread">
-            {/* Fixed height (room for the outgoing bubble): earlier messages
-                stack upward from here and never make the phone taller. */}
-            <div className="wa-earlier">
-              <span className="wa-day">Today</span>
-
-              <div className="wa-bubble wa-bubble-out">
-                <p>
-                  {WHATSAPP_PREFILL}
-                  <span className="wa-meta-spacer" />
-                </p>
-                <span className="wa-meta">
-                  <time>9:02</time>
-                  <svg viewBox="0 0 16 11" width="16" height="11" className="wa-ticks">
-                    <path
-                      d="M1.2 5.8 4.1 8.7l6.3-7.2M6.6 8.1l.6.6 6.3-7.2"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
-              </div>
+            <div className="wa-bubble wa-bubble-out">
+              <p>
+                {WHATSAPP_PREFILL}
+                <span className="wa-meta-spacer" />
+              </p>
+              <span className="wa-meta">
+                <time>9:02</time>
+                <svg className="wa-ticks" viewBox="0 0 16 11">
+                  <path
+                    d="M1.2 5.8 4.1 8.7l6.3-7.2M6.6 8.1l.6.6 6.3-7.2"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
             </div>
 
             <div className="wa-bubble wa-bubble-in wa-card">
@@ -228,9 +218,8 @@ function WhatsAppPhone() {
                   loading="lazy"
                   decoding="async"
                 />
-                <p className="wa-card-text">{WELCOME_TEXT}</p>
-                <p className="wa-card-footer">
-                  Independent · Nassau only · Not an emergency service
+                <p className="wa-card-text">
+                  {WELCOME_TEXT}
                   <span className="wa-meta-spacer" />
                 </p>
                 <span className="wa-meta">
@@ -240,7 +229,7 @@ function WhatsAppPhone() {
               <div className="wa-card-replies">
                 {WELCOME_REPLIES.map((label) => (
                   <span key={label}>
-                    <svg viewBox="0 0 20 20" width="15" height="15">
+                    <svg className="wa-i-reply" viewBox="0 0 20 20">
                       <path
                         d="M8 4.5 3 9.5l5 5M3 9.5h8a6 6 0 0 1 6 6v.5"
                         fill="none"
@@ -259,11 +248,11 @@ function WhatsAppPhone() {
         </div>
 
         <div className="wa-input">
-          <svg viewBox="0 0 24 24" width="24" height="24">
+          <svg className="wa-i-input" viewBox="0 0 24 24">
             <path d="M12 4.5v15M4.5 12h15" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
           </svg>
           <span className="wa-field">
-            <svg viewBox="0 0 24 24" width="20" height="20">
+            <svg className="wa-i-sticker" viewBox="0 0 24 24">
               <path
                 d="M13.5 3.5H7A3.5 3.5 0 0 0 3.5 7v10A3.5 3.5 0 0 0 7 20.5h6.5l7-7V7A3.5 3.5 0 0 0 17 3.5h-3.5M20.5 13.5H16a2.5 2.5 0 0 0-2.5 2.5v4.5"
                 fill="none"
@@ -273,7 +262,7 @@ function WhatsAppPhone() {
               />
             </svg>
           </span>
-          <svg viewBox="0 0 24 24" width="24" height="24">
+          <svg className="wa-i-input" viewBox="0 0 24 24">
             <path
               d="M4 7.5h3.2l1.6-2.2h6.4l1.6 2.2H20a1.6 1.6 0 0 1 1.6 1.6v8.8a1.6 1.6 0 0 1-1.6 1.6H4a1.6 1.6 0 0 1-1.6-1.6V9.1A1.6 1.6 0 0 1 4 7.5Z"
               fill="none"
@@ -283,7 +272,7 @@ function WhatsAppPhone() {
             />
             <circle cx="12" cy="13.3" r="3.6" fill="none" stroke="currentColor" strokeWidth="1.6" />
           </svg>
-          <svg viewBox="0 0 24 24" width="24" height="24">
+          <svg className="wa-i-input" viewBox="0 0 24 24">
             <path
               d="M12 3.2a3 3 0 0 0-3 3v5.6a3 3 0 0 0 6 0V6.2a3 3 0 0 0-3-3ZM6.2 11.4a5.8 5.8 0 0 0 11.6 0M12 17.2v3.4"
               fill="none"

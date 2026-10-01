@@ -941,8 +941,9 @@
 
 /* ------------------------------------------ WhatsApp concierge section ----- */
 /* The $15 Nassau Concierge lives in WhatsApp. Copy + QR/button on the left, an
-   iPhone showing a sample chat on the right. WhatsApp-like colours are kept
-   inside the mockup only; the section itself uses the homepage palette. */
+   iPhone showing the first WhatsApp exchange on the right. WhatsApp-like
+   colours are kept inside the mockup only; the section itself uses the
+   homepage palette. */
 .home .wa-concierge {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
@@ -972,30 +973,6 @@
   font-size: 1.02rem;
   margin: 0 0 1.1rem;
   max-width: 48ch;
-}
-.home .wa-list {
-  list-style: none;
-  margin: 0 0 1.1rem;
-  padding: 0;
-  display: grid;
-  gap: 0.45rem;
-}
-.home .wa-list li {
-  position: relative;
-  padding-left: 1.4rem;
-  color: var(--color-ocean-ink);
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-.home .wa-list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.45em;
-  width: 9px;
-  height: 9px;
-  border-radius: 999px;
-  background: var(--lagoon);
 }
 .home .wa-price {
   margin: 0 0 1.5rem;
@@ -1094,11 +1071,16 @@
 }
 
 /* Phone mockup (decorative): an iPhone running the WhatsApp chat's first
-   exchange. WhatsApp and iOS colours live only inside it, and sizes are in px
-   because it mimics a device screen. */
+   exchange, in real iPhone proportions. The frame is sized from --phone-w.
+   Everything on the screen is laid out in iPhone points: the screen is a
+   393 x 852 container and --pt is 1/393 of its width, so fonts, spacing,
+   radii and icons all scale together. --pt is only used by the screen's
+   descendants (container units can't resolve on the container itself).
+   WhatsApp and iOS colours live only inside the phone. */
 .home .wa-mockup {
+  --phone-w: 300px;
   justify-self: center;
-  width: min(100%, 310px);
+  width: var(--phone-w);
 }
 .home .wa-mockup-caption {
   margin-top: 0.9rem;
@@ -1107,94 +1089,111 @@
   font-size: 0.8rem;
 }
 
-/* Hardware: titanium band (gradient border), black bezel (padding), screen. */
+/* Hardware: titanium band (gradient border) around a thin black bezel. Body
+   ratio ~2.11:1 with the 393:852 screen inside. */
 .home .wa-phone {
+  --band: calc(var(--phone-w) * 0.009);
+  --bezel: calc(var(--phone-w) * 0.015);
+  --phone-r: calc(var(--phone-w) * 0.155);
+  --hw: calc(var(--phone-w) * 0.01);
   position: relative;
-  display: flex;
-  flex-direction: column;
-  aspect-ratio: 9 / 19.5;
-  padding: 9px;
-  border: 3px solid transparent;
-  border-radius: 48px;
+  padding: var(--bezel);
+  border: var(--band) solid transparent;
+  border-radius: var(--phone-r);
   background:
     linear-gradient(#0b0c0e, #0b0c0e) padding-box,
     linear-gradient(145deg, #7a7d82 0%, #3b3d41 22%, #1e1f22 50%, #4d5055 78%, #27282b 100%) border-box;
   box-shadow:
     0 30px 60px rgba(23, 50, 77, 0.28),
     0 8px 18px rgba(23, 50, 77, 0.14);
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 .home .wa-hw {
   position: absolute;
-  left: -6px;
-  width: 3px;
-  border-radius: 2px 0 0 2px;
+  left: calc(-1 * (var(--band) + var(--hw)));
+  width: var(--hw);
+  border-radius: var(--hw) 0 0 var(--hw);
   background: linear-gradient(90deg, #26282b, #6c6f74 55%, #3a3c40);
 }
 .home .wa-hw-action {
-  top: 15%;
+  top: 16%;
   height: 4.5%;
 }
 .home .wa-hw-vol-up {
-  top: 22.5%;
+  top: 23.5%;
   height: 8%;
 }
 .home .wa-hw-vol-down {
-  top: 32%;
+  top: 33%;
   height: 8%;
 }
 .home .wa-hw-power {
   left: auto;
-  right: -6px;
-  top: 25%;
+  right: calc(-1 * (var(--band) + var(--hw)));
+  top: 26%;
   height: 12.5%;
-  border-radius: 0 2px 2px 0;
+  border-radius: 0 var(--hw) var(--hw) 0;
   background: linear-gradient(270deg, #26282b, #6c6f74 55%, #3a3c40);
 }
 .home .wa-screen {
+  --pt: calc(100cqw / 393);
+  container-type: inline-size;
   position: relative;
-  flex: 1 0 auto;
   display: flex;
   flex-direction: column;
+  aspect-ratio: 393 / 852;
   overflow: hidden;
-  border-radius: 36px;
+  border-radius: calc(var(--phone-r) - var(--band) - var(--bezel));
   background: #f6f5f3;
   color: #111b21;
-  font-family:
-    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Segoe UI", Roboto,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
-  line-height: 1.35;
-  -webkit-font-smoothing: antialiased;
 }
 .home .wa-island {
   position: absolute;
-  top: 10px;
+  top: calc(11 * var(--pt));
   left: 50%;
-  width: 31%;
-  height: 26px;
+  width: calc(126 * var(--pt));
+  height: calc(37 * var(--pt));
   transform: translateX(-50%);
-  border-radius: 999px;
+  border-radius: calc(19 * var(--pt));
   background: #000;
 }
 
-/* iOS status bar, vertically centred on the Dynamic Island. */
+/* iOS status bar, centred on the Dynamic Island. */
 .home .wa-status {
   flex: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 44px;
-  padding: 0 22px 0 32px;
+  height: calc(54 * var(--pt));
+  padding: calc(5 * var(--pt)) calc(30 * var(--pt)) 0 calc(50 * var(--pt));
   color: #000;
 }
 .home .wa-status-time {
-  font-size: 15px;
+  font-size: calc(15 * var(--pt));
   font-weight: 600;
   letter-spacing: -0.01em;
 }
 .home .wa-status-icons {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: calc(6 * var(--pt));
+}
+.home .wa-i-signal {
+  width: calc(18 * var(--pt));
+  height: calc(12 * var(--pt));
+}
+.home .wa-i-wifi {
+  width: calc(17 * var(--pt));
+  height: calc(12 * var(--pt));
+}
+.home .wa-i-battery {
+  width: calc(27 * var(--pt));
+  height: calc(13 * var(--pt));
 }
 
 /* WhatsApp chat header. */
@@ -1202,47 +1201,46 @@
   flex: none;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 0 12px 6px;
-  border-bottom: 0.5px solid rgba(11, 20, 26, 0.14);
+  gap: calc(10 * var(--pt));
+  height: calc(52 * var(--pt));
+  padding: 0 calc(16 * var(--pt)) calc(4 * var(--pt));
+  border-bottom: calc(0.5 * var(--pt)) solid rgba(11, 20, 26, 0.14);
 }
 .home .wa-back {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  margin-right: 4px;
-  font-size: 16px;
+  gap: calc(6 * var(--pt));
+  font-size: calc(17 * var(--pt));
+}
+.home .wa-i-back {
+  width: calc(12 * var(--pt));
+  height: calc(20 * var(--pt));
 }
 .home .wa-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 999px;
+  width: calc(36 * var(--pt));
+  height: calc(36 * var(--pt));
+  border-radius: 50%;
   background: #fff;
-  box-shadow: 0 0 0 0.5px rgba(11, 20, 26, 0.12);
+  box-shadow: 0 0 0 calc(0.5 * var(--pt)) rgba(11, 20, 26, 0.12);
 }
 .home .wa-contact {
-  font-size: 16px;
+  font-size: calc(17 * var(--pt));
   font-weight: 600;
 }
 
-/* Chat area: messages stack from the bottom like a real chat. Its natural
-   height is the welcome card plus a fixed slot for the outgoing bubble
-   (.wa-earlier), so the phone keeps its iPhone proportions until the card
-   needs more room, then grows a little taller. Anything older (the "Today"
-   chip) is clipped at the top; the card, its buttons and the input bar never
-   are. */
+/* Chat area: messages start at the top, like a real chat opened fresh. */
 .home .wa-chat {
   position: relative;
-  flex: 1 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  flex: 1;
+  min-height: 0;
   overflow: hidden;
   background: #efeae2;
 }
 .home .wa-wallpaper {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   color: #1f2c34;
   opacity: 0.06;
 }
@@ -1250,34 +1248,17 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 8px 10px;
-}
-.home .wa-earlier {
-  height: 44px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 10px;
-}
-.home .wa-day {
-  align-self: center;
-  padding: 4px 10px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 1px 0.5px rgba(11, 20, 26, 0.13);
-  color: #54656f;
-  font-size: 12px;
-  font-weight: 500;
+  gap: calc(8 * var(--pt));
+  padding: calc(8 * var(--pt)) calc(16 * var(--pt));
 }
 .home .wa-bubble {
   position: relative;
-  padding: 6px 8px 7px 9px;
-  border-radius: 8px;
-  font-size: 13px;
-  line-height: 17px;
+  padding: calc(6 * var(--pt)) calc(9 * var(--pt)) calc(8 * var(--pt)) calc(10 * var(--pt));
+  border-radius: calc(8 * var(--pt));
+  font-size: calc(16 * var(--pt));
+  line-height: 1.3;
   overflow-wrap: anywhere;
-  filter: drop-shadow(0 1px 0.5px rgba(11, 20, 26, 0.13));
+  filter: drop-shadow(0 calc(1 * var(--pt)) calc(0.5 * var(--pt)) rgba(11, 20, 26, 0.13));
 }
 .home .wa-bubble p {
   white-space: pre-line;
@@ -1287,101 +1268,105 @@
   content: "";
   position: absolute;
   top: 0;
-  width: 8px;
-  height: 13px;
+  width: calc(8 * var(--pt));
+  height: calc(13 * var(--pt));
   background: inherit;
 }
 .home .wa-bubble-out {
   align-self: flex-end;
-  max-width: 82%;
+  max-width: 78%;
   border-top-right-radius: 0;
   background: #d9fdd3;
 }
 .home .wa-bubble-out::before {
-  right: -8px;
+  right: calc(-8 * var(--pt));
   clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 .home .wa-bubble-in {
   align-self: flex-start;
-  max-width: 90%;
+  max-width: 85%;
   border-top-left-radius: 0;
   background: #fff;
 }
 .home .wa-bubble-in::before {
-  left: -8px;
+  left: calc(-8 * var(--pt));
   clip-path: polygon(0 0, 100% 0, 100% 100%);
 }
 /* Time (and ticks) sit at the end of the last line when it has room, like
    WhatsApp: an invisible spacer reserves the space, the meta is positioned. */
 .home .wa-meta-spacer {
   display: inline-block;
-  width: 40px;
+  width: calc(40 * var(--pt));
 }
 .home .wa-bubble-out .wa-meta-spacer {
-  width: 60px;
+  width: calc(60 * var(--pt));
 }
 .home .wa-meta {
   position: absolute;
-  right: 8px;
-  bottom: 4px;
+  right: calc(8 * var(--pt));
+  bottom: calc(5 * var(--pt));
   display: inline-flex;
   align-items: center;
-  gap: 3px;
+  gap: calc(3 * var(--pt));
   color: #667781;
-  font-size: 11px;
-  line-height: 15px;
+  font-size: calc(11 * var(--pt));
+  line-height: 1.35;
 }
 .home .wa-ticks {
+  width: calc(16 * var(--pt));
+  height: calc(11 * var(--pt));
   color: #53bdeb;
 }
 
-/* Interactive welcome card: header image, text, footer + time, then the
-   quick-reply rows inside the same bubble, split by hairlines. */
+/* Interactive welcome card: header image, text + time, then the quick-reply
+   rows inside the same bubble, split by hairlines. */
 .home .wa-card {
-  width: calc(100% - 14px);
+  width: calc(330 * var(--pt));
   max-width: none;
   padding: 0;
 }
 .home .wa-card-msg {
   position: relative;
-  padding: 3px 3px 6px;
+  padding: calc(3 * var(--pt)) calc(3 * var(--pt)) calc(7 * var(--pt));
 }
 .home .wa-card-img {
   width: 100%;
   height: auto;
-  border-radius: 6px 6px 0 0;
+  border-radius: calc(6 * var(--pt)) calc(6 * var(--pt)) 0 0;
 }
 .home .wa-card-text {
-  padding: 5px 6px 0;
-}
-.home .wa-card-footer {
-  padding: 3px 6px 0;
-  color: #667781;
-  font-size: 12px;
-  line-height: 16px;
+  padding: calc(6 * var(--pt)) calc(7 * var(--pt)) 0;
+  text-wrap: pretty;
 }
 .home .wa-card-replies span {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  height: 32px;
-  border-top: 0.5px solid rgba(11, 20, 26, 0.12);
+  gap: calc(6 * var(--pt));
+  height: calc(42 * var(--pt));
+  border-top: calc(0.5 * var(--pt)) solid rgba(11, 20, 26, 0.12);
   color: #008069;
+  font-size: calc(16 * var(--pt));
   font-weight: 500;
 }
+.home .wa-i-reply {
+  width: calc(17 * var(--pt));
+  height: calc(17 * var(--pt));
+}
 
-/* Input bar + home indicator. */
+/* Input bar + home indicator (iOS bottom safe area). */
 .home .wa-input {
   flex: none;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 7px 12px 0;
-  border-top: 0.5px solid rgba(11, 20, 26, 0.14);
+  gap: calc(14 * var(--pt));
+  padding: calc(8 * var(--pt)) calc(14 * var(--pt)) 0;
+  border-top: calc(0.5 * var(--pt)) solid rgba(11, 20, 26, 0.14);
 }
-.home .wa-input > svg {
+.home .wa-i-input {
   flex: none;
+  width: calc(26 * var(--pt));
+  height: calc(26 * var(--pt));
 }
 .home .wa-field {
   flex: 1;
@@ -1389,20 +1374,25 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  height: 32px;
-  padding: 0 7px;
-  border: 0.5px solid rgba(11, 20, 26, 0.16);
-  border-radius: 999px;
+  height: calc(36 * var(--pt));
+  padding: 0 calc(8 * var(--pt));
+  border: calc(0.5 * var(--pt)) solid rgba(11, 20, 26, 0.16);
+  border-radius: calc(18 * var(--pt));
   background: #fff;
   color: #54656f;
+  font-size: calc(17 * var(--pt));
+}
+.home .wa-i-sticker {
+  width: calc(22 * var(--pt));
+  height: calc(22 * var(--pt));
 }
 .home .wa-home-indicator {
   flex: none;
   align-self: center;
-  width: 36%;
-  height: 5px;
-  margin: 12px 0 7px;
-  border-radius: 999px;
+  width: calc(134 * var(--pt));
+  height: calc(5 * var(--pt));
+  margin: calc(21 * var(--pt)) 0 calc(8 * var(--pt));
+  border-radius: calc(3 * var(--pt));
   background: #000;
 }
 
@@ -1426,6 +1416,9 @@
   }
   .home .wa-microcopy {
     text-align: center;
+  }
+  .home .wa-mockup {
+    --phone-w: min(300px, 82vw);
   }
 }
 @media (prefers-reduced-motion: reduce) {
