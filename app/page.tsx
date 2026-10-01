@@ -226,25 +226,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* App companion — positioned after the web plan has shown value. Uses real
-          app screenshots and only existing, safe feature claims. */}
+      {/* App option for people who prefer an app, shown after the WhatsApp
+          section. Uses real app screenshots and only existing, safe feature claims. */}
       <section className="app-cta" id="app" aria-labelledby="app-title">
         <div className="app-cta-copy">
-          <p className="section-kicker">Your port-day companion</p>
-          <h2 id="app-title">Take the plan with you on port day.</h2>
+          <p className="section-kicker">Prefer an app?</p>
+          <h2 id="app-title">Keep your port day in your pocket.</h2>
           <p>
-            The ShoreDay app keeps your saved plan, departure reminders, a
-            port-day map, and an in-app concierge ready while you&rsquo;re
-            actually in Nassau.
+            Plan your Nassau day yourself, any time you like, then keep it on your
+            phone while you&rsquo;re ashore.
           </p>
           <ul className="app-feature-list">
-            <li>Your saved Nassau plan</li>
-            <li>Departure reminders &amp; ship alerts</li>
-            <li>Port-day map</li>
-            <li>In-app concierge chat</li>
+            <li>Live all-aboard countdown</li>
+            <li>Head-back reminders</li>
+            <li>Your day at a glance</li>
+            <li>A map back to the pier</li>
           </ul>
           <div className="app-actions">
-            <p className="app-actions-label">Download free</p>
+            <p className="app-actions-label">Get the app</p>
             <div className="app-buttons">
               <a
                 href="https://apps.apple.com/app/id6761083487"
