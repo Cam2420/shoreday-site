@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { WHATSAPP_CHAT_URL, WHATSAPP_PREFILL, WHATSAPP_QR_SRC } from "@/lib/whatsapp";
+import WhatsAppShare from "./WhatsAppShare";
 
 /**
  * Homepage section for the $15 ShoreDay Nassau Concierge on WhatsApp.
@@ -9,6 +10,7 @@ import { WHATSAPP_CHAT_URL, WHATSAPP_PREFILL, WHATSAPP_QR_SRC } from "@/lib/what
  * pre-filled entry message and the welcome card it gets back (including the
  * automated-assistant line). The phone is decorative (aria-hidden); the copy on
  * the left carries the same information for screen readers.
+ * Last, on mobile only: a share card for passing ShoreDay to a cruise buddy.
  *
  * Marketing copy sells the plan, not the technology: no "AI" wording here.
  */
@@ -69,6 +71,28 @@ export default function WhatsAppConcierge() {
       <div className="wa-mockup">
         <WhatsAppPhone />
         <p className="wa-mockup-caption">The first message you&rsquo;ll get on WhatsApp.</p>
+      </div>
+
+      {/* Mobile only (hidden above 720px): pass ShoreDay on to someone else on
+          the same cruise, by share sheet / copied link or by the QR. */}
+      <div className="wa-share" aria-labelledby="wa-share-title" role="group">
+        <p className="section-kicker">For your cruise buddy</p>
+        <h3 id="wa-share-title">Don&rsquo;t let your cruise buddy wing Nassau.</h3>
+        <p className="wa-share-lead">
+          Send them ShoreDay: a plan built around their ship&rsquo;s all-aboard time.
+        </p>
+        <WhatsAppShare />
+        <p className="wa-share-qr-label">Or let them scan this</p>
+        <div className="wa-share-qr">
+          <img
+            src={WHATSAPP_QR_SRC}
+            alt="QR code that opens ShoreDay on WhatsApp"
+            width={150}
+            height={150}
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
       </div>
     </section>
   );
