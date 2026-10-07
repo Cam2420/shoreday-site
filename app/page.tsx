@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import HomeAnalytics from "./HomeAnalytics";
 import HomeFaq from "./HomeFaq";
+import StickyWhatsAppCta from "./StickyWhatsAppCta";
 import ShoreDayWordmark from "@/components/brand/ShoreDayWordmark";
 import { WHATSAPP_QR_SRC } from "@/lib/whatsapp";
 import WhatsAppConcierge from "./WhatsAppConcierge";
@@ -464,6 +465,8 @@ export default function Home() {
         </p>
         <p>&copy; 2026 VMAManagement LLC - ShoreDay. All rights reserved.</p>
       </footer>
+
+      <StickyWhatsAppCta />
     </div>
   );
 }
