@@ -96,40 +96,17 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Port-day control tower: how the live WhatsApp concierge works, in the
-              order it happens (welcome card buttons → checkout → PDF + plan). */}
-          <aside className="port-control" aria-label="How ShoreDay Nassau Concierge works">
-            <p className="port-control-kicker">How it works</p>
-            <h2 className="port-control-title">One chat, from hello to head-back time.</h2>
-            <ol className="port-control-steps">
-              <li>
-                <span aria-hidden="true">1</span>
-                <div>
-                  <strong>Message ShoreDay on WhatsApp</strong>
-                  <p>Free to message. Tap &ldquo;See a sample&rdquo; or &ldquo;How it works&rdquo; first.</p>
-                </div>
-              </li>
-              <li>
-                <span aria-hidden="true">2</span>
-                <div>
-                  <strong>Tap &ldquo;Get my plan&rdquo;</strong>
-                  <p>$15 one time for your whole group, paid at checkout.</p>
-                </div>
-              </li>
-              <li>
-                <span aria-hidden="true">3</span>
-                <div>
-                  <strong>Get your plan in the same chat</strong>
-                  <p>
-                    A 17-page PDF arrives first. Send your ship, Nassau date,
-                    all-aboard time, and group, and your personal plan follows.
-                  </p>
-                </div>
-              </li>
-            </ol>
-            <p className="port-control-note">
-              Your ship&rsquo;s official all-aboard time is always the final word.
-            </p>
+          {/* What you get, at a glance. Deliberately lean: the steps, support
+              hours and terms live further down the page. */}
+          <aside className="port-control" aria-labelledby="hero-offer-title">
+            <p className="port-control-kicker">ShoreDay Nassau Concierge</p>
+            <h2 id="hero-offer-title" className="port-control-title">What you get</h2>
+            <ul className="hero-offer-list">
+              <li>Personal Nassau plan</li>
+              <li>17-page Playbook kit</li>
+              <li>Answers through your port day</li>
+              <li className="hero-offer-price">$15 per group</li>
+            </ul>
           </aside>
         </div>
       </main>

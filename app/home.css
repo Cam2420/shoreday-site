@@ -1007,21 +1007,25 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-.home .wa-included-list {
+/* Dot-bullet lists: what's included, and the hero "What you get" card. */
+.home .wa-included-list,
+.home .hero-offer-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
   gap: 0.55rem;
 }
-.home .wa-included-list li {
+.home .wa-included-list li,
+.home .hero-offer-list li {
   position: relative;
   padding-left: 1.4rem;
   color: var(--color-ocean-ink-muted);
   font-size: 0.94rem;
   line-height: 1.45;
 }
-.home .wa-included-list li::before {
+.home .wa-included-list li::before,
+.home .hero-offer-list li::before {
   content: "";
   position: absolute;
   left: 0;
@@ -1033,6 +1037,21 @@
 }
 .home .wa-included-list strong {
   color: var(--color-ocean-ink);
+}
+.home .hero-offer-list li {
+  color: var(--color-ocean-ink);
+  font-size: 1rem;
+  font-weight: 600;
+}
+/* The price closes the card, set off by a rule. */
+.home .hero-offer-list .hero-offer-price {
+  margin-top: 0.35rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--line);
+  font-weight: 800;
+}
+.home .hero-offer-list .hero-offer-price::before {
+  top: calc(0.85rem + 0.5em);
 }
 .home .wa-fineprint {
   margin: 1.25rem 0 0;
