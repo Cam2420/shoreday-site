@@ -749,6 +749,19 @@
 .home footer a:hover {
   color: var(--color-lagoon);
 }
+/* Wrapping row (no pipe separators, so nothing dangles at a line end). */
+.home footer .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 0.5rem;
+  margin-bottom: 1rem;
+}
+.home footer .footer-note {
+  margin: 0 auto 0.75rem;
+  max-width: 60ch;
+  font-size: 0.85rem;
+}
 
 /* ----------------------------------------------------- Hero load motion ---- */
 @keyframes home-rise {

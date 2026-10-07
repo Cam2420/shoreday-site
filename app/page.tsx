@@ -449,10 +449,16 @@ export default function Home() {
       </section>
 
       <footer>
-        <div style={{ marginBottom: "1rem" }}>
-          <Link href="/privacy">Privacy Policy</Link> |{" "}
+        <div className="footer-links">
+          <Link href="/privacy">Privacy Policy</Link>
           <Link href="/terms">Terms of Service</Link>
+          <Link href="/concierge-terms">Concierge Terms</Link>
+          <a href="mailto:support@shoredayapp.com">support@shoredayapp.com</a>
         </div>
+        <p className="footer-note">
+          Independent planning service, not affiliated with any cruise line or the
+          Nassau Cruise Port.
+        </p>
         <p>&copy; 2026 VMAManagement LLC - ShoreDay. All rights reserved.</p>
       </footer>
     </div>
