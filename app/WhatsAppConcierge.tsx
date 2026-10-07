@@ -1,34 +1,67 @@
-import Link from "next/link";
-import { WHATSAPP_CHAT_URL, WHATSAPP_PREFILL, WHATSAPP_QR_SRC } from "@/lib/whatsapp";
-import WhatsAppShare from "./WhatsAppShare";
+import { WHATSAPP_PREFILL, WHATSAPP_QR_SRC } from "@/lib/whatsapp";
+import WhatsAppCta from "./WhatsAppCta";
+
+/** Facts a buyer checks before tapping. Short on purpose: scannable at a glance. */
+const TRUST_POINTS = [
+  "Free to message first",
+  "Refund before your plan is sent",
+  "Nassau only",
+  "Your ship’s official time is final",
+];
 
 /**
- * Homepage section for the $15 ShoreDay Nassau Concierge on WhatsApp.
+ * Homepage "How it works" section for the $15 ShoreDay Nassau Concierge.
+ * Keeps id="whatsapp": cruise-buddy share links land on #whatsapp.
  *
- * Left: headline, price, QR code (desktop) and an "Open on WhatsApp" button.
+ * Left: the three steps of the live flow (welcome card → "Get my plan" →
+ * PDF, then the personal plan), QR code (desktop) and a "Start in WhatsApp"
+ * button (surface home_whatsapp).
  * Right: an iPhone showing the real first exchange in the WhatsApp chat: the
  * pre-filled entry message and the welcome card it gets back (including the
  * automated-assistant line). The phone is decorative (aria-hidden); the copy on
  * the left carries the same information for screen readers.
- * Last, on mobile only: a share card for passing ShoreDay to a cruise buddy.
+ * Below both: a compact trust strip.
  *
  * Marketing copy sells the plan, not the technology: no "AI" wording here.
+ * Price, what's included and limits live in the Price section further down.
  */
 export default function WhatsAppConcierge() {
   return (
     <section className="wa-concierge" id="whatsapp" aria-labelledby="wa-title">
       <div className="wa-copy">
-        <p className="section-kicker">Nassau Concierge on WhatsApp</p>
-        <h2 id="wa-title">Plan your Nassau day in one WhatsApp chat.</h2>
-        <p className="wa-lead">
-          Text ShoreDay your ship and all-aboard time. You get a personal plan built
-          around it: where to go, what it costs, and when to head back to the pier.
-        </p>
+        <p className="section-kicker">ShoreDay Nassau Concierge</p>
+        <h2 id="wa-title">Three steps, one WhatsApp chat.</h2>
 
-        <p className="wa-price">
-          <strong>$15 one time for your whole group.</strong> Full refund any time
-          before your plan is sent. <Link href="/concierge-terms">Terms</Link>
-        </p>
+        <ol className="port-control-steps wa-steps">
+          <li>
+            <span aria-hidden="true">1</span>
+            <div>
+              <strong>Message ShoreDay</strong>
+              <p>
+                Free to message. Tap &ldquo;See a sample&rdquo; or &ldquo;How it
+                works&rdquo; to look first.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span aria-hidden="true">2</span>
+            <div>
+              <strong>Tap &ldquo;Get my plan&rdquo;</strong>
+              <p>Pay once at checkout, for your whole group.</p>
+            </div>
+          </li>
+          <li>
+            <span aria-hidden="true">3</span>
+            <div>
+              <strong>Get your plan in the same chat</strong>
+              <p>
+                Your 17-page PDF arrives first. Send your ship, Nassau date,
+                all-aboard time, group, and day style, and your personal plan
+                follows.
+              </p>
+            </div>
+          </li>
+        </ol>
 
         <div className="wa-actions">
           <div className="wa-qr-card">
@@ -47,25 +80,11 @@ export default function WhatsAppConcierge() {
           </div>
 
           <div className="wa-cta">
-            <a
-              href={WHATSAPP_CHAT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="wa-button"
-              data-analytics-event="whatsapp_click"
-              data-analytics-surface="home_whatsapp"
-            >
-              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-                <path
-                  fill="currentColor"
-                  d="M12 3C6.9 3 3 6.6 3 11.1c0 2.3 1 4.4 2.7 5.9L5 21l4.2-2.1c.9.2 1.8.3 2.8.3 5.1 0 9-3.6 9-8.1S17.1 3 12 3Zm-4 9.2a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4Zm4 0a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4Zm4 0a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4Z"
-                />
-              </svg>
-              Open on WhatsApp
-            </a>
+            <WhatsAppCta surface="home_whatsapp" className="wa-button" />
             <p className="wa-microcopy">Free to message. You only pay if you want the plan.</p>
           </div>
         </div>
+
       </div>
 
       <div className="wa-mockup">
@@ -73,27 +92,23 @@ export default function WhatsAppConcierge() {
         <p className="wa-mockup-caption">The first message you&rsquo;ll get on WhatsApp.</p>
       </div>
 
-      {/* Mobile only (hidden above 720px): pass ShoreDay on to someone else on
-          the same cruise, by share sheet / copied link or by the QR. */}
-      <div className="wa-share" aria-labelledby="wa-share-title" role="group">
-        <p className="section-kicker">For your cruise buddy</p>
-        <h3 id="wa-share-title">Don&rsquo;t let your cruise buddy wing Nassau.</h3>
-        <p className="wa-share-lead">
-          Send them ShoreDay: a plan built around their ship&rsquo;s all-aboard time.
-        </p>
-        <WhatsAppShare />
-        <p className="wa-share-qr-label">Or let them scan this</p>
-        <div className="wa-share-qr">
-          <img
-            src={WHATSAPP_QR_SRC}
-            alt="QR code that opens ShoreDay on WhatsApp"
-            width={150}
-            height={150}
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-      </div>
+      <ul className="wa-trust" aria-label="Before you start">
+        {TRUST_POINTS.map((point) => (
+          <li key={point}>
+            <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
+              <path
+                d="M3.5 8.5 6.5 11.5 12.5 4.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            {point}
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

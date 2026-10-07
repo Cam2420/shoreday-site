@@ -151,19 +151,25 @@
 .home h1 {
   font-family: var(--display);
   font-optical-sizing: auto;
-  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  font-size: clamp(2.5rem, 5vw, 3.6rem);
   font-weight: 600;
   line-height: 1.04;
   margin-bottom: 1.25rem;
   letter-spacing: -0.5px;
   color: #fff;
   text-shadow: 0 2px 24px rgba(8, 28, 38, 0.45);
+  text-wrap: balance;
+}
+/* Keeps "all-aboard time." together so the hyphen never splits a line. */
+.home h1 .nowrap {
+  white-space: nowrap;
 }
 .home p.subtitle {
   font-size: clamp(1.02rem, 1.6vw, 1.18rem);
   color: rgba(255, 255, 255, 0.95);
   margin-bottom: 1.5rem;
   max-width: 38rem;
+  text-wrap: pretty;
   text-shadow: 0 1px 18px rgba(8, 28, 38, 0.6), 0 1px 3px rgba(8, 28, 38, 0.4);
 }
 
@@ -184,6 +190,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.55rem;
   border-radius: 999px;
   padding: 15px 28px;
   font-weight: 800;
@@ -206,34 +213,6 @@
 .home .hero-primary-cta:active {
   transform: translateY(0) scale(0.99);
 }
-/* Excursion action, deliberately demoted from a pill to a text link so the hero
-   has exactly ONE primary action ("Start My Nassau Plan"). Keeps a 44px touch
-   target and its own focus ring; still carries the data-analytics-* attributes. */
-.home .hero-excursions-link {
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  padding: 10px 4px;
-  color: rgba(255, 255, 255, 0.92);
-  font-weight: 700;
-  font-size: 0.95rem;
-  line-height: 1;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 2px;
-  text-decoration-color: rgba(255, 255, 255, 0.5);
-  text-shadow: 0 1px 12px rgba(8, 28, 38, 0.55);
-  transition: color 0.18s ease, text-decoration-color 0.18s ease;
-}
-.home .hero-excursions-link:hover {
-  color: #fff;
-  text-decoration-color: #fff;
-}
-.home .hero-excursions-link:focus-visible {
-  outline: 3px solid var(--color-lagoon);
-  outline-offset: 4px;
-  border-radius: 6px;
-}
 .home .hero-microcopy {
   margin: 0;
   color: rgba(255, 255, 255, 0.92);
@@ -248,10 +227,35 @@
   text-shadow: 0 1px 12px rgba(8, 28, 38, 0.55);
 }
 
+/* Header CTA: an outline pill, smaller than the hero's filled button so the
+   hero stays the one primary action. */
+.home .nav-cta {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: 2px solid var(--color-deep-teal);
+  background: #fff;
+  color: var(--color-deep-teal);
+  font-weight: 800;
+  font-size: 0.92rem;
+  line-height: 1;
+  text-decoration: none;
+  transition: background-color 0.18s ease;
+}
+.home .nav-cta svg {
+  width: 18px;
+  height: 18px;
+}
+.home .nav-cta:hover {
+  background: var(--color-sea-glass);
+}
+
 .home .hero-primary-cta:focus-visible,
-.home .store-badge:focus-visible,
-.home .primary-btn:focus-visible,
-.home .secondary-btn:focus-visible {
+.home .nav-cta:focus-visible,
+.home .store-badge:focus-visible {
   outline: 3px solid var(--color-lagoon);
   outline-offset: 4px;
 }
@@ -343,53 +347,45 @@
   max-width: 52ch;
 }
 
-/* Features */
-.home .features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  padding: clamp(2.5rem, 5vw, 4rem) 5% 1rem;
+/* Problem — why the timing matters (the former features grid and cards,
+   repurposed). Informational cards: no hover lift, nothing to click. */
+.home .problem {
   max-width: 1200px;
-  margin: 0 auto;
   width: 100%;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 5vw, 4rem) 5% 1rem;
 }
-.home .feature-card {
+.home .problem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+.home .problem-card {
   background: var(--cream-card);
-  padding: 2rem 1.75rem;
+  padding: 1.75rem 1.6rem;
   border-radius: 20px;
   border: 1px solid var(--line);
   text-align: left;
   box-shadow: 0 12px 26px rgba(23, 50, 77, 0.08);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
-.home .feature-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--lagoon);
-  box-shadow: 0 18px 34px rgba(23, 50, 77, 0.14);
-}
-.home .feature-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 16px;
-  background: var(--aqua-mist);
-  font-size: 1.9rem;
-  margin-bottom: 1rem;
-}
-.home .feature-card h3 {
+.home .problem-card h3 {
   font-family: var(--display);
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--color-ocean-ink);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
   line-height: 1.15;
 }
-.home .feature-card p {
+.home .problem-card p {
   color: var(--color-ocean-ink-muted);
   font-size: 1rem;
   line-height: 1.5;
+}
+.home .problem-close {
+  margin: 1.5rem 0 0;
+  color: var(--color-ocean-ink);
+  font-size: 1.05rem;
+  font-weight: 700;
 }
 
 /* Experience Nassau — real photography band */
@@ -399,11 +395,13 @@
   margin: 0 auto;
   padding: clamp(2rem, 4vw, 3.5rem) 5% 1rem;
 }
-.home .experience-head {
+.home .experience-head,
+.home .problem-head {
   max-width: 60ch;
   margin-bottom: 1.75rem;
 }
-.home .experience-head h2 {
+.home .experience-head h2,
+.home .problem-head h2 {
   font-family: var(--display);
   font-size: clamp(1.8rem, 3.4vw, 2.6rem);
   font-weight: 600;
@@ -424,10 +422,6 @@
   min-height: 220px;
   box-shadow: 0 14px 30px rgba(23, 50, 77, 0.12);
   background: var(--sand-warm);
-}
-.home .exp-card-wide {
-  grid-column: 1 / -1;
-  min-height: 260px;
 }
 .home .exp-card img {
   position: absolute;
@@ -480,8 +474,9 @@
   text-wrap: balance;
 }
 
-/* Excursions CTA — the one deliberate dark accent panel (kept on-brand). */
-.home .excursions-cta {
+/* Final CTA — the one deliberate dark accent panel (kept on-brand), so the
+   strongest visual moment on the page is the WhatsApp action. */
+.home .final-cta {
   background: linear-gradient(rgba(13, 42, 56, 0.62), rgba(23, 50, 77, 0.82)),
     url("/swimmingpig_bird.jpg");
   background-size: cover;
@@ -489,40 +484,22 @@
   border: 1px solid rgba(79, 141, 144, 0.5);
   padding: clamp(2.5rem, 5vw, 4rem) 5%;
   text-align: center;
-  margin: 2.5rem auto 4rem;
+  margin: clamp(2.5rem, 5vw, 4rem) auto 0;
   width: 92%;
   max-width: 1080px;
   border-radius: 24px;
   box-shadow: 0 22px 44px rgba(23, 50, 77, 0.28);
 }
-.home .credibility-stack {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 1.25rem;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-}
-.home .viator-text {
-  color: #e8eef2;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.home .viator-text span {
-  color: #34e0a1;
-  font-weight: 800;
-}
-.home .excursions-cta h2 {
+.home .final-cta h2 {
   font-family: var(--display);
   font-size: clamp(1.9rem, 4vw, 2.6rem);
   font-weight: 600;
   margin-bottom: 1rem;
   color: #fff;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
+  text-wrap: balance;
 }
-.home .excursions-cta p {
+.home .final-cta p {
   font-size: 1.1rem;
   color: #f4f8fb;
   margin-bottom: 2rem;
@@ -530,7 +507,7 @@
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
-  font-weight: 500;
+  font-weight: 600;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 .home .cta-button-group {
@@ -539,47 +516,100 @@
   justify-content: center;
   flex-wrap: wrap;
 }
-.home .affiliate-disclosure {
-  color: #e2e8f0;
+/* Inverted (white) button so it stands out on the dark band. */
+.home .final-btn {
+  min-height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  background: #fff;
+  color: var(--color-deep-teal);
+  padding: 15px 34px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 1.05rem;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  border: 2px solid #fff;
+}
+.home .final-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(8, 28, 38, 0.5);
+}
+.home .final-btn:focus-visible {
+  outline: 3px solid var(--color-lagoon);
+  outline-offset: 4px;
+}
+
+/* Optional tours — a light card near the end of the page. */
+.home .tours {
+  width: 92%;
+  max-width: 1080px;
+  margin: 0 auto 4rem;
+  padding: clamp(1.75rem, 3.5vw, 2.5rem) 5%;
+  text-align: center;
+  border-radius: 24px;
+  background: var(--cream-card);
+  border: 1px solid var(--line);
+}
+.home .viator-text {
+  margin-bottom: 0.9rem;
+  color: var(--harbor);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.home .viator-text span {
+  color: var(--color-deep-teal);
+  font-weight: 800;
+}
+.home .tours h2 {
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+  color: var(--color-ocean-ink);
+}
+.home .tours p {
+  max-width: 62ch;
+  margin: 0 auto 1.5rem;
+  color: var(--color-ocean-ink-muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+/* Outline button, matching the share-card button: clearly secondary. */
+.home .tours-btn {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  border-radius: 999px;
+  border: 2px solid var(--color-deep-teal);
+  background: #fff;
+  color: var(--color-deep-teal);
+  font-weight: 800;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.18s ease;
+}
+.home .tours-btn:hover {
+  background: var(--color-sea-glass);
+}
+.home .tours-btn:focus-visible {
+  outline: 3px solid var(--color-lagoon);
+  outline-offset: 4px;
+}
+.home .tours .affiliate-disclosure {
+  color: var(--color-ocean-ink-muted);
   font-size: 0.8rem;
   font-weight: 500;
   margin: 1rem auto 0;
   max-width: 620px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-}
-.home .primary-btn {
-  display: inline-block;
-  background: var(--color-deep-teal);
-  color: #fff;
-  padding: 15px 34px;
-  border-radius: 999px;
-  font-weight: 800;
-  font-size: 1.05rem;
-  text-decoration: none;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-  border: 2px solid var(--color-deep-teal);
-}
-.home .primary-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 26px rgba(8, 28, 38, 0.5);
-}
-.home .secondary-btn {
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
-  padding: 15px 34px;
-  border-radius: 999px;
-  font-weight: 800;
-  font-size: 1.05rem;
-  text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  transition: background 0.18s ease, transform 0.18s ease;
-}
-.home .secondary-btn:hover {
-  background: rgba(255, 255, 255, 0.22);
-  transform: translateY(-2px);
 }
 
 /* App companion */
@@ -590,7 +620,7 @@
   align-items: center;
   width: 92%;
   max-width: 1120px;
-  margin: 0 auto 4rem;
+  margin: clamp(2.5rem, 5vw, 4rem) auto 2rem;
   padding: clamp(1.75rem, 3.5vw, 3rem);
   border-radius: 28px;
   background:
@@ -714,6 +744,19 @@
 .home footer a:hover {
   color: var(--color-lagoon);
 }
+/* Wrapping row (no pipe separators, so nothing dangles at a line end). */
+.home footer .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 0.5rem;
+  margin-bottom: 1rem;
+}
+.home footer .footer-note {
+  margin: 0 auto 0.75rem;
+  max-width: 60ch;
+  font-size: 0.85rem;
+}
 
 /* ----------------------------------------------------- Hero load motion ---- */
 @keyframes home-rise {
@@ -832,6 +875,10 @@
   .home nav {
     padding: 1.1rem 6%;
   }
+  /* Phones get the sticky bottom bar instead of a header button. */
+  .home .nav-cta {
+    display: none;
+  }
   .home .hero {
     width: 94%;
     border-radius: 22px;
@@ -839,8 +886,7 @@
   .home .experience-grid {
     grid-template-columns: 1fr;
   }
-  .home .exp-card,
-  .home .exp-card-wide {
+  .home .exp-card {
     min-height: 200px;
   }
   .home .hero-cta-stack,
@@ -860,12 +906,17 @@
   .home .app-feature-list {
     grid-template-columns: 1fr;
   }
+  .home .final-cta,
+  .home .tours {
+    width: 94%;
+    border-radius: 22px;
+  }
   .home .cta-button-group {
     flex-direction: column;
     width: 100%;
   }
-  .home .primary-btn,
-  .home .secondary-btn {
+  .home .final-btn,
+  .home .tours-btn {
     width: 100%;
     text-align: center;
   }
@@ -873,14 +924,16 @@
     height: 48px;
   }
 
-  /* Features: an intentional single-column mobile layout (not an auto-fit
+  /* Problem cards: an intentional single-column mobile layout (not an auto-fit
      accident), with comfortable card padding. */
-  .home .features {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+  .home .problem {
     padding: clamp(2rem, 8vw, 2.75rem) 6% 0.5rem;
   }
-  .home .feature-card {
+  .home .problem-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .home .problem-card {
     padding: 1.5rem 1.4rem;
   }
 
@@ -921,18 +974,14 @@
     animation: none;
   }
   .home .hero-primary-cta,
-  .home .hero-excursions-link,
-  .home .feature-card,
-  .home .primary-btn,
-  .home .secondary-btn,
+  .home .final-btn,
+  .home .tours-btn,
   .home .app-buttons img,
   .home .exp-card img {
     transition: none;
   }
   .home .hero-primary-cta:hover,
-  .home .feature-card:hover,
-  .home .primary-btn:hover,
-  .home .secondary-btn:hover,
+  .home .final-btn:hover,
   .home .exp-card:hover img,
   .home .app-buttons a.store-badge:hover img {
     transform: none;
@@ -944,11 +993,9 @@
    iPhone showing the first WhatsApp exchange on the right. WhatsApp-like
    colours are kept inside the mockup only; the section itself uses the
    homepage palette. */
-.home .wa-concierge {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: clamp(1.5rem, 4vw, 3.5rem);
-  align-items: center;
+/* Cream card shell shared by the How it works and Price sections. */
+.home .wa-concierge,
+.home .price {
   width: 92%;
   max-width: 1120px;
   margin: clamp(2.5rem, 5vw, 4rem) auto 0;
@@ -960,6 +1007,13 @@
   border: 1px solid var(--line);
   box-shadow: 0 18px 38px rgba(23, 50, 77, 0.1);
 }
+.home .wa-concierge {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+}
+.home .price h2,
 .home .wa-copy h2 {
   font-family: var(--display);
   font-size: clamp(1.7rem, 3.4vw, 2.4rem);
@@ -968,23 +1022,93 @@
   margin: 0 0 0.75rem;
   color: var(--color-ocean-ink);
 }
-.home .wa-lead {
-  color: var(--color-ocean-ink-muted);
-  font-size: 1.02rem;
-  margin: 0 0 1.1rem;
-  max-width: 48ch;
+.home .wa-steps {
+  margin-bottom: 1.5rem;
 }
-.home .wa-price {
+/* Trust strip: four short facts across the bottom of How it works. */
+.home .wa-trust {
+  grid-column: 1 / -1;
+  list-style: none;
+  margin: 0;
+  padding: 1.1rem 0 0;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.5rem;
+}
+.home .wa-trust li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--harbor);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.home .wa-trust svg {
+  flex: none;
+  color: var(--lagoon);
+}
+/* What's included: only claims the live chat and checkout deliver. */
+.home .wa-included {
   margin: 0 0 1.5rem;
-  color: var(--color-ocean-ink-muted);
-  font-size: 0.95rem;
+  padding: 1rem 1.15rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
 }
-.home .wa-price strong {
+.home .wa-included-title {
+  margin: 0 0 0.6rem;
+  color: var(--harbor);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+/* Dot-bullet lists: what's included, and the hero "What you get" card. */
+.home .wa-included-list,
+.home .hero-offer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+.home .wa-included-list li,
+.home .hero-offer-list li {
+  position: relative;
+  padding-left: 1.4rem;
+  color: var(--color-ocean-ink-muted);
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+.home .wa-included-list li::before,
+.home .hero-offer-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--lagoon);
+}
+.home .wa-included-list strong {
   color: var(--color-ocean-ink);
 }
-.home .wa-price a {
-  color: var(--color-deep-teal);
-  font-weight: 700;
+.home .hero-offer-list li {
+  color: var(--color-ocean-ink);
+  font-size: 1rem;
+  font-weight: 600;
+}
+/* The price closes the card, set off by a rule. */
+.home .hero-offer-list .hero-offer-price {
+  margin-top: 0.35rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--line);
+  font-weight: 800;
+}
+.home .hero-offer-list .hero-offer-price::before {
+  top: calc(0.85rem + 0.5em);
 }
 .home .wa-actions {
   display: flex;
@@ -1476,15 +1600,148 @@
   height: 150px;
 }
 
+/* ------------------------------------------------ Price / what's included -- */
+.home .price-head {
+  margin-bottom: 1.5rem;
+}
+.home .price-head h2,
+.home .price-lead {
+  max-width: 60ch;
+}
+/* "One payment · One WhatsApp number · …" as small, scannable chips. */
+.home .price-terms {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.home .price-terms li {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--aqua-mist);
+  color: var(--harbor);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.home .price-lead {
+  margin: 0;
+  color: var(--color-ocean-ink-muted);
+  font-size: 0.95rem;
+}
+.home .price-lead a {
+  color: var(--color-deep-teal);
+  font-weight: 700;
+}
+.home .price-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.home .price-columns .wa-included {
+  margin: 0;
+}
+/* Limits get a neutral marker, so they read as facts, not features. */
+.home .price-isnt .wa-included-list li::before {
+  background: var(--line-strong);
+}
+.home .price-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+/* -------------------------------------------------------------------- FAQ -- */
+.home .faq {
+  max-width: 880px;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 5vw, 4rem) 5% 0;
+}
+.home .faq-head {
+  margin-bottom: 1.25rem;
+}
+.home .faq-head h2 {
+  font-family: var(--display);
+  font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0;
+  color: var(--color-ocean-ink);
+}
+.home .faq-list {
+  display: grid;
+  gap: 0.6rem;
+}
+.home .faq-item {
+  background: var(--cream-card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+.home .faq-item summary {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.15rem;
+  color: var(--color-ocean-ink);
+  font-weight: 700;
+  font-size: 1rem;
+  list-style: none;
+  cursor: pointer;
+  border-radius: 16px;
+}
+.home .faq-item summary::-webkit-details-marker {
+  display: none;
+}
+/* Chevron that turns when the answer is open. */
+.home .faq-item summary::after {
+  content: "";
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid var(--lagoon);
+  border-bottom: 2px solid var(--lagoon);
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.18s ease;
+}
+.home .faq-item[open] summary::after {
+  transform: rotate(225deg) translateY(-2px);
+}
+.home .faq-item summary:focus-visible {
+  outline: 3px solid var(--color-lagoon);
+  outline-offset: 2px;
+}
+.home .faq-answer {
+  margin: 0;
+  padding: 0 1.15rem 1.05rem;
+  color: var(--color-ocean-ink-muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.home .faq-answer a {
+  color: var(--color-deep-teal);
+  font-weight: 700;
+}
+
 @media (max-width: 860px) {
-  .home .wa-concierge {
+  .home .wa-concierge,
+  .home .price-columns {
     grid-template-columns: 1fr;
   }
 }
 @media (max-width: 720px) {
-  .home .wa-concierge {
+  .home .wa-concierge,
+  .home .price {
     width: 94%;
     border-radius: 22px;
+  }
+  .home .price-cta {
+    align-items: stretch;
   }
   /* A QR code can't be scanned by the phone showing it: tap the button instead. */
   .home .wa-qr-card {
@@ -1500,12 +1757,77 @@
   .home .wa-mockup {
     --phone-w: min(300px, 82vw);
   }
+  /* Standalone card after the final CTA band. */
   .home .wa-share {
     display: block;
+    width: 94%;
+    margin: 1.25rem auto 0;
   }
 }
+/* ------------------------------------------------- Mobile sticky CTA ------ */
+.home .wa-sticky {
+  display: none;
+}
+@media (max-width: 720px) {
+  .home .wa-sticky {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 4% calc(0.65rem + env(safe-area-inset-bottom));
+    background: rgba(255, 250, 242, 0.97);
+    border-top: 1px solid var(--line);
+    box-shadow: 0 -8px 24px rgba(23, 50, 77, 0.12);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+  }
+  .home .wa-sticky[data-visible="true"] {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+  }
+  .home .wa-sticky-btn {
+    flex: 1;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    background: var(--color-deep-teal);
+    color: #fff;
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 1;
+    text-decoration: none;
+  }
+  .home .wa-sticky-btn:focus-visible {
+    outline: 3px solid var(--color-lagoon);
+    outline-offset: 3px;
+  }
+  .home .wa-sticky-price {
+    flex: none;
+    color: var(--harbor);
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+  /* Room under the footer so the bar never covers its links. */
+  .home footer {
+    padding-bottom: calc(2rem + 76px + env(safe-area-inset-bottom));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .home .wa-button {
+  .home .wa-sticky,
+  .home .wa-sticky[data-visible="true"],
+  .home .wa-button,
+  .home .nav-cta,
+  .home .faq-item summary::after {
     transition: none;
   }
   .home .wa-button:hover {
