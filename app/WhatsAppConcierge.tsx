@@ -1,6 +1,5 @@
 import { WHATSAPP_PREFILL, WHATSAPP_QR_SRC } from "@/lib/whatsapp";
 import WhatsAppCta from "./WhatsAppCta";
-import WhatsAppShare from "./WhatsAppShare";
 
 /** Facts a buyer checks before tapping. Short on purpose: scannable at a glance. */
 const TRUST_POINTS = [
@@ -110,28 +109,6 @@ export default function WhatsAppConcierge() {
           </li>
         ))}
       </ul>
-
-      {/* Mobile only (hidden above 720px): pass ShoreDay on to someone else on
-          the same cruise, by share sheet / copied link or by the QR. */}
-      <div className="wa-share" aria-labelledby="wa-share-title" role="group">
-        <p className="section-kicker">For your cruise buddy</p>
-        <h3 id="wa-share-title">Don&rsquo;t let your cruise buddy wing Nassau.</h3>
-        <p className="wa-share-lead">
-          Send them ShoreDay: a plan built around their ship&rsquo;s all-aboard time.
-        </p>
-        <WhatsAppShare />
-        <p className="wa-share-qr-label">Or let them scan this</p>
-        <div className="wa-share-qr">
-          <img
-            src={WHATSAPP_QR_SRC}
-            alt="QR code that opens ShoreDay on WhatsApp"
-            width={150}
-            height={150}
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-      </div>
     </section>
   );
 }

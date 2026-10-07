@@ -3,8 +3,10 @@ import Link from "next/link";
 import HomeAnalytics from "./HomeAnalytics";
 import HomeFaq from "./HomeFaq";
 import ShoreDayWordmark from "@/components/brand/ShoreDayWordmark";
+import { WHATSAPP_QR_SRC } from "@/lib/whatsapp";
 import WhatsAppConcierge from "./WhatsAppConcierge";
 import WhatsAppCta from "./WhatsAppCta";
+import WhatsAppShare from "./WhatsAppShare";
 import "./home.css";
 
 export const metadata: Metadata = {
@@ -151,21 +153,23 @@ export default function Home() {
       {/* How it works: the $15 ShoreDay Nassau Concierge on WhatsApp. */}
       <WhatsAppConcierge />
 
-      {/* Experience Nassau — real island photography so the page feels like a
-          Bahamas vacation planner. Captions are day-type inspiration, never a
-          claim about a specific bookable tour. */}
+      {/* What your day can look like — real island photography so the page feels
+          like a Bahamas vacation planner. Captions are day-type inspiration, never
+          a claim about a specific bookable tour. (Day-shape labels from the kit
+          wait until the live 17-page PDF is verified.) */}
       <section className="experience" aria-labelledby="experience-title">
         <div className="experience-head">
           <p className="section-kicker">A real Nassau day</p>
-          <h2 id="experience-title">Plan the day that fits your ship — not the brochure.</h2>
+          <h2 id="experience-title">One realistic day, not a packed checklist.</h2>
           <p className="section-lead">
-            Calm beaches, walkable streets, local food, and easy water time —
-            shaped around your return-to-pier target.
+            Beach time, a walkable downtown loop, or local food and history. Your
+            plan is shaped around your hours, your group, and the kind of day you
+            want.
           </p>
         </div>
 
         <div className="experience-grid">
-          <figure className="exp-card exp-card-wide">
+          <figure className="exp-card">
             <img
               src="/images/shoreday/nassau/nassau-beach.webp"
               alt="Turquoise water and white sand at a public beach in Nassau, Bahamas"
@@ -221,21 +225,6 @@ export default function Home() {
             <figcaption>
               <span className="exp-copy">
                 Landmarks and shops on a simple route that fits your window.
-              </span>
-            </figcaption>
-          </figure>
-
-          <figure className="exp-card">
-            <img
-              src="/images/shoreday/nassau/nassau-watersports.webp"
-              alt="Visitors riding jet skis on calm turquoise water in Nassau"
-              loading="lazy"
-              decoding="async"
-            />
-            <span className="exp-tag">Adventure</span>
-            <figcaption>
-              <span className="exp-copy">
-                Water time and excursions filtered around your ship day.
               </span>
             </figcaption>
           </figure>
@@ -314,17 +303,52 @@ export default function Home() {
 
       <HomeFaq />
 
-      {/* Self-serve alternatives to the concierge, shown after the WhatsApp
-          section: the app, then the free web planner as a quiet text link. Uses
-          real app screenshots and only existing, safe app feature claims (these
-          are app features, not concierge features). */}
+      {/* Final CTA — the page's one dark band, so the strongest visual moment is
+          the WhatsApp action (not the optional tours below). */}
+      <section className="final-cta" aria-labelledby="final-title">
+        <h2 id="final-title">Plan your Nassau day before you step ashore.</h2>
+        <p>$15 one time for your whole group. Free to message first.</p>
+        <div className="cta-button-group">
+          <WhatsAppCta surface="home_final" className="final-btn" />
+        </div>
+      </section>
+
+      {/* Mobile only (hidden above 720px): pass ShoreDay on to someone else on
+          the same cruise, by share sheet / copied link or by the QR. Placed
+          after the final CTA so it never competes with the buyer's own action. */}
+      <aside className="wa-share" aria-labelledby="wa-share-title">
+        <p className="section-kicker">For your cruise buddy</p>
+        <h3 id="wa-share-title">Don&rsquo;t let your cruise buddy wing Nassau.</h3>
+        <p className="wa-share-lead">
+          Send them ShoreDay: a plan built around their ship&rsquo;s all-aboard time.
+        </p>
+        <WhatsAppShare />
+        <p className="wa-share-qr-label">Or let them scan this</p>
+        <div className="wa-share-qr">
+          <img
+            src={WHATSAPP_QR_SRC}
+            alt="QR code that opens ShoreDay on WhatsApp"
+            width={150}
+            height={150}
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </aside>
+
+      {/* Self-serve alternatives to the concierge, after the final CTA: the app,
+          then the free web planner as a quiet text link. Uses real app
+          screenshots and only existing, safe app feature claims (these are app
+          features, not concierge features). The app is separate from the
+          concierge; never imply plans transfer between them. */}
       <section className="app-cta" id="app" aria-labelledby="app-title">
         <div className="app-cta-copy">
           <p className="section-kicker">Prefer to plan it yourself?</p>
           <h2 id="app-title">Keep your port day in your pocket.</h2>
           <p>
-            Plan your Nassau day yourself, any time you like, then keep it on your
-            phone while you&rsquo;re ashore.
+            The ShoreDay app is a separate, self-serve option: plan your Nassau day
+            yourself, any time you like, then keep it on your phone while
+            you&rsquo;re ashore.
           </p>
           <ul className="app-feature-list">
             <li>All-aboard countdown</li>
@@ -393,15 +417,14 @@ export default function Home() {
       </section>
 
       {/* Excursions are an optional add-on after the plan, not a co-primary
-          offer. Affiliate disclosure stays adjacent to the link. */}
-      <section className="excursions-cta">
-        <div className="credibility-stack">
-          <div className="viator-text">
-            Excursions via <span>Viator</span>, a Tripadvisor company
-          </div>
+          offer: a light card near the end of the page. Affiliate disclosure
+          stays adjacent to the link. */}
+      <section className="tours" aria-labelledby="tours-title">
+        <div className="viator-text">
+          Excursions via <span>Viator</span>, a Tripadvisor company
         </div>
 
-        <h2>Optional: add a Nassau tour</h2>
+        <h2 id="tours-title">Optional: add a Nassau tour</h2>
         <p>
           Already have your plan and want a tour? Browse a short list of Nassau
           tours on Viator. Check your ship&rsquo;s official all-aboard time before
@@ -413,7 +436,7 @@ export default function Home() {
             href="https://vi.me/s/shoredayapp"
             target="_blank"
             rel="sponsored noopener noreferrer"
-            className="primary-btn"
+            className="tours-btn"
             data-analytics-event="excursion_click"
             data-analytics-surface="home_excursions_cta"
           >

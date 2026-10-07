@@ -240,9 +240,7 @@
 }
 
 .home .hero-primary-cta:focus-visible,
-.home .store-badge:focus-visible,
-.home .primary-btn:focus-visible,
-.home .secondary-btn:focus-visible {
+.home .store-badge:focus-visible {
   outline: 3px solid var(--color-lagoon);
   outline-offset: 4px;
 }
@@ -410,10 +408,6 @@
   box-shadow: 0 14px 30px rgba(23, 50, 77, 0.12);
   background: var(--sand-warm);
 }
-.home .exp-card-wide {
-  grid-column: 1 / -1;
-  min-height: 260px;
-}
 .home .exp-card img {
   position: absolute;
   inset: 0;
@@ -465,8 +459,9 @@
   text-wrap: balance;
 }
 
-/* Excursions CTA — the one deliberate dark accent panel (kept on-brand). */
-.home .excursions-cta {
+/* Final CTA — the one deliberate dark accent panel (kept on-brand), so the
+   strongest visual moment on the page is the WhatsApp action. */
+.home .final-cta {
   background: linear-gradient(rgba(13, 42, 56, 0.62), rgba(23, 50, 77, 0.82)),
     url("/swimmingpig_bird.jpg");
   background-size: cover;
@@ -474,40 +469,22 @@
   border: 1px solid rgba(79, 141, 144, 0.5);
   padding: clamp(2.5rem, 5vw, 4rem) 5%;
   text-align: center;
-  margin: 2.5rem auto 4rem;
+  margin: clamp(2.5rem, 5vw, 4rem) auto 0;
   width: 92%;
   max-width: 1080px;
   border-radius: 24px;
   box-shadow: 0 22px 44px rgba(23, 50, 77, 0.28);
 }
-.home .credibility-stack {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 1.25rem;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-}
-.home .viator-text {
-  color: #e8eef2;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.home .viator-text span {
-  color: #34e0a1;
-  font-weight: 800;
-}
-.home .excursions-cta h2 {
+.home .final-cta h2 {
   font-family: var(--display);
   font-size: clamp(1.9rem, 4vw, 2.6rem);
   font-weight: 600;
   margin-bottom: 1rem;
   color: #fff;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
+  text-wrap: balance;
 }
-.home .excursions-cta p {
+.home .final-cta p {
   font-size: 1.1rem;
   color: #f4f8fb;
   margin-bottom: 2rem;
@@ -515,7 +492,7 @@
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
-  font-weight: 500;
+  font-weight: 600;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 .home .cta-button-group {
@@ -524,47 +501,100 @@
   justify-content: center;
   flex-wrap: wrap;
 }
-.home .affiliate-disclosure {
-  color: #e2e8f0;
+/* Inverted (white) button so it stands out on the dark band. */
+.home .final-btn {
+  min-height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  background: #fff;
+  color: var(--color-deep-teal);
+  padding: 15px 34px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 1.05rem;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  border: 2px solid #fff;
+}
+.home .final-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(8, 28, 38, 0.5);
+}
+.home .final-btn:focus-visible {
+  outline: 3px solid var(--color-lagoon);
+  outline-offset: 4px;
+}
+
+/* Optional tours — a light card near the end of the page. */
+.home .tours {
+  width: 92%;
+  max-width: 1080px;
+  margin: 0 auto 4rem;
+  padding: clamp(1.75rem, 3.5vw, 2.5rem) 5%;
+  text-align: center;
+  border-radius: 24px;
+  background: var(--cream-card);
+  border: 1px solid var(--line);
+}
+.home .viator-text {
+  margin-bottom: 0.9rem;
+  color: var(--harbor);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.home .viator-text span {
+  color: var(--color-deep-teal);
+  font-weight: 800;
+}
+.home .tours h2 {
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+  color: var(--color-ocean-ink);
+}
+.home .tours p {
+  max-width: 62ch;
+  margin: 0 auto 1.5rem;
+  color: var(--color-ocean-ink-muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+/* Outline button, matching the share-card button: clearly secondary. */
+.home .tours-btn {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  border-radius: 999px;
+  border: 2px solid var(--color-deep-teal);
+  background: #fff;
+  color: var(--color-deep-teal);
+  font-weight: 800;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.18s ease;
+}
+.home .tours-btn:hover {
+  background: var(--color-sea-glass);
+}
+.home .tours-btn:focus-visible {
+  outline: 3px solid var(--color-lagoon);
+  outline-offset: 4px;
+}
+.home .tours .affiliate-disclosure {
+  color: var(--color-ocean-ink-muted);
   font-size: 0.8rem;
   font-weight: 500;
   margin: 1rem auto 0;
   max-width: 620px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-}
-.home .primary-btn {
-  display: inline-block;
-  background: var(--color-deep-teal);
-  color: #fff;
-  padding: 15px 34px;
-  border-radius: 999px;
-  font-weight: 800;
-  font-size: 1.05rem;
-  text-decoration: none;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-  border: 2px solid var(--color-deep-teal);
-}
-.home .primary-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 26px rgba(8, 28, 38, 0.5);
-}
-.home .secondary-btn {
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
-  padding: 15px 34px;
-  border-radius: 999px;
-  font-weight: 800;
-  font-size: 1.05rem;
-  text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  transition: background 0.18s ease, transform 0.18s ease;
-}
-.home .secondary-btn:hover {
-  background: rgba(255, 255, 255, 0.22);
-  transform: translateY(-2px);
 }
 
 /* App companion */
@@ -575,7 +605,7 @@
   align-items: center;
   width: 92%;
   max-width: 1120px;
-  margin: 0 auto 4rem;
+  margin: clamp(2.5rem, 5vw, 4rem) auto 2rem;
   padding: clamp(1.75rem, 3.5vw, 3rem);
   border-radius: 28px;
   background:
@@ -845,8 +875,7 @@
   .home .experience-grid {
     grid-template-columns: 1fr;
   }
-  .home .exp-card,
-  .home .exp-card-wide {
+  .home .exp-card {
     min-height: 200px;
   }
   .home .hero-cta-stack,
@@ -866,12 +895,17 @@
   .home .app-feature-list {
     grid-template-columns: 1fr;
   }
+  .home .final-cta,
+  .home .tours {
+    width: 94%;
+    border-radius: 22px;
+  }
   .home .cta-button-group {
     flex-direction: column;
     width: 100%;
   }
-  .home .primary-btn,
-  .home .secondary-btn {
+  .home .final-btn,
+  .home .tours-btn {
     width: 100%;
     text-align: center;
   }
@@ -929,15 +963,14 @@
     animation: none;
   }
   .home .hero-primary-cta,
-  .home .primary-btn,
-  .home .secondary-btn,
+  .home .final-btn,
+  .home .tours-btn,
   .home .app-buttons img,
   .home .exp-card img {
     transition: none;
   }
   .home .hero-primary-cta:hover,
-  .home .primary-btn:hover,
-  .home .secondary-btn:hover,
+  .home .final-btn:hover,
   .home .exp-card:hover img,
   .home .app-buttons a.store-badge:hover img {
     transform: none;
@@ -1713,8 +1746,11 @@
   .home .wa-mockup {
     --phone-w: min(300px, 82vw);
   }
+  /* Standalone card after the final CTA band. */
   .home .wa-share {
     display: block;
+    width: 94%;
+    margin: 1.25rem auto 0;
   }
 }
 @media (prefers-reduced-motion: reduce) {
