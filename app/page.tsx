@@ -134,9 +134,43 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Paid offer: the $15 ShoreDay Nassau Concierge on WhatsApp. Placed right
-          after the hero so the price, what's included and the terms are one
-          scroll from the hero CTA. */}
+      {/* Problem: why a plan built backward from all-aboard is worth having.
+          Adapted from the /nassau proof cards. No CTA, so the point can land. */}
+      <section className="problem" aria-labelledby="problem-title">
+        <div className="problem-head">
+          <p className="section-kicker">Why timing matters</p>
+          <h2 id="problem-title">Your port call isn&rsquo;t your port day.</h2>
+        </div>
+        <div className="problem-grid">
+          <article className="problem-card">
+            <h3>After you dock</h3>
+            <p>
+              It takes time before guests can step ashore, so your day starts later
+              than the printed arrival time.
+            </p>
+          </article>
+          <article className="problem-card">
+            <h3>All-aboard comes first</h3>
+            <p>
+              Your ship&rsquo;s all-aboard time is earlier than departure, and
+              it&rsquo;s the time that counts.
+            </p>
+          </article>
+          <article className="problem-card">
+            <h3>The trip back counts</h3>
+            <p>
+              The ride back to the pier and a sensible buffer come off the end of
+              your day.
+            </p>
+          </article>
+        </div>
+        <p className="problem-close">
+          ShoreDay plans your Nassau day backward from your ship&rsquo;s all-aboard
+          time.
+        </p>
+      </section>
+
+      {/* How it works: the $15 ShoreDay Nassau Concierge on WhatsApp. */}
       <WhatsAppConcierge />
 
       {/* Experience Nassau — real island photography so the page feels like a
@@ -305,34 +339,6 @@ export default function Home() {
             loading="lazy"
             decoding="async"
           />
-        </div>
-      </section>
-
-      <section className="features" aria-label="What ShoreDay does">
-        <div className="feature-card">
-          <div className="feature-icon">⏱️</div>
-          <h3>Built Around Your All-Aboard Time</h3>
-          <p>
-            ShoreDay builds your entire port day around your exact &ldquo;All-Aboard&rdquo;
-            time, including built-in buffer zones.
-          </p>
-        </div>
-        <div className="feature-card">
-          <div className="feature-icon">💬</div>
-          <h3>Help in the Same Chat</h3>
-          <p>
-            Questions after your plan arrives? Ask in the same WhatsApp chat through
-            the end of your Nassau port day. Automated replies anytime. Human help
-            daily 12–5 pm ET.
-          </p>
-        </div>
-        <div className="feature-card">
-          <div className="feature-icon">🌴</div>
-          <h3>Optional Tours</h3>
-          <p>
-            Want a tour too? Once your plan is set, browse a short list of Nassau
-            tours that could fit your day. Entirely optional.
-          </p>
         </div>
       </section>
 

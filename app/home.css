@@ -334,53 +334,45 @@
   max-width: 52ch;
 }
 
-/* Features */
-.home .features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  padding: clamp(2.5rem, 5vw, 4rem) 5% 1rem;
+/* Problem — why the timing matters (the former features grid and cards,
+   repurposed). Informational cards: no hover lift, nothing to click. */
+.home .problem {
   max-width: 1200px;
-  margin: 0 auto;
   width: 100%;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 5vw, 4rem) 5% 1rem;
 }
-.home .feature-card {
+.home .problem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+.home .problem-card {
   background: var(--cream-card);
-  padding: 2rem 1.75rem;
+  padding: 1.75rem 1.6rem;
   border-radius: 20px;
   border: 1px solid var(--line);
   text-align: left;
   box-shadow: 0 12px 26px rgba(23, 50, 77, 0.08);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
-.home .feature-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--lagoon);
-  box-shadow: 0 18px 34px rgba(23, 50, 77, 0.14);
-}
-.home .feature-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 16px;
-  background: var(--aqua-mist);
-  font-size: 1.9rem;
-  margin-bottom: 1rem;
-}
-.home .feature-card h3 {
+.home .problem-card h3 {
   font-family: var(--display);
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--color-ocean-ink);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
   line-height: 1.15;
 }
-.home .feature-card p {
+.home .problem-card p {
   color: var(--color-ocean-ink-muted);
   font-size: 1rem;
   line-height: 1.5;
+}
+.home .problem-close {
+  margin: 1.5rem 0 0;
+  color: var(--color-ocean-ink);
+  font-size: 1.05rem;
+  font-weight: 700;
 }
 
 /* Experience Nassau — real photography band */
@@ -390,11 +382,13 @@
   margin: 0 auto;
   padding: clamp(2rem, 4vw, 3.5rem) 5% 1rem;
 }
-.home .experience-head {
+.home .experience-head,
+.home .problem-head {
   max-width: 60ch;
   margin-bottom: 1.75rem;
 }
-.home .experience-head h2 {
+.home .experience-head h2,
+.home .problem-head h2 {
   font-family: var(--display);
   font-size: clamp(1.8rem, 3.4vw, 2.6rem);
   font-weight: 600;
@@ -885,14 +879,16 @@
     height: 48px;
   }
 
-  /* Features: an intentional single-column mobile layout (not an auto-fit
+  /* Problem cards: an intentional single-column mobile layout (not an auto-fit
      accident), with comfortable card padding. */
-  .home .features {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+  .home .problem {
     padding: clamp(2rem, 8vw, 2.75rem) 6% 0.5rem;
   }
-  .home .feature-card {
+  .home .problem-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .home .problem-card {
     padding: 1.5rem 1.4rem;
   }
 
@@ -933,7 +929,6 @@
     animation: none;
   }
   .home .hero-primary-cta,
-  .home .feature-card,
   .home .primary-btn,
   .home .secondary-btn,
   .home .app-buttons img,
@@ -941,7 +936,6 @@
     transition: none;
   }
   .home .hero-primary-cta:hover,
-  .home .feature-card:hover,
   .home .primary-btn:hover,
   .home .secondary-btn:hover,
   .home .exp-card:hover img,
