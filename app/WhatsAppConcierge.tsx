@@ -1,59 +1,68 @@
-import Link from "next/link";
 import { WHATSAPP_PREFILL, WHATSAPP_QR_SRC } from "@/lib/whatsapp";
 import WhatsAppCta from "./WhatsAppCta";
 import WhatsAppShare from "./WhatsAppShare";
 
+/** Facts a buyer checks before tapping. Short on purpose: scannable at a glance. */
+const TRUST_POINTS = [
+  "Free to message first",
+  "Refund before your plan is sent",
+  "Nassau only",
+  "Your ship’s official time is final",
+];
+
 /**
- * Homepage section for the $15 ShoreDay Nassau Concierge on WhatsApp.
+ * Homepage "How it works" section for the $15 ShoreDay Nassau Concierge.
+ * Keeps id="whatsapp": cruise-buddy share links land on #whatsapp.
  *
- * Left: headline, price, what's included, QR code (desktop) and a "Start in
- * WhatsApp" button.
+ * Left: the three steps of the live flow (welcome card → "Get my plan" →
+ * PDF, then the personal plan), QR code (desktop) and a "Start in WhatsApp"
+ * button (surface home_whatsapp).
  * Right: an iPhone showing the real first exchange in the WhatsApp chat: the
  * pre-filled entry message and the welcome card it gets back (including the
  * automated-assistant line). The phone is decorative (aria-hidden); the copy on
  * the left carries the same information for screen readers.
- * Last, on mobile only: a share card for passing ShoreDay to a cruise buddy.
+ * Below both: a compact trust strip.
  *
- * Marketing copy sells the plan, not the technology: no "AI" wording here. Every
- * claim in the included list matches what the live chat and checkout deliver.
+ * Marketing copy sells the plan, not the technology: no "AI" wording here.
+ * Price, what's included and limits live in the Price section further down.
  */
 export default function WhatsAppConcierge() {
   return (
     <section className="wa-concierge" id="whatsapp" aria-labelledby="wa-title">
       <div className="wa-copy">
         <p className="section-kicker">ShoreDay Nassau Concierge</p>
-        <h2 id="wa-title">Everything happens in the same WhatsApp chat.</h2>
-        <p className="wa-lead">
-          Send ShoreDay your ship, Nassau date, all-aboard time, group, and day
-          style. Your plan comes back in the chat: where to go, what it costs, and
-          when to head back to the pier.
-        </p>
+        <h2 id="wa-title">Three steps, one WhatsApp chat.</h2>
 
-        <p className="wa-price">
-          <strong>$15 one time for your whole group.</strong> Full refund any time
-          before your plan is sent. <Link href="/concierge-terms">Terms</Link>
-        </p>
-
-        <div className="wa-included">
-          <h3 className="wa-included-title">What&rsquo;s included</h3>
-          <ul className="wa-included-list">
-            <li>
-              <strong>A personal Nassau plan</strong> in the chat, built from your
-              ship, Nassau date, all-aboard time, group, and day style.
-            </li>
-            <li>
-              <strong>The offline Playbook kit:</strong> a 17-page PDF sent to the
-              same chat after payment.
-            </li>
-            <li>
-              <strong>Answers in the same chat</strong> through the end of your
-              Nassau port day.
-            </li>
-            <li>
-              <strong>Automated replies anytime. Human help daily 12–5 pm ET.</strong>
-            </li>
-          </ul>
-        </div>
+        <ol className="port-control-steps wa-steps">
+          <li>
+            <span aria-hidden="true">1</span>
+            <div>
+              <strong>Message ShoreDay</strong>
+              <p>
+                Free to message. Tap &ldquo;See a sample&rdquo; or &ldquo;How it
+                works&rdquo; to look first.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span aria-hidden="true">2</span>
+            <div>
+              <strong>Tap &ldquo;Get my plan&rdquo;</strong>
+              <p>$15 one time for your whole group, paid at checkout.</p>
+            </div>
+          </li>
+          <li>
+            <span aria-hidden="true">3</span>
+            <div>
+              <strong>Get your plan in the same chat</strong>
+              <p>
+                Your 17-page PDF arrives first. Send your ship, Nassau date,
+                all-aboard time, group, and day style, and your personal plan
+                follows.
+              </p>
+            </div>
+          </li>
+        </ol>
 
         <div className="wa-actions">
           <div className="wa-qr-card">
@@ -77,16 +86,30 @@ export default function WhatsAppConcierge() {
           </div>
         </div>
 
-        <p className="wa-fineprint">
-          Nassau only. Independent planning guidance, not an emergency service.
-          Your ship&rsquo;s official all-aboard time is final.
-        </p>
       </div>
 
       <div className="wa-mockup">
         <WhatsAppPhone />
         <p className="wa-mockup-caption">The first message you&rsquo;ll get on WhatsApp.</p>
       </div>
+
+      <ul className="wa-trust" aria-label="Before you start">
+        {TRUST_POINTS.map((point) => (
+          <li key={point}>
+            <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
+              <path
+                d="M3.5 8.5 6.5 11.5 12.5 4.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            {point}
+          </li>
+        ))}
+      </ul>
 
       {/* Mobile only (hidden above 720px): pass ShoreDay on to someone else on
           the same cruise, by share sheet / copied link or by the QR. */}
