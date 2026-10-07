@@ -3,7 +3,7 @@ import { PAYMENT_LINK_URL } from "@/lib/checkout";
 import CheckoutRedirect from "./CheckoutRedirect";
 
 const title = "ShoreDay Nassau Concierge — $15";
-const description = "Secure checkout · one-time for your group · card or Apple Pay";
+const description = "Secure payment · $15 one time for your whole group";
 
 export const metadata: Metadata = {
   title: { absolute: "ShoreDay Nassau Concierge — Secure checkout" },

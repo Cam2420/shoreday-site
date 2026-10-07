@@ -78,7 +78,7 @@ export default function Home() {
             </h1>
             <p className="subtitle">
               Send your ship and all-aboard time. You get a personal Nassau plan,
-              the 17-page PDF kit, and answers in the same chat through your port
+              the Offline Playbook Kit, and answers in the same chat through your port
               day.
             </p>
 
@@ -106,7 +106,7 @@ export default function Home() {
             <h2 id="hero-offer-title" className="port-control-title">What you get</h2>
             <ul className="hero-offer-list">
               <li>Personal Nassau plan</li>
-              <li>17-page Playbook kit</li>
+              <li>17-page Offline Playbook Kit</li>
               <li>Answers through your port day</li>
               <li className="hero-offer-price">$15 per group</li>
             </ul>
@@ -259,7 +259,7 @@ export default function Home() {
                 ship, Nassau date, all-aboard time, group, and day style.
               </li>
               <li>
-                <strong>The offline Playbook kit:</strong> a 17-page PDF sent to the
+                <strong>The Offline Playbook Kit:</strong> a 17-page PDF sent to the
                 same chat after payment.
               </li>
               <li>
