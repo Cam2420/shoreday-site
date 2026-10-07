@@ -20,7 +20,7 @@ const FAQ: { q: string; a: ReactNode }[] = [
   },
   {
     q: "What counts as a group?",
-    a: "One WhatsApp number, for one Nassau port call. One $15 payment covers the group you’re planning for.",
+    a: "One WhatsApp number, for one Nassau port call. One payment covers the group you’re planning for.",
   },
   {
     q: "What do I need to send?",

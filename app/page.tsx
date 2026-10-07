@@ -301,7 +301,7 @@ export default function Home() {
 
         <div className="price-cta">
           <WhatsAppCta surface="home_pricing" className="wa-button" />
-          <p className="wa-microcopy">Free to message. You only pay if you want the plan.</p>
+          <p className="wa-microcopy">Start the chat first. Pay only if you want the plan.</p>
         </div>
       </section>
 
@@ -311,7 +311,7 @@ export default function Home() {
           the WhatsApp action (not the optional tours below). */}
       <section className="final-cta" aria-labelledby="final-title">
         <h2 id="final-title">Plan your Nassau day before you step ashore.</h2>
-        <p>$15 one time for your whole group. Free to message first.</p>
+        <p>Free to message first. Your plan arrives in the same chat.</p>
         <div className="cta-button-group">
           <WhatsAppCta surface="home_final" className="final-btn" />
         </div>
