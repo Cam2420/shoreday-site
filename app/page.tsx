@@ -340,14 +340,13 @@ export default function Home() {
         </div>
       </aside>
 
-      {/* Self-serve alternatives to the concierge, after the final CTA: the app,
-          then the free web planner as a quiet text link. Uses real app
-          screenshots and only existing, safe app feature claims (these are app
-          features, not concierge features). The app is separate from the
-          concierge; never imply plans transfer between them. */}
+      {/* The app as a self-serve alternative to the concierge, after the final
+          CTA. Uses real app screenshots and only existing, safe app feature
+          claims (these are app features, not concierge features). The app is
+          separate from the concierge; never imply plans transfer between them. */}
       <section className="app-cta" id="app" aria-labelledby="app-title">
         <div className="app-cta-copy">
-          <p className="section-kicker">Prefer to plan it yourself?</p>
+          <p className="section-kicker">Prefer the app instead?</p>
           <h2 id="app-title">Keep your port day in your pocket.</h2>
           <p>
             The ShoreDay app is a separate, self-serve option: plan your Nassau day
@@ -393,13 +392,6 @@ export default function Home() {
               </a>
             </div>
           </div>
-          {/* Intentionally untracked: this is an internal navigation to the
-              planner route, not the start of the planner flow. planner_start
-              is fired inside the planner itself (PlanBuilder) when the user
-              actually begins, so tracking the click here would double-count. */}
-          <p className="app-planner-link">
-            <Link href="/nassau/plan">Or try the free Nassau web planner &rarr;</Link>
-          </p>
         </div>
 
         <div className="app-cta-shots" aria-hidden="true">

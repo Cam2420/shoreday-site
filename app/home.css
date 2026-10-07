@@ -710,26 +710,6 @@
   filter: brightness(1.05);
 }
 
-/* Free web planner: a quiet self-serve option, deliberately a text link (not a
-   button) so it never competes with the WhatsApp concierge CTA. */
-.home .app-planner-link {
-  margin: 1.4rem 0 0;
-  font-size: 0.94rem;
-}
-.home .app-planner-link a {
-  display: inline-block;
-  padding: 12px 0;
-  color: var(--color-deep-teal);
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.home .app-planner-link a:focus-visible {
-  outline: 3px solid var(--color-lagoon);
-  outline-offset: 2px;
-  border-radius: 4px;
-}
-
 /* App screenshots — soft device-less framing */
 .home .app-cta-shots {
   position: relative;
