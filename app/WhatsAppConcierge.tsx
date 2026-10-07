@@ -1,18 +1,7 @@
 import Link from "next/link";
-import { WHATSAPP_CHAT_URL, WHATSAPP_PREFILL, WHATSAPP_QR_SRC } from "@/lib/whatsapp";
+import { WHATSAPP_PREFILL, WHATSAPP_QR_SRC } from "@/lib/whatsapp";
+import WhatsAppCta from "./WhatsAppCta";
 import WhatsAppShare from "./WhatsAppShare";
-
-/** WhatsApp chat-bubble glyph used on the homepage's WhatsApp buttons. */
-export function WhatsAppIcon() {
-  return (
-    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-      <path
-        fill="currentColor"
-        d="M12 3C6.9 3 3 6.6 3 11.1c0 2.3 1 4.4 2.7 5.9L5 21l4.2-2.1c.9.2 1.8.3 2.8.3 5.1 0 9-3.6 9-8.1S17.1 3 12 3Zm-4 9.2a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4Zm4 0a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4Zm4 0a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4Z"
-      />
-    </svg>
-  );
-}
 
 /**
  * Homepage section for the $15 ShoreDay Nassau Concierge on WhatsApp.
@@ -83,17 +72,7 @@ export default function WhatsAppConcierge() {
           </div>
 
           <div className="wa-cta">
-            <a
-              href={WHATSAPP_CHAT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="wa-button"
-              data-analytics-event="whatsapp_click"
-              data-analytics-surface="home_whatsapp"
-            >
-              <WhatsAppIcon />
-              Start in WhatsApp
-            </a>
+            <WhatsAppCta surface="home_whatsapp" className="wa-button" />
             <p className="wa-microcopy">Free to message. You only pay if you want the plan.</p>
           </div>
         </div>

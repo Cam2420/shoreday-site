@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import HomeAnalytics from "./HomeAnalytics";
 import ShoreDayWordmark from "@/components/brand/ShoreDayWordmark";
-import { WHATSAPP_CHAT_URL } from "@/lib/whatsapp";
-import WhatsAppConcierge, { WhatsAppIcon } from "./WhatsAppConcierge";
+import WhatsAppConcierge from "./WhatsAppConcierge";
+import WhatsAppCta from "./WhatsAppCta";
 import "./home.css";
 
 export const metadata: Metadata = {
@@ -80,17 +80,7 @@ export default function Home() {
                 section below). Tracked as whatsapp_click, surface home_hero. */}
             <div className="hero-cta-stack" aria-label="Start ShoreDay Nassau Concierge">
               <div className="hero-cta-group">
-                <a
-                  href={WHATSAPP_CHAT_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hero-primary-cta"
-                  data-analytics-event="whatsapp_click"
-                  data-analytics-surface="home_hero"
-                >
-                  <WhatsAppIcon />
-                  Start in WhatsApp
-                </a>
+                <WhatsAppCta surface="home_hero" className="hero-primary-cta" />
               </div>
               <p className="hero-price">
                 <strong>$15 one time for your whole group.</strong> Free to message
