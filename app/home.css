@@ -213,18 +213,6 @@
 .home .hero-primary-cta:active {
   transform: translateY(0) scale(0.99);
 }
-/* Price sits directly under the hero's one primary action ("Start in WhatsApp"),
-   so the cost is never a surprise after the tap. */
-.home .hero-price {
-  margin: 0;
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 600;
-  text-shadow: 0 1px 12px rgba(8, 28, 38, 0.55);
-}
-.home .hero-price strong {
-  font-weight: 800;
-}
 .home .hero-microcopy {
   margin: 0;
   color: rgba(255, 255, 255, 0.92);
@@ -869,7 +857,6 @@
     margin-bottom: 1rem;
   }
   .home p.subtitle,
-  .home .hero-price,
   .home .hero-microcopy,
   .home .trust-bar {
     text-shadow: none;

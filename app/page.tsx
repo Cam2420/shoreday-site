@@ -89,10 +89,6 @@ export default function Home() {
               <div className="hero-cta-group">
                 <WhatsAppCta surface="home_hero" className="hero-primary-cta" />
               </div>
-              <p className="hero-price">
-                <strong>$15 one time for your whole group.</strong> Free to message
-                first.
-              </p>
               <p className="hero-microcopy">
                 Nassau only. Your ship&rsquo;s official all-aboard time is final.
               </p>
