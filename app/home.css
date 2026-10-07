@@ -949,11 +949,9 @@
    iPhone showing the first WhatsApp exchange on the right. WhatsApp-like
    colours are kept inside the mockup only; the section itself uses the
    homepage palette. */
-.home .wa-concierge {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: clamp(1.5rem, 4vw, 3.5rem);
-  align-items: center;
+/* Cream card shell shared by the How it works and Price sections. */
+.home .wa-concierge,
+.home .price {
   width: 92%;
   max-width: 1120px;
   margin: clamp(2.5rem, 5vw, 4rem) auto 0;
@@ -965,6 +963,13 @@
   border: 1px solid var(--line);
   box-shadow: 0 18px 38px rgba(23, 50, 77, 0.1);
 }
+.home .wa-concierge {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+}
+.home .price h2,
 .home .wa-copy h2 {
   font-family: var(--display);
   font-size: clamp(1.7rem, 3.4vw, 2.4rem);
@@ -1549,15 +1554,74 @@
   height: 150px;
 }
 
+/* ------------------------------------------------ Price / what's included -- */
+.home .price-head {
+  margin-bottom: 1.5rem;
+}
+.home .price-head h2,
+.home .price-lead {
+  max-width: 60ch;
+}
+/* "One payment · One WhatsApp number · …" as small, scannable chips. */
+.home .price-terms {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.home .price-terms li {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--aqua-mist);
+  color: var(--harbor);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.home .price-lead {
+  margin: 0;
+  color: var(--color-ocean-ink-muted);
+  font-size: 0.95rem;
+}
+.home .price-lead a {
+  color: var(--color-deep-teal);
+  font-weight: 700;
+}
+.home .price-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.home .price-columns .wa-included {
+  margin: 0;
+}
+/* Limits get a neutral marker, so they read as facts, not features. */
+.home .price-isnt .wa-included-list li::before {
+  background: var(--line-strong);
+}
+.home .price-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
 @media (max-width: 860px) {
-  .home .wa-concierge {
+  .home .wa-concierge,
+  .home .price-columns {
     grid-template-columns: 1fr;
   }
 }
 @media (max-width: 720px) {
-  .home .wa-concierge {
+  .home .wa-concierge,
+  .home .price {
     width: 94%;
     border-radius: 22px;
+  }
+  .home .price-cta {
+    align-items: stretch;
   }
   /* A QR code can't be scanned by the phone showing it: tap the button instead. */
   .home .wa-qr-card {

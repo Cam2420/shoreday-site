@@ -241,6 +241,76 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Price and what's included: removes the price and risk objections, and
+          says plainly what the service is not. Claims match the live chat,
+          checkout and /concierge-terms. */}
+      <section className="price" id="price" aria-labelledby="price-title">
+        <div className="price-head">
+          <p className="section-kicker">One price</p>
+          <h2 id="price-title">$15 one time for your whole group.</h2>
+          <ul className="price-terms" aria-label="What the price covers">
+            <li>One payment</li>
+            <li>One WhatsApp number</li>
+            <li>One Nassau port call</li>
+            <li>One group</li>
+          </ul>
+          <p className="price-lead">
+            Free to message first. Full refund any time before your plan is sent.{" "}
+            <Link href="/concierge-terms">Terms</Link>
+          </p>
+        </div>
+
+        <div className="price-columns">
+          <div className="wa-included">
+            <h3 className="wa-included-title">What&rsquo;s included</h3>
+            <ul className="wa-included-list">
+              <li>
+                <strong>A personal Nassau plan</strong> in the chat, built from your
+                ship, Nassau date, all-aboard time, group, and day style.
+              </li>
+              <li>
+                <strong>The offline Playbook kit:</strong> a 17-page PDF sent to the
+                same chat after payment.
+              </li>
+              <li>
+                <strong>Answers in the same chat</strong> through the end of your
+                Nassau port day.
+              </li>
+              <li>
+                <strong>Automated replies anytime. Human help daily 12–5 pm ET.</strong>
+              </li>
+            </ul>
+          </div>
+
+          <div className="wa-included price-isnt">
+            <h3 className="wa-included-title">What it isn&rsquo;t</h3>
+            <ul className="wa-included-list">
+              <li>
+                <strong>Not an official schedule.</strong>{" "}
+                Your ship&rsquo;s official all-aboard time is final.
+              </li>
+              <li>
+                <strong>Not an emergency service.</strong> In an emergency, call 919
+                or 911.
+              </li>
+              <li>
+                <strong>Not a tour booking service.</strong> Tours are optional and
+                booked separately.
+              </li>
+              <li>
+                <strong>Independent planning guidance,</strong> not affiliated with
+                any cruise line.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="price-cta">
+          <WhatsAppCta surface="home_pricing" className="wa-button" />
+          <p className="wa-microcopy">Free to message. You only pay if you want the plan.</p>
+        </div>
+      </section>
+
       {/* Self-serve alternatives to the concierge, shown after the WhatsApp
           section: the app, then the free web planner as a quiet text link. Uses
           real app screenshots and only existing, safe app feature claims (these
