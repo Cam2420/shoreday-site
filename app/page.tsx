@@ -40,6 +40,9 @@ export default function Home() {
             <ShoreDayWordmark />
           </div>
         </Link>
+        {/* Desktop/tablet only (hidden at 720px and below, where the sticky bar
+            takes over). Deliberately secondary to the hero's filled button. */}
+        <WhatsAppCta surface="home_header" className="nav-cta" />
       </nav>
 
       <main className="hero">
