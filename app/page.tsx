@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import HomeAnalytics from "./HomeAnalytics";
+import HomeFaq from "./HomeFaq";
 import ShoreDayWordmark from "@/components/brand/ShoreDayWordmark";
 import WhatsAppConcierge from "./WhatsAppConcierge";
 import WhatsAppCta from "./WhatsAppCta";
@@ -310,6 +311,8 @@ export default function Home() {
           <p className="wa-microcopy">Free to message. You only pay if you want the plan.</p>
         </div>
       </section>
+
+      <HomeFaq />
 
       {/* Self-serve alternatives to the concierge, shown after the WhatsApp
           section: the app, then the free web planner as a quiet text link. Uses

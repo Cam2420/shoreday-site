@@ -1610,6 +1610,80 @@
   gap: 0.6rem;
 }
 
+/* -------------------------------------------------------------------- FAQ -- */
+.home .faq {
+  max-width: 880px;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 5vw, 4rem) 5% 0;
+}
+.home .faq-head {
+  margin-bottom: 1.25rem;
+}
+.home .faq-head h2 {
+  font-family: var(--display);
+  font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0;
+  color: var(--color-ocean-ink);
+}
+.home .faq-list {
+  display: grid;
+  gap: 0.6rem;
+}
+.home .faq-item {
+  background: var(--cream-card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+.home .faq-item summary {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.15rem;
+  color: var(--color-ocean-ink);
+  font-weight: 700;
+  font-size: 1rem;
+  list-style: none;
+  cursor: pointer;
+  border-radius: 16px;
+}
+.home .faq-item summary::-webkit-details-marker {
+  display: none;
+}
+/* Chevron that turns when the answer is open. */
+.home .faq-item summary::after {
+  content: "";
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid var(--lagoon);
+  border-bottom: 2px solid var(--lagoon);
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.18s ease;
+}
+.home .faq-item[open] summary::after {
+  transform: rotate(225deg) translateY(-2px);
+}
+.home .faq-item summary:focus-visible {
+  outline: 3px solid var(--color-lagoon);
+  outline-offset: 2px;
+}
+.home .faq-answer {
+  margin: 0;
+  padding: 0 1.15rem 1.05rem;
+  color: var(--color-ocean-ink-muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.home .faq-answer a {
+  color: var(--color-deep-teal);
+  font-weight: 700;
+}
+
 @media (max-width: 860px) {
   .home .wa-concierge,
   .home .price-columns {
@@ -1644,7 +1718,8 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .home .wa-button {
+  .home .wa-button,
+  .home .faq-item summary::after {
     transition: none;
   }
   .home .wa-button:hover {
