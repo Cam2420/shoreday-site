@@ -46,7 +46,7 @@ export default function NassauCheatSheet() {
         <div className="floor-cta">
           Already have your day planned? <br />
           <ViatorOutboundLink surface="cheat_sheet">
-            Browse &amp; Book Nassau Excursions Directly (Save up to 60%)
+            Browse &amp; Book Nassau Excursions Directly
           </ViatorOutboundLink>
           <p className="affiliate-disclosure">
             Disclosure: ShoreDay may earn a commission if you book through a Viator link.

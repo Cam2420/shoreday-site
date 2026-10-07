@@ -47,7 +47,7 @@ export default function WhatsAppConcierge() {
             <span aria-hidden="true">2</span>
             <div>
               <strong>Tap &ldquo;Get my plan&rdquo;</strong>
-              <p>Pay once at checkout, for your whole group.</p>
+              <p>Pay once from the chat, for your whole group.</p>
             </div>
           </li>
           <li>

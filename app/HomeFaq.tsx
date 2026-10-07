@@ -24,17 +24,19 @@ const FAQ: { q: string; a: ReactNode }[] = [
   },
   {
     q: "What do I need to send?",
-    a: "Your ship, Nassau date, all-aboard time, group, and day style. You send them in the chat after checkout.",
+    a: "Your ship, Nassau date, all-aboard time, group, and day style. You send them in the chat after you pay.",
   },
   {
     q: "What’s the 17-page PDF?",
-    a: "The offline Playbook kit. It’s sent to the same chat after payment. Save it to your phone before you step ashore.",
+    a: "The Offline Playbook Kit. It’s sent to the same chat after payment. Save it to your phone before you step ashore.",
   },
   {
     q: "Can I get a refund?",
     a: (
       <>
-        Yes, a full refund any time before your plan is sent. See the{" "}
+        Yes, a full refund any time before your plan is sent. After that it&rsquo;s
+        non-refundable unless we don&rsquo;t deliver. To ask, message us in the same
+        chat. See the{" "}
         <Link href="/concierge-terms">Concierge terms</Link>.
       </>
     ),
