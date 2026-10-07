@@ -2,33 +2,69 @@ import Link from "next/link";
 import { WHATSAPP_CHAT_URL, WHATSAPP_PREFILL, WHATSAPP_QR_SRC } from "@/lib/whatsapp";
 import WhatsAppShare from "./WhatsAppShare";
 
+/** WhatsApp chat-bubble glyph used on the homepage's WhatsApp buttons. */
+export function WhatsAppIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+      <path
+        fill="currentColor"
+        d="M12 3C6.9 3 3 6.6 3 11.1c0 2.3 1 4.4 2.7 5.9L5 21l4.2-2.1c.9.2 1.8.3 2.8.3 5.1 0 9-3.6 9-8.1S17.1 3 12 3Zm-4 9.2a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4Zm4 0a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4Zm4 0a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4Z"
+      />
+    </svg>
+  );
+}
+
 /**
  * Homepage section for the $15 ShoreDay Nassau Concierge on WhatsApp.
  *
- * Left: headline, price, QR code (desktop) and an "Open on WhatsApp" button.
+ * Left: headline, price, what's included, QR code (desktop) and a "Start in
+ * WhatsApp" button.
  * Right: an iPhone showing the real first exchange in the WhatsApp chat: the
  * pre-filled entry message and the welcome card it gets back (including the
  * automated-assistant line). The phone is decorative (aria-hidden); the copy on
  * the left carries the same information for screen readers.
  * Last, on mobile only: a share card for passing ShoreDay to a cruise buddy.
  *
- * Marketing copy sells the plan, not the technology: no "AI" wording here.
+ * Marketing copy sells the plan, not the technology: no "AI" wording here. Every
+ * claim in the included list matches what the live chat and checkout deliver.
  */
 export default function WhatsAppConcierge() {
   return (
     <section className="wa-concierge" id="whatsapp" aria-labelledby="wa-title">
       <div className="wa-copy">
-        <p className="section-kicker">Nassau Concierge on WhatsApp</p>
-        <h2 id="wa-title">Plan your Nassau day in one WhatsApp chat.</h2>
+        <p className="section-kicker">ShoreDay Nassau Concierge</p>
+        <h2 id="wa-title">Everything happens in the same WhatsApp chat.</h2>
         <p className="wa-lead">
-          Text ShoreDay your ship and all-aboard time. You get a personal plan built
-          around it: where to go, what it costs, and when to head back to the pier.
+          Send ShoreDay your ship, Nassau date, all-aboard time, group, and day
+          style. Your plan comes back in the chat: where to go, what it costs, and
+          when to head back to the pier.
         </p>
 
         <p className="wa-price">
           <strong>$15 one time for your whole group.</strong> Full refund any time
           before your plan is sent. <Link href="/concierge-terms">Terms</Link>
         </p>
+
+        <div className="wa-included">
+          <h3 className="wa-included-title">What&rsquo;s included</h3>
+          <ul className="wa-included-list">
+            <li>
+              <strong>A personal Nassau plan</strong> in the chat, built from your
+              ship, Nassau date, all-aboard time, group, and day style.
+            </li>
+            <li>
+              <strong>The offline Playbook kit:</strong> a 17-page PDF sent to the
+              same chat after payment.
+            </li>
+            <li>
+              <strong>Answers in the same chat</strong> through the end of your
+              Nassau port day.
+            </li>
+            <li>
+              <strong>Automated replies anytime. Human help daily 12–5 pm ET.</strong>
+            </li>
+          </ul>
+        </div>
 
         <div className="wa-actions">
           <div className="wa-qr-card">
@@ -55,17 +91,17 @@ export default function WhatsAppConcierge() {
               data-analytics-event="whatsapp_click"
               data-analytics-surface="home_whatsapp"
             >
-              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-                <path
-                  fill="currentColor"
-                  d="M12 3C6.9 3 3 6.6 3 11.1c0 2.3 1 4.4 2.7 5.9L5 21l4.2-2.1c.9.2 1.8.3 2.8.3 5.1 0 9-3.6 9-8.1S17.1 3 12 3Zm-4 9.2a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4Zm4 0a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4Zm4 0a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4Z"
-                />
-              </svg>
-              Open on WhatsApp
+              <WhatsAppIcon />
+              Start in WhatsApp
             </a>
             <p className="wa-microcopy">Free to message. You only pay if you want the plan.</p>
           </div>
         </div>
+
+        <p className="wa-fineprint">
+          Nassau only. Independent planning guidance, not an emergency service.
+          Your ship&rsquo;s official all-aboard time is final.
+        </p>
       </div>
 
       <div className="wa-mockup">

@@ -2,18 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import HomeAnalytics from "./HomeAnalytics";
 import ShoreDayWordmark from "@/components/brand/ShoreDayWordmark";
-import WhatsAppConcierge from "./WhatsAppConcierge";
+import { WHATSAPP_CHAT_URL } from "@/lib/whatsapp";
+import WhatsAppConcierge, { WhatsAppIcon } from "./WhatsAppConcierge";
 import "./home.css";
 
 export const metadata: Metadata = {
-  title: { absolute: "ShoreDay | Bahamas Cruise Port-Day Planning" },
+  title: { absolute: "ShoreDay Nassau Concierge | Your Nassau Port Day on WhatsApp" },
   description:
-    "Personal Bahamas cruise port-day plans built around your all-aboard time, with ship countdowns, local tips, and curated excursions for Nassau, Freeport & Bimini.",
+    "Plan your Nassau cruise port day in one WhatsApp chat: a personal plan built around your ship's all-aboard time, plus a 17-page PDF. $15 one time for your whole group.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "ShoreDay | Bahamas Cruise Port-Day Planning",
+    title: "ShoreDay Nassau Concierge | Your Nassau Port Day on WhatsApp",
     description:
-      "Plan your Bahamas cruise port day around your all-aboard time with personal itineraries, ship countdowns, and curated local excursions.",
+      "A personal Nassau port-day plan in one WhatsApp chat, built around your ship's all-aboard time. $15 one time for your whole group. Free to message first.",
     url: "/",
     siteName: "ShoreDay",
     type: "website",
@@ -64,30 +65,39 @@ export default function Home() {
 
         <div className="hero-inner">
           <div className="hero-text-content">
-            <h1>Your Bahamas Port Day, Perfectly Timed.</h1>
+            <h1>
+              Your Nassau port day, planned around your ship&rsquo;s{" "}
+              <span className="nowrap">all-aboard time.</span>
+            </h1>
+            <p className="subtitle">
+              Send your ship and all-aboard time. You get a personal Nassau plan,
+              the 17-page PDF kit, and answers in the same chat through your port
+              day.
+            </p>
 
-            <div className="hero-cta-stack" aria-label="Primary ShoreDay actions">
+            {/* The ONE primary action: the $15 ShoreDay Nassau Concierge, straight
+                into the live WhatsApp entry link (same URL and prefill as the
+                section below). Tracked as whatsapp_click, surface home_hero. */}
+            <div className="hero-cta-stack" aria-label="Start ShoreDay Nassau Concierge">
               <div className="hero-cta-group">
-                {/* Intentionally untracked: this is an internal navigation to the
-                    planner route, not the start of the planner flow. planner_start
-                    is fired inside the planner itself (PlanBuilder) when the user
-                    actually begins, so tracking the click here would double-count. */}
-                <Link href="/nassau/plan" className="hero-primary-cta">
-                  Start My Nassau Plan
-                </Link>
                 <a
-                  href="https://vi.me/s/shoredayapp"
+                  href={WHATSAPP_CHAT_URL}
                   target="_blank"
-                  rel="sponsored noopener noreferrer"
-                  className="hero-excursions-link"
-                  data-analytics-event="excursion_click"
+                  rel="noopener noreferrer"
+                  className="hero-primary-cta"
+                  data-analytics-event="whatsapp_click"
                   data-analytics-surface="home_hero"
                 >
-                  Book Excursions ↗
+                  <WhatsAppIcon />
+                  Start in WhatsApp
                 </a>
               </div>
+              <p className="hero-price">
+                <strong>$15 one time for your whole group.</strong> Free to message
+                first.
+              </p>
               <p className="hero-microcopy">
-                Takes about 60 seconds. Exact timing uses your actual all-aboard time.
+                Nassau only. Your ship&rsquo;s official all-aboard time is final.
               </p>
             </div>
 
@@ -96,31 +106,34 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Port-day control tower: a calm, concierge-style summary of how the
-              planner works. Uses only existing, safe planner concepts. */}
-          <aside className="port-control" aria-label="How ShoreDay plans your port day">
-            <p className="port-control-kicker">Port-day control tower</p>
-            <h2 className="port-control-title">One clear plan, built around your ship.</h2>
+          {/* Port-day control tower: how the live WhatsApp concierge works, in the
+              order it happens (welcome card buttons → checkout → PDF + plan). */}
+          <aside className="port-control" aria-label="How ShoreDay Nassau Concierge works">
+            <p className="port-control-kicker">How it works</p>
+            <h2 className="port-control-title">One chat, from hello to head-back time.</h2>
             <ol className="port-control-steps">
               <li>
                 <span aria-hidden="true">1</span>
                 <div>
-                  <strong>Tell us your Nassau day</strong>
-                  <p>Your port date and official all-aboard time.</p>
+                  <strong>Message ShoreDay on WhatsApp</strong>
+                  <p>Free to message. Tap &ldquo;See a sample&rdquo; or &ldquo;How it works&rdquo; first.</p>
                 </div>
               </li>
               <li>
                 <span aria-hidden="true">2</span>
                 <div>
-                  <strong>Get your return-to-pier target</strong>
-                  <p>A recommended time back at the pier, with a planning buffer.</p>
+                  <strong>Tap &ldquo;Get my plan&rdquo;</strong>
+                  <p>$15 one time for your whole group, paid at checkout.</p>
                 </div>
               </li>
               <li>
                 <span aria-hidden="true">3</span>
                 <div>
-                  <strong>See a calm, walkable plan</strong>
-                  <p>One worthwhile day shape, plus curated excursions that fit.</p>
+                  <strong>Get your plan in the same chat</strong>
+                  <p>
+                    A 17-page PDF arrives first. Send your ship, Nassau date,
+                    all-aboard time, and group, and your personal plan follows.
+                  </p>
                 </div>
               </li>
             </ol>
@@ -131,8 +144,9 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Paid offer: the $15 Nassau Concierge on WhatsApp. Placed right after the
-          hero so the main revenue path is visible without scrolling far. */}
+      {/* Paid offer: the $15 ShoreDay Nassau Concierge on WhatsApp. Placed right
+          after the hero so the price, what's included and the terms are one
+          scroll from the hero CTA. */}
       <WhatsAppConcierge />
 
       {/* Experience Nassau — real island photography so the page feels like a
@@ -226,18 +240,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* App option for people who prefer an app, shown after the WhatsApp
-          section. Uses real app screenshots and only existing, safe feature claims. */}
+      {/* Self-serve alternatives to the concierge, shown after the WhatsApp
+          section: the app, then the free web planner as a quiet text link. Uses
+          real app screenshots and only existing, safe app feature claims (these
+          are app features, not concierge features). */}
       <section className="app-cta" id="app" aria-labelledby="app-title">
         <div className="app-cta-copy">
-          <p className="section-kicker">Prefer an app?</p>
+          <p className="section-kicker">Prefer to plan it yourself?</p>
           <h2 id="app-title">Keep your port day in your pocket.</h2>
           <p>
             Plan your Nassau day yourself, any time you like, then keep it on your
             phone while you&rsquo;re ashore.
           </p>
           <ul className="app-feature-list">
-            <li>Live all-aboard countdown</li>
+            <li>All-aboard countdown</li>
             <li>Head-back reminders</li>
             <li>Your day at a glance</li>
             <li>A map back to the pier</li>
@@ -275,6 +291,13 @@ export default function Home() {
               </a>
             </div>
           </div>
+          {/* Intentionally untracked: this is an internal navigation to the
+              planner route, not the start of the planner flow. planner_start
+              is fired inside the planner itself (PlanBuilder) when the user
+              actually begins, so tracking the click here would double-count. */}
+          <p className="app-planner-link">
+            <Link href="/nassau/plan">Or try the free Nassau web planner &rarr;</Link>
+          </p>
         </div>
 
         <div className="app-cta-shots" aria-hidden="true">
@@ -305,23 +328,26 @@ export default function Home() {
           </p>
         </div>
         <div className="feature-card">
-          <div className="feature-icon">🌴</div>
-          <h3>Curated Excursions</h3>
+          <div className="feature-icon">💬</div>
+          <h3>Help in the Same Chat</h3>
           <p>
-            Skip the tourist traps. Instantly discover and book
-            traveler-friendly local experiences and walkable hidden gems.
+            Questions after your plan arrives? Ask in the same WhatsApp chat through
+            the end of your Nassau port day. Automated replies anytime. Human help
+            daily 12–5 pm ET.
           </p>
         </div>
         <div className="feature-card">
-          <div className="feature-icon">💬</div>
-          <h3>Concierge Help</h3>
+          <div className="feature-icon">🌴</div>
+          <h3>Optional Tours</h3>
           <p>
-            Need a quick recommendation or a quieter beach? Ask the ShoreDay
-            concierge on WhatsApp or in the app.
+            Want a tour too? Once your plan is set, browse a short list of Nassau
+            tours that could fit your day. Entirely optional.
           </p>
         </div>
       </section>
 
+      {/* Excursions are an optional add-on after the plan, not a co-primary
+          offer. Affiliate disclosure stays adjacent to the link. */}
       <section className="excursions-cta">
         <div className="credibility-stack">
           <div className="viator-text">
@@ -329,13 +355,11 @@ export default function Home() {
           </div>
         </div>
 
-        <h2>Browse ShoreDay Curated Excursions</h2>
+        <h2>Optional: add a Nassau tour</h2>
         <p>
-          Skip the tourist traps. Browse our curated selection of popular-style
-          Bahamas tours perfectly timed to your ship&rsquo;s schedule.{" "}
-          <strong>Shop instantly via the link below</strong>, or download the
-          ShoreDay app to book these same amazing experiences alongside the
-          in-app concierge and ship countdowns for the ultimate port day.
+          Already have your plan and want a tour? Browse a short list of Nassau
+          tours on Viator. Check your ship&rsquo;s official all-aboard time before
+          booking anything far from port.
         </p>
 
         <div className="cta-button-group">
@@ -347,7 +371,7 @@ export default function Home() {
             data-analytics-event="excursion_click"
             data-analytics-surface="home_excursions_cta"
           >
-            Shop Excursions Online
+            Browse Nassau Tours
           </a>
         </div>
         <p className="affiliate-disclosure">

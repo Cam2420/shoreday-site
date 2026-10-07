@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { track } from "@/lib/analytics";
+import { landingContextProps } from "@/lib/attribution";
 import { FUNNEL_EVENTS, type FunnelEventName, type FunnelEventProperties } from "@/lib/funnel-events";
 
 const EVENT_NAMES = new Set<string>(FUNNEL_EVENTS);
@@ -11,10 +12,19 @@ const EVENT_NAMES = new Set<string>(FUNNEL_EVENTS);
  * fires `landing_view` on mount and listens (via event delegation) for clicks on
  * elements tagged with `data-analytics-event`. Visible copy and routing are
  * untouched — instrumentation rides on data attributes only.
+ *
+ * landing_view keeps its original three properties and adds page_path,
+ * referrer_host and utm_* (same keys as the planner's landing_view), so
+ * homepage arrivals are attributable. Click events are unchanged.
  */
 export default function HomeAnalytics() {
   useEffect(() => {
-    track("landing_view", { port: "nassau", source: "home", surface: "home_page" });
+    track("landing_view", {
+      port: "nassau",
+      source: "home",
+      surface: "home_page",
+      ...landingContextProps(),
+    });
 
     function onClick(e: MouseEvent) {
       const target = e.target as HTMLElement | null;
