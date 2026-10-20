@@ -241,11 +241,11 @@ export default function Home() {
               id="vendor-menu"
               label="Goldie’s menu chat example in light mode"
             >
-              <ChatBubble sent>
+              <ChatBubble sent time="4:15 PM">
                 <MenuPhoto />
                 <p>Is this a fair price?</p>
               </ChatBubble>
-              <ChatBubble>
+              <ChatBubble time="4:16 PM">
                 <GoldiesReply />
               </ChatBubble>
             </ChatExcerpt>
@@ -558,7 +558,7 @@ export default function Home() {
         {/* The app bonus remains separate from the WhatsApp concierge. */}
         <section className="app-cta" id="app" aria-labelledby="app-title">
           <div className="app-cta-copy">
-            <p className="section-kicker">A bonus for the purchaser</p>
+            <p className="section-kicker">Prefer the app instead?</p>
             <h2 id="app-title">Your concierge comes with an app bonus.</h2>
             <p>
               ShoreDay app premium is included for the person who pays, on iOS

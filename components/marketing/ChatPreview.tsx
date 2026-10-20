@@ -237,18 +237,18 @@ export function ChatCard({
             <GovernmentHousePhoto />
             <p>What is this?</p>
           </ChatBubble>
-          <ChatBubble>
+          <ChatBubble time="4:17 PM">
             <GovernmentHouseReply />
           </ChatBubble>
         </>
       )}
       {type === "menu" && (
         <>
-          <ChatBubble sent>
+          <ChatBubble sent time="4:15 PM">
             <MenuPhoto />
             <p>Is this a fair price?</p>
           </ChatBubble>
-          <ChatBubble>
+          <ChatBubble time="4:16 PM">
             <GoldiesReply />
           </ChatBubble>
         </>
@@ -322,7 +322,7 @@ export default function ChatPreview() {
           aria-label="Scroll through an example Nassau day in WhatsApp"
         >
           <div className="chat-day">Getting started</div>
-          <ChatBubble sent>
+          <ChatBubble sent time="9:02 AM">
             <p>Hi</p>
           </ChatBubble>
           <ChatBubble
