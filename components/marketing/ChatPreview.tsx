@@ -136,6 +136,71 @@ export function VoiceWave() {
     </div>
   );
 }
+function VoiceReply() {
+  return (
+    <>
+      <div
+        className="chat-audio-preview"
+        role="img"
+        aria-label="Preview of a ten-second voice reply at normal playback speed"
+      >
+        <svg viewBox="0 0 20 24" aria-hidden="true">
+          <path d="M2 2 18 12 2 22Z" fill="currentColor" />
+        </svg>
+        <div className="chat-audio-timeline" aria-hidden="true">
+          <span className="chat-audio-track"><i /></span>
+          <span className="chat-audio-duration">0:10</span>
+        </div>
+        <span className="chat-audio-speed" aria-hidden="true">1×</span>
+      </div>
+      <p className="chat-transcript">
+        “Junkanoo Beach is just a 13 to 15 minute walk west from the port exit.
+        Add 10 minutes or so if your ship docks further out on the pier.
+        The walk link’s in my message.”
+      </p>
+      <div className="chat-transcript-feedback" aria-hidden="true">
+        Was this transcript <span>useful</span> or <span>not useful</span>?
+      </div>
+    </>
+  );
+}
+function AtmReply() {
+  return (
+    <>
+      <a
+        className="chat-map-preview"
+        href="https://maps.google.com/maps?cid=10398610039722622302"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Open Scotiabank at Rawson Square and Bay Street on Google Maps"
+      >
+        <span className="chat-map-thumbnail">
+          <Image
+            src="/images/shoreday/chat/voice-atm-source.webp"
+            width={991}
+            height={2048}
+            sizes="360px"
+            alt="Scotiabank building from the supplied WhatsApp Google Maps preview"
+          />
+        </span>
+        <span className="chat-map-details">
+          <strong>Scotiabank · Rawson Square &amp; Bay St, Nassau, Bahamas</strong>
+          <span className="chat-map-domain">
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path d="m6 10 4-4M6.5 5.5l1.8-1.8a2.8 2.8 0 0 1 4 4l-1.8 1.8m-1 1-1.8 1.8a2.8 2.8 0 0 1-4-4l1.8-1.8" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+            maps.google.com
+          </span>
+        </span>
+      </a>
+      <p>
+        💵 The closest bank ATM right outside the cruise port gate is at
+        Scotiabank, located at Rawson Square and Bay Street.
+      </p>
+      <p>I checked just now — please confirm when you arrive.</p>
+    </>
+  );
+}
 export function ChatExcerpt({
   children,
   id,
@@ -187,34 +252,27 @@ export function ChatCard({
       )}
       {type === "voice" && (
         <>
-          <ChatBubble sent>
+          <ChatBubble sent time="3:35 PM">
             <VoiceWave />
           </ChatBubble>
-          <ChatBubble>
+          <ChatBubble time="3:35 PM">
             <p>🎙️ Got your voice note, one moment…</p>
           </ChatBubble>
-          <ChatBubble>
-            <p>Your ship may dock further out along the pier.</p>
-            <p>Allow time for the pier walk.</p>
+          <ChatBubble time="3:35 PM">
+            <VoiceReply />
           </ChatBubble>
         </>
       )}
       {type === "location" && (
         <>
-          <ChatBubble sent>
+          <ChatBubble sent time="3:37 PM">
             <p>Where’s the nearest ATM?</p>
           </ChatBubble>
-          <ChatBubble>
-            <p>Checking that now…</p>
+          <ChatBubble time="3:38 PM">
+            <p>🔎 Checking that now…</p>
           </ChatBubble>
-          <ChatBubble>
-            <div className="chat-map-label">
-              Scotiabank · Rawson Square &amp; Bay St
-            </div>
-            <p>Please confirm when you arrive.</p>
-            <span className="chat-link">
-              Google Maps · directions, hours, reviews
-            </span>
+          <ChatBubble time="3:38 PM">
+            <AtmReply />
           </ChatBubble>
         </>
       )}
@@ -366,11 +424,14 @@ export default function ChatPreview() {
             </p>
           </ChatBubble>
           <div className="chat-day">Questions ashore</div>
-          <ChatBubble sent>
+          <ChatBubble sent time="3:35 PM">
             <VoiceWave />
           </ChatBubble>
-          <ChatBubble>
+          <ChatBubble time="3:35 PM">
             <p>🎙️ Got your voice note, one moment…</p>
+          </ChatBubble>
+          <ChatBubble time="3:35 PM">
+            <VoiceReply />
           </ChatBubble>
           <ChatBubble sent>
             <MenuPhoto />
@@ -380,17 +441,29 @@ export default function ChatPreview() {
             <GoldiesReply />
           </ChatBubble>
           <div className="chat-day">Menu prices as of Oct 2026</div>
-          <ChatBubble sent>
-            <p>Where’s the nearest ATM?</p>
+          <div className="chat-day">Weather reply · Oct 2026 example</div>
+          <ChatBubble sent time="10:26 AM">
+            <p>What is the weather today in Nassau?</p>
           </ChatBubble>
-          <ChatBubble>
-            <div className="chat-map-label">
-              Scotiabank · Rawson Square &amp; Bay St
-            </div>
+          <ChatBubble time="10:26 AM">
+            <p>🔎 Checking that now…</p>
+          </ChatBubble>
+          <ChatBubble time="10:26 AM">
+            <p>
+              ☀️ Today in Nassau is partly sunny and breezy with highs around
+              <strong> 82°F–86°F</strong> (28°C–30°C).
+            </p>
+            <p>
+              There is an isolated 10% to 30% chance of a stray afternoon
+              shower or thunderstorm, with fresh northeasterly breezes.
+            </p>
             <p>Please confirm when you arrive.</p>
-            <span className="chat-link">
-              Google Maps · directions, hours, reviews
-            </span>
+            <p>
+              What next? Reply with a number:
+              <br />1️⃣ Review timing for your all-aboard
+              <br />2️⃣ Check walking directions to Junkanoo Beach
+              <br />3️⃣ See taxi fares to the Fish Fry
+            </p>
           </ChatBubble>
           <ChatBubble sent>
             <p>What tours?</p>

@@ -52,8 +52,9 @@ The 13 indexable canonical pages appear in `sitemap.xml`. `robots.txt` permits p
 | Government House on Mount Fitzwilliam in downtown Nassau; statue on front steps | Cam’s supplied `Screenshot 2026-10-20 at 1.38.04 PM.png`, showing both photo and recognition reply | “Snap it. Ask it.” feature tile, shortened light-mode excerpt. No added residence or access claims |
 | Short videos and PDFs, including excursion confirmations, can be sent | Brief §1 video/PDF row; IMG_1725 | Home, app guide, FAQ and llms.txt |
 | 17-page Playbook: orientation map, timing worksheet, day shapes, page 17 back-to-ship card | Brief §1 offline row; IMG_1725 | Home, PDF card, FAQ and guides |
-| Voice replies when guest speaks first or requests one | Brief §1 voice row; §2A.2 | Feature copy and FAQ. Supplied IMG_1705 proves an incoming voice note and receipt, not an outgoing voice recording |
-| Google Maps links for ATM, pharmacy or beach, with directions/hours/reviews | Brief §1 maps row; IMG_1707/1708 | Home and guides. Location excerpt says confirm on arrival; not a present-tense claim that an ATM is operating |
+| Voice replies when guest speaks first or requests one | Brief §1 voice row; §2A.2; IMG_1705; supplied 3:29 PM screenshot | Feature tile and scrolling phone now include the received 0:10 audio reply and transcript. Audio controls are a labeled visual preview, with no fabricated recording |
+| Google Maps links for ATM, pharmacy or beach, with directions/hours/reviews | Brief §1 maps row; IMG_1707/1708; supplied 3:29 PM screenshot | Feature tile recreates the supplied Scotiabank thumbnail, place title, Maps link and dated reply. Confirm on arrival; the excerpt is not a current availability guarantee |
+| Weather questions in the same chat | Owner-supplied IMG_1736 | Weather exchange replaces the ATM question in the scrolling phone only. Explicitly labeled an October 2026 example, not a live forecast |
 | Scotiabank at Rawson Square and Bay Street | Supplied IMG_1707/1708 | Dated, shortened chat excerpt only; no current hours, fees or “closest” guarantee |
 | Goldie’s Conch House at Arawak Cay; pictured conch salad $15, cracked conch $16, banner 10% VAT + 15% gratuity | Brief §1 photo row; IMG_1721/1722 | Dated October 2026 proof caption. Confirm current prices. No general price list or rule for other businesses |
 | Automated answers during access; founder reachable daily 12–5 PM ET; type HUMAN | Brief §1 human row; Concierge Terms “Support” | Hero, pricing, FAQ and llms.txt; no 24-hour human claim |
@@ -86,13 +87,16 @@ Other route planning, breaks, cash/card confirmation, small bills and shorter-da
 
 All chat UI is light mode. Every rendered excerpt now shares the same contact header, doodle wallpaper, outgoing/received bubble tails and message composer (plus, rounded field, sticker, camera and green microphone). Only supplied message times are shown; delivery ticks are illustrative UI. The full iPhone uses the same controls as the smaller panels. The original site’s iPhone proportions, titanium edge, black bezel, side buttons, Dynamic Island, status icons, doodle background and composer are reused. Chat text is HTML, so it remains readable and keyboard-scrollable rather than a stack of tiny phone screenshots.
 
-The customer journey is: welcome (IMG_1731/1732) → get-plan/checkout excerpt (IMG_1733) → illustrative personal plan and PDF → voice receipt (IMG_1705) → Goldie’s photo/answer (IMG_1721/1722) → location excerpt (IMG_1707/1708) → optional tours (IMG_1730) → illustrative countdown. Excerpts from different sessions are labeled as a sample journey, with no invented timestamps.
+The customer journey is: welcome (IMG_1731/1732) → get-plan/checkout excerpt (IMG_1733) → illustrative personal plan and PDF → voice receipt (IMG_1705) and returned voice reply/transcript (3:29 PM screenshot) → Goldie’s photo/answer (IMG_1721/1722) → weather excerpt (IMG_1736) → optional tours (IMG_1730) → illustrative countdown. The ATM conversation remains in the maps feature tile. Excerpts from different sessions are labeled as a sample journey, with no invented timestamps.
 
-The menu, landmark photo and welcome thumbnail use optimized source screenshots and CSS image windows. Full source screenshots are retained in these image files; only the relevant picture appears in the UI:
+The menu, landmark photo, bank thumbnail and welcome thumbnail use optimized source screenshots and CSS image windows. Full source screenshots are retained in these image files; only the relevant picture appears in the UI:
 
 - `public/images/shoreday/chat/government-house-source.webp` — newly supplied Government House photo and recognition reply; the photo appears in “Snap it. Ask it.”
 - `public/images/shoreday/chat/menu-source.webp` — supplied IMG_1721, photographed menu.
 - `public/images/shoreday/chat/welcome-source.webp` — supplied IMG_1731, static video thumbnail. No video file or playable audio was supplied.
+- `public/images/shoreday/chat/voice-atm-source.webp` — supplied “Screenshot 2026-10-20 at 3.29.33 PM.png,” showing the returned voice note/transcript and Scotiabank Maps preview. Only the building thumbnail is cropped into the UI; the transcript and map title remain HTML.
+
+The returned voice card follows the supplied play icon, seek bar, 0:10 duration, 1× speed label, transcript feedback and 3:35 PM timestamp. The transcript lightly corrects the apparent “at 10 minutes” transcription error to “Add 10 minutes,” consistent with the pier-walk caveat in IMG_1705. Playback and feedback controls are decorative screenshot previews. The weather excerpt is shortened from IMG_1736; the follow-up timing option omits that other session’s 4:30 PM all-aboard time so it does not conflict with the clearly labeled 7:00 PM illustrative plan.
 
 The jet-ski/emergency advice above the tour card in IMG_1730 is outside the marketing excerpt. The Cayman menu in IMG_1720 is not presented as Nassau pricing. The additional Government House screenshot supplied at 1:38 PM includes the recognition reply. Its first paragraph now appears with the photo in the feature tile, replacing the repeated Goldie’s example.
 
@@ -102,8 +106,7 @@ Optional replacements needed from Cam before converting illustrations into docum
 |---|---|---|
 | Personal plan message | `public/images/shoreday/chat/plan-proof.webp` | Labeled illustrative plan |
 | Exact countdown reply and its context | `public/images/shoreday/chat/countdown-proof.webp` | Labeled 11:36 AM / 5:30 PM example |
-| Outgoing voice reply screenshot | `public/images/shoreday/chat/voice-reply-proof.webp` | Supplied incoming-note receipt only |
-| Actual outgoing voice recording, if a playable demo is wanted | `public/audio/shoreday/voice-reply.m4a` | Illustrated waveform, no invented audio |
+| Actual outgoing voice recording, if a playable demo is wanted | `public/audio/shoreday/voice-reply.m4a` | Supplied voice-reply screenshot and transcript recreated in light mode; no invented audio |
 | Welcome video, if playback is wanted | `public/videos/shoreday/welcome.mp4` | Screenshot thumbnail labeled as a preview |
 
 These paths are review destinations, not broken image references shipped to visitors.
@@ -180,3 +183,11 @@ Chat excerpt windows are capped at 300 px wide with a 560 px minimum height. Rec
 The closing card places its copy beside the pig-and-bird photograph on desktop, then below the image on screens up to 760 px wide. The photograph has its own layout area, full opacity and descriptive alt text. The mobile image keeps the original aspect ratio so neither animal is hidden behind text or controls.
 
 Validation: production build, changed-component lint, desktop and mobile browser checks, plus a narrow 320 px overflow check. Saved views: `outputs/seo-review/narrow-chat-desktop.png`, `narrow-chat-mobile.png`, `final-cta-photo-desktop.png` and `final-cta-photo-mobile.png`.
+
+## Returned voice reply, realistic Maps preview and weather exchange
+
+Cam’s additional screenshots supply the received ten-second voice reply with transcript and a richer Scotiabank Maps preview. Both replace the simplified treatments in the feature tiles; the voice reply also appears in the scrolling iPhone. At Cam’s request, IMG_1736’s weather conversation replaces the ATM exchange in that iPhone only. All examples retain the shared light-mode WhatsApp header, message shapes, supplied times and composer.
+
+The voice heading now reads “Too tired and hot to type? Just talk.” in both page locations, with 🗣️🎙️ together as the feature icon. No audio file was supplied, so the playback bar remains an explicitly labeled screenshot preview. The Maps card links to the place URL supplied in IMG_1708.
+
+Validation: production build and TypeScript passed; changed-file ESLint and diff whitespace checks passed. Desktop and mobile rendering were checked, including no horizontal page overflow, the phone’s weather question in place of the ATM question, both updated headings and no browser console errors. Saved evidence: `outputs/seo-review/voice-map-desktop.png`, `voice-reply-mobile.png`, `atm-reply-mobile.png` and `weather-phone-desktop.png`. No deployment or runtime dependency changes.

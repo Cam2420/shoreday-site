@@ -40,11 +40,11 @@ const FEATURES = [
   },
   {
     type: "voice",
-    icon: "🎙️",
-    title: "Too hot to type? Just talk.",
+    icon: "🗣️🎙️",
+    title: "Too tired and hot to type? Just talk.",
     copy: "Send a voice note and get one back. You can also ask ShoreDay to reply in voice.",
     caption:
-      "Voice-note receipt · Oct 2026. Adapted to light mode with an illustrated waveform.",
+      "Voice reply and transcript · Oct 2026. Adapted to light mode; audio controls are a screenshot preview.",
   },
   {
     type: "location",
@@ -52,7 +52,7 @@ const FEATURES = [
     title: "A place. A link. Your next stop.",
     copy: "Ask for an ATM, pharmacy or beach. Get a Google Maps link for directions, hours and reviews.",
     caption:
-      "Location reply excerpt · Oct 2026. Adapted to light mode; confirm details before going.",
+      "ATM reply and Maps preview · Oct 2026. Supplied chat excerpt; confirm details before going.",
   },
   {
     type: "countdown",
@@ -176,7 +176,7 @@ export default function Home() {
               <li>
                 <span>02</span>
                 <div>
-                  <h3>Too hot to type? Just talk.</h3>
+                  <h3>Too tired and hot to type? Just talk.</h3>
                   <p>
                     Hands full? Send a voice note. ShoreDay replies in voice
                     when you speak first or ask.
