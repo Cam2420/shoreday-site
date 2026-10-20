@@ -106,8 +106,8 @@ export default function Home() {
                 all-aboard time.
               </h1>
               <p className="hero-human">
-                A Nassau-focused trained assistant. A real person available
-                daily 12–5 PM ET.
+                A Nassau trained assistant. A local person available daily
+                1–5 PM ET.
               </p>
               <div className="hero-cta-stack">
                 <WhatsAppCta surface="home_hero" className="hero-primary-cta">
@@ -501,7 +501,7 @@ export default function Home() {
                 <li>Help through the end of your Nassau port day.</li>
                 <li>
                   Automated replies any time during access. Human help daily
-                  12–5 PM ET.
+                  1–5 PM ET.
                 </li>
                 <li>ShoreDay app premium for the purchaser.</li>
               </ul>

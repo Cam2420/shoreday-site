@@ -72,7 +72,7 @@ export const GUIDES: Guide[] = [
       },
       {
         q: "Is the Nassau concierge a person?",
-        a: "Both an automated assistant and a person. Type HUMAN to reach the founder, available daily 12–5 PM ET.",
+        a: "Both an automated assistant and a person. Type HUMAN to reach the founder, available daily 1–5 PM ET.",
       },
       {
         q: "Does the $15 cover everyone?",

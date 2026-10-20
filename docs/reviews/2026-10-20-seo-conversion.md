@@ -57,7 +57,7 @@ The 13 indexable canonical pages appear in `sitemap.xml`. `robots.txt` permits p
 | Weather questions in the same chat | Owner-supplied IMG_1736 | Weather exchange replaces the ATM question in the scrolling phone only. Explicitly labeled an October 2026 example, not a live forecast |
 | Scotiabank at Rawson Square and Bay Street | Supplied IMG_1707/1708 | Dated, shortened chat excerpt only; no current hours, fees or “closest” guarantee |
 | Goldie’s Conch House at Arawak Cay; pictured conch salad $15, cracked conch $16, banner 10% VAT + 15% gratuity | Brief §1 photo row; IMG_1721/1722 | Dated October 2026 proof caption. Confirm current prices. No general price list or rule for other businesses |
-| Automated answers during access; founder reachable daily 12–5 PM ET; type HUMAN | Brief §1 human row; Concierge Terms “Support” | Hero, pricing, FAQ and llms.txt; no 24-hour human claim |
+| Automated answers during access; local person available daily 1–5 PM ET; type HUMAN | Owner’s October 20 wording and support-hours update, superseding Brief §1 human row | Hero, pricing, FAQ, Concierge Terms “Support” and llms.txt use 1–5 PM ET; no 24-hour human claim |
 | Included assistance through the end of the Nassau port day | Concierge Terms “What you get” | Terms override the brief’s next-morning cutoff |
 | Spanish questions receive Spanish answers | Brief §1 Spanish row | FAQ, app and MSC guides, llms.txt |
 | Tours optional; check fit before leave-by; commission may be earned | Brief §1 optional tours; §2B; IMG_1730 | Home tour section, tour chat excerpt, guides and llms.txt |
@@ -156,11 +156,11 @@ Both updated pages meet Performance ≥90, SEO 100 and CLS <0.1. The timing guid
 
 ## Decisions and items for Cam
 
-- **Access duration:** the brief says approximately 8 AM ET the next morning; Concierge Terms say through the end of the Nassau port day. The terms wording is used everywhere. Legal copy was not changed.
+- **Access duration:** the brief says approximately 8 AM ET the next morning; Concierge Terms say through the end of the Nassau port day. The terms’ access-duration wording is retained and used everywhere.
 - **Legal name:** the brief says “VMA Management LLC”; existing legal pages say “VMAManagement LLC.” Structured data uses the existing legal spelling.
 - **Privacy:** “photos stay only on your phone” would overstate the policy. Copy scopes non-storage to the concierge engine and acknowledges processing by service providers. TODO(Cam): confirm this engine assertion against the deployed media pipeline before publication.
 - **Closing card:** Cam requested removal of the repeated full service definition from the shared final CTA. It now contains the short heading, WhatsApp action and group-price note. This supersedes the brief’s requirement to repeat the definition in every final CTA.
-- **Headline:** “Your Nassau port-day concierge, built around your ship’s all-aboard time.” The supporting line reads “A Nassau-focused trained assistant. A real person available daily 12–5 PM ET.” This owner-selected wording supersedes the brief’s keep-the-existing-H1 rule. The primary keyword remains in the title and one-chat introduction. Requested route slugs are retained where they differ from a full question keyword.
+- **Headline:** “Your Nassau port-day concierge, built around your ship’s all-aboard time.” The supporting line reads “A Nassau trained assistant. A local person available daily 1–5 PM ET.” This owner-selected wording supersedes the brief’s keep-the-existing-H1 rule. The primary keyword remains in the title and one-chat introduction. Requested route slugs are retained where they differ from a full question keyword.
 - **Price comparisons:** omitted “less than most excursions” and the beach-club comparison because no current comparable-price evidence was supplied. The $15 group price stands on its own.
 - **Staying aboard:** omitted “a packed ship,” which is not established for a specific sailing. The worth-getting-off guide gives both choices fairly.
 - **Local details:** no invented walking distances, venue hours, bank fees, taxi fares, accessibility guarantees, fixed berths or ship-specific all-aboard times. TODO(Cam): provide the original Oct 3–Nov 3 schedule and verify ship berth/time patterns before adding them. The three ship pages use sourced itinerary context instead.
