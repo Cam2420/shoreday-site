@@ -372,6 +372,11 @@
 }
 .marketing .mini-chat {
   --pt: 1px;
+  width: 100%;
+  max-width: 300px;
+  min-height: 560px;
+  align-self: center;
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   color-scheme: light;
@@ -387,7 +392,7 @@
 .marketing .mini-chat .chat-bubble {
   padding: 10px;
   font-size: 0.77rem;
-  max-width: 97%;
+  max-width: 86%;
 }
 .marketing .mini-chat .mini-thread {
   position: relative;
@@ -407,6 +412,9 @@
   width: 2px;
 }
 .marketing .proof-caption {
+  max-width: 300px;
+  margin-inline: auto;
+  min-height: 4.65em;
   font-size: 0.69rem;
   color: #536570;
   margin-top: 13px;
@@ -969,11 +977,11 @@
     font-size: 0.88rem;
   }
   .marketing .feature-card .mini-chat {
-    max-width: 370px;
+    max-width: 300px;
     margin: 0 auto;
   }
   .marketing .feature-card .proof-caption {
-    max-width: 370px;
+    max-width: 300px;
     margin: 12px auto 0;
   }
   .marketing .feature-card .mini-thread {
@@ -1115,9 +1123,10 @@
 .marketing .chat-demo .chat-sent {
   background: #d9fdd3;
   border-top-right-radius: 0;
-  max-width: 89%;
+  max-width: 80%;
 }
 .marketing .chat-demo .chat-received {
+  max-width: 85%;
   border-top-left-radius: 0;
 }
 .marketing .chat-demo .chat-bubble::before {
@@ -1187,21 +1196,68 @@
   color: #007663;
   font-weight: 500;
 }
-/* Preserve the final photo panel, but load its image only near the viewport. */
+/* Give the photograph its own column so the animals stay unobstructed. */
 .marketing .final-cta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   position: relative;
-  isolation: isolate;
   overflow: hidden;
   background: #0d2a38;
+  padding: 0;
+  text-align: left;
+}
+.marketing .final-cta-copy {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  min-width: 0;
+  padding: clamp(28px, 4vw, 52px);
+}
+.marketing .final-cta-copy .section-kicker {
+  font-size: 0.75rem;
+  margin: 0 0 20px;
+}
+.marketing .final-cta-copy h2 {
+  margin-bottom: 26px;
+}
+.marketing .final-cta-copy .cta-button-group {
+  justify-content: flex-start;
+}
+.marketing .final-cta-copy .final-note {
+  margin: 18px 0 0;
 }
 .marketing .final-cta-media {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
+  position: relative;
+  grid-column: 2;
+  grid-row: 1;
+  min-height: 420px;
+  height: 100%;
 }
 .marketing .final-cta-media img {
   object-fit: cover;
-  opacity: 0.3;
+  object-position: center;
+}
+@media (max-width: 760px) {
+  .marketing .final-cta {
+    grid-template-columns: 1fr;
+    width: 94%;
+  }
+  .marketing .final-cta-media {
+    grid-column: 1;
+    grid-row: 1;
+    aspect-ratio: 3742 / 2505;
+    min-height: 0;
+    height: auto;
+  }
+  .marketing .final-cta-copy {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 30px 26px;
+    text-align: center;
+  }
+  .marketing .final-cta-copy .cta-button-group {
+    justify-content: center;
+  }
 }
 
 /* One light-mode WhatsApp treatment for the phone, feature tiles and proof excerpts. */
@@ -1283,10 +1339,12 @@
   color: #111b21;
 }
 .marketing .mini-chat .chat-sent {
+  max-width: 82%;
   background: #d9fdd3;
   border-top-right-radius: 0;
 }
 .marketing .mini-chat .chat-received {
+  max-width: 86%;
   border-top-left-radius: 0;
 }
 .marketing .mini-chat .chat-bubble::before {
@@ -1339,6 +1397,20 @@
     width: 100%;
   }
   .marketing .feature-card .mini-thread {
+    min-height: 0;
+  }
+}
+
+/* Photo messages retain room for the image; text bubbles stay slimmer. */
+.marketing .mini-chat .chat-bubble:has(.chat-photo-crop) {
+  width: 94%;
+  max-width: 94%;
+}
+.marketing .chat-demo .chat-bubble:has(.chat-photo-crop) {
+  max-width: 92%;
+}
+@media (max-width: 600px) {
+  .marketing .proof-caption {
     min-height: 0;
   }
 }

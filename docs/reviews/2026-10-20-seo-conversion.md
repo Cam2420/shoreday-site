@@ -172,3 +172,11 @@ Both updated pages meet Performance ≥90, SEO 100 and CLS <0.1. The timing guid
 “Snap it. Ask it.” uses Cam’s supplied Government House recognition exchange. The shared composer follows the supplied close-up. Goldie’s remains in the menu-specific vendor proof, scrollable journey and cash guide. A shared WhatsApp chrome component keeps every visible chat excerpt in the same light-mode style.
 
 Validation for this follow-up: production build, TypeScript, changed-file lint and browser checks at desktop and mobile sizes. Saved evidence: `outputs/seo-review/chat-excerpts-desktop.png` and `outputs/seo-review/chat-excerpts-mobile.png`. The Lighthouse numbers above belong to the initial SEO review build and were not rerun for this visual follow-up.
+
+## Chat proportions and unobstructed closing photo
+
+Chat excerpt windows are capped at 300 px wide with a 560 px minimum height. Received text bubbles use at most 86% of the thread width; outgoing text uses at most 82%. Photo bubbles retain more room for the image. This keeps the examples portrait-shaped across desktop, tablet and mobile while preserving every message bar.
+
+The closing card places its copy beside the pig-and-bird photograph on desktop, then below the image on screens up to 760 px wide. The photograph has its own layout area, full opacity and descriptive alt text. The mobile image keeps the original aspect ratio so neither animal is hidden behind text or controls.
+
+Validation: production build, changed-component lint, desktop and mobile browser checks, plus a narrow 320 px overflow check. Saved views: `outputs/seo-review/narrow-chat-desktop.png`, `narrow-chat-mobile.png`, `final-cta-photo-desktop.png` and `final-cta-photo-mobile.png`.
