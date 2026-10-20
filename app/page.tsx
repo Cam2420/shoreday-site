@@ -102,11 +102,12 @@ export default function Home() {
                 Booked your cruise? Let’s plan Nassau.
               </p>
               <h1 id="home-title">
-                Your Nassau port day, planned around your ship’s all-aboard
-                time.
+                Your Nassau port-day concierge, built around your ship’s
+                all-aboard time.
               </h1>
               <p className="hero-human">
-                An automated assistant. A real person daily 12–5 PM ET.
+                A Nassau-focused trained assistant. A real person available
+                daily 12–5 PM ET.
               </p>
               <div className="hero-cta-stack">
                 <WhatsAppCta surface="home_hero" className="hero-primary-cta">
