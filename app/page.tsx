@@ -105,11 +105,6 @@ export default function Home() {
                 Your Nassau port day, planned around your ship’s all-aboard
                 time.
               </h1>
-              <p className="subtitle">
-                Your Nassau cruise port day plan, saved in one WhatsApp chat. A
-                personal plan and offline PDF before you step off. Photo answers
-                and voice notes when you’re connected ashore.
-              </p>
               <p className="hero-human">
                 An automated assistant. A real person daily 12–5 PM ET.
               </p>
@@ -163,8 +158,9 @@ export default function Home() {
               in one chat.
             </h2>
             <p className="section-lead">
-              Your plan is just the beginning. Keep the PDF, voice notes, photo
-              questions and answers together in WhatsApp.
+              Your Nassau cruise port day plan, saved in one WhatsApp chat. A
+              personal plan and offline PDF before you step off. Photo answers
+              and voice notes when you’re connected ashore.
             </p>
             <ol className="chat-benefits">
               <li>

@@ -191,7 +191,7 @@ export function ChatCard({
             <VoiceWave />
           </ChatBubble>
           <ChatBubble>
-            <p>Got your voice note, one moment…</p>
+            <p>🎙️ Got your voice note, one moment…</p>
           </ChatBubble>
           <ChatBubble>
             <p>Your ship may dock further out along the pier.</p>
@@ -370,7 +370,7 @@ export default function ChatPreview() {
             <VoiceWave />
           </ChatBubble>
           <ChatBubble>
-            <p>Got your voice note, one moment…</p>
+            <p>🎙️ Got your voice note, one moment…</p>
           </ChatBubble>
           <ChatBubble sent>
             <MenuPhoto />
