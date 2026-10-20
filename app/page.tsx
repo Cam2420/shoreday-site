@@ -9,6 +9,7 @@ import WhatsAppCta from "./WhatsAppCta";
 import WhatsAppShare from "./WhatsAppShare";
 import ChatPreview, {
   ChatCard,
+  ChatExcerpt,
   ChatBubble,
   MenuPhoto,
   GoldiesReply,
@@ -35,7 +36,7 @@ const FEATURES = [
     title: "Snap it. Ask it.",
     copy: "Send a menu, price board or recognizable landmark. Get help understanding what’s in front of you.",
     caption:
-      "Goldie’s chat excerpt · prices as of Oct 2026. Adapted to light mode; confirm current prices.",
+      "Government House photo and reply · Oct 2026. Supplied chat excerpt, shortened and adapted to light mode.",
   },
   {
     type: "voice",
@@ -239,17 +240,18 @@ export default function Home() {
           aria-labelledby="vendor-title"
         >
           <figure className="vendor-proof">
-            <div className="mini-chat">
-              <div className="mini-thread">
-                <ChatBubble sent>
-                  <MenuPhoto />
-                  <p>Is this a fair price?</p>
-                </ChatBubble>
-                <ChatBubble>
-                  <GoldiesReply />
-                </ChatBubble>
-              </div>
-            </div>
+            <ChatExcerpt
+              id="vendor-menu"
+              label="Goldie’s menu chat example in light mode"
+            >
+              <ChatBubble sent>
+                <MenuPhoto />
+                <p>Is this a fair price?</p>
+              </ChatBubble>
+              <ChatBubble>
+                <GoldiesReply />
+              </ChatBubble>
+            </ChatExcerpt>
             <figcaption>
               Goldie’s menu chat · prices as of Oct 2026. Light-mode adaptation,
               shortened for readability. Confirm current prices.

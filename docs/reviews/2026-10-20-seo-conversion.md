@@ -1,6 +1,6 @@
 # ShoreDay SEO and conversion review — October 20, 2026
 
-Visitors now see the $15 group offer, offline backup, human support window and refund condition before the longer homepage story. The page presents one WhatsApp conversation, with a realistic iPhone and light-mode adaptations of Cam’s supplied chats. Six Nassau guides and three ship pages lead to the same unchanged WhatsApp entry point.
+Visitors now see the $15 group offer, offline backup, human support window and refund condition before the longer homepage story. The page presents one WhatsApp conversation, with a realistic iPhone and light-mode adaptations of Cam’s supplied chats. All chat excerpts share WhatsApp headers, message bubbles and composer controls. The photo feature uses the supplied Government House recognition exchange. Six Nassau guides and three ship pages lead to the same unchanged WhatsApp entry point.
 
 Draft for Cam’s claims and visual review. No production deployment or merge. `vercel.json` disables automatic Git deployment only for `codex/shoreday-live-edits`, following [Vercel’s branch deployment setting](https://vercel.com/docs/project-configuration/git-configuration#git.deploymentenabled). Production remains on `main`.
 
@@ -49,6 +49,7 @@ The 13 indexable canonical pages appear in `sitemap.xml`. `robots.txt` permits p
 | Clock calculation is performed by the timing engine | Brief §1 countdown row | Timing guide; not independently exercised against the external concierge |
 | Day shapes: beach/water, walkable downtown, local food, heritage | Brief §1 day-shapes row | Home experience cards and guides; no distances, access or venue hours promised |
 | Send menus, price boards, signs and recognizable landmarks; ask for more detail when unclear | Brief §1 photo row and prohibited claims | Home, FAQ, guides; no location inference from generic scenes |
+| Government House on Mount Fitzwilliam in downtown Nassau; statue on front steps | Cam’s supplied `Screenshot 2026-10-20 at 1.38.04 PM.png`, showing both photo and recognition reply | “Snap it. Ask it.” feature tile, shortened light-mode excerpt. No added residence or access claims |
 | Short videos and PDFs, including excursion confirmations, can be sent | Brief §1 video/PDF row; IMG_1725 | Home, app guide, FAQ and llms.txt |
 | 17-page Playbook: orientation map, timing worksheet, day shapes, page 17 back-to-ship card | Brief §1 offline row; IMG_1725 | Home, PDF card, FAQ and guides |
 | Voice replies when guest speaks first or requests one | Brief §1 voice row; §2A.2 | Feature copy and FAQ. Supplied IMG_1705 proves an incoming voice note and receipt, not an outgoing voice recording |
@@ -83,16 +84,17 @@ Other route planning, breaks, cash/card confirmation, small bills and shorter-da
 
 ## Screenshot treatment and remaining proof
 
-All chat UI is light mode. The original site’s iPhone proportions, titanium edge, black bezel, side buttons, Dynamic Island, status icons, doodle background and composer are reused. Chat text is HTML, so it remains readable and keyboard-scrollable rather than a stack of tiny phone screenshots.
+All chat UI is light mode. Every rendered excerpt now shares the same contact header, doodle wallpaper, outgoing/received bubble tails and message composer (plus, rounded field, sticker, camera and green microphone). Only supplied message times are shown; delivery ticks are illustrative UI. The full iPhone uses the same controls as the smaller panels. The original site’s iPhone proportions, titanium edge, black bezel, side buttons, Dynamic Island, status icons, doodle background and composer are reused. Chat text is HTML, so it remains readable and keyboard-scrollable rather than a stack of tiny phone screenshots.
 
 The customer journey is: welcome (IMG_1731/1732) → get-plan/checkout excerpt (IMG_1733) → illustrative personal plan and PDF → voice receipt (IMG_1705) → Goldie’s photo/answer (IMG_1721/1722) → location excerpt (IMG_1707/1708) → optional tours (IMG_1730) → illustrative countdown. Excerpts from different sessions are labeled as a sample journey, with no invented timestamps.
 
-The menu and welcome thumbnail use optimized source screenshots and CSS image windows. Full source screenshots are retained in these image files; only the relevant picture appears in the UI:
+The menu, landmark photo and welcome thumbnail use optimized source screenshots and CSS image windows. Full source screenshots are retained in these image files; only the relevant picture appears in the UI:
 
+- `public/images/shoreday/chat/government-house-source.webp` — newly supplied Government House photo and recognition reply; the photo appears in “Snap it. Ask it.”
 - `public/images/shoreday/chat/menu-source.webp` — supplied IMG_1721, photographed menu.
 - `public/images/shoreday/chat/welcome-source.webp` — supplied IMG_1731, static video thumbnail. No video file or playable audio was supplied.
 
-The jet-ski/emergency advice above the tour card in IMG_1730 is outside the marketing excerpt. The Cayman menu in IMG_1720 is not presented as Nassau pricing. IMG_1722 shows a Government House photo but not the recognition reply, so no fake recognition exchange is shown.
+The jet-ski/emergency advice above the tour card in IMG_1730 is outside the marketing excerpt. The Cayman menu in IMG_1720 is not presented as Nassau pricing. The additional Government House screenshot supplied at 1:38 PM includes the recognition reply. Its first paragraph now appears with the photo in the feature tile, replacing the repeated Goldie’s example.
 
 Optional replacements needed from Cam before converting illustrations into documented product proof:
 
@@ -103,7 +105,6 @@ Optional replacements needed from Cam before converting illustrations into docum
 | Outgoing voice reply screenshot | `public/images/shoreday/chat/voice-reply-proof.webp` | Supplied incoming-note receipt only |
 | Actual outgoing voice recording, if a playable demo is wanted | `public/audio/shoreday/voice-reply.m4a` | Illustrated waveform, no invented audio |
 | Welcome video, if playback is wanted | `public/videos/shoreday/welcome.mp4` | Screenshot thumbnail labeled as a preview |
-| Government House recognition answer | `public/images/shoreday/chat/government-house-proof.webp` | Not shown as a proven answer |
 
 These paths are review destinations, not broken image references shipped to visitors.
 
@@ -164,3 +165,9 @@ Both updated pages meet Performance ≥90, SEO 100 and CLS <0.1. The timing guid
 - **Reviews:** no testimonials, counts, stars, AggregateRating or Review schema. A comment reserves a future place for permissioned real reviews.
 - **Indexing:** metadata, FAQ markup and llms.txt make the pages readable to crawlers; no claim is made that Google or an AI system will rank, cite or show a rich result.
 - **Next approval:** review the draft, the claims above and missing evidence. No merge, payment, workflow change or deployment is part of this delivery.
+
+## Government House and WhatsApp controls — visual verification
+
+“Snap it. Ask it.” uses Cam’s supplied Government House recognition exchange. The shared composer follows the supplied close-up. Goldie’s remains in the menu-specific vendor proof, scrollable journey and cash guide. A shared WhatsApp chrome component keeps every visible chat excerpt in the same light-mode style.
+
+Validation for this follow-up: production build, TypeScript, changed-file lint and browser checks at desktop and mobile sizes. Saved evidence: `outputs/seo-review/chat-excerpts-desktop.png` and `outputs/seo-review/chat-excerpts-mobile.png`. The Lighthouse numbers above belong to the initial SEO review build and were not rerun for this visual follow-up.

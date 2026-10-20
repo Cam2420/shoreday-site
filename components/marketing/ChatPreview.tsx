@@ -1,19 +1,65 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import IPhoneFrame from "./IPhoneFrame";
+import {
+  WhatsAppHeader,
+  WhatsAppWallpaper,
+  WhatsAppComposer,
+} from "./WhatsAppChrome";
 
 /** Accessible light-mode transcriptions. Not screenshots or customer testimonials. */
 export function ChatBubble({
   children,
   sent = false,
+  time,
 }: {
   children: ReactNode;
   sent?: boolean;
+  time?: string;
 }) {
   return (
     <div className={`chat-bubble ${sent ? "chat-sent" : "chat-received"}`}>
       {children}
+      {(time || sent) && (
+        <span className="chat-message-meta" aria-hidden="true">
+          {time && <time>{time}</time>}
+          {sent && (
+            <svg className="chat-read-ticks" viewBox="0 0 18 12">
+              <path
+                d="M1 6.5 4.5 10 13 1.5M8 9l1 1 8-8.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          )}
+        </span>
+      )}
     </div>
+  );
+}
+export function GovernmentHousePhoto() {
+  return (
+    <div className="chat-photo-crop landmark-crop">
+      <Image
+        src="/images/shoreday/chat/government-house-source.webp"
+        width={1095}
+        height={2048}
+        sizes="(max-width: 600px) 90vw, 400px"
+        alt="Government House in Nassau, with its pink facade, front staircase and statue, from the supplied WhatsApp photo"
+      />
+    </div>
+  );
+}
+export function GovernmentHouseReply() {
+  return (
+    <p>
+      🏛️ That is <strong>Government House</strong> on Mount Fitzwilliam in
+      downtown Nassau, with the statue of Christopher Columbus on the front
+      steps.
+    </p>
   );
 }
 export function MenuPhoto() {
@@ -90,107 +136,118 @@ export function VoiceWave() {
     </div>
   );
 }
-export function ChatHeader() {
+export function ChatExcerpt({
+  children,
+  id,
+  label,
+}: {
+  children: ReactNode;
+  id: string;
+  label: string;
+}) {
   return (
-    <div className="chat-header">
-      <Image src="/shoreday_icon.png" width={38} height={38} alt="" />
-      <div>
-        <strong>ShoreDay</strong>
-        <span>Nassau concierge</span>
+    <div className="mini-chat" role="group" aria-label={label}>
+      <WhatsAppHeader />
+      <div className="wa-chat">
+        <WhatsAppWallpaper patternId={`shoreday-${id}-wallpaper`} />
+        <div className="mini-thread">{children}</div>
       </div>
-      <span className="chat-header-dots" aria-hidden="true">
-        •••
-      </span>
+      <WhatsAppComposer />
     </div>
   );
 }
 export function ChatCard({
   type,
 }: {
-  type: "photo" | "voice" | "location" | "countdown";
+  type: "photo" | "menu" | "voice" | "location" | "countdown";
 }) {
   return (
-    <div
-      className="mini-chat"
-      aria-label={`${type} chat example in light mode`}
-    >
-      <ChatHeader />
-      <div className="mini-thread">
-        {type === "photo" && (
-          <>
-            <ChatBubble sent>
-              <MenuPhoto />
-              <p>Is this a fair price?</p>
-            </ChatBubble>
-            <ChatBubble>
-              <GoldiesReply />
-            </ChatBubble>
-          </>
-        )}
-        {type === "voice" && (
-          <>
-            <ChatBubble sent>
-              <VoiceWave />
-            </ChatBubble>
-            <ChatBubble>
-              <p>Got your voice note, one moment…</p>
-            </ChatBubble>
-            <ChatBubble>
-              <p>Your ship may dock further out along the pier.</p>
-              <p>Allow time for the pier walk.</p>
-            </ChatBubble>
-          </>
-        )}
-        {type === "location" && (
-          <>
-            <ChatBubble sent>
-              <p>Where’s the nearest ATM?</p>
-            </ChatBubble>
-            <ChatBubble>
-              <p>Checking that now…</p>
-            </ChatBubble>
-            <ChatBubble>
-              <div className="chat-map-label">
-                Scotiabank · Rawson Square &amp; Bay St
-              </div>
-              <p>Please confirm when you arrive.</p>
-              <span className="chat-link">
-                Google Maps · directions, hours, reviews
-              </span>
-            </ChatBubble>
-          </>
-        )}
-        {type === "countdown" && (
-          <>
-            <span className="chat-example-label">
-              Illustrative timing example
+    <ChatExcerpt id={type} label={`${type} chat example in light mode`}>
+      {type === "photo" && (
+        <>
+          <ChatBubble sent time="4:17 PM">
+            <GovernmentHousePhoto />
+            <p>What is this?</p>
+          </ChatBubble>
+          <ChatBubble>
+            <GovernmentHouseReply />
+          </ChatBubble>
+        </>
+      )}
+      {type === "menu" && (
+        <>
+          <ChatBubble sent>
+            <MenuPhoto />
+            <p>Is this a fair price?</p>
+          </ChatBubble>
+          <ChatBubble>
+            <GoldiesReply />
+          </ChatBubble>
+        </>
+      )}
+      {type === "voice" && (
+        <>
+          <ChatBubble sent>
+            <VoiceWave />
+          </ChatBubble>
+          <ChatBubble>
+            <p>Got your voice note, one moment…</p>
+          </ChatBubble>
+          <ChatBubble>
+            <p>Your ship may dock further out along the pier.</p>
+            <p>Allow time for the pier walk.</p>
+          </ChatBubble>
+        </>
+      )}
+      {type === "location" && (
+        <>
+          <ChatBubble sent>
+            <p>Where’s the nearest ATM?</p>
+          </ChatBubble>
+          <ChatBubble>
+            <p>Checking that now…</p>
+          </ChatBubble>
+          <ChatBubble>
+            <div className="chat-map-label">
+              Scotiabank · Rawson Square &amp; Bay St
+            </div>
+            <p>Please confirm when you arrive.</p>
+            <span className="chat-link">
+              Google Maps · directions, hours, reviews
             </span>
-            <ChatBubble sent>
-              <p>How much time do I have?</p>
-            </ChatBubble>
-            <ChatBubble>
-              <p>At 11:36 AM:</p>
-              <p>
-                <strong>5 hours and 54 minutes</strong> until your 5:30 PM
-                leave-by.
-              </p>
-              <div className="chat-time-rows">
-                <span>
-                  Leave by <b>5:30 PM</b>
-                </span>
-                <span>
-                  Back at the pier <b>6:00 PM</b>
-                </span>
-                <span>
-                  All-aboard <b>7:00 PM</b>
-                </span>
-              </div>
-              <p>Use your ship’s official all-aboard time.</p>
-            </ChatBubble>
-          </>
-        )}
-      </div>
-    </div>
+          </ChatBubble>
+        </>
+      )}
+      {type === "countdown" && (
+        <>
+          <span className="chat-example-label">
+            Illustrative timing example
+          </span>
+          <ChatBubble sent>
+            <p>How much time do I have?</p>
+          </ChatBubble>
+          <ChatBubble>
+            <p>At 11:36 AM:</p>
+            <p>
+              <strong>5 hours and 54 minutes</strong> until your 5:30 PM
+              leave-by.
+            </p>
+            <div className="chat-time-rows">
+              <span>
+                Leave by <b>5:30 PM</b>
+              </span>
+              <span>
+                Back at the pier <b>6:00 PM</b>
+              </span>
+              <span>
+                All-aboard <b>7:00 PM</b>
+              </span>
+            </div>
+            <p>Use your ship’s official all-aboard time.</p>
+          </ChatBubble>
+        </>
+      )}
+    </ChatExcerpt>
   );
 }
 export default function ChatPreview() {

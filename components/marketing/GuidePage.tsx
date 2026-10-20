@@ -85,7 +85,7 @@ export default function GuidePage({
                 {guide.timing && i === 1 && <TimingExample />}
                 {guide.menu && i === 2 && (
                   <figure className="guide-menu">
-                    <ChatCard type="photo" />
+                    <ChatCard type="menu" />
                     <figcaption>
                       Goldie’s chat excerpt · prices as of Oct 2026. Adapted to
                       light mode. Confirm current prices.
