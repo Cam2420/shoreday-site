@@ -1285,12 +1285,20 @@
   margin: calc(12 * var(--pt)) calc(-11 * var(--pt)) calc(-9 * var(--pt));
 }
 .marketing .chat-reply-options > span {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(8 * var(--pt));
   padding: calc(12 * var(--pt)) calc(8 * var(--pt));
   text-align: center;
   border-top: 1px solid #e4e8e7;
   color: #007663;
   font-weight: 500;
+}
+.marketing .chat-reply-arrow {
+  width: calc(20 * var(--pt));
+  height: calc(20 * var(--pt));
+  flex-shrink: 0;
 }
 /* Give the photograph its own column so the animals stay unobstructed. */
 .marketing .final-cta {

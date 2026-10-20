@@ -93,6 +93,8 @@ Timeline verification: production build, TypeScript, changed-file ESLint and whi
 
 Missing-timestamp follow-up: the greeting, Government House reply and both vendor/guide menu messages now display times. Browser checks found no missing timestamps across all 31 homepage bubbles or the cash guide’s two menu bubbles. The app kicker reads “Prefer the app instead?”; desktop and mobile layouts were checked, with no horizontal page overflow or console errors. Build, TypeScript, changed-file lint and whitespace checks passed. Evidence: `outputs/seo-review/hi-timestamp.png`, `feature-chat-timestamps.png`, `menu-chat-timestamps.png`, `prefer-app-heading.png` and `prefer-app-heading-mobile.png`.
 
+Welcome follow-up: the opening message now uses the existing `WHATSAPP_PREFILL` value, “Hi ShoreDay! My cruise stops in Nassau,” matching the supplied reference and preserving the real WhatsApp destination and prefill. The three welcome reply options use the original site’s curved SVG arrow path instead of a font-dependent arrow character. Desktop and mobile browser checks confirmed the full entry text, three arrow icons, preserved timestamps and no horizontal page overflow or console errors. Build, TypeScript, changed-file lint and whitespace checks passed. Evidence: `outputs/seo-review/full-welcome-message.png`, `welcome-reply-arrows.png` and `welcome-reply-arrows-mobile.png`.
+
 The menu, landmark photo, bank thumbnail and welcome thumbnail use optimized source screenshots and CSS image windows. Full source screenshots are retained in these image files; only the relevant picture appears in the UI:
 
 - `public/images/shoreday/chat/government-house-source.webp` — newly supplied Government House photo and recognition reply; the photo appears in “Snap it. Ask it.”

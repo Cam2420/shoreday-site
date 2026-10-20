@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
+import { WHATSAPP_PREFILL } from "@/lib/whatsapp";
 import IPhoneFrame from "./IPhoneFrame";
 import {
   WhatsAppHeader,
@@ -96,11 +97,25 @@ function WelcomePreview() {
     </>
   );
 }
-function ReplyOptions({ items }: { items: string[] }) {
+function ReplyOptions({ items, reply = false }: { items: string[]; reply?: boolean }) {
   return (
     <div className="chat-reply-options" aria-label="Example reply options">
       {items.map((item) => (
-        <span key={item}>{item}</span>
+        <span key={item}>
+          {reply && (
+            <svg className="chat-reply-arrow" viewBox="0 0 20 20" aria-hidden="true">
+              <path
+                d="M8 4.5 3 9.5l5 5M3 9.5h8a6 6 0 0 1 6 6v.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          )}
+          {item}
+        </span>
       ))}
     </div>
   );
@@ -323,16 +338,17 @@ export default function ChatPreview() {
         >
           <div className="chat-day">Getting started</div>
           <ChatBubble sent time="9:02 AM">
-            <p>Hi</p>
+            <p>{WHATSAPP_PREFILL}</p>
           </ChatBubble>
           <ChatBubble
             time="9:02 AM"
             footer={
               <ReplyOptions
+                reply
                 items={[
-                  "↶ 🗺️ See a sample",
-                  "↶ 💬 How it works",
-                  "↶ ✅ Get my plan",
+                  "🗺️ See a sample",
+                  "💬 How it works",
+                  "✅ Get my plan",
                 ]}
               />
             }
