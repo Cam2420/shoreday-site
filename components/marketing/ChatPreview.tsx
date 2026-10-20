@@ -12,10 +12,12 @@ export function ChatBubble({
   children,
   sent = false,
   time,
+  footer,
 }: {
   children: ReactNode;
   sent?: boolean;
   time?: string;
+  footer?: ReactNode;
 }) {
   return (
     <div className={`chat-bubble ${sent ? "chat-sent" : "chat-received"}`}>
@@ -37,6 +39,7 @@ export function ChatBubble({
           )}
         </span>
       )}
+      {footer}
     </div>
   );
 }
@@ -322,7 +325,18 @@ export default function ChatPreview() {
           <ChatBubble sent>
             <p>Hi</p>
           </ChatBubble>
-          <ChatBubble>
+          <ChatBubble
+            time="9:02 AM"
+            footer={
+              <ReplyOptions
+                items={[
+                  "↶ 🗺️ See a sample",
+                  "↶ 💬 How it works",
+                  "↶ ✅ Get my plan",
+                ]}
+              />
+            }
+          >
             <WelcomePreview />
             <p>
               <strong>Welcome to ShoreDay 👋</strong>
@@ -358,18 +372,14 @@ export default function ChatPreview() {
             <span className="chat-media-caption">
               Independent · Nassau only · No subscription
             </span>
-            <ReplyOptions
-              items={[
-                "↶ 🗺️ See a sample",
-                "↶ 💬 How it works",
-                "↶ ✅ Get my plan",
-              ]}
-            />
           </ChatBubble>
-          <ChatBubble sent>
+          <ChatBubble sent time="9:04 AM">
             <p>✅ Get my plan</p>
           </ChatBubble>
-          <ChatBubble>
+          <ChatBubble
+            time="9:04 AM"
+            footer={<ReplyOptions items={["↗ Get my plan – $15"]} />}
+          >
             <p>
               <strong>Your Nassau plan · $15</strong>
             </p>
@@ -390,13 +400,25 @@ export default function ChatPreview() {
               Use this <strong>same WhatsApp number at checkout</strong> so we
               can deliver your plan and PDF here in chat.
             </p>
-            <ReplyOptions items={["↗ Get my plan – $15"]} />
           </ChatBubble>
           <div className="chat-day">Your plan and offline kit</div>
-          <ChatBubble sent>
+          <ChatBubble time="9:05 AM">
+            <div className="pdf-preview">
+              <span>PDF</span>
+              <div>
+                <strong>Your Nassau Playbook</strong>
+                <small>17 pages · save before stepping ashore</small>
+              </div>
+            </div>
+            <p>
+              Orientation map, timing worksheet and your back-to-ship backup
+              card.
+            </p>
+          </ChatBubble>
+          <ChatBubble sent time="9:08 AM">
             <p>We’d love local food and a beach. All-aboard is 7:00 PM.</p>
           </ChatBubble>
-          <ChatBubble>
+          <ChatBubble time="9:12 AM">
             <span className="chat-example-label">Illustrative plan</span>
             <p>
               <strong>A little beach. A little Nassau.</strong>
@@ -410,37 +432,6 @@ export default function ChatPreview() {
               <strong>6:00 PM</strong>.
             </p>
           </ChatBubble>
-          <ChatBubble>
-            <div className="pdf-preview">
-              <span>PDF</span>
-              <div>
-                <strong>Your Nassau Playbook</strong>
-                <small>17 pages · save before stepping ashore</small>
-              </div>
-            </div>
-            <p>
-              Orientation map, timing worksheet and your back-to-ship backup
-              card.
-            </p>
-          </ChatBubble>
-          <div className="chat-day">Questions ashore</div>
-          <ChatBubble sent time="3:35 PM">
-            <VoiceWave />
-          </ChatBubble>
-          <ChatBubble time="3:35 PM">
-            <p>🎙️ Got your voice note, one moment…</p>
-          </ChatBubble>
-          <ChatBubble time="3:35 PM">
-            <VoiceReply />
-          </ChatBubble>
-          <ChatBubble sent>
-            <MenuPhoto />
-            <p>Is this a fair price?</p>
-          </ChatBubble>
-          <ChatBubble>
-            <GoldiesReply />
-          </ChatBubble>
-          <div className="chat-day">Menu prices as of Oct 2026</div>
           <div className="chat-day">Weather reply · Oct 2026 example</div>
           <ChatBubble sent time="10:26 AM">
             <p>What is the weather today in Nassau?</p>
@@ -448,7 +439,7 @@ export default function ChatPreview() {
           <ChatBubble time="10:26 AM">
             <p>🔎 Checking that now…</p>
           </ChatBubble>
-          <ChatBubble time="10:26 AM">
+          <ChatBubble time="10:27 AM">
             <p>
               ☀️ Today in Nassau is partly sunny and breezy with highs around
               <strong> 82°F–86°F</strong> (28°C–30°C).
@@ -465,10 +456,13 @@ export default function ChatPreview() {
               <br />3️⃣ See taxi fares to the Fish Fry
             </p>
           </ChatBubble>
-          <ChatBubble sent>
+          <ChatBubble sent time="10:30 AM">
             <p>What tours?</p>
           </ChatBubble>
-          <ChatBubble>
+          <ChatBubble
+            time="10:31 AM"
+            footer={<ReplyOptions items={["☷ 🏝️ See tours"]} />}
+          >
             <p>
               <strong>🏝️ Tours that fit a port day</strong>
             </p>
@@ -480,13 +474,12 @@ export default function ChatPreview() {
             <p className="chat-media-caption">
               ShoreDay may earn a commission if you book.
             </p>
-            <ReplyOptions items={["☷ 🏝️ See tours"]} />
           </ChatBubble>
           <div className="chat-day">Checking your time</div>
-          <ChatBubble sent>
+          <ChatBubble sent time="11:36 AM">
             <p>How much time do I have?</p>
           </ChatBubble>
-          <ChatBubble>
+          <ChatBubble time="11:36 AM">
             <span className="chat-example-label">
               Illustrative countdown · 11:36 AM
             </span>
@@ -500,12 +493,30 @@ export default function ChatPreview() {
               All-aboard: 7:00 PM.
             </p>
           </ChatBubble>
+          <div className="chat-day">Questions ashore</div>
+          <ChatBubble sent time="3:35 PM">
+            <VoiceWave />
+          </ChatBubble>
+          <ChatBubble time="3:35 PM">
+            <p>🎙️ Got your voice note, one moment…</p>
+          </ChatBubble>
+          <ChatBubble time="3:35 PM">
+            <VoiceReply />
+          </ChatBubble>
+          <div className="chat-day">Menu prices as of Oct 2026</div>
+          <ChatBubble sent time="4:15 PM">
+            <MenuPhoto />
+            <p>Is this a fair price?</p>
+          </ChatBubble>
+          <ChatBubble time="4:16 PM">
+            <GoldiesReply />
+          </ChatBubble>
         </div>
       </IPhoneFrame>
       <figcaption>
         Scroll to follow a sample Nassau day. Real chat excerpts, shortened and
-        adapted to light mode. Plan and countdown are illustrations; media and
-        reply options are previews.
+        adapted to light mode with example times. Plan and countdown are
+        illustrations; media and reply options are previews.
       </figcaption>
     </figure>
   );
