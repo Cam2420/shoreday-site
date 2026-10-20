@@ -21,7 +21,7 @@ export default function NassauCheatSheet() {
         </div>
 
         <h1>The Nassau Survival Card</h1>
-        <div className="subtitle">Timing, Taxi Fares &amp; the Traps to Skip</div>
+        <div className="subtitle">Timing, Local Food &amp; Your Return Plan</div>
 
         <p className="description">
           Enter your email to get instant access to a practical one-page guide
@@ -46,7 +46,7 @@ export default function NassauCheatSheet() {
         <div className="floor-cta">
           Already have your day planned? <br />
           <ViatorOutboundLink surface="cheat_sheet">
-            Browse &amp; Book Nassau Excursions Directly (Save up to 60%)
+            Browse Nassau Excursions
           </ViatorOutboundLink>
           <p className="affiliate-disclosure">
             Disclosure: ShoreDay may earn a commission if you book through a Viator link.
