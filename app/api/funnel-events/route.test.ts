@@ -83,6 +83,25 @@ describe("/api/funnel-events — Mixpanel forwarding", () => {
     expect(events[0].properties.mode).toBe("times");
   });
 
+  it("forwards WhatsApp CTA page and position without losing them in sanitization", async () => {
+    process.env.MIXPANEL_PROJECT_TOKEN = "test-token";
+    const res = await POST(postRequest({
+      name: "whatsapp_cta_click",
+      properties: {
+        page: "/nassau-all-aboard-time",
+        position: "guide_hero",
+        surface: "guide_hero",
+        email: "must-not-forward@example.com",
+      },
+    }));
+    expect(res.status).toBe(204);
+    const [event] = sentEvents(fetchMock);
+    expect(event.event).toBe("whatsapp_cta_click");
+    expect(event.properties.page).toBe("/nassau-all-aboard-time");
+    expect(event.properties.position).toBe("guide_hero");
+    expect(event.properties).not.toHaveProperty("email");
+  });
+
   it("rejects a PII-shaped anonymous_id (no distinct_id forwarded)", async () => {
     process.env.MIXPANEL_PROJECT_TOKEN = "test-token";
     await POST(

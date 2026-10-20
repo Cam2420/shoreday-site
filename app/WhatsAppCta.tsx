@@ -14,11 +14,11 @@ export function WhatsAppIcon() {
 }
 
 /**
- * Every homepage "Start in WhatsApp" button. One component so the destination
+ * Every marketing-page "Start in WhatsApp" button. One component so the destination
  * (the live WhatsApp entry link and its prefill) and the tracking can't drift
  * between buttons.
  *
- * - Tracked by HomeAnalytics as `whatsapp_click` with the given `surface`.
+ * - Tracked by HomeAnalytics as `whatsapp_click` with the given `surface`, and `whatsapp_cta_click` with page and position.
  * - `data-wa-cta` marks the button for the mobile sticky bar, which hides while
  *   any marked button is on screen. The sticky bar's own button sets
  *   `watched={false}` so it never hides itself.
