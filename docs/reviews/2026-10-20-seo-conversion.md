@@ -40,7 +40,7 @@ The 13 indexable canonical pages appear in `sitemap.xml`. `robots.txt` permits p
 | Food, rides, activities, admissions and tours cost extra | Brief §1 offer; supplied IMG_1732/1733 | Home, guide FAQs and chat; no bundled tour purchase implied |
 | Independent; unaffiliated with cruise lines or Nassau Cruise Port | Brief §1 offer; Concierge Terms “Important” | Cruise fit line, guides, footer, llms.txt |
 | Nassau only; no planning for other ports or private-island stops | Brief §1 offer | Home and all ship FAQs |
-| Personal plan uses ship, Nassau date, all-aboard, group, budget and day preferences | Brief §1 definition and feature table; §2 audience | Home, guides, final CTA, llms.txt |
+| Personal plan uses ship, Nassau date, all-aboard, group, budget and day preferences | Brief §1 definition and feature table; §2 audience | Home, guides and llms.txt |
 | Plan works backward from all-aboard; leave-by and back-at-pier targets | Brief §1 planning and countdown rows; §4 timing example | Home, timing guide, ship pages, example chat |
 | Ship’s official all-aboard and onboard instructions take priority; times/recommendations are estimates | Concierge Terms “Important”; Brief §1 prohibited claims | Home, timing guide, FAQ and ship pages |
 | All-aboard differs from scheduled departure; pier target is earlier | Brief §3 timing page requirements; §4 worked example | Timing guide; no schedule departure is labeled all-aboard |
@@ -56,7 +56,7 @@ The 13 indexable canonical pages appear in `sitemap.xml`. `robots.txt` permits p
 | Google Maps links for ATM, pharmacy or beach, with directions/hours/reviews | Brief §1 maps row; IMG_1707/1708 | Home and guides. Location excerpt says confirm on arrival; not a present-tense claim that an ATM is operating |
 | Scotiabank at Rawson Square and Bay Street | Supplied IMG_1707/1708 | Dated, shortened chat excerpt only; no current hours, fees or “closest” guarantee |
 | Goldie’s Conch House at Arawak Cay; pictured conch salad $15, cracked conch $16, banner 10% VAT + 15% gratuity | Brief §1 photo row; IMG_1721/1722 | Dated October 2026 proof caption. Confirm current prices. No general price list or rule for other businesses |
-| Automated answers during access; founder reachable daily 12–5 PM ET; type HUMAN | Brief §1 human row; Concierge Terms “Support” | Hero, pricing, FAQ, final CTA and llms.txt; no 24-hour human claim |
+| Automated answers during access; founder reachable daily 12–5 PM ET; type HUMAN | Brief §1 human row; Concierge Terms “Support” | Hero, pricing, FAQ and llms.txt; no 24-hour human claim |
 | Included assistance through the end of the Nassau port day | Concierge Terms “What you get” | Terms override the brief’s next-morning cutoff |
 | Spanish questions receive Spanish answers | Brief §1 Spanish row | FAQ, app and MSC guides, llms.txt |
 | Tours optional; check fit before leave-by; commission may be earned | Brief §1 optional tours; §2B; IMG_1730 | Home tour section, tour chat excerpt, guides and llms.txt |
@@ -156,6 +156,7 @@ Both updated pages meet Performance ≥90, SEO 100 and CLS <0.1. The timing guid
 - **Access duration:** the brief says approximately 8 AM ET the next morning; Concierge Terms say through the end of the Nassau port day. The terms wording is used everywhere. Legal copy was not changed.
 - **Legal name:** the brief says “VMA Management LLC”; existing legal pages say “VMAManagement LLC.” Structured data uses the existing legal spelling.
 - **Privacy:** “photos stay only on your phone” would overstate the policy. Copy scopes non-storage to the concierge engine and acknowledges processing by service providers. TODO(Cam): confirm this engine assertion against the deployed media pipeline before publication.
+- **Closing card:** Cam requested removal of the repeated full service definition from the shared final CTA. It now contains the short heading, WhatsApp action and group-price note. This supersedes the brief’s requirement to repeat the definition in every final CTA.
 - **Headline:** retained “Your Nassau port day, planned around your ship’s all-aboard time.” The keyword-explicit alternative “Your Nassau cruise port day plan, built around your ship’s all-aboard time” was considered but not selected without clarity testing. The primary keyword is in the title and first paragraph. This intentionally prioritizes the brief’s keep-the-existing-H1 rule over exact-match H1 wording. Requested route slugs are also retained where they differ from a full question keyword.
 - **Price comparisons:** omitted “less than most excursions” and the beach-club comparison because no current comparable-price evidence was supplied. The $15 group price stands on its own.
 - **Staying aboard:** omitted “a packed ship,” which is not established for a specific sailing. The worth-getting-off guide gives both choices fairly.

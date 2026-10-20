@@ -1,4 +1,4 @@
-import { OFFER } from "@/data/shoreday";
+import Image from "next/image";
 import WhatsAppCta from "@/app/WhatsAppCta";
 export default function FinalCta({ surface }: { surface: string }) {
   return (
@@ -13,7 +13,6 @@ export default function FinalCta({ surface }: { surface: string }) {
       </div>
       <p className="section-kicker">Nassau, at your pace</p>
       <h2>One chat. Your whole Nassau day.</h2>
-      <p>{OFFER}</p>
       <div className="cta-button-group">
         <WhatsAppCta surface={surface} className="final-btn" />
       </div>
@@ -23,4 +22,3 @@ export default function FinalCta({ surface }: { surface: string }) {
     </section>
   );
 }
-import Image from "next/image";
