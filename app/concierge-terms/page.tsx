@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BreadcrumbSchema } from "@/components/marketing/StructuredData";
 import "../legal.css";
 
 const title = "ShoreDay Nassau Concierge — Terms";
@@ -15,12 +16,14 @@ export const metadata: Metadata = {
     url: "/concierge-terms",
     siteName: "ShoreDay",
     type: "website",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
 };
 
 export default function ConciergeTerms() {
   return (
     <main className="legal">
+      <BreadcrumbSchema title="Concierge Terms" path="/concierge-terms" />
       <h1>ShoreDay Nassau Concierge — Terms</h1>
 
       <h2>What you get</h2>

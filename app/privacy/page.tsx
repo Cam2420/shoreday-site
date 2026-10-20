@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BreadcrumbSchema } from "@/components/marketing/StructuredData";
 import "../legal.css";
 
 export const metadata: Metadata = {
@@ -13,12 +14,14 @@ export const metadata: Metadata = {
     url: "/privacy",
     siteName: "ShoreDay",
     type: "website",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
 };
 
 export default function PrivacyPolicy() {
   return (
     <main className="legal">
+      <BreadcrumbSchema title="Privacy Policy" path="/privacy" />
       <h1>ShoreDay Privacy Policy</h1>
       <p>
         <strong>Last Updated: September 30, 2026</strong>
