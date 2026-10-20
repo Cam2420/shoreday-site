@@ -110,7 +110,7 @@ export default function Home() {
               </p>
               <div className="hero-cta-stack">
                 <WhatsAppCta surface="home_hero" className="hero-primary-cta">
-                  Start in WhatsApp <span>(free to message)</span>
+                  Start in WhatsApp
                 </WhatsAppCta>
                 <p className="hero-microcopy">
                   <strong>$15 once for your whole group.</strong> Food, rides
