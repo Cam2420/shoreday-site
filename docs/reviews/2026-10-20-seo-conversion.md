@@ -1,0 +1,166 @@
+# ShoreDay SEO and conversion review — October 20, 2026
+
+Visitors now see the $15 group offer, offline backup, human support window and refund condition before the longer homepage story. The page presents one WhatsApp conversation, with a realistic iPhone and light-mode adaptations of Cam’s supplied chats. Six Nassau guides and three ship pages lead to the same unchanged WhatsApp entry point.
+
+Draft for Cam’s claims and visual review. No production deployment or merge. `vercel.json` disables automatic Git deployment only for `codex/shoreday-live-edits`, following [Vercel’s branch deployment setting](https://vercel.com/docs/project-configuration/git-configuration#git.deploymentenabled). Production remains on `main`.
+
+## Pages and metadata
+
+| Page | Title | Meta description | H1 | Primary keyword |
+|---|---|---|---|---|
+| / | Nassau Cruise Port Day Plan \| ShoreDay | Your Nassau day in one WhatsApp chat: a personal plan, offline PDF, photo answers and voice notes. $15 once for your whole group. | Your Nassau port day, planned around your ship’s all-aboard time. | nassau cruise port day plan |
+| /nassau-cruise-app | Nassau Cruise App: One WhatsApp Chat \| ShoreDay | Your Nassau cruise app can be a WhatsApp chat. Keep your plan, PDF, voice notes and photo answers together. $15 once for your whole group. | Your Nassau cruise app is a WhatsApp chat. | nassau cruise app |
+| /nassau-cruise-port-walking-distance | Things to Do Near Nassau Cruise Port Walking Distance | Plan a walk from Nassau cruise port around your group, a food or heritage stop and your return time. $15 once for your whole group. | Things to do near Nassau cruise port, within walking distance. | things to do near nassau cruise port walking distance |
+| /nassau-all-aboard-time | What Time Do I Need to Be Back on the Ship in Nassau? | Understand Nassau all-aboard, back-at-pier and leave-by times. Work backward from your ship’s own deadline. $15 once for your whole group. | What time do I need to be back on the ship in Nassau? | what time do I need to be back on the ship in nassau |
+| /nassau-cruise-with-kids | Nassau Cruise Port With Kids \| ShoreDay | Build a Nassau cruise port day around your kids’ ages, walking preferences and ship’s return time. $15 once for your whole group. | Nassau cruise port with kids: plan for your family’s pace. | nassau cruise port with kids |
+| /is-nassau-worth-getting-off-the-ship | Is It Worth Getting Off the Ship in Nassau? \| ShoreDay | First Nassau visit or repeat cruise? Choose a short day for your interests, group and ship’s clock. $15 once for your whole group. | Is it worth getting off the ship in Nassau? | is it worth getting off the ship in nassau |
+| /nassau-cash-or-card | How Much Cash Do I Need in Nassau? \| ShoreDay | Plan Nassau spending around food, rides and tours. Ask about payment, extra charges and menu photos. $15 once for your whole group. | How much cash do I need in Nassau? | how much cash do I need in nassau |
+| /ships/wonder-of-the-seas-nassau | Wonder of the Seas Nassau Itinerary \| ShoreDay | Plan your Wonder of the Seas Nassau itinerary around your ship’s all-aboard time, group and budget. $15 once for your whole group. | Your Wonder of the Seas Nassau itinerary, at your pace. | wonder of the seas nassau itinerary |
+| /ships/disney-wish-nassau | Disney Wish Nassau Itinerary \| ShoreDay | Plan your Disney Wish Nassau itinerary with children’s ages, walking preferences and return time in mind. $15 once for your whole group. | Your Disney Wish Nassau itinerary, built for your group. | disney wish nassau itinerary |
+| /ships/msc-seaside-nassau | MSC Seaside Nassau Itinerary \| ShoreDay | Shape your MSC Seaside Nassau itinerary around local food, a walk or a beach and your ship’s return time. $15 once for your whole group. | Your MSC Seaside Nassau itinerary, in one chat. | msc seaside nassau itinerary |
+| /concierge-terms | ShoreDay Nassau Concierge — Terms | What the $15 ShoreDay Nassau Concierge includes, refunds, and support. | ShoreDay Nassau Concierge — Terms | Existing legal/resource page; no new target |
+| /privacy | ShoreDay – Privacy Policy | How VMAManagement LLC (ShoreDay) collects, uses, and protects your personal information. | ShoreDay Privacy Policy | Existing legal/resource page; no new target |
+| /terms | ShoreDay – Terms of Service | The Terms of Service governing your use of the ShoreDay app by VMAManagement LLC. | ShoreDay Terms of Service | Existing legal/resource page; no new target |
+| /nassau-cheat-sheet | Free Nassau Survival Card \| ShoreDay | Get the free Nassau Survival Card with all-aboard timing, taxi-fare guidance, and practical tips for your cruise stop. | The Nassau Survival Card | Existing legal/resource page; no new target |
+| /nassau-survival-card | Nassau Survival Card \| ShoreDay | Plan your Nassau port day around all-aboard timing, local food and a realistic return window. $15 once for your whole group. | Make Nassau feel simple before you step off the ship | Existing legal/resource page; no new target |
+
+Additional changes: `/concierge-terms`, `/privacy` and `/terms` gain shared social imagery and breadcrumb schema; their legal bodies are unchanged. `/nassau-survival-card` loses unsupported fare tables and negative vendor language. `/nassau-cheat-sheet` loses “traps” and unverified savings copy; it remains noindex and unlinked. Existing planner, results, checkout and PDF-delivery flows are preserved.
+
+The 13 indexable canonical pages appear in `sitemap.xml`. `robots.txt` permits page crawling, excludes `/api/`, and points to the sitemap. Noindex funnel routes are excluded from the sitemap without blocking crawlers from reading their noindex tags. `/llms.txt` summarizes the same offer and limits.
+
+## Claim-to-source mapping
+
+“Brief” means Cam’s supplied **SEO + conversion update v2, October 20, 2026**. The rows below cover factual claims introduced or retained in this marketing update, including equivalent FAQ, structured-data and llms.txt statements. Unchanged legal documents remain their own source; this update does not certify their legal or technical assertions.
+
+| Claim or factual family | Source | Treatment / locations |
+|---|---|---|
+| $15 USD once, whole group, one WhatsApp number, one Nassau port call | Brief §1 “Offer and terms”; Concierge Terms “What you get” | Home, every final CTA, guides, FAQ, Product/Offer schema, llms.txt |
+| Free to message before purchase | Brief §1 offer; existing Home FAQ | Hero, CTA notes, FAQ and guides |
+| Full refund before the personalized plan is sent; non-refundable afterward unless described service is not provided | Concierge Terms “Refunds” | Home pricing, FAQ, llms.txt and checkout chat excerpt; terms wording wins |
+| Food, rides, activities, admissions and tours cost extra | Brief §1 offer; supplied IMG_1732/1733 | Home, guide FAQs and chat; no bundled tour purchase implied |
+| Independent; unaffiliated with cruise lines or Nassau Cruise Port | Brief §1 offer; Concierge Terms “Important” | Cruise fit line, guides, footer, llms.txt |
+| Nassau only; no planning for other ports or private-island stops | Brief §1 offer | Home and all ship FAQs |
+| Personal plan uses ship, Nassau date, all-aboard, group, budget and day preferences | Brief §1 definition and feature table; §2 audience | Home, guides, final CTA, llms.txt |
+| Plan works backward from all-aboard; leave-by and back-at-pier targets | Brief §1 planning and countdown rows; §4 timing example | Home, timing guide, ship pages, example chat |
+| Ship’s official all-aboard and onboard instructions take priority; times/recommendations are estimates | Concierge Terms “Important”; Brief §1 prohibited claims | Home, timing guide, FAQ and ship pages |
+| All-aboard differs from scheduled departure; pier target is earlier | Brief §3 timing page requirements; §4 worked example | Timing guide; no schedule departure is labeled all-aboard |
+| 7:00 PM minus 60 minutes = 6:00 PM pier; minus 30-minute ride = 5:30 PM leave-by | Brief §4 worked example; arithmetic | Explicit illustrative allowances, not a universal buffer or actual route estimate |
+| At 11:36 AM, 5:30 PM is 5 hours 54 minutes away | Brief §1 countdown; arithmetic | Explicit illustration in chat and timing guide |
+| Clock calculation is performed by the timing engine | Brief §1 countdown row | Timing guide; not independently exercised against the external concierge |
+| Day shapes: beach/water, walkable downtown, local food, heritage | Brief §1 day-shapes row | Home experience cards and guides; no distances, access or venue hours promised |
+| Send menus, price boards, signs and recognizable landmarks; ask for more detail when unclear | Brief §1 photo row and prohibited claims | Home, FAQ, guides; no location inference from generic scenes |
+| Short videos and PDFs, including excursion confirmations, can be sent | Brief §1 video/PDF row; IMG_1725 | Home, app guide, FAQ and llms.txt |
+| 17-page Playbook: orientation map, timing worksheet, day shapes, page 17 back-to-ship card | Brief §1 offline row; IMG_1725 | Home, PDF card, FAQ and guides |
+| Voice replies when guest speaks first or requests one | Brief §1 voice row; §2A.2 | Feature copy and FAQ. Supplied IMG_1705 proves an incoming voice note and receipt, not an outgoing voice recording |
+| Google Maps links for ATM, pharmacy or beach, with directions/hours/reviews | Brief §1 maps row; IMG_1707/1708 | Home and guides. Location excerpt says confirm on arrival; not a present-tense claim that an ATM is operating |
+| Scotiabank at Rawson Square and Bay Street | Supplied IMG_1707/1708 | Dated, shortened chat excerpt only; no current hours, fees or “closest” guarantee |
+| Goldie’s Conch House at Arawak Cay; pictured conch salad $15, cracked conch $16, banner 10% VAT + 15% gratuity | Brief §1 photo row; IMG_1721/1722 | Dated October 2026 proof caption. Confirm current prices. No general price list or rule for other businesses |
+| Automated answers during access; founder reachable daily 12–5 PM ET; type HUMAN | Brief §1 human row; Concierge Terms “Support” | Hero, pricing, FAQ, final CTA and llms.txt; no 24-hour human claim |
+| Included assistance through the end of the Nassau port day | Concierge Terms “What you get” | Terms override the brief’s next-morning cutoff |
+| Spanish questions receive Spanish answers | Brief §1 Spanish row | FAQ, app and MSC guides, llms.txt |
+| Tours optional; check fit before leave-by; commission may be earned | Brief §1 optional tours; §2B; IMG_1730 | Home tour section, tour chat excerpt, guides and llms.txt |
+| Preview welcome and checkout wording, no subscription, same WhatsApp number at checkout | IMG_1731/1732/1733 | Shortened light-mode excerpts. Buttons are illustrated options, not a checkout integration |
+| WhatsApp is free to download; no separate ShoreDay account/password needed for concierge | Brief §2A.1 and §4 FAQ | Home and app guide. This does not promise WhatsApp itself needs no account |
+| Saved plan and downloaded PDF readable offline; downloaded voice notes replay after playing once while connected | Brief §1 offline; §2 data objection | Home, FAQs and guides; new requests require internet |
+| Check Bahamas coverage before sailing | Brief §2 data objection | Advice only. No carriers, prices or claim that “many US plans” include coverage |
+| Plan, PDF, voice notes and photos remain in WhatsApp history unless deleted; return to same conversation for another $15 call | Brief §2A.4–5 | Home, FAQ, app guide and llms.txt; no cloud backup guarantee |
+| Concierge engine does not store media, while service providers process messages/media | Brief §2A privacy assertion + existing Privacy Policy §§1, 4, 8 | Scoped to engine; avoids promising all providers retain nothing |
+| Parent/adult plans for family; share children’s ages, stroller needs and walking preferences | Brief §2 family audience and §3 kids page; Privacy Policy §10 | Kids and ship guides. Venue access and age rules require confirmation |
+| Re-plan when preferences or ship times change | Brief §2 generic-plan comparison; §4 FAQ | Home and guides; onboard instructions remain final |
+| App premium included for purchaser on iOS/Android; app separate from concierge | Brief §1 app bonus; existing app section/FAQ | Cam-provided entitlement claim; purchaser unlock not independently tested. No automatic plan transfer promised |
+| All 11 cruise lines and any Nassau-calling ship | Brief §2C supplied schedule summary | One data file; no call counts or endorsement imagery in fit list |
+| October 2026 docking about 5:45–9:30 AM; some departures 2:30–3:00 PM, many Carnival 4:00 PM, most Royal Caribbean 5:30 PM | Brief §2C schedule summary | Dated, attributed summary on timing page; original PDF still needed for final verification |
+| Repeat visitors may choose different food, beach or heritage stops for this sailing | Brief §2 repeat audience; §2A.5 | Positioning and advice, no secret-access claim |
+| A plan and budget help guests evaluate offers and agree taxi fares in advance | Brief §2B | Respectful confidence framing; no claims about vendor dishonesty or safety |
+| Wonder short Miami itineraries can include Nassau and CocoCay | [Royal Caribbean’s Wonder itinerary results](https://www.royalcaribbean.com/cruises?country=USA&search=ship%3AWN&shipCode_WN=true), checked Oct 20 | Unique ship context; conditional on guest’s booking, not a fixed schedule |
+| Disney Wish three-/four-night Port Canaveral sailings visit Nassau and Castaway Cay on most sailings | [Disney Cruise Line](https://disneycruise.disney.go.com/en-gb/featured/3-vacations-in-1/), checked Oct 20 | Unique family/private-island context; booking controls |
+| MSC Seaside among short-cruise ships from Miami | [MSC Cruises](https://www.msccruisesusa.com/cruise/weekend-cruises), checked Oct 20 | Unique route context; Ocean Cay conditional, no universal itinerary implied |
+| Operator VMAManagement LLC, support email and existing app store destinations | Existing Concierge Terms and Privacy Policy; existing site links | Exact legal spelling retained; Organization schema and footer |
+| Existing Nassau and app imagery descriptions | Existing site media and `docs/design/ShoreDay-Media-Asset-Map.md` | Retained assets; improved descriptive alt text; no new testimonial or customer proof |
+| Viator tour link and commission disclosure | Existing homepage, Terms §8; Brief §1 | Retained; no booking or payment performed |
+
+Other route planning, breaks, cash/card confirmation, small bills and shorter-day suggestions are advice, not verified business hours, fares, step-free access or payment-acceptance claims. No current Nassau price tables are published.
+
+## Screenshot treatment and remaining proof
+
+All chat UI is light mode. The original site’s iPhone proportions, titanium edge, black bezel, side buttons, Dynamic Island, status icons, doodle background and composer are reused. Chat text is HTML, so it remains readable and keyboard-scrollable rather than a stack of tiny phone screenshots.
+
+The customer journey is: welcome (IMG_1731/1732) → get-plan/checkout excerpt (IMG_1733) → illustrative personal plan and PDF → voice receipt (IMG_1705) → Goldie’s photo/answer (IMG_1721/1722) → location excerpt (IMG_1707/1708) → optional tours (IMG_1730) → illustrative countdown. Excerpts from different sessions are labeled as a sample journey, with no invented timestamps.
+
+The menu and welcome thumbnail use optimized source screenshots and CSS image windows. Full source screenshots are retained in these image files; only the relevant picture appears in the UI:
+
+- `public/images/shoreday/chat/menu-source.webp` — supplied IMG_1721, photographed menu.
+- `public/images/shoreday/chat/welcome-source.webp` — supplied IMG_1731, static video thumbnail. No video file or playable audio was supplied.
+
+The jet-ski/emergency advice above the tour card in IMG_1730 is outside the marketing excerpt. The Cayman menu in IMG_1720 is not presented as Nassau pricing. IMG_1722 shows a Government House photo but not the recognition reply, so no fake recognition exchange is shown.
+
+Optional replacements needed from Cam before converting illustrations into documented product proof:
+
+| Needed evidence | Intended repository path | Current treatment |
+|---|---|---|
+| Personal plan message | `public/images/shoreday/chat/plan-proof.webp` | Labeled illustrative plan |
+| Exact countdown reply and its context | `public/images/shoreday/chat/countdown-proof.webp` | Labeled 11:36 AM / 5:30 PM example |
+| Outgoing voice reply screenshot | `public/images/shoreday/chat/voice-reply-proof.webp` | Supplied incoming-note receipt only |
+| Actual outgoing voice recording, if a playable demo is wanted | `public/audio/shoreday/voice-reply.m4a` | Illustrated waveform, no invented audio |
+| Welcome video, if playback is wanted | `public/videos/shoreday/welcome.mp4` | Screenshot thumbnail labeled as a preview |
+| Government House recognition answer | `public/images/shoreday/chat/government-house-proof.webp` | Not shown as a proven answer |
+
+These paths are review destinations, not broken image references shipped to visitors.
+
+## Proposed WhatsApp attribution — not shipped
+
+The existing link, phone number, QR destination and prefill remain unchanged. Every marketing CTA uses `WhatsAppCta` and `lib/whatsapp.ts`. The proposed additions below require Cam to check the GHL matching rule before any implementation.
+
+| Page | Proposed code | Proposed full link |
+|---|---|---|
+| / | `WEB` | `https://wa.me/17863478064?text=Hi%20ShoreDay!%20My%20cruise%20stops%20in%20Nassau%20(WEB)` |
+| /nassau-cruise-app | `WEB-APP` | `https://wa.me/17863478064?text=Hi%20ShoreDay!%20My%20cruise%20stops%20in%20Nassau%20(WEB-APP)` |
+| /nassau-cruise-port-walking-distance | `WEB-WALK` | `https://wa.me/17863478064?text=Hi%20ShoreDay!%20My%20cruise%20stops%20in%20Nassau%20(WEB-WALK)` |
+| /nassau-all-aboard-time | `WEB-TIME` | `https://wa.me/17863478064?text=Hi%20ShoreDay!%20My%20cruise%20stops%20in%20Nassau%20(WEB-TIME)` |
+| /nassau-cruise-with-kids | `WEB-KIDS` | `https://wa.me/17863478064?text=Hi%20ShoreDay!%20My%20cruise%20stops%20in%20Nassau%20(WEB-KIDS)` |
+| /is-nassau-worth-getting-off-the-ship | `WEB-WORTH` | `https://wa.me/17863478064?text=Hi%20ShoreDay!%20My%20cruise%20stops%20in%20Nassau%20(WEB-WORTH)` |
+| /nassau-cash-or-card | `WEB-CASH` | `https://wa.me/17863478064?text=Hi%20ShoreDay!%20My%20cruise%20stops%20in%20Nassau%20(WEB-CASH)` |
+| /ships/wonder-of-the-seas-nassau | `SHIP-WOS` | `https://wa.me/17863478064?text=Hi%20ShoreDay!%20My%20cruise%20stops%20in%20Nassau%20(SHIP-WOS)` |
+| /ships/disney-wish-nassau | `SHIP-DW` | `https://wa.me/17863478064?text=Hi%20ShoreDay!%20My%20cruise%20stops%20in%20Nassau%20(SHIP-DW)` |
+| /ships/msc-seaside-nassau | `SHIP-MSC` | `https://wa.me/17863478064?text=Hi%20ShoreDay!%20My%20cruise%20stops%20in%20Nassau%20(SHIP-MSC)` |
+
+Clicks retain the existing `whatsapp_click` event and add `whatsapp_cta_click` with the page path and button position through the existing analytics pipeline. No new analytics vendor. External cruise-buddy sharing keeps its existing referral URL; ordinary internal navigation is free of UTM parameters.
+
+## Validation
+
+| Mobile Lighthouse run | Performance | Accessibility | Best practices | SEO | LCP | CLS |
+|---|---:|---:|---:|---:|---:|---:|
+| Home — existing production | 76 | 100 | 75 | 100 | 7.28 s | 0.0000 |
+| Home — unchanged local main baseline | 83 | 100 | 75 | 100 | 4.73 s | 0.0000 |
+| Home — updated local production build | 95 | 100 | 100 | 100 | 2.91 s | 0.0040 |
+| New timing guide — local production build | 98 | 100 | 100 | 100 | 2.39 s | 0.0037 |
+
+Lighthouse 12.8.2, default mobile simulation and throttling, Chrome headless, Next production builds. Runs performed sequentially. The new timing route did not exist before this work: its baseline is **N/A**, not an invented score. Local before/after is the closest comparison; production CDN/network conditions differ. These are lab measurements, not field Core Web Vitals.
+
+Both updated pages meet Performance ≥90, SEO 100 and CLS <0.1. The timing guide also meets LCP <2.5 s. **Homepage LCP is 2.91 s, above the requested 2.5 s target**, although improved from 4.73 s on unchanged local main. Further speed work remains measurable rather than claimed complete. The hero has high fetch priority, responsive WebP delivery and no delayed entrance; the old 1 MB footer background now uses a lazy Next Image.
+
+- Production build with `npm run build -- --webpack`: passed, including TypeScript and all static routes.
+- `npm run typecheck`: passed. ESLint on changed source files: passed.
+- `npm test`: **556 tests passed across 37 files**, including the new analytics payload forwarding test and existing WhatsApp/QR invariants.
+- Built HTML audit: all ten marketing pages have one H1, valid title/description lengths, canonical/social metadata, FAQ schema, breadcrumb schema on subpages, unchanged WhatsApp hrefs, no review/rating schema and no links to the noindex cheat sheet. Internal destination files resolve.
+- Browser checks: desktop, tablet (768 px), mobile (390 px), narrow mobile (320 px), no horizontal page or chat overflow. Keyboard chat scrolling, FAQ disclosure, guide sticky CTA and its page/position attributes checked. No browser console errors in the verification tab.
+- New ship paths are statically generated; unknown ship paths return 404. Sitemap, robots, llms.txt and OG image return successfully.
+- Screenshots and full Lighthouse HTML/JSON reports are saved locally in `outputs/seo-review/` (ignored generated evidence). Key views: `chat-desktop.png`, `chat-mobile.png`, `chat-checkout-desktop.png`, `home-mobile.png`, `home-desktop.png`, `timing-mobile.png`.
+- Local preview uses an empty Mixpanel server token for final browser audits. No checkout submission, WhatsApp message, tour booking, premium unlock or GHL workflow mutation was performed.
+- The environment’s stale Webpack cache required regenerating build cache between builds. No dependency changes or cache files are committed. No new runtime libraries.
+
+
+## Decisions and items for Cam
+
+- **Access duration:** the brief says approximately 8 AM ET the next morning; Concierge Terms say through the end of the Nassau port day. The terms wording is used everywhere. Legal copy was not changed.
+- **Legal name:** the brief says “VMA Management LLC”; existing legal pages say “VMAManagement LLC.” Structured data uses the existing legal spelling.
+- **Privacy:** “photos stay only on your phone” would overstate the policy. Copy scopes non-storage to the concierge engine and acknowledges processing by service providers. TODO(Cam): confirm this engine assertion against the deployed media pipeline before publication.
+- **Headline:** retained “Your Nassau port day, planned around your ship’s all-aboard time.” The keyword-explicit alternative “Your Nassau cruise port day plan, built around your ship’s all-aboard time” was considered but not selected without clarity testing. The primary keyword is in the title and first paragraph. This intentionally prioritizes the brief’s keep-the-existing-H1 rule over exact-match H1 wording. Requested route slugs are also retained where they differ from a full question keyword.
+- **Price comparisons:** omitted “less than most excursions” and the beach-club comparison because no current comparable-price evidence was supplied. The $15 group price stands on its own.
+- **Staying aboard:** omitted “a packed ship,” which is not established for a specific sailing. The worth-getting-off guide gives both choices fairly.
+- **Local details:** no invented walking distances, venue hours, bank fees, taxi fares, accessibility guarantees, fixed berths or ship-specific all-aboard times. TODO(Cam): provide the original Oct 3–Nov 3 schedule and verify ship berth/time patterns before adding them. The three ship pages use sourced itinerary context instead.
+- **App entitlement:** the app-premium bonus is in the brief but was not exercised with a purchase. TODO(Cam): confirm purchaser unlock works on both platforms before publication. The separate app Terms retain their existing standalone pricing.
+- **Chat media:** these are labeled adaptations of owner-supplied conversations, not testimonials or untouched screenshots. No playable recording or video is fabricated. Checkout/tour choices inside the phone are preview artwork; real “Start in WhatsApp” buttons remain outside it.
+- **Reviews:** no testimonials, counts, stars, AggregateRating or Review schema. A comment reserves a future place for permissioned real reviews.
+- **Indexing:** metadata, FAQ markup and llms.txt make the pages readable to crawlers; no claim is made that Google or an AI system will rank, cite or show a rich result.
+- **Next approval:** review the draft, the claims above and missing evidence. No merge, payment, workflow change or deployment is part of this delivery.
