@@ -281,10 +281,10 @@ export function ChatCard({
           <span className="chat-example-label">
             Illustrative timing example
           </span>
-          <ChatBubble sent>
+          <ChatBubble sent time="11:36 AM">
             <p>How much time do I have?</p>
           </ChatBubble>
-          <ChatBubble>
+          <ChatBubble time="11:36 AM">
             <p>At 11:36 AM:</p>
             <p>
               <strong>5 hours and 54 minutes</strong> until your 5:30 PM
