@@ -46,7 +46,7 @@ The 13 indexable canonical pages appear in `sitemap.xml`. `robots.txt` permits p
 | All-aboard differs from scheduled departure; pier target is earlier | Brief §3 timing page requirements; §4 worked example | Timing guide; no schedule departure is labeled all-aboard |
 | 7:00 PM minus 60 minutes = 6:00 PM pier; minus 30-minute ride = 5:30 PM leave-by | Brief §4 worked example; arithmetic | Explicit illustrative allowances, not a universal buffer or actual route estimate |
 | At 11:36 AM, 5:30 PM is 5 hours 54 minutes away | Brief §1 countdown; arithmetic | Explicit illustration in chat and timing guide |
-| Clock calculation is performed by the timing engine | Brief §1 countdown row | Timing guide; not independently exercised against the external concierge |
+| Exact countdown requested in chat | Brief §1 countdown row; arithmetic worked example | Removed unverified implementation detail about the external engine |
 | Day shapes: beach/water, walkable downtown, local food, heritage | Brief §1 day-shapes row | Home experience cards and guides; no distances, access or venue hours promised |
 | Send menus, price boards, signs and recognizable landmarks; ask for more detail when unclear | Brief §1 photo row and prohibited claims | Home, FAQ, guides; no location inference from generic scenes |
 | Government House on Mount Fitzwilliam in downtown Nassau; statue on front steps | Cam’s supplied `Screenshot 2026-10-20 at 1.38.04 PM.png`, showing both photo and recognition reply | “Snap it. Ask it.” feature tile, shortened light-mode excerpt. No added residence or access claims |
@@ -57,7 +57,7 @@ The 13 indexable canonical pages appear in `sitemap.xml`. `robots.txt` permits p
 | Weather questions in the same chat | Owner-supplied IMG_1736 | Weather exchange replaces the ATM question in the scrolling phone only. Explicitly labeled an October 2026 example, not a live forecast |
 | Scotiabank at Rawson Square and Bay Street | Supplied IMG_1707/1708 | Dated, shortened chat excerpt only; no current hours, fees or “closest” guarantee |
 | Goldie’s Conch House at Arawak Cay; pictured conch salad $15, cracked conch $16, banner 10% VAT + 15% gratuity | Brief §1 photo row; IMG_1721/1722 | Dated October 2026 proof caption. Confirm current prices. No general price list or rule for other businesses |
-| Automated answers during access; local person available daily 12–5 PM ET; type HUMAN | Owner’s latest October 20 support-hours instruction; Concierge Terms “Support” | Hero, pricing, FAQ, Concierge Terms “Support” and llms.txt use 12–5 PM ET; no 24-hour human claim |
+| Automated answers during access; real person available daily 12–5 PM ET; type HUMAN | Owner’s latest October 20 support-hours instruction; Concierge Terms “Support” | Hero, pricing, FAQ, Concierge Terms “Support” and llms.txt use 12–5 PM ET; no 24-hour human claim |
 | Included assistance through the end of the Nassau port day | Concierge Terms “What you get” | Terms override the brief’s next-morning cutoff |
 | Spanish questions receive Spanish answers | Brief §1 Spanish row | FAQ, app and MSC guides, llms.txt |
 | Tours optional; check fit before leave-by; commission may be earned | Brief §1 optional tours; §2B; IMG_1730 | Home tour section, tour chat excerpt, guides and llms.txt |
@@ -71,12 +71,12 @@ The 13 indexable canonical pages appear in `sitemap.xml`. `robots.txt` permits p
 | Re-plan when preferences or ship times change | Brief §2 generic-plan comparison; §4 FAQ | Home and guides; onboard instructions remain final |
 | App premium included for purchaser on iOS/Android; app separate from concierge | Brief §1 app bonus; existing app section/FAQ | Cam-provided entitlement claim; purchaser unlock not independently tested. No automatic plan transfer promised |
 | All 11 cruise lines and any Nassau-calling ship | Brief §2C supplied schedule summary | One data file; no call counts or endorsement imagery in fit list |
-| October 2026 docking about 5:45–9:30 AM; some departures 2:30–3:00 PM, many Carnival 4:00 PM, most Royal Caribbean 5:30 PM | Brief §2C schedule summary | Dated, attributed summary on timing page; original PDF still needed for final verification |
+| Specific October docking and departure patterns | TODO(Cam): original port schedule PDF | Removed from public timing guide pending the primary document |
 | Repeat visitors may choose different food, beach or heritage stops for this sailing | Brief §2 repeat audience; §2A.5 | Positioning and advice, no secret-access claim |
 | A plan and budget help guests evaluate offers and agree taxi fares in advance | Brief §2B | Respectful confidence framing; no claims about vendor dishonesty or safety |
 | Wonder short Miami itineraries can include Nassau and CocoCay | [Royal Caribbean’s Wonder itinerary results](https://www.royalcaribbean.com/cruises?country=USA&search=ship%3AWN&shipCode_WN=true), checked Oct 20 | Unique ship context; conditional on guest’s booking, not a fixed schedule |
 | Disney Wish three-/four-night Port Canaveral sailings visit Nassau and Castaway Cay on most sailings | [Disney Cruise Line](https://disneycruise.disney.go.com/en-gb/featured/3-vacations-in-1/), checked Oct 20 | Unique family/private-island context; booking controls |
-| MSC Seaside among short-cruise ships from Miami | [MSC Cruises](https://www.msccruisesusa.com/cruise/weekend-cruises), checked Oct 20 | Unique route context; Ocean Cay conditional, no universal itinerary implied |
+| MSC Seaside listed among Caribbean ships; Nassau and Ocean Cay listed as destinations | [MSC Cruises](https://www.msccruisesusa.com/destinations/caribbean), checked Oct 20 | Unique route context; Ocean Cay conditional, no universal itinerary implied |
 | Operator VMAManagement LLC, support email and existing app store destinations | Existing Concierge Terms and Privacy Policy; existing site links | Exact legal spelling retained; Organization schema and footer |
 | Existing Nassau and app imagery descriptions | Existing site media and `docs/design/ShoreDay-Media-Asset-Map.md` | Retained assets; improved descriptive alt text; no new testimonial or customer proof |
 | Viator tour link and commission disclosure | Existing homepage, Terms §8; Brief §1 | Retained; no booking or payment performed |
@@ -117,24 +117,9 @@ Optional replacements needed from Cam before converting illustrations into docum
 
 These paths are review destinations, not broken image references shipped to visitors.
 
-## Proposed WhatsApp attribution — not shipped
+## WhatsApp link invariant
 
-The existing link, phone number, QR destination and prefill remain unchanged. Every marketing CTA uses `WhatsAppCta` and `lib/whatsapp.ts`. The proposed additions below require Cam to check the GHL matching rule before any implementation.
-
-| Page | Proposed code | Proposed full link |
-|---|---|---|
-| / | `WEB` | `https://wa.me/17863478064?text=Hi%20ShoreDay!%20My%20cruise%20stops%20in%20Nassau%20(WEB)` |
-| /nassau-cruise-app | `WEB-APP` | `https://wa.me/17863478064?text=Hi%20ShoreDay!%20My%20cruise%20stops%20in%20Nassau%20(WEB-APP)` |
-| /nassau-cruise-port-walking-distance | `WEB-WALK` | `https://wa.me/17863478064?text=Hi%20ShoreDay!%20My%20cruise%20stops%20in%20Nassau%20(WEB-WALK)` |
-| /nassau-all-aboard-time | `WEB-TIME` | `https://wa.me/17863478064?text=Hi%20ShoreDay!%20My%20cruise%20stops%20in%20Nassau%20(WEB-TIME)` |
-| /nassau-cruise-with-kids | `WEB-KIDS` | `https://wa.me/17863478064?text=Hi%20ShoreDay!%20My%20cruise%20stops%20in%20Nassau%20(WEB-KIDS)` |
-| /is-nassau-worth-getting-off-the-ship | `WEB-WORTH` | `https://wa.me/17863478064?text=Hi%20ShoreDay!%20My%20cruise%20stops%20in%20Nassau%20(WEB-WORTH)` |
-| /nassau-cash-or-card | `WEB-CASH` | `https://wa.me/17863478064?text=Hi%20ShoreDay!%20My%20cruise%20stops%20in%20Nassau%20(WEB-CASH)` |
-| /ships/wonder-of-the-seas-nassau | `SHIP-WOS` | `https://wa.me/17863478064?text=Hi%20ShoreDay!%20My%20cruise%20stops%20in%20Nassau%20(SHIP-WOS)` |
-| /ships/disney-wish-nassau | `SHIP-DW` | `https://wa.me/17863478064?text=Hi%20ShoreDay!%20My%20cruise%20stops%20in%20Nassau%20(SHIP-DW)` |
-| /ships/msc-seaside-nassau | `SHIP-MSC` | `https://wa.me/17863478064?text=Hi%20ShoreDay!%20My%20cruise%20stops%20in%20Nassau%20(SHIP-MSC)` |
-
-Clicks retain the existing `whatsapp_click` event and add `whatsapp_cta_click` with the page path and button position through the existing analytics pipeline. No new analytics vendor. External cruise-buddy sharing keeps its existing referral URL; ordinary internal navigation is free of UTM parameters.
+No attribution codes are shipped or proposed. All chat CTAs and the QR retain the exact prefill “Hi ShoreDay! My cruise stops in Nassau”. Tracking stays in the existing website event pipeline, outside the message text.
 
 ## Validation
 
@@ -163,12 +148,12 @@ Both updated pages meet Performance ≥90, SEO 100 and CLS <0.1. The timing guid
 ## Decisions and items for Cam
 
 - **Current price and support hours:** Cam’s latest instruction sets the Nassau concierge offer to $9.99 per group and restores local human support to daily 12–5 PM ET. These values supersede earlier price and support-hour instructions. The update covers homepage/guide/ship copy, FAQs, the chat offer and checkout previews, sticky/final CTAs, concierge terms, structured data, metadata, social images and llms.txt. Goldie’s photographed menu prices, third-party excursion prices and separate native-app purchase options are unchanged.
-- **Separate hosted checkout:** the existing payment link displays the product, subtotal and total as $9.99. Its consent sentence below the payment button still says “$15/group.” That sentence belongs to the live GoHighLevel payment-link settings, outside this repository, and was not edited or published. Remaining change in GoHighLevel: Payments → Payment Links → open the ShoreDay Nassau Concierge payment link → Add Terms and Conditions → replace only “$15/group” with “$9.99/group,” keeping the policy and Terms link. [Official HighLevel instructions](https://help.gohighlevel.com/support/solutions/articles/155000005547). No payment details were entered and no purchase was performed.
+- **Separate hosted checkout:** the existing payment link displays the product, subtotal and total as $9.99. Its consent sentence below the payment button still uses the former group price. That sentence belongs to the live GoHighLevel payment-link settings, outside this repository, and was not edited or published. Remaining change in GoHighLevel: Payments → Payment Links → open the ShoreDay Nassau Concierge payment link → Add Terms and Conditions → replace the former group price with “$9.99/group,” keeping the policy and Terms link. [Official HighLevel instructions](https://help.gohighlevel.com/support/solutions/articles/155000005547). No payment details were entered and no purchase was performed.
 - **Access duration:** the brief says approximately 8 AM ET the next morning; Concierge Terms say through the end of the Nassau port day. The terms’ access-duration wording is retained and used everywhere.
 - **Legal name:** the brief says “VMA Management LLC”; existing legal pages say “VMAManagement LLC.” Structured data uses the existing legal spelling.
 - **Privacy:** “photos stay only on your phone” would overstate the policy. Copy scopes non-storage to the concierge engine and acknowledges processing by service providers. TODO(Cam): confirm this engine assertion against the deployed media pipeline before publication.
 - **Closing card:** Cam requested removal of the repeated full service definition from the shared final CTA. It now contains the short heading, WhatsApp action and group-price note. This supersedes the brief’s requirement to repeat the definition in every final CTA.
-- **Headline:** “Your Nassau port-day concierge, built around your ship’s all-aboard time.” The supporting line reads “A Nassau trained assistant. A local person available daily 12–5 PM ET.” This owner-selected wording supersedes the brief’s keep-the-existing-H1 rule. The primary keyword remains in the title and one-chat introduction. Requested route slugs are retained where they differ from a full question keyword.
+- **Headline:** “Your Nassau port-day concierge, built around your ship’s all-aboard time.” The supporting line reads “A Nassau trained assistant. A real person available daily 12–5 PM ET.” This owner-selected wording supersedes the brief’s keep-the-existing-H1 rule. The primary keyword remains in the title and one-chat introduction. Requested route slugs are retained where they differ from a full question keyword.
 - **Price comparisons:** omitted “less than most excursions” and the beach-club comparison because no current comparable-price evidence was supplied. The $9.99 group price stands on its own.
 - **Staying aboard:** omitted “a packed ship,” which is not established for a specific sailing. The worth-getting-off guide gives both choices fairly.
 - **Local details:** no invented walking distances, venue hours, bank fees, taxi fares, accessibility guarantees, fixed berths or ship-specific all-aboard times. TODO(Cam): provide the original Oct 3–Nov 3 schedule and verify ship berth/time patterns before adding them. The three ship pages use sourced itinerary context instead.
@@ -202,4 +187,8 @@ Validation: production build and TypeScript passed; changed-file ESLint and diff
 
 ## $9.99 offer and restored support hours — validation
 
-Production build and TypeScript passed; changed-file ESLint and whitespace checks passed. Existing WhatsApp/QR invariant checks passed (12 tests). A built-page audit covered 13 routes, confirming no stale concierge $15 copy, no old 1–5 PM ET window, descriptions within 160 characters, and a USD 9.99 structured offer. Remaining $15 references on those pages are only the supplied Goldie’s menu price. Browser checks covered desktop, the updated chat offer, a 320 px mobile layout/sticky CTA, concierge terms, both social images and the separate hosted checkout. No horizontal page overflow or browser console errors. Evidence is saved in outputs/seo-review/nine-ninety-nine-audit.json and nine-ninety-nine-*.png; the separate hosted-checkout note is recorded in connected-checkout-price-note.png. No deployment or hosted-payment mutation.
+Production build and TypeScript passed; changed-file ESLint and whitespace checks passed. Existing WhatsApp/QR invariant checks passed (12 tests). A built-page audit covered 13 routes, confirming no stale concierge offer copy, only the restored support window, descriptions within 160 characters, and a USD 9.99 structured offer. Remaining $15 references on those pages are only the supplied Goldie’s menu price. Browser checks covered desktop, the updated chat offer, a 320 px mobile layout/sticky CTA, concierge terms, both social images and the separate hosted checkout. No horizontal page overflow or browser console errors. Evidence is saved in outputs/seo-review/nine-ninety-nine-audit.json and nine-ninety-nine-*.png; the separate hosted-checkout note is recorded in connected-checkout-price-note.png. No deployment or hosted-payment mutation.
+
+## Prepublication audit supersedes earlier checks
+
+See [2026-10-20-prepublish-audit.md](2026-10-20-prepublish-audit.md) for the current claim register, privacy changes, exact-link checks, screenshot fidelity inventory and fresh Lighthouse results. Earlier metrics above are historical comparisons. No deployment.

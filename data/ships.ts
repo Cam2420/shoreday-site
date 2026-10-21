@@ -145,16 +145,16 @@ export const SHIP_GUIDES: ShipGuide[] = [
     eyebrow: "For MSC Seaside passengers",
     intro:
       "Build your MSC Seaside Nassau itinerary from the ship’s all-aboard time, your budget and what you enjoy. Keep your Nassau plan separate from any Ocean Cay day on your booking.",
-    sourceUrl: "https://www.msccruisesusa.com/cruise/weekend-cruises",
-    sourceLabel: "MSC Cruises’ short cruise options",
+    sourceUrl: "https://www.msccruisesusa.com/destinations/caribbean",
+    sourceLabel: "MSC Cruises’ Caribbean destinations and ships",
     sourceNote:
-      "MSC lists Seaside among its short-cruise ships sailing from Miami. Check your booking for Nassau and any Ocean Cay stop.",
+      "MSC lists Seaside among its Caribbean ships, and Nassau and Ocean Cay among its destinations. This does not confirm the route for your sailing; check your own booking.",
     sections: [
       {
         title: "How is Nassau different from an Ocean Cay stop?",
         paragraphs: [
           "Treat Nassau as its own port day with its own return deadline. If Ocean Cay is on your booking, use Nassau for the day shape you prefer.",
-          "MSC lists Seaside among its short-cruise options from Miami. Routes and port order depend on the sailing you booked.",
+          "MSC lists Nassau and Ocean Cay among its Caribbean destinations. Routes and port order depend on the sailing you booked.",
           "Choose local food, heritage, a downtown loop or beach time. ShoreDay covers Nassau only, not Ocean Cay.",
         ],
       },

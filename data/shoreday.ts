@@ -1,6 +1,6 @@
 export const SITE_URL = "https://shoredayapp.com";
 export const OFFER =
-  "ShoreDay is a $9.99 Nassau port-day plan for cruise passengers. Send your ship, Nassau date and all-aboard time on WhatsApp. An automated assistant builds your day backward from that time, with a 17-page offline PDF kit as backup. A local person is reachable daily 12–5 PM ET.";
+  "ShoreDay is a $9.99 Nassau port-day plan for cruise passengers. Send your ship, Nassau date and all-aboard time on WhatsApp. An automated assistant builds your day backward from that time, with a 17-page offline PDF kit as backup. A real person available daily 12–5 PM ET.";
 export const APP_STORE_URL = "https://apps.apple.com/app/id6761083487";
 export const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.vmamanagement.shoreday";

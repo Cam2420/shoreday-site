@@ -61,8 +61,8 @@ export function GovernmentHouseReply() {
   return (
     <p>
       🏛️ That is <strong>Government House</strong> on Mount Fitzwilliam in
-      downtown Nassau, with the statue of Christopher Columbus on the front
-      steps.
+      downtown Nassau. The photo shows the statue of Christopher Columbus on
+      the front steps.
     </p>
   );
 }
@@ -190,7 +190,7 @@ function AtmReply() {
         href="https://maps.google.com/maps?cid=10398610039722622302"
         target="_blank"
         rel="noreferrer"
-        aria-label="Open Scotiabank at Rawson Square and Bay Street on Google Maps"
+        aria-label="Scotiabank · Rawson Square & Bay St, Nassau, Bahamas — maps.google.com (opens in a new tab)"
       >
         <span className="chat-map-thumbnail">
           <Image
@@ -212,10 +212,9 @@ function AtmReply() {
         </span>
       </a>
       <p>
-        💵 The closest bank ATM right outside the cruise port gate is at
-        Scotiabank, located at Rawson Square and Bay Street.
+        💵 This example points to Scotiabank at Rawson Square and Bay Street.
       </p>
-      <p>I checked just now — please confirm when you arrive.</p>
+      <p>Please confirm the ATM details when you arrive.</p>
     </>
   );
 }

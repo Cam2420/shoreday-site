@@ -189,15 +189,13 @@ export const GUIDES: Guide[] = [
         title: "Why shouldn’t I copy another ship’s schedule?",
         paragraphs: [
           "Nassau departure times vary. Your ship’s own all-aboard time decides your usable window ashore.",
-          "Cam’s October 2026 port-schedule summary includes morning docking around 5:45–9:30 AM and departures as early as 2:30–3:00 PM.",
-          "That summary includes many Carnival departures at 4:00 PM and most Royal Caribbean departures at 5:30 PM. Those are departure patterns, not your all-aboard deadline.",
         ],
       },
       {
         title: "Can ShoreDay tell me exactly how much time is left?",
         paragraphs: [
           "Yes. Ask “how much time do I have?” for your leave-by time, pier target and exact countdown.",
-          "The timing engine calculates the clock difference. It still depends on the correct all-aboard time you provide.",
+          "The countdown depends on the correct all-aboard time you provide.",
           "For a 5:30 PM leave-by, the time remaining at 11:36 AM is 5 hours and 54 minutes. This is an example.",
         ],
       },

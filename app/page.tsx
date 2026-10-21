@@ -52,7 +52,7 @@ const FEATURES = [
     title: "A place. A link. Your next stop.",
     copy: "Ask for an ATM, pharmacy or beach. Get a Google Maps link for directions, hours and reviews.",
     caption:
-      "ATM reply and Maps preview · Oct 2026. Supplied chat excerpt; confirm details before going.",
+      "ATM reply and Maps preview · Oct 2026. Adapted from the supplied chat; confirm details before going.",
   },
   {
     type: "countdown",
@@ -106,7 +106,7 @@ export default function Home() {
                 all-aboard time.
               </h1>
               <p className="hero-human">
-                A Nassau trained assistant. A local person available daily
+                A Nassau trained assistant. A real person available daily
                 12–5 PM ET.
               </p>
               <div className="hero-cta-stack">

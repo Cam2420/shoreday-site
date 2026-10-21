@@ -24,7 +24,7 @@ export default function NassauCheatSheet() {
         <div className="subtitle">Timing, Local Food &amp; Your Return Plan</div>
 
         <p className="description">
-          Enter your email to get instant access to a practical one-page guide
+          Enter your email to request the free Nassau Survival Card
           for planning around your all-aboard time and spending smarter in
           Nassau.
         </p>
@@ -39,7 +39,7 @@ export default function NassauCheatSheet() {
               marginBottom: 20,
             }}
           >
-            Free • No spam • Unsubscribe anytime
+            Free email guide
           </div>
         </div>
 

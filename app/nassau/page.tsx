@@ -43,7 +43,7 @@ export default function NassauLanding() {
           <div className="nl-funnel-card" aria-label="Port-window calculator start">
             <div className="nl-card-topline">
               <span className="nl-step-pill">Start here</span>
-              <span>About a minute</span>
+              <span>Your cruise details</span>
             </div>
             <h2>Start your Nassau port window</h2>
             <p className="nl-funnel-copy">
@@ -141,8 +141,7 @@ export default function NassauLanding() {
         </div>
         <p className="nl-affiliate-disclosure">
           Disclosure: the excursion step links to Viator, and ShoreDay may earn a
-          commission if you book through a Viator link. It doesn&rsquo;t change the
-          price you pay.
+          commission if you book through a Viator link.
         </p>
       </section>
 

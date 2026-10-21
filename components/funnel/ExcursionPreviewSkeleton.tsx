@@ -14,13 +14,12 @@ export default function ExcursionPreviewSkeleton() {
         <div className="fn-skel-chip" />
       </div>
       <p className="fn-skel-note">
-        A safe next step for checking Nassau excursion availability appears once your
+        A link for checking Nassau excursion availability appears once your
         plan is unlocked.
       </p>
       <p className="fn-affiliate-disclosure">
-        Disclosure: excursion availability is checked via Viator, and ShoreDay may
-        earn a commission if you book through a Viator link. It doesn&rsquo;t change
-        the price you pay.
+        Disclosure: excursion links open Viator, and ShoreDay may
+        earn a commission if you book through a Viator link.
       </p>
     </div>
   );
