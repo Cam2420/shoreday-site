@@ -64,7 +64,7 @@
   gap: 10px;
   text-decoration: none;
 }
-.home .logo span {
+.home .logo .sd-day {
   color: var(--lagoon);
 }
 
