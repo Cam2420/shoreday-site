@@ -3,15 +3,14 @@
  * color and "Day" renders in the brand teal accent. Wordmark only — the brand
  * icon stays per-surface so each header keeps its own layout/spacing.
  *
- * Renders a fragment (bare "Shore" text + a single accent span) so existing
- * surface rules like `.home .logo span` / `.nl-logo span` keep styling "Day"
- * via specificity; the `.sd-day` class in globals.css is the shared default
- * (used where a surface has no override, e.g. the Nassau planner header).
+ * Keeps the full name in one inline element so flex layouts apply their gap
+ * between the icon and wordmark, never between "Shore" and "Day". Surface
+ * accent rules target `.sd-day`; the surrounding text color stays inherited.
  */
 export default function ShoreDayWordmark() {
   return (
-    <>
+    <span className="sd-wordmark">
       Shore<span className="sd-day">Day</span>
-    </>
+    </span>
   );
 }
