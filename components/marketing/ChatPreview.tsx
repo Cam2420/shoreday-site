@@ -215,6 +215,28 @@ function AtmReply() {
     </>
   );
 }
+function CountdownReply() {
+  return (
+    <>
+      <p>At 11:36 AM:</p>
+      <p>
+        <strong>3 hours and 24 minutes</strong> until your 3:00 PM leave-by.
+      </p>
+      <div className="chat-time-rows">
+        <span>
+          Leave by <b>3:00 PM</b>
+        </span>
+        <span>
+          Back at the pier <b>3:30 PM</b>
+        </span>
+        <span>
+          All-aboard <b>4:30 PM</b>
+        </span>
+      </div>
+      <p>Use your ship’s official all-aboard time.</p>
+    </>
+  );
+}
 export function ChatExcerpt({
   children,
   id,
@@ -299,23 +321,7 @@ export function ChatCard({
             <p>How much time do I have?</p>
           </ChatBubble>
           <ChatBubble time="11:36 AM">
-            <p>At 11:36 AM:</p>
-            <p>
-              <strong>5 hours and 54 minutes</strong> until your 5:30 PM
-              leave-by.
-            </p>
-            <div className="chat-time-rows">
-              <span>
-                Leave by <b>5:30 PM</b>
-              </span>
-              <span>
-                Back at the pier <b>6:00 PM</b>
-              </span>
-              <span>
-                All-aboard <b>7:00 PM</b>
-              </span>
-            </div>
-            <p>Use your ship’s official all-aboard time.</p>
+            <CountdownReply />
           </ChatBubble>
         </>
       )}
@@ -553,18 +559,7 @@ export default function ChatPreview() {
             <p>How much time do I have?</p>
           </ChatBubble>
           <ChatBubble time="11:36 AM">
-            <span className="chat-example-label">
-              Illustrative countdown · 11:36 AM
-            </span>
-            <p>
-              <strong>3 hours and 24 minutes</strong> until your 3:00 PM
-              leave-by.
-            </p>
-            <p>
-              Back at the pier: 3:30 PM.
-              <br />
-              All-aboard: 4:30 PM.
-            </p>
+            <CountdownReply />
           </ChatBubble>
           <ChatBubble sent time="1:15 PM">
             <MenuPhoto />
