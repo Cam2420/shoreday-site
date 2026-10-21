@@ -50,7 +50,7 @@ export default function OpenGraphImage() {
               borderRadius: 30,
             }}
           >
-            $15 for your group
+            $9.99 for your group
           </span>
         </div>
       </div>

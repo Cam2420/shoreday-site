@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | ShoreDay",
   },
   description:
-    "Your Nassau day in one WhatsApp chat, with a personal plan and offline PDF. $15 once for your whole group.",
+    "Your Nassau day in one WhatsApp chat, with a personal plan and offline PDF. $9.99 once for your whole group.",
   openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630 }], siteName: "ShoreDay" },
   twitter: { card: "summary_large_image", images: ["/opengraph-image"] },
   icons: {

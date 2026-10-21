@@ -53,7 +53,7 @@ export default function GuidePage({
           <p className="guide-intro">{guide.intro}</p>
           <WhatsAppCta surface="guide_hero" className="wa-button" />
           <p className="section-note">
-            $15 once for your whole group. Free to message first.
+            $9.99 once for your whole group. Free to message first.
           </p>
           <p className="guide-independent">{INDEPENDENCE}</p>
         </div>

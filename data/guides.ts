@@ -19,7 +19,7 @@ export const GUIDES: Guide[] = [
     slug: "nassau-cruise-app",
     title: "Nassau Cruise App: One WhatsApp Chat | ShoreDay",
     description:
-      "Your Nassau cruise app can be a WhatsApp chat. Keep your plan, PDF, voice notes and photo answers together. $15 once for your whole group.",
+      "Your Nassau cruise app can be a WhatsApp chat. Keep your plan, PDF, voice notes and photo answers together. $9.99 once for your whole group.",
     h1: "Your Nassau cruise app is a WhatsApp chat.",
     keyword: "nassau cruise app",
     eyebrow: "Already booked? Start here.",
@@ -61,7 +61,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           "The chat stays on your phone unless you delete it. Included help runs through the end of your Nassau port day.",
           "The concierge engine does not store media. Your messages and media are processed to answer your questions; see the Privacy Policy.",
-          "Coming back to Nassau? Open the same chat. Each new port call is a separate $15 for your group.",
+          "Coming back to Nassau? Open the same chat. Each new port call is a separate $9.99 for your group.",
         ],
       },
     ],
@@ -72,10 +72,10 @@ export const GUIDES: Guide[] = [
       },
       {
         q: "Is the Nassau concierge a person?",
-        a: "Both an automated assistant and a person. Type HUMAN to reach the founder, available daily 1–5 PM ET.",
+        a: "Both an automated assistant and a person. Type HUMAN to reach the founder, available daily 12–5 PM ET.",
       },
       {
-        q: "Does the $15 cover everyone?",
+        q: "Does the $9.99 cover everyone?",
         a: "It covers one group using one WhatsApp number for one Nassau port call. Food, rides and tours cost extra.",
       },
       {
@@ -94,7 +94,7 @@ export const GUIDES: Guide[] = [
     slug: "nassau-cruise-port-walking-distance",
     title: "Things to Do Near Nassau Cruise Port Walking Distance",
     description:
-      "Plan a walk from Nassau cruise port around your group, a food or heritage stop and your return time. $15 once for your whole group.",
+      "Plan a walk from Nassau cruise port around your group, a food or heritage stop and your return time. $9.99 once for your whole group.",
     h1: "Things to do near Nassau cruise port, within walking distance.",
     keyword: "things to do near nassau cruise port walking distance",
     eyebrow: "A day on foot, at your pace",
@@ -163,7 +163,7 @@ export const GUIDES: Guide[] = [
     slug: "nassau-all-aboard-time",
     title: "What Time Do I Need to Be Back on the Ship in Nassau?",
     description:
-      "Understand Nassau all-aboard, back-at-pier and leave-by times. Work backward from your ship’s own deadline. $15 once for your whole group.",
+      "Understand Nassau all-aboard, back-at-pier and leave-by times. Work backward from your ship’s own deadline. $9.99 once for your whole group.",
     h1: "What time do I need to be back on the ship in Nassau?",
     keyword: "what time do I need to be back on the ship in nassau",
     eyebrow: "The time that shapes your whole day",
@@ -238,7 +238,7 @@ export const GUIDES: Guide[] = [
     slug: "nassau-cruise-with-kids",
     title: "Nassau Cruise Port With Kids | ShoreDay",
     description:
-      "Build a Nassau cruise port day around your kids’ ages, walking preferences and ship’s return time. $15 once for your whole group.",
+      "Build a Nassau cruise port day around your kids’ ages, walking preferences and ship’s return time. $9.99 once for your whole group.",
     h1: "Nassau cruise port with kids: plan for your family’s pace.",
     keyword: "nassau cruise port with kids",
     eyebrow: "Less rushing. More room for your family.",
@@ -283,7 +283,7 @@ export const GUIDES: Guide[] = [
     ],
     faq: [
       {
-        q: "Is the $15 price per child or per person?",
+        q: "Is the $9.99 price per child or per person?",
         a: "Neither. It covers one group, one WhatsApp number and one Nassau port call. Food, rides and tours are extra.",
       },
       {
@@ -309,7 +309,7 @@ export const GUIDES: Guide[] = [
     slug: "is-nassau-worth-getting-off-the-ship",
     title: "Is It Worth Getting Off the Ship in Nassau? | ShoreDay",
     description:
-      "First Nassau visit or repeat cruise? Choose a short day for your interests, group and ship’s clock. $15 once for your whole group.",
+      "First Nassau visit or repeat cruise? Choose a short day for your interests, group and ship’s clock. $9.99 once for your whole group.",
     h1: "Is it worth getting off the ship in Nassau?",
     keyword: "is it worth getting off the ship in nassau",
     eyebrow: "Make the port day yours",
@@ -343,7 +343,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           "ShoreDay adds your ship’s clock, group’s preferences and a place to ask follow-up questions. The plan stays with your PDF and chat history.",
           "Ask about a price board, send a voice note or check your exact time left. The offline kit is there when you disconnect.",
-          "The $15 covers your group’s planning help. It does not buy transport, meals, admission or a tour.",
+          "The $9.99 covers your group’s planning help. It does not buy transport, meals, admission or a tour.",
         ],
       },
     ],
@@ -354,7 +354,7 @@ export const GUIDES: Guide[] = [
       },
       {
         q: "Is ShoreDay useful if I’ve visited Nassau before?",
-        a: "Yes, if you want a day fitted to this visit’s clock, group and interests. Each Nassau port call is a separate $15 purchase.",
+        a: "Yes, if you want a day fitted to this visit’s clock, group and interests. Each Nassau port call is a separate $9.99 purchase.",
       },
       {
         q: "Can I ask questions before paying?",
@@ -371,7 +371,7 @@ export const GUIDES: Guide[] = [
     slug: "nassau-cash-or-card",
     title: "How Much Cash Do I Need in Nassau? | ShoreDay",
     description:
-      "Plan Nassau spending around food, rides and tours. Ask about payment, extra charges and menu photos. $15 once for your whole group.",
+      "Plan Nassau spending around food, rides and tours. Ask about payment, extra charges and menu photos. $9.99 once for your whole group.",
     h1: "How much cash do I need in Nassau?",
     keyword: "how much cash do I need in nassau",
     eyebrow: "Know your day. Plan your spending.",
@@ -388,7 +388,7 @@ export const GUIDES: Guide[] = [
       {
         title: "What should I include in my budget?",
         paragraphs: [
-          "Include food, rides and any optional tours or admission. These are separate from ShoreDay’s $15 group planning price.",
+          "Include food, rides and any optional tours or admission. These are separate from ShoreDay’s $9.99 group planning price.",
           "Ask whether a quoted amount includes extra charges. Read the price board before ordering or agreeing to a ride.",
         ],
       },
@@ -418,7 +418,7 @@ export const GUIDES: Guide[] = [
     ],
     faq: [
       {
-        q: "Does the $15 include food or taxis?",
+        q: "Does the $9.99 include food or taxis?",
         a: "No. It covers planning help and the offline kit for your group’s Nassau port call. Food, rides and tours cost extra.",
       },
       {

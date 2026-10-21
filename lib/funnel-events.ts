@@ -31,7 +31,7 @@
  *   saved plan viewed       → plan_share   (nearest spec event; saved-link views reuse it)
  *   playbook card viewed    → playbook_card_view   (post-spec; paid Etsy Playbook)
  *   playbook card clicked   → playbook_click       (post-spec; paid Etsy Playbook)
- *   WhatsApp button clicked → whatsapp_click       (post-spec; $15 Nassau Concierge)
+ *   WhatsApp button clicked → whatsapp_click       (post-spec; $9.99 Nassau Concierge)
  *   share card clicked      → whatsapp_share_click (post-spec; "Send to a cruise buddy")
  */
 
@@ -61,7 +61,7 @@ export const FUNNEL_EVENTS = [
   // Paid Nassau Port Day Playbook (Etsy) card in the post-gate planner result.
   'playbook_card_view',
   'playbook_click',
-  // "Open on WhatsApp" button for the $15 Nassau Concierge (homepage section).
+  // "Open on WhatsApp" button for the $9.99 Nassau Concierge (homepage section).
   'whatsapp_click',
   // "Send to a cruise buddy" button on the mobile share card (same section).
   'whatsapp_share_click',

@@ -18,7 +18,7 @@ export default function FinalCta({ surface }: { surface: string }) {
           <WhatsAppCta surface={surface} className="final-btn" />
         </div>
         <p className="final-note">
-          $15 once for your whole group. Free to message first.
+          $9.99 once for your whole group. Free to message first.
         </p>
       </div>
     </section>

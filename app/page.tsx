@@ -25,7 +25,7 @@ import "./marketing.css";
 
 export const metadata = pageMetadata(
   "Nassau Cruise Port Day Plan | ShoreDay",
-  "Your Nassau day in one WhatsApp chat: a personal plan, offline PDF, photo answers and voice notes. $15 once for your whole group.",
+  "Your Nassau day in one WhatsApp chat: a personal plan, offline PDF, photo answers and voice notes. $9.99 once for your whole group.",
   "/",
 );
 
@@ -107,14 +107,14 @@ export default function Home() {
               </h1>
               <p className="hero-human">
                 A Nassau trained assistant. A local person available daily
-                1–5 PM ET.
+                12–5 PM ET.
               </p>
               <div className="hero-cta-stack">
                 <WhatsAppCta surface="home_hero" className="hero-primary-cta">
                   Start in WhatsApp
                 </WhatsAppCta>
                 <p className="hero-microcopy">
-                  <strong>$15 once for your whole group.</strong> Food, rides
+                  <strong>$9.99 once for your whole group.</strong> Food, rides
                   and tours extra.
                 </p>
               </div>
@@ -472,7 +472,7 @@ export default function Home() {
           </p>
           <p>
             Come back to the same chat next time. Each Nassau port call is a
-            separate $15 for your group.
+            separate $9.99 for your group.
           </p>
           <Link
             href="/is-nassau-worth-getting-off-the-ship"
@@ -485,7 +485,7 @@ export default function Home() {
         <section className="price" id="price" aria-labelledby="price-title">
           <div className="price-head">
             <p className="section-kicker">One group. One Nassau port call.</p>
-            <h2 id="price-title">$15 once. Your whole group.</h2>
+            <h2 id="price-title">$9.99 once. Your whole group.</h2>
             <p className="price-lead">
               One payment. One WhatsApp number. Food, rides and tours are paid
               separately.
@@ -501,7 +501,7 @@ export default function Home() {
                 <li>Help through the end of your Nassau port day.</li>
                 <li>
                   Automated replies any time during access. Human help daily
-                  1–5 PM ET.
+                  12–5 PM ET.
                 </li>
                 <li>ShoreDay app premium for the purchaser.</li>
               </ul>

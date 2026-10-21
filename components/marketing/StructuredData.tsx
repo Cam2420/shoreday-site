@@ -54,7 +54,7 @@ export function OfferSchema() {
             brand: { "@id": `${SITE_URL}/#organization` },
             offers: {
               "@type": "Offer",
-              price: "15",
+              price: "9.99",
               priceCurrency: "USD",
               availability: "https://schema.org/InStock",
               url: SITE_URL,

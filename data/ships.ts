@@ -13,7 +13,7 @@ export const SHIP_GUIDES: ShipGuide[] = [
     slug: "wonder-of-the-seas-nassau",
     title: "Wonder of the Seas Nassau Itinerary | ShoreDay",
     description:
-      "Plan your Wonder of the Seas Nassau itinerary around your ship’s all-aboard time, group and budget. $15 once for your whole group.",
+      "Plan your Wonder of the Seas Nassau itinerary around your ship’s all-aboard time, group and budget. $9.99 once for your whole group.",
     keyword: "wonder of the seas nassau itinerary",
     h1: "Your Wonder of the Seas Nassau itinerary, at your pace.",
     eyebrow: "For Wonder of the Seas passengers",
@@ -53,7 +53,7 @@ export const SHIP_GUIDES: ShipGuide[] = [
     faq: [
       {
         q: "Is ShoreDay included with my Royal Caribbean cruise?",
-        a: "No. ShoreDay is an independent $15 planning service for your group and is not affiliated with Royal Caribbean.",
+        a: "No. ShoreDay is an independent $9.99 planning service for your group and is not affiliated with Royal Caribbean.",
       },
       {
         q: "Does every Wonder Nassau call have the same all-aboard time?",
@@ -76,7 +76,7 @@ export const SHIP_GUIDES: ShipGuide[] = [
     slug: "disney-wish-nassau",
     title: "Disney Wish Nassau Itinerary | ShoreDay",
     description:
-      "Plan your Disney Wish Nassau itinerary with children’s ages, walking preferences and return time in mind. $15 once for your whole group.",
+      "Plan your Disney Wish Nassau itinerary with children’s ages, walking preferences and return time in mind. $9.99 once for your whole group.",
     keyword: "disney wish nassau itinerary",
     h1: "Your Disney Wish Nassau itinerary, built for your group.",
     eyebrow: "For Disney Wish passengers",
@@ -139,7 +139,7 @@ export const SHIP_GUIDES: ShipGuide[] = [
     slug: "msc-seaside-nassau",
     title: "MSC Seaside Nassau Itinerary | ShoreDay",
     description:
-      "Shape your MSC Seaside Nassau itinerary around local food, a walk or a beach and your ship’s return time. $15 once for your whole group.",
+      "Shape your MSC Seaside Nassau itinerary around local food, a walk or a beach and your ship’s return time. $9.99 once for your whole group.",
     keyword: "msc seaside nassau itinerary",
     h1: "Your MSC Seaside Nassau itinerary, in one chat.",
     eyebrow: "For MSC Seaside passengers",
@@ -182,7 +182,7 @@ export const SHIP_GUIDES: ShipGuide[] = [
       },
       {
         q: "Does the price include everyone in our cabin?",
-        a: "The $15 covers your planning group using one WhatsApp number for one Nassau port call. It is not a per-person price.",
+        a: "The $9.99 covers your planning group using one WhatsApp number for one Nassau port call. It is not a per-person price.",
       },
       {
         q: "Can I use the Nassau plan on Ocean Cay?",

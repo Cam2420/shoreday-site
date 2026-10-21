@@ -56,7 +56,7 @@ export default function StickyWhatsAppCta() {
         className="wa-sticky-btn"
         watched={false}
       />
-      <span className="wa-sticky-price">$15 per group</span>
+      <span className="wa-sticky-price">$9.99 per group</span>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import "./survival.css";
 export const metadata: Metadata = {
   title: { absolute: "Nassau Survival Card | ShoreDay" },
   description:
-    "Plan your Nassau port day around all-aboard timing, local food and a realistic return window. $15 once for your whole group.",
+    "Plan your Nassau port day around all-aboard timing, local food and a realistic return window. $9.99 once for your whole group.",
   alternates: { canonical: "/nassau-survival-card" },
   robots: { index: false, follow: false },
 };

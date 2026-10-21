@@ -10,7 +10,7 @@ const TRUST_POINTS = [
 ];
 
 /**
- * Homepage "How it works" section for the $15 ShoreDay Nassau Concierge.
+ * Homepage "How it works" section for the $9.99 ShoreDay Nassau Concierge.
  * Keeps id="whatsapp": cruise-buddy share links land on #whatsapp.
  *
  * Left: the three steps of the live flow (welcome card → "Get my plan" →
@@ -122,7 +122,7 @@ Your Nassau port day, planned around your ship's all-aboard time.
 📘 The offline Playbook kit (PDF)
 💬 WhatsApp help all day ashore
 🤖 I'm ShoreDay's automated assistant. Type HUMAN anytime to reach\u00a0support.
-$15 one time for your whole group. About the price of one cruise cocktail\u00a0🍹`;
+$9.99 one time for your whole group. About the price of one cruise cocktail\u00a0🍹`;
 
 const WELCOME_REPLIES = ["🗺️ See a sample", "💬 How it works", "✅ Get my plan"];
 

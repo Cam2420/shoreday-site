@@ -361,7 +361,7 @@ export default function ChatPreview() {
             </p>
             <p>
               <strong>
-                $15 once for your whole group, for one Nassau port day.
+                $9.99 once for your whole group, for one Nassau port day.
               </strong>
             </p>
             <p>
@@ -394,13 +394,13 @@ export default function ChatPreview() {
           </ChatBubble>
           <ChatBubble
             time="9:04 AM"
-            footer={<ReplyOptions items={["↗ Get my plan – $15"]} />}
+            footer={<ReplyOptions items={["↗ Get my plan – $9.99"]} />}
           >
             <p>
-              <strong>Your Nassau plan · $15</strong>
+              <strong>Your Nassau plan · $9.99</strong>
             </p>
             <p>
-              $15 once for your whole group. One Nassau port day. No
+              $9.99 once for your whole group. One Nassau port day. No
               subscription.
             </p>
             <p>
