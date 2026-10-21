@@ -196,3 +196,7 @@ See [2026-10-20-prepublish-audit.md](2026-10-20-prepublish-audit.md) for the cur
 Latest visual correction: removed the six homepage captions requested by Cam: scrolling phone, Government House, voice, ATM, countdown and Goldie’s. Internal source/fidelity notes remain in this review; earlier references to visible captions describe the prior build. Chat content is unchanged.
 
 Cam also requested removal of five in-chat labels: welcome-video preview, weather example, checking your time, questions ashore and menu-prices date. These labels are removed from the scrolling phone; internal source dates and adaptation history remain documented here.
+
+Latest plan correction: replaced the scrolling phone’s short illustrative plan with the beach-first plan from Cam’s IMG_1738/1739. It uses 4:30 PM all-aboard, 3:30 PM pier and 3 PM leave-by. Plan delivered 9:12 AM before 9:30 AM walking / 10 AM beach / 1 PM Fish Fry. Phone voice exchange is 9:15 AM; menu exchange 1:15/1:16 PM; 11:36 AM countdown is 3h24 to 3 PM. Source price ranges and walking estimates are retained as a supplied-chat example. Full fidelity inventory is updated in the prepublication audit. No deployment.
+
+Payment-received correction: IMG_1740 is transcribed below the PDF at 9:06 AM, with spaced numbered requests. Guest supplies sample ship/date, 4:30 PM all-aboard, two adults and a beach-first/local-food preference at 9:08 AM. Plan follows at 9:12 AM. This is presentation only; no payment action or deployment.

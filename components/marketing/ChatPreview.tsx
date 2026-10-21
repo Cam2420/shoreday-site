@@ -427,22 +427,85 @@ export default function ChatPreview() {
               card.
             </p>
           </ChatBubble>
+          <ChatBubble time="9:06 AM">
+            <p>
+              <strong>ShoreDay Concierge 🚢</strong>
+            </p>
+            <p>
+              Payment received ✅ I’m your ShoreDay Nassau concierge. Your
+              offline kit is right above 👆 Save it for the ship.
+            </p>
+            <p>To build your plan, send:</p>
+            <ol className="chat-onboarding-list">
+              <li>Your ship</li>
+              <li>Your Nassau date</li>
+              <li>Your all-aboard time (not departure)</li>
+              <li>Who’s in your group</li>
+            </ol>
+            <p>Or send a photo of your ship’s daily program.</p>
+            <p>First, pick your day style 👇</p>
+            <p className="chat-media-caption">
+              Human help daily 12–5 PM ET · Emergencies: 911/919
+            </p>
+          </ChatBubble>
           <ChatBubble sent time="9:08 AM">
-            <p>We’d love local food and a beach. All-aboard is 7:00 PM.</p>
+            <p>
+              Ship: Wonder of the Seas
+              <br />
+              Nassau date: October 20, 2026
+              <br />
+              All-aboard: 4:30 PM
+              <br />
+              Group: two adults
+            </p>
+            <p>Beach-first with local food, please. Can you plan our day?</p>
           </ChatBubble>
           <ChatBubble time="9:12 AM">
-            <span className="chat-example-label">Illustrative plan</span>
             <p>
-              <strong>A little beach. A little Nassau.</strong>
+              <strong>⏰ Your numbers</strong>
             </p>
             <p>
-              Start with a walk, leave room for local food, then enjoy beach
-              time if it fits.
+              • All-aboard <strong>4:30 PM</strong> → back at the pier by{" "}
+              <strong>3:30 PM</strong>
+              <br />
+              • Leave last stop by <strong>3:00 PM</strong>
+              <br />
+              • Math: 4:30 PM − 60 min = 3:30 PM; 3:30 PM − 30 min = 3:00 PM
             </p>
             <p>
-              Leave by <strong>5:30 PM</strong>. Back at the pier by{" "}
-              <strong>6:00 PM</strong>.
+              🗺️ Day shape: <strong>Beach-first</strong>
             </p>
+            <p>
+              📍 <strong>9:30 AM</strong> — walk to Junkanoo Beach, 13–15 min
+              west from the port.
+            </p>
+            <p>
+              🏖️ <strong>10:00 AM</strong> — Junkanoo Beach, swim and relax.
+              Chairs $10–$15 each.
+            </p>
+            <p>
+              🍽️ <strong>1:00 PM</strong> — walk 10–15 min west to Arawak Cay
+              Fish Fry. Conch salad $8–$15, cracked conch $12–$20. Cash preferred.
+            </p>
+            <p>
+              🚕 <strong>3:00 PM</strong> — taxi back to the pier, about $6–$8
+              for two riders. Agree the fare first.
+            </p>
+            <p>
+              ⏰ Set two alarms: <strong>3:00 PM</strong> and{" "}
+              <strong>3:30 PM</strong>.
+            </p>
+            <p>🆘 Emergency: 911 or 919.</p>
+            <p>Reply “what tours” to see optional Nassau tours.</p>
+          </ChatBubble>
+          <ChatBubble sent time="9:15 AM">
+            <VoiceWave />
+          </ChatBubble>
+          <ChatBubble time="9:15 AM">
+            <p>🎙️ Got your voice note, one moment…</p>
+          </ChatBubble>
+          <ChatBubble time="9:15 AM">
+            <VoiceReply />
           </ChatBubble>
           <ChatBubble sent time="10:26 AM">
             <p>What is the weather today in Nassau?</p>
@@ -494,29 +557,20 @@ export default function ChatPreview() {
               Illustrative countdown · 11:36 AM
             </span>
             <p>
-              <strong>5 hours and 54 minutes</strong> until your 5:30 PM
+              <strong>3 hours and 24 minutes</strong> until your 3:00 PM
               leave-by.
             </p>
             <p>
-              Back at the pier: 6:00 PM.
+              Back at the pier: 3:30 PM.
               <br />
-              All-aboard: 7:00 PM.
+              All-aboard: 4:30 PM.
             </p>
           </ChatBubble>
-          <ChatBubble sent time="3:35 PM">
-            <VoiceWave />
-          </ChatBubble>
-          <ChatBubble time="3:35 PM">
-            <p>🎙️ Got your voice note, one moment…</p>
-          </ChatBubble>
-          <ChatBubble time="3:35 PM">
-            <VoiceReply />
-          </ChatBubble>
-          <ChatBubble sent time="4:15 PM">
+          <ChatBubble sent time="1:15 PM">
             <MenuPhoto />
             <p>Is this a fair price?</p>
           </ChatBubble>
-          <ChatBubble time="4:16 PM">
+          <ChatBubble time="1:16 PM">
             <GoldiesReply />
           </ChatBubble>
         </div>

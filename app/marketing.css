@@ -243,6 +243,14 @@
 .marketing .chat-bubble p:last-child {
   margin: 0;
 }
+.marketing .chat-onboarding-list {
+  margin: 0 0 0.75em;
+  padding-left: 1.5em;
+  list-style: decimal;
+}
+.marketing .chat-onboarding-list li + li {
+  margin-top: 0.65em;
+}
 .marketing .chat-received {
   align-self: flex-start;
   background: #fff;

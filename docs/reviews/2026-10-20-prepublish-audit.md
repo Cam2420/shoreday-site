@@ -127,16 +127,16 @@ All examples use adapted light-mode chrome, illustrative ticks and non-playing m
 | Example / every location | Website prices and times | Match to supplied chat? |
 |---|---|---|
 | Government House — home “Snap it. Ask it.” | Sent and received 4:17 PM; no price | Sent time matches. Reply time assigned because supplied reply crop does not show it. Text shortened; statue limited to what the photo shows |
-| Voice reply — home voice feature and scrolling phone | 3:35 PM, 0:04 outgoing, 0:10 returned | Times/durations match. Transcript changes ASR “at 10 minutes” to “Add 10 minutes”; no playable recording |
+| Voice reply — home voice feature and scrolling phone | Feature: 3:35 PM; phone: 9:15 AM. 0:04 outgoing, 0:10 returned | Feature times/durations match source. Phone time moved before the planned beach walk. Transcript corrects ASR “at” to “Add”; no playable recording |
 | ATM — home location feature only | Question 3:37 PM; checking/reply 3:38 PM; no price | Times match. Text deliberately omits unsourced nearest/live-check assertions; supplied title/thumbnail retained |
-| Goldie’s — home vendor example, scrolling phone, cash/card guide | 4:15 PM question; 4:16 PM reply; conch salad $15, cracked conch $16, 10% VAT + 15% gratuity | Printed prices/charges and example times match source sequence. Reply shortened; dated October 2026, not current pricing |
+| Goldie’s — home vendor example, scrolling phone, cash/card guide | Vendor/guide: 4:15/4:16 PM; phone: 1:15/1:16 PM. Conch salad $15, cracked conch $16, 10% VAT + 15% gratuity | Printed prices/charges match source. Phone times moved to the plan’s lunch stop. Source is dated October 2026, not current pricing |
 | Welcome/greeting — scrolling phone | 9:02 AM; offer $9.99 | Greeting time matches original-site reference; IMG_1731/1732 were 2:25 AM and former offer price. Deliberately adapted |
 | Get plan / checkout — scrolling phone | 9:04 AM; $9.99 | Source IMG_1733 was 2:27/2:28 AM and former offer price. Deliberately adapted to current offer and sample morning |
 | PDF — scrolling phone | 9:05 AM, 17 pages | Page count matches IMG_1725; original session 4:23/4:24 PM. Assigned sample time |
-| Preferences / personal plan — scrolling phone | 9:08/9:12 AM; leave 5:30 PM, pier 6 PM, all-aboard 7 PM | Illustrative messages, not real chat proof. Return times are worked example allowances |
+| Preferences / personal plan — scrolling phone | Request 9:08 AM; plan 9:12 AM; walk 9:30 AM; beach 10 AM; Fish Fry 1 PM; leave 3 PM, pier 3:30 PM, all-aboard 4:30 PM | Replaces short illustrative-plan copy with the supplied IMG_1738/1739 beach-first plan. Source return targets, price ranges and advice retained; morning start moved after plan delivery. Two-person context added to match the quoted taxi estimate |
 | Weather — scrolling phone | Request/check 10:26 AM, reply 10:27 AM; 82–86°F, 28–30°C, 10–30% showers | Forecast numbers match IMG_1736; original reply also 10:26 AM, so website reply minute is adapted. No live forecast |
 | Tours — scrolling phone | 10:30/10:31 AM; no tour price | IMG_1730 was 10:25/10:26 PM. Assigned sample morning, shortened copy |
-| Countdown — home countdown feature and scrolling phone | 11:36 AM; 5h54 to 5:30 PM; pier 6 PM; all-aboard 7 PM | Illustration, not a real screenshot. Arithmetic matches; no universal return buffer claimed |
+| Countdown — home countdown feature and scrolling phone | Feature: 11:36 AM, 5h54 to 5:30 PM. Phone: 11:36 AM, 3h24 to 3 PM; pier 3:30 PM; all-aboard 4:30 PM | Worked arithmetic, not a live countdown. Phone calculation matches the supplied beach-first plan; standalone feature retains its separate example |
 
 The scrolling phone is a constructed sample day combining separate sessions. The timeline uses example times documented here; its external caption was removed at Cam’s request. Website offer prices intentionally differ from original chats after Cam’s new price instruction.
 
@@ -162,3 +162,19 @@ Privacy uses the exact owner-provided copy distinguishing media processing from 
 Latest visual correction: removed the six homepage captions requested by Cam: scrolling phone, Government House, voice, ATM, countdown and Goldie’s. Internal source/fidelity notes remain in this review; earlier references to visible captions describe the prior build. Chat content is unchanged.
 
 Cam also requested removal of five in-chat labels: welcome-video preview, weather example, checking your time, questions ashore and menu-prices date. These labels are removed from the scrolling phone; internal source dates and adaptation history remain documented here.
+
+## Beach-first plan from supplied chat — latest correction
+
+Source: Cam’s IMG_1738.jpg and IMG_1739.jpg. The scrolling phone now transcribes the source plan’s return targets, day shape, walking estimates, beach, Fish Fry, taxi, manual alarms, emergency numbers and optional-tour prompt. The “Illustrative plan” label and short generic plan are removed.
+
+Additional dated source figures in this chat example: chairs $10–$15 each; conch salad $8–$15; cracked conch $12–$20; taxi about $6–$8 for two riders. These are figures from the supplied chat, not a live vendor quote. Source lists cash preferred and agreeing the taxi fare first. No new general price table is published.
+
+Timing adaptation: the source request/reply was stamped 3:33 PM despite listing morning activities. Website request is 9:08 AM and reply 9:12 AM. Walk begins 9:30 AM (source 9 AM), beach 10 AM (source 9:30 AM), lunch remains 1 PM, return remains 3 PM / 3:30 PM / 4:30 PM. Voice exchange moves to 9:15 AM before the walk. Menu question/reply moves to 1:15/1:16 PM at lunch. Weather and tour exchanges retain 10:26–10:31 AM. At 11:36 AM, 3 PM leave-by is 3 hours 24 minutes away. Other standalone chat examples are unchanged. No deployment.
+
+## Payment received and complete guest details
+
+Source: Cam’s IMG_1740.jpg. Added the payment-received message directly after the 9:05 AM PDF card, stamped 9:06 AM for this sample morning. Its four numbered requests are separate, spaced list items: ship, Nassau date, all-aboard (not departure), group. The daily-program photo alternative, day-style request, support window and emergency numbers follow the supplied text. This is a chat example, not a new payment integration or recorded purchase.
+
+The 9:08 AM outgoing message now supplies all four details plus beach-first/local-food preferences before the 9:12 AM plan. Wonder of the Seas and October 20, 2026 are sample guest context selected for the demo, not verification of an actual sailing or that ship’s schedule. Group is two adults, matching the plan’s two-rider taxi example; all-aboard is 4:30 PM.
+
+Verification for the plan/payment update: production build and changed-file lint passed; whitespace check passed. All 20 scrolling-phone timestamps are chronological. Return math and 11:36 AM → 3 PM = 3h24 checked. Desktop 1280 px and mobile 390 px show no horizontal overflow in the page or chat. Four list items have separate lines and approximately 9 px vertical gaps on desktop. Confirmed PDF → payment → complete guest details → plan; longer plan remains scrollable through the return instructions and subsequent countdown. Browser review logged no errors. Evidence: `outputs/seo-review/payment-received-desktop.png`, `payment-received-mobile.png`, `guest-details-plan-mobile.png`, `beach-first-plan-desktop.png`, `beach-first-plan-return-desktop.png` and `beach-first-plan-timeline.json`. No deployment.
