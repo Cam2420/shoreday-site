@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { BreadcrumbSchema } from "@/components/marketing/StructuredData";
+import { MEDIA_PRIVACY_COPY } from "@/data/shoreday";
 import "../legal.css";
 
 export const metadata: Metadata = {
@@ -91,9 +92,7 @@ export default function PrivacyPolicy() {
         parties.
       </p>
       <p>
-        <strong>Do we store concierge media?</strong> ShoreDay&apos;s concierge
-        engine does not store your photos, videos or voice recordings. Processing
-        and retention by messaging and service providers are described below.
+        <strong>How is my conversation handled?</strong> {MEDIA_PRIVACY_COPY}
       </p>
 
       <h2>1. WHAT INFORMATION DO WE COLLECT?</h2>
@@ -227,12 +226,14 @@ export default function PrivacyPolicy() {
         </li>
         <li>
           <strong>WhatsApp Messaging and Customer Support:</strong> Meta (WhatsApp
-          Business Platform) and HighLevel (LeadConnector), which hosts our
-          WhatsApp inbox, automated replies, and customer records
+          Business Platform) and our messaging provider, which hosts our
+          WhatsApp inbox, automated replies, and customer records. Conversation
+          history, including attachments, is stored by our messaging provider
+          in our support inbox.
         </li>
         <li>
           <strong>Payments for the Nassau Concierge:</strong> Stripe, through
-          HighLevel payment links
+          our hosted payment links
         </li>
         <li>
           <strong>Email Guide Signup:</strong> Kit, which hosts the Nassau
@@ -276,9 +277,10 @@ export default function PrivacyPolicy() {
         feature. Type HUMAN to request a real person, available daily 12–5 PM ET.
       </p>
       <p>
-        ShoreDay&apos;s concierge engine does not store copies of your photos,
-        videos or voice recordings. This does not mean that WhatsApp, HighLevel,
-        Google Cloud or ElevenLabs retain nothing. Their processing and retention
+        {MEDIA_PRIVACY_COPY}
+      </p>
+      <p>
+        Google Cloud and ElevenLabs processing and retention
         depend on the service, applicable terms and account settings. See{" "}
         <a href="https://cloud.google.com/terms/data-processing-addendum">
           Google Cloud&apos;s Data Processing Addendum
@@ -302,9 +304,9 @@ export default function PrivacyPolicy() {
         information, we will either delete or anonymize such information.
       </p>
       <p>
-        The concierge engine&apos;s no-media-storage practice applies to photos,
-        videos and voice recordings, not to all customer or trip records. Your
-        WhatsApp history and provider-hosted inbox records are separate. Deleting
+        Conversation history, including attachments, is stored by our messaging
+        provider in our support inbox so we can help you. The
+        conversation is also kept on your phone. Deleting
         media on your phone does not necessarily delete a provider&apos;s copy.
         Contact us to request deletion of information associated with your service.
       </p>

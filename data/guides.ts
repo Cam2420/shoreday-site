@@ -1,4 +1,5 @@
 import type { Faq } from "./shoreday";
+import { MEDIA_PRIVACY_COPY, PURCHASER_APP_ACCESS_COPY } from "./shoreday";
 export type Guide = {
   slug: string;
   title: string;
@@ -52,15 +53,15 @@ export const GUIDES: Guide[] = [
       {
         title: "Is there a separate ShoreDay app?",
         paragraphs: [
-          "Yes. The purchaser also receives ShoreDay app premium on iOS and Android. It is a bonus alongside the WhatsApp concierge.",
+          PURCHASER_APP_ACCESS_COPY,
           "Your chat plan does not automatically transfer into the app. You can use the concierge without installing the separate app.",
         ],
       },
       {
         title: "What happens after my port day?",
         paragraphs: [
-          "The chat stays on your phone unless you delete it. Included help runs through the end of your Nassau port day.",
-          "The concierge engine does not store media. Your messages and media are processed to answer your questions; see the Privacy Policy.",
+          "Included help runs through the end of your Nassau port day.",
+          MEDIA_PRIVACY_COPY,
           "Coming back to Nassau? Open the same chat. Each new port call is a separate $9.99 for your group.",
         ],
       },

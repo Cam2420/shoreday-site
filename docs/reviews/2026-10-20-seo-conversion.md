@@ -66,10 +66,10 @@ The 13 indexable canonical pages appear in `sitemap.xml`. `robots.txt` permits p
 | Saved plan and downloaded PDF readable offline; downloaded voice notes replay after playing once while connected | Brief §1 offline; §2 data objection | Home, FAQs and guides; new requests require internet |
 | Check Bahamas coverage before sailing | Brief §2 data objection | Advice only. No carriers, prices or claim that “many US plans” include coverage |
 | Plan, PDF, voice notes and photos remain in WhatsApp history unless deleted; return to same conversation for another $9.99 call | Brief §2A.4–5 | Home, FAQ, app guide and llms.txt; no cloud backup guarantee |
-| Concierge engine does not store media, while service providers process messages/media | Brief §2A privacy assertion + existing Privacy Policy §§1, 4, 8 | Scoped to engine; avoids promising all providers retain nothing |
+| Concierge assistant reads media without saving it; support inbox and phone retain the conversation, including attachments | Cam’s latest privacy wording | FAQ, app guide, Privacy summary/§§4,6,8 and llms.txt; messaging provider unnamed |
 | Parent/adult plans for family; share children’s ages, stroller needs and walking preferences | Brief §2 family audience and §3 kids page; Privacy Policy §10 | Kids and ship guides. Venue access and age rules require confirmation |
 | Re-plan when preferences or ship times change | Brief §2 generic-plan comparison; §4 FAQ | Home and guides; onboard instructions remain final |
-| App premium included for purchaser on iOS/Android; app separate from concierge | Brief §1 app bonus; existing app section/FAQ | Cam-provided entitlement claim; purchaser unlock not independently tested. No automatic plan transfer promised |
+| ShoreDay app access for the purchaser is coming soon | Cam’s latest instruction pending a test purchase | Removed included-premium/bonus claims from pricing, app section, FAQ, guide and llms.txt |
 | All 11 cruise lines and any Nassau-calling ship | Brief §2C supplied schedule summary | One data file; no call counts or endorsement imagery in fit list |
 | Specific October docking and departure patterns | TODO(Cam): original port schedule PDF | Removed from public timing guide pending the primary document |
 | Repeat visitors may choose different food, beach or heritage stops for this sailing | Brief §2 repeat audience; §2A.5 | Positioning and advice, no secret-access claim |
@@ -141,23 +141,23 @@ Both updated pages meet Performance ≥90, SEO 100 and CLS <0.1. The timing guid
 - Browser checks: desktop, tablet (768 px), mobile (390 px), narrow mobile (320 px), no horizontal page or chat overflow. Keyboard chat scrolling, FAQ disclosure, guide sticky CTA and its page/position attributes checked. No browser console errors in the verification tab.
 - New ship paths are statically generated; unknown ship paths return 404. Sitemap, robots, llms.txt and OG image return successfully.
 - Screenshots and full Lighthouse HTML/JSON reports are saved locally in `outputs/seo-review/` (ignored generated evidence). Key views: `chat-desktop.png`, `chat-mobile.png`, `chat-checkout-desktop.png`, `home-mobile.png`, `home-desktop.png`, `timing-mobile.png`.
-- Local preview uses an empty Mixpanel server token for final browser audits. No checkout submission, WhatsApp message, tour booking, premium unlock or GHL workflow mutation was performed.
+- Local preview uses an empty Mixpanel server token for final browser audits. No checkout submission, WhatsApp message, tour booking, premium unlock or messaging workflow mutation was performed.
 - The environment’s stale Webpack cache required regenerating build cache between builds. No dependency changes or cache files are committed. No new runtime libraries.
 
 
 ## Decisions and items for Cam
 
 - **Current price and support hours:** Cam’s latest instruction sets the Nassau concierge offer to $9.99 per group and restores local human support to daily 12–5 PM ET. These values supersede earlier price and support-hour instructions. The update covers homepage/guide/ship copy, FAQs, the chat offer and checkout previews, sticky/final CTAs, concierge terms, structured data, metadata, social images and llms.txt. Goldie’s photographed menu prices, third-party excursion prices and separate native-app purchase options are unchanged.
-- **Separate hosted checkout:** the existing payment link displays the product, subtotal and total as $9.99. Its consent sentence below the payment button still uses the former group price. That sentence belongs to the live GoHighLevel payment-link settings, outside this repository, and was not edited or published. Remaining change in GoHighLevel: Payments → Payment Links → open the ShoreDay Nassau Concierge payment link → Add Terms and Conditions → replace the former group price with “$9.99/group,” keeping the policy and Terms link. [Official HighLevel instructions](https://help.gohighlevel.com/support/solutions/articles/155000005547). No payment details were entered and no purchase was performed.
+- **Hosted checkout:** Cam confirmed the consent price is fixed to $9.99/group. No further action requested or performed.
 - **Access duration:** the brief says approximately 8 AM ET the next morning; Concierge Terms say through the end of the Nassau port day. The terms’ access-duration wording is retained and used everywhere.
 - **Legal name:** the brief says “VMA Management LLC”; existing legal pages say “VMAManagement LLC.” Structured data uses the existing legal spelling.
-- **Privacy:** “photos stay only on your phone” would overstate the policy. Copy scopes non-storage to the concierge engine and acknowledges processing by service providers. TODO(Cam): confirm this engine assertion against the deployed media pipeline before publication.
+- **Privacy:** use Cam’s exact distinction between the concierge assistant reading media without saving it and the support inbox retaining conversation history, including attachments. The messaging provider is unnamed.
 - **Closing card:** Cam requested removal of the repeated full service definition from the shared final CTA. It now contains the short heading, WhatsApp action and group-price note. This supersedes the brief’s requirement to repeat the definition in every final CTA.
 - **Headline:** “Your Nassau port-day concierge, built around your ship’s all-aboard time.” The supporting line reads “A Nassau trained assistant. A real person available daily 12–5 PM ET.” This owner-selected wording supersedes the brief’s keep-the-existing-H1 rule. The primary keyword remains in the title and one-chat introduction. Requested route slugs are retained where they differ from a full question keyword.
 - **Price comparisons:** omitted “less than most excursions” and the beach-club comparison because no current comparable-price evidence was supplied. The $9.99 group price stands on its own.
 - **Staying aboard:** omitted “a packed ship,” which is not established for a specific sailing. The worth-getting-off guide gives both choices fairly.
 - **Local details:** no invented walking distances, venue hours, bank fees, taxi fares, accessibility guarantees, fixed berths or ship-specific all-aboard times. TODO(Cam): provide the original Oct 3–Nov 3 schedule and verify ship berth/time patterns before adding them. The three ship pages use sourced itinerary context instead.
-- **App entitlement:** the app section’s kicker is “Prefer the app instead?” at Cam’s request. Its purchaser-premium entitlement copy remains in place. The app-premium bonus is in the brief but was not exercised with a purchase. TODO(Cam): confirm purchaser unlock works on both platforms before publication. The separate app Terms retain their existing standalone pricing.
+- **App entitlement:** purchaser app access is coming soon. Included-premium and app-bonus claims have been removed pending Cam’s test purchase. Separate native-app pricing is unchanged.
 - **Chat media:** these are labeled adaptations of owner-supplied conversations, not testimonials or untouched screenshots. No playable recording or video is fabricated. Checkout/tour choices inside the phone are preview artwork; real “Start in WhatsApp” buttons remain outside it.
 - **Reviews:** no testimonials, counts, stars, AggregateRating or Review schema. A comment reserves a future place for permissioned real reviews.
 - **Indexing:** metadata, FAQ markup and llms.txt make the pages readable to crawlers; no claim is made that Google or an AI system will rank, cite or show a rich result.
@@ -192,3 +192,7 @@ Production build and TypeScript passed; changed-file ESLint and whitespace check
 ## Prepublication audit supersedes earlier checks
 
 See [2026-10-20-prepublish-audit.md](2026-10-20-prepublish-audit.md) for the current claim register, privacy changes, exact-link checks, screenshot fidelity inventory and fresh Lighthouse results. Earlier metrics above are historical comparisons. No deployment.
+
+Latest visual correction: removed the six homepage captions requested by Cam: scrolling phone, Government House, voice, ATM, countdown and Goldie’s. Internal source/fidelity notes remain in this review; earlier references to visible captions describe the prior build. Chat content is unchanged.
+
+Cam also requested removal of five in-chat labels: welcome-video preview, weather example, checking your time, questions ashore and menu-prices date. These labels are removed from the scrolling phone; internal source dates and adaptation history remain documented here.

@@ -4,6 +4,10 @@ export const OFFER =
 export const APP_STORE_URL = "https://apps.apple.com/app/id6761083487";
 export const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.vmamanagement.shoreday";
+export const MEDIA_PRIVACY_COPY =
+  "Our concierge AI reads your photos, videos and voice notes to answer, and doesn’t save them. Like any WhatsApp business chat, the conversation (including what you send) is kept in our support inbox so we can help you, and on your phone.";
+export const PURCHASER_APP_ACCESS_COPY =
+  "ShoreDay app access for the purchaser is coming soon.";
 export type Faq = { q: string; a: string };
 export const HOME_FAQ: Faq[] = [
   {
@@ -47,8 +51,8 @@ export const HOME_FAQ: Faq[] = [
     a: "Yes. ShoreDay replies in voice when you send a voice note first or ask for one. You can also write in Spanish.",
   },
   {
-    q: "Do you keep my photos?",
-    a: "The concierge engine does not store media. Your photos remain in your WhatsApp chat unless you delete them. Messages and media are processed to answer you; see the Privacy Policy for how the service handles information.",
+    q: "How are my photos and voice notes handled?",
+    a: MEDIA_PRIVACY_COPY,
   },
   {
     q: "Can I keep the chat after my trip?",
@@ -68,7 +72,7 @@ export const HOME_FAQ: Faq[] = [
   },
   {
     q: "Is the ShoreDay app the same thing?",
-    a: "The concierge happens in WhatsApp. The ShoreDay app is separate; app premium is included for the purchaser on iOS and Android. Your WhatsApp plan does not automatically transfer into the app.",
+    a: `The concierge happens in WhatsApp. ${PURCHASER_APP_ACCESS_COPY} The ShoreDay app is separate; your WhatsApp plan does not automatically transfer into the app.`,
   },
   {
     q: "Can I come back for another Nassau visit?",

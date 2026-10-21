@@ -19,6 +19,7 @@ import { OfferSchema } from "@/components/marketing/StructuredData";
 import FinalCta from "@/components/marketing/FinalCta";
 import GuideLinks from "@/components/marketing/GuideLinks";
 import { CRUISE_LINE_COPY, INDEPENDENCE } from "@/data/cruise-lines";
+import { PURCHASER_APP_ACCESS_COPY } from "@/data/shoreday";
 import { pageMetadata } from "@/lib/seo";
 import "./home.css";
 import "./marketing.css";
@@ -35,32 +36,24 @@ const FEATURES = [
     icon: "📸",
     title: "Snap it. Ask it.",
     copy: "Send a menu, price board or recognizable landmark. Get help understanding what’s in front of you.",
-    caption:
-      "Government House photo and reply · Oct 2026. Supplied chat excerpt, shortened and adapted to light mode.",
   },
   {
     type: "voice",
     icon: "🗣️🎙️",
     title: "Too tired and hot to type? Just talk.",
     copy: "Send a voice note and get one back. You can also ask ShoreDay to reply in voice.",
-    caption:
-      "Voice reply and transcript · Oct 2026. Adapted to light mode; audio controls are a screenshot preview.",
   },
   {
     type: "location",
     icon: "📍",
     title: "A place. A link. Your next stop.",
     copy: "Ask for an ATM, pharmacy or beach. Get a Google Maps link for directions, hours and reviews.",
-    caption:
-      "ATM reply and Maps preview · Oct 2026. Adapted from the supplied chat; confirm details before going.",
   },
   {
     type: "countdown",
     icon: "⏳",
     title: "How much time do I have?",
     copy: "Ask for your leave-by time, back-at-pier target and exact time left. Your ship’s clock comes first.",
-    caption:
-      "Illustrative countdown using example times. Your ship’s own all-aboard time always comes first.",
   },
 ] as const;
 
@@ -226,7 +219,6 @@ export default function Home() {
                   <p>{f.copy}</p>
                 </div>
                 <ChatCard type={f.type} />
-                <p className="proof-caption">{f.caption}</p>
               </article>
             ))}
           </div>
@@ -249,10 +241,6 @@ export default function Home() {
                 <GoldiesReply />
               </ChatBubble>
             </ChatExcerpt>
-            <figcaption>
-              Goldie’s menu chat · prices as of Oct 2026. Light-mode adaptation,
-              shortened for readability. Confirm current prices.
-            </figcaption>
           </figure>
           <div className="story-copy">
             <p className="section-kicker">Choose your day with confidence</p>
@@ -503,7 +491,6 @@ export default function Home() {
                   Automated replies any time during access. Human help daily
                   12–5 PM ET.
                 </li>
-                <li>ShoreDay app premium for the purchaser.</li>
               </ul>
             </div>
             <div className="wa-included price-isnt">
@@ -555,19 +542,17 @@ export default function Home() {
           </div>
         </aside>
 
-        {/* The app bonus remains separate from the WhatsApp concierge. */}
+        {/* Purchaser app access is not included until it has been verified. */}
         <section className="app-cta" id="app" aria-labelledby="app-title">
           <div className="app-cta-copy">
             <p className="section-kicker">Prefer the app instead?</p>
-            <h2 id="app-title">Your concierge comes with an app bonus.</h2>
+            <h2 id="app-title">What about the ShoreDay app?</h2>
             <p>
-              ShoreDay app premium is included for the person who pays, on iOS
-              and Android. It is separate from your WhatsApp concierge. Your
+              {PURCHASER_APP_ACCESS_COPY} It is separate from your WhatsApp concierge. Your
               chat plan does not automatically transfer into the app.
             </p>
             <ul className="app-feature-list">
               <li>Separate iOS and Android app</li>
-              <li>Premium access for the purchaser</li>
               <li>No extra app needed for the WhatsApp concierge</li>
             </ul>
             <Link href="/nassau-cruise-app" className="text-link">

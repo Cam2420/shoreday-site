@@ -42,10 +42,10 @@ Local draft only. No deployment or merge. Repeated wording in metadata, FAQs, st
 | Saved plan and downloaded PDF readable offline; downloaded voice notes replay after playing once while connected | Brief §1 offline; §2 data objection | Home, FAQs and guides; new requests require internet |
 | Check Bahamas coverage before sailing | Brief §2 data objection | Advice only. No carriers, prices or claim that “many US plans” include coverage |
 | Plan, PDF, voice notes and photos remain in WhatsApp history unless deleted; return to same conversation for another $9.99 call | Brief §2A.4–5 | Home, FAQ, app guide and llms.txt; no cloud backup guarantee |
-| Concierge engine does not store media, while service providers process messages/media | Brief §2A privacy assertion + existing Privacy Policy §§1, 4, 8 | Scoped to engine; avoids promising all providers retain nothing |
+| Concierge assistant reads media without saving it; support inbox and phone retain the conversation, including attachments | Cam’s latest privacy wording | FAQ, app guide, Privacy summary/§§4,6,8 and llms.txt; messaging provider unnamed |
 | Parent/adult plans for family; share children’s ages, stroller needs and walking preferences | Brief §2 family audience and §3 kids page; Privacy Policy §10 | Kids and ship guides. Venue access and age rules require confirmation |
 | Re-plan when preferences or ship times change | Brief §2 generic-plan comparison; §4 FAQ | Home and guides; onboard instructions remain final |
-| App premium included for purchaser on iOS/Android; app separate from concierge | Brief §1 app bonus; existing app section/FAQ | Cam-provided entitlement claim; purchaser unlock not independently tested. No automatic plan transfer promised |
+| ShoreDay app access for the purchaser is coming soon | Cam’s latest instruction pending a test purchase | Removed included-premium/bonus claims from pricing, app section, FAQ, guide and llms.txt |
 | All 11 cruise lines and any Nassau-calling ship | Brief §2C supplied schedule summary | One data file; no call counts or endorsement imagery in fit list |
 | Specific October docking and departure patterns | TODO(Cam): original port schedule PDF | Removed from public timing guide pending the primary document |
 | Repeat visitors may choose different food, beach or heritage stops for this sailing | Brief §2 repeat audience; §2A.5 | Positioning and advice, no secret-access claim |
@@ -77,8 +77,8 @@ Local draft only. No deployment or merge. Repeated wording in metadata, FAQs, st
 | Emergency 919 / 911 | Royal Bahamas Police Force official emergency numbers and report-crime page | Concierge Terms; no emergency monitoring promised |
 | Legal operator and published support/admin emails and contact address | Existing operator-authored Terms/Privacy contact sections; operator name also Apple and Google listings | Retained published contact details; no assertion of an office open to visitors |
 | Photos/videos/voice/documents and messages processed by Google Cloud Vertex AI (Gemini); voice-related content/reply text by ElevenLabs | Cam’s instruction in this request | Privacy §§1,4,6; source is operator attestation, deployed settings not accessed |
-| ShoreDay concierge engine does not store photos/videos/voice; inbox/customer/trip records are separate | Cam’s instruction; Brief §2A | Privacy summary and §§6,8; not a promise that providers retain nothing |
-| Meta/WhatsApp and HighLevel messaging/customer records; Stripe payments; no full card storage by ShoreDay | Existing operator-authored Privacy §§1,4; external hosted payment-link source and checkout UI | Provider disclosures; no payment submitted |
+| Concierge assistant reads media without saving it; support inbox and phone retain the conversation, including attachments | Cam’s latest privacy wording | FAQ, app guide, Privacy summary/§§4,6,8 and llms.txt; messaging provider unnamed |
+| Meta/WhatsApp and our messaging provider’s support-inbox records; Stripe payments; no full card storage by ShoreDay | Existing operator-authored Privacy §§1,4; external hosted payment-link source and checkout UI | Provider disclosures; no payment submitted |
 | Random analytics ID in browser local storage; allowed event fields to Mixpanel when configured; no chat/media through that pipeline | `lib/analytics.ts`, `lib/funnel-events.ts`, `lib/mixpanel.ts`, `app/api/funnel-events/route.ts`, existing tests | Privacy §§4–5; audit preview has forwarding disabled |
 | Kit processes signup email and planner delivery details | `app/nassau-cheat-sheet/KitForm.tsx`, `app/api/kit/nassau-plan/route.ts`, `lib/kit-nassau-config.ts` | Added to Privacy; no signup submitted |
 | App device, location, purchase, contact, usage and diagnostic data categories | Existing operator-authored Privacy §1 and Apple developer privacy labels | App disclosure; not a claim of independent backend inspection |
@@ -115,8 +115,8 @@ Local draft only. No deployment or merge. Repeated wording in metadata, FAQs, st
 | Guaranteed instant guide delivery, fixed guide page count, no-spam/unsubscribe promise | Removed pending delivery/subscription evidence |
 | Blanket 24-hour free cancellation, pay later, affiliate does not affect price | Removed from older planner |
 | Fixed Etsy Playbook price and planner completion-time estimate | Removed pending current listing/timed evidence |
-| Engine media non-storage, exact Vertex/ElevenLabs configuration | Cam is the source; verify external workflow, logs, buckets, retention and processor contracts before treating this as independently confirmed |
-| Purchaser app-premium unlock on both platforms | Cam’s brief is the source; no purchase/unlock test performed |
+| Assistant media processing and support-inbox retention | Cam’s latest disclosure | Conversation history, including attachments, is stored by our messaging provider; no provider name is published |
+| Purchaser app access | Coming soon; Cam must confirm a test purchase before any included-access claim returns |
 | Legacy app vendor settings, data deletion, legal entity/contact details | Existing operator policies are the source; no native app/backend or legal compliance certification performed |
 | Stock asset web-use rights | Owner asset-map evidence identifies images, not a licence grant; confirm licences separately |
 
@@ -138,7 +138,7 @@ All examples use adapted light-mode chrome, illustrative ticks and non-playing m
 | Tours — scrolling phone | 10:30/10:31 AM; no tour price | IMG_1730 was 10:25/10:26 PM. Assigned sample morning, shortened copy |
 | Countdown — home countdown feature and scrolling phone | 11:36 AM; 5h54 to 5:30 PM; pier 6 PM; all-aboard 7 PM | Illustration, not a real screenshot. Arithmetic matches; no universal return buffer claimed |
 
-The scrolling phone is a constructed sample day combining separate sessions. Its caption discloses example times. Website offer prices intentionally differ from original chats after Cam’s new price instruction.
+The scrolling phone is a constructed sample day combining separate sessions. The timeline uses example times documented here; its external caption was removed at Cam’s request. Website offer prices intentionally differ from original chats after Cam’s new price instruction.
 
 ## Verification results
 
@@ -153,8 +153,12 @@ The scrolling phone is a constructed sample day combining separate sessions. Its
 - Initial fresh run found timestamp/Maps-domain contrast and a Maps-link accessible-name mismatch (accessibility 96). Darkened the muted text and corrected the accessible name; the final run above is after those fixes.
 - Evidence: `outputs/seo-review/prepublish-audit.json`, `prepublish-visible-copy.txt`, `prepublish-build.log`, `prepublish-tests.log`, `prepublish-lint.log`, `prepublish-home-mobile-final.report.html/.json`, `prepublish-home-mobile.png`, `prepublish-privacy-media-mobile.png`.
 
-## External checkout exception — before publishing
+## Latest owner corrections
 
-The separate hosted checkout’s product/subtotal/total were already $9.99 when inspected, but its consent sentence still contained the former group offer price. This text is outside this repository. Under the no-deploy instruction it has not been saved or published. In GoHighLevel: **Payments → Payment Links → ShoreDay Nassau Concierge → Add Terms and Conditions**; update the group-price wording to **$9.99/group**, preserving the refund policy and Terms link. [Official HighLevel guide](https://help.gohighlevel.com/support/solutions/articles/155000005547). Saving there changes the live checkout, so leave it for the authorized publishing step. Prior read-only evidence: `outputs/seo-review/connected-checkout-price-note.png`.
+Cam confirmed the hosted checkout consent price is fixed to $9.99/group; no further checkout action was requested or performed.
 
-Nothing was deployed or merged.
+Privacy uses the exact owner-provided copy distinguishing media processing from stored support-inbox conversation history, including attachments. The messaging provider is unnamed. Purchaser app access is coming soon; no included-premium claim remains. Prior audit scores above describe the earlier build. No deployment.
+
+Latest visual correction: removed the six homepage captions requested by Cam: scrolling phone, Government House, voice, ATM, countdown and Goldie’s. Internal source/fidelity notes remain in this review; earlier references to visible captions describe the prior build. Chat content is unchanged.
+
+Cam also requested removal of five in-chat labels: welcome-video preview, weather example, checking your time, questions ashore and menu-prices date. These labels are removed from the scrolling phone; internal source dates and adaptation history remain documented here.

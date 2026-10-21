@@ -91,9 +91,6 @@ function WelcomePreview() {
           alt="Still from the supplied ShoreDay welcome video, showing a cruise ship in Nassau"
         />
       </div>
-      <span className="chat-media-caption">
-        Welcome video · screenshot preview
-      </span>
     </>
   );
 }
@@ -447,7 +444,6 @@ export default function ChatPreview() {
               <strong>6:00 PM</strong>.
             </p>
           </ChatBubble>
-          <div className="chat-day">Weather reply · Oct 2026 example</div>
           <ChatBubble sent time="10:26 AM">
             <p>What is the weather today in Nassau?</p>
           </ChatBubble>
@@ -490,7 +486,6 @@ export default function ChatPreview() {
               ShoreDay may earn a commission if you book.
             </p>
           </ChatBubble>
-          <div className="chat-day">Checking your time</div>
           <ChatBubble sent time="11:36 AM">
             <p>How much time do I have?</p>
           </ChatBubble>
@@ -508,7 +503,6 @@ export default function ChatPreview() {
               All-aboard: 7:00 PM.
             </p>
           </ChatBubble>
-          <div className="chat-day">Questions ashore</div>
           <ChatBubble sent time="3:35 PM">
             <VoiceWave />
           </ChatBubble>
@@ -518,7 +512,6 @@ export default function ChatPreview() {
           <ChatBubble time="3:35 PM">
             <VoiceReply />
           </ChatBubble>
-          <div className="chat-day">Menu prices as of Oct 2026</div>
           <ChatBubble sent time="4:15 PM">
             <MenuPhoto />
             <p>Is this a fair price?</p>
@@ -528,11 +521,6 @@ export default function ChatPreview() {
           </ChatBubble>
         </div>
       </IPhoneFrame>
-      <figcaption>
-        Scroll to follow a sample Nassau day. Real chat excerpts, shortened and
-        adapted to light mode with example times. Plan and countdown are
-        illustrations; media and reply options are previews.
-      </figcaption>
     </figure>
   );
 }
