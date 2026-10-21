@@ -10,9 +10,9 @@
  * separate set of 12 APP events (`SPEC_APP_EVENTS`, verified in the mobile app,
  * not emitted here). The "17" referenced during authorization matches neither
  * list. `FUNNEL_EVENTS` below is the spec's 14 web events (a stable prefix)
- * followed by 4 post-spec additions (2 for the paid Nassau Port Day Playbook
- * card, 2 for the WhatsApp concierge section), for 18 web events total. The app
- * set is listed only to account for the full analytics surface (18 + 12).
+ * followed by 5 post-spec additions (2 for the paid Nassau Port Day Playbook
+ * card, 2 for the WhatsApp concierge section, 1 for CTA attribution), for 19 web events total. The app
+ * set is listed only to account for the full analytics surface (19 + 12).
  *
  * Owner concept (Phase 10) → spec event name:
  *   landing viewed          → landing_view
@@ -31,7 +31,7 @@
  *   saved plan viewed       → plan_share   (nearest spec event; saved-link views reuse it)
  *   playbook card viewed    → playbook_card_view   (post-spec; paid Etsy Playbook)
  *   playbook card clicked   → playbook_click       (post-spec; paid Etsy Playbook)
- *   WhatsApp button clicked → whatsapp_click       (post-spec; $15 Nassau Concierge)
+ *   WhatsApp button clicked → whatsapp_click       (post-spec; $9.99 Nassau Concierge)
  *   share card clicked      → whatsapp_share_click (post-spec; "Send to a cruise buddy")
  */
 
@@ -61,10 +61,11 @@ export const FUNNEL_EVENTS = [
   // Paid Nassau Port Day Playbook (Etsy) card in the post-gate planner result.
   'playbook_card_view',
   'playbook_click',
-  // "Open on WhatsApp" button for the $15 Nassau Concierge (homepage section).
+  // "Open on WhatsApp" button for the $9.99 Nassau Concierge (homepage section).
   'whatsapp_click',
   // "Send to a cruise buddy" button on the mobile share card (same section).
   'whatsapp_share_click',
+  'whatsapp_cta_click',
 ] as const;
 
 export type FunnelEventName = (typeof FUNNEL_EVENTS)[number];
@@ -151,6 +152,10 @@ export interface FunnelEventProperties {
    * never the full referrer URL.
    */
   page_path?: string;
+  /** Canonical marketing path only; no query string or personal identifiers. */
+  page?: string;
+  /** CTA placement, e.g. home_hero or guide_final. */
+  position?: string;
   referrer_host?: string;
 }
 
@@ -189,6 +194,8 @@ export const FUNNEL_EVENT_PROPERTY_KEYS = [
   'utm_content',
   'utm_term',
   'page_path',
+  'page',
+  'position',
   'referrer_host',
 ] as const;
 

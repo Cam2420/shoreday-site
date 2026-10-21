@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import { BreadcrumbSchema } from "@/components/marketing/StructuredData";
 import "../legal.css";
 
 const title = "ShoreDay Nassau Concierge — Terms";
 const description =
-  "What the $15 ShoreDay Nassau Concierge includes, refunds, and support.";
+  "What the $9.99 ShoreDay Nassau Concierge includes, refunds, and support.";
 
 export const metadata: Metadata = {
   title: { absolute: title },
@@ -15,25 +16,27 @@ export const metadata: Metadata = {
     url: "/concierge-terms",
     siteName: "ShoreDay",
     type: "website",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
 };
 
 export default function ConciergeTerms() {
   return (
     <main className="legal">
+      <BreadcrumbSchema title="Concierge Terms" path="/concierge-terms" />
       <h1>ShoreDay Nassau Concierge — Terms</h1>
 
       <h2>What you get</h2>
       <p>
         A personalized Nassau port-day plan, the offline Nassau Playbook kit, and
-        WhatsApp help through the end of your Nassau port day. $15 USD one-time,
+        WhatsApp help through the end of your Nassau port day. $9.99 USD one-time,
         per group (one WhatsApp number), for one Nassau port call.
       </p>
 
       <h2>Refunds</h2>
       <p>
         Full refund any time before your personalized plan is sent to you in
-        WhatsApp. Once your plan is delivered, the $15 is non-refundable unless
+        WhatsApp. Once your plan is delivered, the $9.99 is non-refundable unless
         ShoreDay fails to provide the service described. To request a refund,
         message us in the same WhatsApp chat — please contact us before disputing
         a charge with your bank.
@@ -49,7 +52,7 @@ export default function ConciergeTerms() {
 
       <h2>Support</h2>
       <p>
-        Human help daily 12–5 pm ET in the same WhatsApp chat, or{" "}
+        Human help daily 12–5 PM ET in the same WhatsApp chat, or{" "}
         <a href="mailto:support@shoredayapp.com">support@shoredayapp.com</a>. ShoreDay is
         not an emergency service — in an emergency call 919 or 911.
       </p>

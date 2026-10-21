@@ -26,11 +26,13 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL("https://shoredayapp.com"),
   title: {
-    default: "ShoreDay | Bahamas Cruise Port-Day Planning",
+    default: "ShoreDay | Nassau Port-Day Planning",
     template: "%s | ShoreDay",
   },
   description:
-    "Plan your Bahamas cruise port day around your all-aboard time with personal itineraries, ship countdowns, and curated local excursions.",
+    "Your Nassau day in one WhatsApp chat, with a personal plan and offline PDF. $9.99 once for your whole group.",
+  openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630 }], siteName: "ShoreDay" },
+  twitter: { card: "summary_large_image", images: ["/opengraph-image"] },
   icons: {
     icon: "/shoreday_icon.png",
   },

@@ -3,6 +3,7 @@ import { PAYMENT_LINK_URL, PREVIEW_BOT_UA } from "./lib/checkout";
 
 const nextConfig: NextConfig = {
   images: {
+    qualities: [40, 75],
     remotePatterns: [
       {
         protocol: "https",

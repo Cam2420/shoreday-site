@@ -33,6 +33,7 @@ const POST_SPEC_WEB_EVENTS = [
   'playbook_click',
   'whatsapp_click',
   'whatsapp_share_click',
+  'whatsapp_cta_click',
 ] as const;
 
 describe('funnel events — canonical names (spec §12 + post-spec additions)', () => {
@@ -41,8 +42,8 @@ describe('funnel events — canonical names (spec §12 + post-spec additions)', 
     expect(FUNNEL_EVENTS.slice(0, SPEC_WEB_EVENTS.length)).toEqual([...SPEC_WEB_EVENTS]);
   });
 
-  it('defines exactly the 14 spec events plus the 4 post-spec events', () => {
-    expect(FUNNEL_EVENTS).toHaveLength(18);
+  it('defines exactly the 14 spec events plus the 5 post-spec events', () => {
+    expect(FUNNEL_EVENTS).toHaveLength(19);
     expect(FUNNEL_EVENTS).toEqual([...SPEC_WEB_EVENTS, ...POST_SPEC_WEB_EVENTS]);
   });
 
@@ -50,10 +51,10 @@ describe('funnel events — canonical names (spec §12 + post-spec additions)', 
     expect(new Set(FUNNEL_EVENTS).size).toBe(FUNNEL_EVENTS.length);
   });
 
-  it('reconciles to 18 web (14 spec + 4 added) + 12 app events', () => {
-    expect(POST_SPEC_WEB_EVENTS).toHaveLength(4);
+  it('reconciles to 19 web (14 spec + 5 added) + 12 app events', () => {
+    expect(POST_SPEC_WEB_EVENTS).toHaveLength(5);
     expect(SPEC_APP_EVENTS).toHaveLength(12);
-    expect(FUNNEL_EVENTS.length + SPEC_APP_EVENTS.length).toBe(30);
+    expect(FUNNEL_EVENTS.length + SPEC_APP_EVENTS.length).toBe(31);
     // No overlap between web and app event names.
     const web = new Set<string>(FUNNEL_EVENTS);
     expect(SPEC_APP_EVENTS.some((e) => web.has(e))).toBe(false);
@@ -91,6 +92,8 @@ describe('funnel events — property allow-list stays in sync with the interface
       utm_content: 'ct',
       utm_term: 't',
       page_path: '/nassau/plan',
+      page: '/nassau-all-aboard-time',
+      position: 'guide_hero',
       referrer_host: 'l.instagram.com',
     } satisfies Required<FunnelEventProperties>;
 

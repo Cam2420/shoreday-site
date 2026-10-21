@@ -877,8 +877,7 @@ export default function PlanBuilder({
             {card.uiTabCategory} • {card.durationLabel} • {card.priceTier}
           </p>
           <ul className="np-excursion-benefits" aria-label={`${card.title} booking benefits`}>
-            <li>Free cancellation up to 24 hrs before</li>
-            <li>Reserve now &amp; pay later</li>
+            <li>Check cancellation and payment terms with the provider</li>
           </ul>
           <a
             className="np-book-link"
@@ -1059,8 +1058,7 @@ export default function PlanBuilder({
                         {card.uiTabCategory} • {card.durationLabel} • {card.priceTier}
                       </p>
                       <ul className="np-excursion-benefits" aria-label={`${card.title} booking benefits`}>
-                        <li>Free cancellation up to 24 hrs before</li>
-                        <li>Reserve now &amp; pay later</li>
+                        <li>Check cancellation and payment terms with the provider</li>
                       </ul>
                       <a
                         className="np-book-link"
@@ -1092,7 +1090,7 @@ export default function PlanBuilder({
               </ViatorOutboundLink>
               </div>
               <p className="fn-affiliate-disclosure">
-                Disclosure: ShoreDay may earn a commission if you book through a Viator link. It doesn&rsquo;t change the price you pay.
+                Disclosure: ShoreDay may earn a commission if you book through a Viator link.
               </p>
             </section>
 
@@ -1522,7 +1520,7 @@ export default function PlanBuilder({
                       rel="noopener noreferrer"
                       onClick={() => track("playbook_click", playbookEventProps())}
                     >
-                      Get the $5.99 Playbook
+                      View the Playbook on Etsy
                     </a>
                   </div>
                 </section>
@@ -1549,7 +1547,7 @@ export default function PlanBuilder({
                     </ViatorOutboundLink>
                   </div>
                   <p className="fn-affiliate-disclosure">
-                    Disclosure: ShoreDay may earn a commission if you book through a Viator link. It doesn&rsquo;t change the price you pay.
+                    Disclosure: ShoreDay may earn a commission if you book through a Viator link.
                   </p>
                 </section>
 

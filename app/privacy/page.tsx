@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { BreadcrumbSchema } from "@/components/marketing/StructuredData";
+import { MEDIA_PRIVACY_COPY } from "@/data/shoreday";
 import "../legal.css";
 
 export const metadata: Metadata = {
@@ -13,15 +15,17 @@ export const metadata: Metadata = {
     url: "/privacy",
     siteName: "ShoreDay",
     type: "website",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
 };
 
 export default function PrivacyPolicy() {
   return (
     <main className="legal">
+      <BreadcrumbSchema title="Privacy Policy" path="/privacy" />
       <h1>ShoreDay Privacy Policy</h1>
       <p>
-        <strong>Last Updated: September 30, 2026</strong>
+        <strong>Last Updated: October 20, 2026</strong>
       </p>
       <p>
         This Privacy Notice for VMAManagement LLC (doing business as ShoreDay)
@@ -65,12 +69,14 @@ export default function PrivacyPolicy() {
         make, and the products and features you use.
       </p>
       <p>
-        <strong>Do we process any sensitive personal information?</strong> We do
-        not process sensitive personal information.
+        <strong>What should I avoid sending?</strong> Please do not send sensitive
+        personal information that is unnecessary for your port-day question.
+        Messages and media may contain information about you or other people.
       </p>
       <p>
-        <strong>Do we collect any information from third parties?</strong> We do
-        not collect any information from third parties.
+        <strong>Do service providers handle information?</strong> Yes. Messaging,
+        payment, analytics and media-processing providers help deliver the service,
+        as described below.
       </p>
       <p>
         <strong>How do we process your information?</strong> We process your
@@ -86,9 +92,7 @@ export default function PrivacyPolicy() {
         parties.
       </p>
       <p>
-        <strong>How do we keep your information safe?</strong> We have adequate
-        organizational and technical processes and procedures in place to protect
-        your personal information.
+        <strong>How is my conversation handled?</strong> {MEDIA_PRIVACY_COPY}
       </p>
 
       <h2>1. WHAT INFORMATION DO WE COLLECT?</h2>
@@ -101,7 +105,7 @@ export default function PrivacyPolicy() {
         <li>
           <strong>Account and Profile Data.</strong> When you create a free user
           account, we collect Account Credentials (such as your email address and
-          securely hashed password), as well as User Content (including favorite
+          sign-in details), as well as User Content (including favorite
           locations and generated itineraries saved to your profile).
         </li>
         <li>
@@ -116,7 +120,7 @@ export default function PrivacyPolicy() {
         <li>
           <strong>WhatsApp Concierge Data.</strong> When you message ShoreDay on
           WhatsApp, we receive your WhatsApp phone number and profile name and the
-          messages, photos, and voice notes you send, plus the trip details you
+          messages, photos, videos, voice notes and PDFs you send, plus the trip details you
           share (such as your ship, Nassau date, all-aboard time, and group). If you
           buy the Nassau Concierge, the checkout collects your name, email, and
           phone number. Card and wallet payments are processed by{" "}
@@ -182,7 +186,10 @@ export default function PrivacyPolicy() {
       </p>
       <ul>
         <li>
-          <strong>AI Service Providers:</strong> Google Cloud AI (Gemini)
+          <strong>Assistant and Media Processing:</strong> Google Cloud Vertex AI
+          (Gemini) processes messages and submitted media, including photos, videos
+          and voice recordings, to help answer your questions. ElevenLabs processes
+          voice-related content and reply text for voice features.
         </li>
         <li>
           <strong>Cloud Computing Services:</strong> Google Cloud Platform
@@ -202,7 +209,10 @@ export default function PrivacyPolicy() {
           Apple App Store, Google Play Store
         </li>
         <li>
-          <strong>Usage Analytics:</strong> Firebase Analytics
+          <strong>Usage Analytics:</strong> Firebase Analytics for the app;
+          Mixpanel for website interaction events when enabled. The website uses a
+          random browser identifier and allow-listed event properties; chat media
+          and message content are not sent through that event pipeline.
         </li>
         <li>
           <strong>User Account Registration:</strong> Firebase Authentication
@@ -216,12 +226,18 @@ export default function PrivacyPolicy() {
         </li>
         <li>
           <strong>WhatsApp Messaging and Customer Support:</strong> Meta (WhatsApp
-          Business Platform) and HighLevel (LeadConnector), which hosts our
-          WhatsApp inbox, automated replies, and customer records
+          Business Platform) and our messaging provider, which hosts our
+          WhatsApp inbox, automated replies, and customer records. Conversation
+          history, including attachments, is stored by our messaging provider
+          in our support inbox.
         </li>
         <li>
           <strong>Payments for the Nassau Concierge:</strong> Stripe, through
-          HighLevel payment links
+          our hosted payment links
+        </li>
+        <li>
+          <strong>Email Guide Signup:</strong> Kit, which hosts the Nassau
+          Survival Card email form
         </li>
         <li>
           <strong>Travel Bookings and Affiliate Partners:</strong> Viator (a
@@ -238,6 +254,11 @@ export default function PrivacyPolicy() {
         pixels) to gather information when you interact with our Services, maintain
         security, prevent crashes, and fix bugs.
       </p>
+      <p>
+        The website stores a random analytics identifier in your browser&apos;s
+        local storage. The Nassau Survival Card signup form is provided by Kit,
+        which processes the information you submit through that form.
+      </p>
 
       <h2>6. DO WE OFFER ARTIFICIAL INTELLIGENCE-BASED PRODUCTS?</h2>
       <p>
@@ -245,22 +266,34 @@ export default function PrivacyPolicy() {
         a third-party AI service provided by Google LLC, to generate personalized
         itinerary recommendations. Your trip preferences (port, interests,
         departure time, and companion type) are transmitted to Google&apos;s
-        servers to produce this content. All personal information processed using
-        our AI Products is handled in line with our Privacy Notice and safeguards
-        your personal information.
+        servers to produce this content.
       </p>
       <p>
-        Our WhatsApp concierge uses an automated assistant (HighLevel Conversation
-        AI) to answer questions and help build your port-day plan from the
-        messages you send. The owner supervises the chat, and you can type HUMAN
-        at any time to reach a person.
+        Our WhatsApp concierge uses an automated assistant to answer questions and
+        help build your port-day plan. Google Cloud Vertex AI (Gemini) processes
+        the messages and photos, videos, voice recordings or documents you submit.
+        ElevenLabs processes voice-related content and reply text to support voice
+        responses. These providers receive content needed for the requested
+        feature. Type HUMAN to request a real person, available daily 12–5 PM ET.
+      </p>
+      <p>
+        {MEDIA_PRIVACY_COPY}
+      </p>
+      <p>
+        Google Cloud and ElevenLabs processing and retention
+        depend on the service, applicable terms and account settings. See{" "}
+        <a href="https://cloud.google.com/terms/data-processing-addendum">
+          Google Cloud&apos;s Data Processing Addendum
+        </a>{" "}
+        and{" "}
+        <a href="https://elevenlabs.io/terms-of-use">ElevenLabs&apos; terms</a>.
       </p>
 
       <h2>7. IS YOUR INFORMATION TRANSFERRED INTERNATIONALLY?</h2>
       <p>
-        Our servers are located in the United States. Please be aware that your
-        information may be transferred to, stored by, and processed by us in our
-        facilities and by third parties in the United States and other countries.
+        Your information may be transferred to, stored by, and processed by our
+        service providers in the United States and other countries. Provider
+        locations depend on the services and settings used.
       </p>
 
       <h2>8. HOW LONG DO WE KEEP YOUR INFORMATION?</h2>
@@ -270,12 +303,17 @@ export default function PrivacyPolicy() {
         have no ongoing legitimate business need to process your personal
         information, we will either delete or anonymize such information.
       </p>
+      <p>
+        Conversation history, including attachments, is stored by our messaging
+        provider in our support inbox so we can help you. The
+        conversation is also kept on your phone. Deleting
+        media on your phone does not necessarily delete a provider&apos;s copy.
+        Contact us to request deletion of information associated with your service.
+      </p>
 
       <h2>9. HOW DO WE KEEP YOUR INFORMATION SAFE?</h2>
       <p>
-        We have implemented appropriate and reasonable technical and organizational
-        security measures designed to protect the security of any personal
-        information we process. However, no electronic transmission over the
+        No electronic transmission over the
         Internet can be guaranteed to be 100% secure.
       </p>
 
@@ -346,11 +384,6 @@ export default function PrivacyPolicy() {
         deletion, you may:
       </p>
       <ol>
-        <li>
-          Use the in-app &quot;Delete Account&quot; feature located in the ShoreDay
-          app&apos;s Profile Settings menu, which will automatically and immediately
-          delete your account and all associated Firestore data; or
-        </li>
         <li>
           Email us directly at <strong>support@shoredayapp.com</strong> with the
           subject line &quot;Account Deletion Request.&quot;

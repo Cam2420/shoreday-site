@@ -42,7 +42,7 @@ export default async function Image() {
           ShoreDay Nassau Concierge
         </div>
         <div style={{ marginTop: 10, fontSize: 32, opacity: 0.9 }}>
-          Secure checkout · $15 one-time for your group
+          Secure checkout · $9.99 one-time for your group
         </div>
       </div>
     ),

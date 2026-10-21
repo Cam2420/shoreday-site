@@ -1,0 +1,572 @@
+import Image from "next/image";
+import type { ReactNode } from "react";
+import { WHATSAPP_PREFILL } from "@/lib/whatsapp";
+import IPhoneFrame from "./IPhoneFrame";
+import {
+  WhatsAppHeader,
+  WhatsAppWallpaper,
+  WhatsAppComposer,
+} from "./WhatsAppChrome";
+
+/** Accessible light-mode transcriptions. Not screenshots or customer testimonials. */
+export function ChatBubble({
+  children,
+  sent = false,
+  time,
+  footer,
+}: {
+  children: ReactNode;
+  sent?: boolean;
+  time?: string;
+  footer?: ReactNode;
+}) {
+  return (
+    <div className={`chat-bubble ${sent ? "chat-sent" : "chat-received"}`}>
+      {children}
+      {(time || sent) && (
+        <span className="chat-message-meta" aria-hidden="true">
+          {time && <time>{time}</time>}
+          {sent && (
+            <svg className="chat-read-ticks" viewBox="0 0 18 12">
+              <path
+                d="M1 6.5 4.5 10 13 1.5M8 9l1 1 8-8.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          )}
+        </span>
+      )}
+      {footer}
+    </div>
+  );
+}
+export function GovernmentHousePhoto() {
+  return (
+    <div className="chat-photo-crop landmark-crop">
+      <Image
+        src="/images/shoreday/chat/government-house-source.webp"
+        width={1095}
+        height={2048}
+        sizes="(max-width: 600px) 90vw, 400px"
+        alt="Government House in Nassau, with its pink facade, front staircase and statue, from the supplied WhatsApp photo"
+      />
+    </div>
+  );
+}
+export function GovernmentHouseReply() {
+  return (
+    <p>
+      🏛️ That is <strong>Government House</strong> on Mount Fitzwilliam in
+      downtown Nassau. The photo shows the statue of Christopher Columbus on
+      the front steps.
+    </p>
+  );
+}
+export function MenuPhoto() {
+  return (
+    <div className="chat-photo-crop menu-crop">
+      <Image
+        src="/images/shoreday/chat/menu-source.webp"
+        width={942}
+        height={2048}
+        sizes="(max-width: 600px) 90vw, 500px"
+        alt="Goldie’s Conch House menu photographed in the supplied October 2026 WhatsApp chat"
+      />
+    </div>
+  );
+}
+function WelcomePreview() {
+  return (
+    <>
+      <div className="chat-photo-crop welcome-crop">
+        <Image
+          src="/images/shoreday/chat/welcome-source.webp"
+          width={942}
+          height={2048}
+          sizes="(max-width: 600px) 90vw, 420px"
+          alt="Still from the supplied ShoreDay welcome video, showing a cruise ship in Nassau"
+        />
+      </div>
+    </>
+  );
+}
+function ReplyOptions({ items, reply = false }: { items: string[]; reply?: boolean }) {
+  return (
+    <div className="chat-reply-options" aria-label="Example reply options">
+      {items.map((item) => (
+        <span key={item}>
+          {reply && (
+            <svg className="chat-reply-arrow" viewBox="0 0 20 20" aria-hidden="true">
+              <path
+                d="M8 4.5 3 9.5l5 5M3 9.5h8a6 6 0 0 1 6 6v.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          )}
+          {item}
+        </span>
+      ))}
+    </div>
+  );
+}
+export function GoldiesReply() {
+  return (
+    <>
+      <p>That’s Goldie’s Conch House at the Arawak Cay Fish Fry.</p>
+      <p>
+        Conch salad is listed at <strong>$15</strong> and a cracked conch plate
+        is <strong>$16</strong>.
+      </p>
+      <p>
+        The banner says <strong>10% VAT &amp; 15% gratuity</strong> will be
+        added to your check.
+      </p>
+    </>
+  );
+}
+export function VoiceWave() {
+  return (
+    <div
+      className="voice-wave"
+      aria-label="Illustration of a four-second voice note"
+    >
+      <span aria-hidden="true">▶</span>
+      <div aria-hidden="true">
+        {[
+          8, 16, 24, 12, 20, 30, 24, 16, 34, 26, 16, 22, 30, 18, 12, 22, 28, 18,
+          12, 8, 14, 6,
+        ].map((h, i) => (
+          <i key={i} style={{ height: h }} />
+        ))}
+      </div>
+      <small>0:04</small>
+    </div>
+  );
+}
+function VoiceReply() {
+  return (
+    <>
+      <div
+        className="chat-audio-preview"
+        role="img"
+        aria-label="Preview of a ten-second voice reply at normal playback speed"
+      >
+        <svg viewBox="0 0 20 24" aria-hidden="true">
+          <path d="M2 2 18 12 2 22Z" fill="currentColor" />
+        </svg>
+        <div className="chat-audio-timeline" aria-hidden="true">
+          <span className="chat-audio-track"><i /></span>
+          <span className="chat-audio-duration">0:10</span>
+        </div>
+        <span className="chat-audio-speed" aria-hidden="true">1×</span>
+      </div>
+      <p className="chat-transcript">
+        “Junkanoo Beach is just a 13 to 15 minute walk west from the port exit.
+        Add 10 minutes or so if your ship docks further out on the pier.
+        The walk link’s in my message.”
+      </p>
+      <div className="chat-transcript-feedback" aria-hidden="true">
+        Was this transcript <span>useful</span> or <span>not useful</span>?
+      </div>
+    </>
+  );
+}
+function AtmReply() {
+  return (
+    <>
+      <a
+        className="chat-map-preview"
+        href="https://maps.google.com/maps?cid=10398610039722622302"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Scotiabank · Rawson Square & Bay St, Nassau, Bahamas — maps.google.com (opens in a new tab)"
+      >
+        <span className="chat-map-thumbnail">
+          <Image
+            src="/images/shoreday/chat/voice-atm-source.webp"
+            width={991}
+            height={2048}
+            sizes="360px"
+            alt="Scotiabank building from the supplied WhatsApp Google Maps preview"
+          />
+        </span>
+        <span className="chat-map-details">
+          <strong>Scotiabank · Rawson Square &amp; Bay St, Nassau, Bahamas</strong>
+          <span className="chat-map-domain">
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path d="m6 10 4-4M6.5 5.5l1.8-1.8a2.8 2.8 0 0 1 4 4l-1.8 1.8m-1 1-1.8 1.8a2.8 2.8 0 0 1-4-4l1.8-1.8" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+            maps.google.com
+          </span>
+        </span>
+      </a>
+      <p>
+        💵 This example points to Scotiabank at Rawson Square and Bay Street.
+      </p>
+      <p>Please confirm the ATM details when you arrive.</p>
+    </>
+  );
+}
+function CountdownReply() {
+  return (
+    <>
+      <p>At 11:36 AM:</p>
+      <p>
+        <strong>3 hours and 24 minutes</strong> until your 3:00 PM leave-by.
+      </p>
+      <div className="chat-time-rows">
+        <span>
+          Leave by <b>3:00 PM</b>
+        </span>
+        <span>
+          Back at the pier <b>3:30 PM</b>
+        </span>
+        <span>
+          All-aboard <b>4:30 PM</b>
+        </span>
+      </div>
+      <p>Use your ship’s official all-aboard time.</p>
+    </>
+  );
+}
+export function ChatExcerpt({
+  children,
+  id,
+  label,
+}: {
+  children: ReactNode;
+  id: string;
+  label: string;
+}) {
+  return (
+    <div className="mini-chat" role="group" aria-label={label}>
+      <WhatsAppHeader />
+      <div className="wa-chat">
+        <WhatsAppWallpaper patternId={`shoreday-${id}-wallpaper`} />
+        <div className="mini-thread">{children}</div>
+      </div>
+      <WhatsAppComposer />
+    </div>
+  );
+}
+export function ChatCard({
+  type,
+}: {
+  type: "photo" | "menu" | "voice" | "location" | "countdown";
+}) {
+  return (
+    <ChatExcerpt id={type} label={`${type} chat example in light mode`}>
+      {type === "photo" && (
+        <>
+          <ChatBubble sent time="4:17 PM">
+            <GovernmentHousePhoto />
+            <p>What is this?</p>
+          </ChatBubble>
+          <ChatBubble time="4:17 PM">
+            <GovernmentHouseReply />
+          </ChatBubble>
+        </>
+      )}
+      {type === "menu" && (
+        <>
+          <ChatBubble sent time="4:15 PM">
+            <MenuPhoto />
+            <p>Is this a fair price?</p>
+          </ChatBubble>
+          <ChatBubble time="4:16 PM">
+            <GoldiesReply />
+          </ChatBubble>
+        </>
+      )}
+      {type === "voice" && (
+        <>
+          <ChatBubble sent time="3:35 PM">
+            <VoiceWave />
+          </ChatBubble>
+          <ChatBubble time="3:35 PM">
+            <p>🎙️ Got your voice note, one moment…</p>
+          </ChatBubble>
+          <ChatBubble time="3:35 PM">
+            <VoiceReply />
+          </ChatBubble>
+        </>
+      )}
+      {type === "location" && (
+        <>
+          <ChatBubble sent time="3:37 PM">
+            <p>Where’s the nearest ATM?</p>
+          </ChatBubble>
+          <ChatBubble time="3:38 PM">
+            <p>🔎 Checking that now…</p>
+          </ChatBubble>
+          <ChatBubble time="3:38 PM">
+            <AtmReply />
+          </ChatBubble>
+        </>
+      )}
+      {type === "countdown" && (
+        <>
+          <ChatBubble sent time="11:36 AM">
+            <p>How much time do I have?</p>
+          </ChatBubble>
+          <ChatBubble time="11:36 AM">
+            <CountdownReply />
+          </ChatBubble>
+        </>
+      )}
+    </ChatExcerpt>
+  );
+}
+export default function ChatPreview() {
+  return (
+    <figure className="chat-demo">
+      <IPhoneFrame>
+        <div
+          className="chat-scroll"
+          tabIndex={0}
+          role="region"
+          aria-label="Scroll through an example Nassau day in WhatsApp"
+        >
+          <div className="chat-day">Getting started</div>
+          <ChatBubble sent time="9:02 AM">
+            <p>{WHATSAPP_PREFILL}</p>
+          </ChatBubble>
+          <ChatBubble
+            time="9:02 AM"
+            footer={
+              <ReplyOptions
+                reply
+                items={[
+                  "🗺️ See a sample",
+                  "💬 How it works",
+                  "✅ Get my plan",
+                ]}
+              />
+            }
+          >
+            <WelcomePreview />
+            <p>
+              <strong>Welcome to ShoreDay 👋</strong>
+              <br />
+              Less figuring it out. More enjoying Nassau 🇧🇸
+            </p>
+            <p>
+              <strong>
+                $9.99 once for your whole group, for one Nassau port day.
+              </strong>
+            </p>
+            <p>
+              🗺️ <strong>Your personal day plan:</strong> built around your
+              interests and your ship’s confirmed all-aboard time.
+            </p>
+            <p>
+              📘 <strong>Your Nassau Port-Day Playbook:</strong> delivered here.
+              Save it for offline access.
+            </p>
+            <p>
+              💬 <strong>Your ShoreDay Concierge:</strong> help throughout your
+              port day by text, voice note or photo.
+            </p>
+            <p>
+              🎟️ <strong>Tours &amp; excursions:</strong> optional experiences
+              with booking links in this chat.
+            </p>
+            <p>
+              🤖 Automated assistance. Type <strong>HUMAN</strong> to request
+              support.
+            </p>
+            <p>Tours, activities, transport, food and admissions cost extra.</p>
+            <span className="chat-media-caption">
+              Independent · Nassau only · No subscription
+            </span>
+          </ChatBubble>
+          <ChatBubble sent time="9:04 AM">
+            <p>✅ Get my plan</p>
+          </ChatBubble>
+          <ChatBubble
+            time="9:04 AM"
+            footer={<ReplyOptions items={["↗ Get my plan – $9.99"]} />}
+          >
+            <p>
+              <strong>Your Nassau plan · $9.99</strong>
+            </p>
+            <p>
+              $9.99 once for your whole group. One Nassau port day. No
+              subscription.
+            </p>
+            <p>
+              ✅ Your personal day plan
+              <br />✅ Your Nassau Port-Day Playbook (PDF)
+              <br />✅ Your ShoreDay Concierge throughout the port day
+            </p>
+            <p>
+              <strong>Full refund any time before your plan is sent.</strong>
+            </p>
+            <p>Tours, activities, transport, food and admissions cost extra.</p>
+            <p>
+              Use this <strong>same WhatsApp number at checkout</strong> so we
+              can deliver your plan and PDF here in chat.
+            </p>
+          </ChatBubble>
+          <div className="chat-day">Your plan and offline kit</div>
+          <ChatBubble time="9:05 AM">
+            <div className="pdf-preview">
+              <span>PDF</span>
+              <div>
+                <strong>Your Nassau Playbook</strong>
+                <small>17 pages · save before stepping ashore</small>
+              </div>
+            </div>
+            <p>
+              Orientation map, timing worksheet and your back-to-ship backup
+              card.
+            </p>
+          </ChatBubble>
+          <ChatBubble time="9:06 AM">
+            <p>
+              <strong>ShoreDay Concierge 🚢</strong>
+            </p>
+            <p>
+              Payment received ✅ I’m your ShoreDay Nassau concierge. Your
+              offline kit is right above 👆 Save it for the ship.
+            </p>
+            <p>To build your plan, send:</p>
+            <ol className="chat-onboarding-list">
+              <li>Your ship</li>
+              <li>Your Nassau date</li>
+              <li>Your all-aboard time (not departure)</li>
+              <li>Who’s in your group</li>
+            </ol>
+            <p>Or send a photo of your ship’s daily program.</p>
+            <p>First, pick your day style 👇</p>
+            <p className="chat-media-caption">
+              Human help daily 12–5 PM ET · Emergencies: 911/919
+            </p>
+          </ChatBubble>
+          <ChatBubble sent time="9:08 AM">
+            <p>
+              Ship: Wonder of the Seas
+              <br />
+              Nassau date: October 20, 2026
+              <br />
+              All-aboard: 4:30 PM
+              <br />
+              Group: two adults
+            </p>
+            <p>Beach-first with local food, please. Can you plan our day?</p>
+          </ChatBubble>
+          <ChatBubble time="9:12 AM">
+            <p>
+              <strong>⏰ Your numbers</strong>
+            </p>
+            <p>
+              • All-aboard <strong>4:30 PM</strong> → back at the pier by{" "}
+              <strong>3:30 PM</strong>
+              <br />
+              • Leave last stop by <strong>3:00 PM</strong>
+              <br />
+              • Math: 4:30 PM − 60 min = 3:30 PM; 3:30 PM − 30 min = 3:00 PM
+            </p>
+            <p>
+              🗺️ Day shape: <strong>Beach-first</strong>
+            </p>
+            <p>
+              📍 <strong>9:30 AM</strong> — walk to Junkanoo Beach, 13–15 min
+              west from the port.
+            </p>
+            <p>
+              🏖️ <strong>10:00 AM</strong> — Junkanoo Beach, swim and relax.
+              Chairs $10–$15 each.
+            </p>
+            <p>
+              🍽️ <strong>1:00 PM</strong> — walk 10–15 min west to Arawak Cay
+              Fish Fry. Conch salad $8–$15, cracked conch $12–$20. Cash preferred.
+            </p>
+            <p>
+              🚕 <strong>3:00 PM</strong> — taxi back to the pier, about $6–$8
+              for two riders. Agree the fare first.
+            </p>
+            <p>
+              ⏰ Set two alarms: <strong>3:00 PM</strong> and{" "}
+              <strong>3:30 PM</strong>.
+            </p>
+            <p>🆘 Emergency: 911 or 919.</p>
+            <p>Reply “what tours” to see optional Nassau tours.</p>
+          </ChatBubble>
+          <ChatBubble sent time="9:15 AM">
+            <VoiceWave />
+          </ChatBubble>
+          <ChatBubble time="9:15 AM">
+            <p>🎙️ Got your voice note, one moment…</p>
+          </ChatBubble>
+          <ChatBubble time="9:15 AM">
+            <VoiceReply />
+          </ChatBubble>
+          <ChatBubble sent time="10:26 AM">
+            <p>What is the weather today in Nassau?</p>
+          </ChatBubble>
+          <ChatBubble time="10:26 AM">
+            <p>🔎 Checking that now…</p>
+          </ChatBubble>
+          <ChatBubble time="10:27 AM">
+            <p>
+              ☀️ Today in Nassau is partly sunny and breezy with highs around
+              <strong> 82°F–86°F</strong> (28°C–30°C).
+            </p>
+            <p>
+              There is an isolated 10% to 30% chance of a stray afternoon
+              shower or thunderstorm, with fresh northeasterly breezes.
+            </p>
+            <p>Please confirm when you arrive.</p>
+            <p>
+              What next? Reply with a number:
+              <br />1️⃣ Review timing for your all-aboard
+              <br />2️⃣ Check walking directions to Junkanoo Beach
+              <br />3️⃣ See taxi fares to the Fish Fry
+            </p>
+          </ChatBubble>
+          <ChatBubble sent time="10:30 AM">
+            <p>What tours?</p>
+          </ChatBubble>
+          <ChatBubble
+            time="10:31 AM"
+            footer={<ReplyOptions items={["☷ 🏝️ See tours"]} />}
+          >
+            <p>
+              <strong>🏝️ Tours that fit a port day</strong>
+            </p>
+            <p>
+              Pick your Nassau adventure! Tap a tour to see its times, meeting
+              point and booking button.
+            </p>
+            <p>Always check the drop-back time against your leave-by time.</p>
+            <p className="chat-media-caption">
+              ShoreDay may earn a commission if you book.
+            </p>
+          </ChatBubble>
+          <ChatBubble sent time="11:36 AM">
+            <p>How much time do I have?</p>
+          </ChatBubble>
+          <ChatBubble time="11:36 AM">
+            <CountdownReply />
+          </ChatBubble>
+          <ChatBubble sent time="1:15 PM">
+            <MenuPhoto />
+            <p>Is this a fair price?</p>
+          </ChatBubble>
+          <ChatBubble time="1:16 PM">
+            <GoldiesReply />
+          </ChatBubble>
+        </div>
+      </IPhoneFrame>
+    </figure>
+  );
+}
