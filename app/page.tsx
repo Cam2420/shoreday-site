@@ -518,6 +518,36 @@ export default function Home() {
         </section>
         {/* Real reviews may be added here after Cam supplies permission and original customer wording. No fabricated social proof. */}
         <GuideLinks />
+        {/* Keep the optional tour offer and its affiliate disclosure together. */}
+        <section className="tours" aria-labelledby="tours-title">
+          <div className="viator-text">
+            Excursions via <span>Viator</span>, a Tripadvisor company
+          </div>
+
+          <h2 id="tours-title">Optional: add a Nassau tour</h2>
+          <p>
+            Already have your plan and want a tour? Browse a short list of
+            Nassau tours on Viator. Check your ship&rsquo;s official all-aboard
+            time before booking anything far from port.
+          </p>
+
+          <div className="cta-button-group">
+            <a
+              href="https://vi.me/s/shoredayapp"
+              target="_blank"
+              rel="sponsored noopener noreferrer"
+              className="tours-btn"
+              data-analytics-event="excursion_click"
+              data-analytics-surface="home_excursions_cta"
+            >
+              Browse Nassau Tours
+            </a>
+          </div>
+          <p className="affiliate-disclosure">
+            Disclosure: ShoreDay may earn a commission if you book through a
+            Viator link.
+          </p>
+        </section>
         <HomeFaq />
         <aside className="wa-share" aria-labelledby="wa-share-title">
           <p className="section-kicker">For your cruise buddy</p>
@@ -621,39 +651,6 @@ export default function Home() {
               decoding="async"
             />
           </div>
-        </section>
-
-        {/* Excursions are an optional add-on after the plan, not a co-primary
-          offer: a light card near the end of the page. Affiliate disclosure
-          stays adjacent to the link. */}
-        <section className="tours" aria-labelledby="tours-title">
-          <div className="viator-text">
-            Excursions via <span>Viator</span>, a Tripadvisor company
-          </div>
-
-          <h2 id="tours-title">Optional: add a Nassau tour</h2>
-          <p>
-            Already have your plan and want a tour? Browse a short list of
-            Nassau tours on Viator. Check your ship&rsquo;s official all-aboard
-            time before booking anything far from port.
-          </p>
-
-          <div className="cta-button-group">
-            <a
-              href="https://vi.me/s/shoredayapp"
-              target="_blank"
-              rel="sponsored noopener noreferrer"
-              className="tours-btn"
-              data-analytics-event="excursion_click"
-              data-analytics-surface="home_excursions_cta"
-            >
-              Browse Nassau Tours
-            </a>
-          </div>
-          <p className="affiliate-disclosure">
-            Disclosure: ShoreDay may earn a commission if you book through a
-            Viator link.
-          </p>
         </section>
 
         <FinalCta surface="home_final" />
