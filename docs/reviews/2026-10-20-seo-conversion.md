@@ -69,7 +69,7 @@ The 13 indexable canonical pages appear in `sitemap.xml`. `robots.txt` permits p
 | Concierge assistant reads media without saving it; support inbox and phone retain the conversation, including attachments | Cam’s latest privacy wording | FAQ, app guide, Privacy summary/§§4,6,8 and llms.txt; messaging provider unnamed |
 | Parent/adult plans for family; share children’s ages, stroller needs and walking preferences | Brief §2 family audience and §3 kids page; Privacy Policy §10 | Kids and ship guides. Venue access and age rules require confirmation |
 | Re-plan when preferences or ship times change | Brief §2 generic-plan comparison; §4 FAQ | Home and guides; onboard instructions remain final |
-| ShoreDay app access for the purchaser is coming soon | Cam’s latest instruction pending a test purchase | Removed included-premium/bonus claims from pricing, app section, FAQ, guide and llms.txt |
+| ShoreDay app premium access for the Whatsapp purchaser is coming soon | Cam’s latest instruction pending a test purchase | Removed included-premium/bonus claims from pricing, app section, FAQ, guide and llms.txt |
 | All 11 cruise lines and any Nassau-calling ship | Brief §2C supplied schedule summary | One data file; no call counts or endorsement imagery in fit list |
 | Specific October docking and departure patterns | TODO(Cam): original port schedule PDF | Removed from public timing guide pending the primary document |
 | Repeat visitors may choose different food, beach or heritage stops for this sailing | Brief §2 repeat audience; §2A.5 | Positioning and advice, no secret-access claim |

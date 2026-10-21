@@ -7,7 +7,7 @@ export const PLAY_STORE_URL =
 export const MEDIA_PRIVACY_COPY =
   "Our concierge AI reads your photos, videos and voice notes to answer, and doesn’t save them. Like any WhatsApp business chat, the conversation (including what you send) is kept in our support inbox so we can help you, and on your phone.";
 export const PURCHASER_APP_ACCESS_COPY =
-  "ShoreDay app access for the purchaser is coming soon.";
+  "ShoreDay app premium access for the Whatsapp purchaser is coming soon.";
 export type Faq = { q: string; a: string };
 export const HOME_FAQ: Faq[] = [
   {
