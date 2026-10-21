@@ -1,6 +1,6 @@
 # ShoreDay prepublication audit — October 20, 2026
 
-Local draft only. No deployment or merge. Repeated wording in metadata, FAQs, structured data and llms.txt is grouped with the equivalent visible claim below. Coverage: home, six Nassau guides, three ship guides, concierge terms, privacy, app terms, checkout preview, noindex lead-magnet/survival pages and the legacy noindex planner (including result-state copy). Redirected root HTML files and research notes are not served website pages. External payment and app-store pages are identified separately.
+This records the prepublication review; earlier no-deployment notes describe the state at each review. Cam authorized production publication on October 21, 2026. Repeated wording in metadata, FAQs, structured data and llms.txt is grouped with the equivalent visible claim below. Coverage: home, six Nassau guides, three ship guides, concierge terms, privacy, app terms, checkout preview, noindex lead-magnet/survival pages and the legacy noindex planner (including result-state copy). Redirected root HTML files and research notes are not served website pages. External payment and app-store pages are identified separately.
 
 ## Evidence standard
 
@@ -182,3 +182,7 @@ Verification for the plan/payment update: production build and changed-file lint
 Latest countdown presentation correction: removed “Illustrative countdown · 11:36 AM” from the scrolling phone’s response. Both countdown chat replies now share the supplied screenshot’s structure: “At 11:36 AM”, bold remaining time, three aligned label/time rows, ship-time reminder, and 11:36 AM message timestamp. Values match the phone’s plan: 3h24 until 3 PM leave-by, 3:30 PM pier, 4:30 PM all-aboard. No deployment.
 
 Countdown correction verification: production build, changed-file lint and whitespace checks passed. Browser confirmed the removed label is absent and both rendered replies contain identical current times. Mobile 390 px and desktop 1280 px have no horizontal page/chat overflow; all three bold time values share the same right edge. No browser errors. Evidence: `outputs/seo-review/corrected-countdown-mobile.png` and `corrected-countdown-desktop.png`. No deployment.
+
+## Final release checks — October 21, 2026
+
+Removed the remaining “Illustrative timing example” label above the standalone timing chat at Cam’s request. Production publication is now explicitly authorized. Final webpack production build (including TypeScript), changed-component lint and whitespace checks passed. All **556 tests in 37 files passed**. Built-page audit passed for 18 routes and 52 exact WhatsApp links; verified the $9.99 offer, 12–5 PM support, purchaser premium coming-soon copy, privacy disclosure, noindex/nofollow cheat sheet and sitemap omission. Desktop visual check confirms the timing chat starts directly with the question and retains the 3 PM / 3:30 PM / 4:30 PM schedule. Evidence: `outputs/seo-review/publish-build.log`, `publish-local-audit.json`; test run `/private/tmp/shoreday-release-tests.log`.

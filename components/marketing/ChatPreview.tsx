@@ -314,9 +314,6 @@ export function ChatCard({
       )}
       {type === "countdown" && (
         <>
-          <span className="chat-example-label">
-            Illustrative timing example
-          </span>
           <ChatBubble sent time="11:36 AM">
             <p>How much time do I have?</p>
           </ChatBubble>
