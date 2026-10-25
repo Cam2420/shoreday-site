@@ -18,6 +18,7 @@ import TimingExample from "@/components/marketing/TimingExample";
 import { OfferSchema } from "@/components/marketing/StructuredData";
 import FinalCta from "@/components/marketing/FinalCta";
 import GuideLinks from "@/components/marketing/GuideLinks";
+import ExploreNassau from "@/components/directory/ExploreNassau";
 import { CRUISE_LINE_COPY, INDEPENDENCE } from "@/data/cruise-lines";
 import { PURCHASER_APP_ACCESS_COPY } from "@/data/shoreday";
 import { pageMetadata } from "@/lib/seo";
@@ -70,8 +71,8 @@ export default function Home() {
           <Image src="/logo_transparent.png" width={28} height={36} alt="" />
           <ShoreDayWordmark />
         </Link>
-        <Link href="#guides" className="header-guide">
-          Nassau guides
+        <Link href="/things-to-do-in-nassau" className="header-guide">
+          Explore Nassau
         </Link>
         <WhatsAppCta surface="home_header" className="nav-cta" />
       </header>
@@ -517,6 +518,7 @@ export default function Home() {
           </div>
         </section>
         {/* Real reviews may be added here after Cam supplies permission and original customer wording. No fabricated social proof. */}
+        <ExploreNassau />
         <GuideLinks />
         {/* Keep the optional tour offer and its affiliate disclosure together. */}
         <section className="tours" aria-labelledby="tours-title">
