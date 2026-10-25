@@ -179,6 +179,24 @@
 .marketing .story-copy .section-kicker {
   margin-bottom: 12px;
 }
+.marketing .planning-quote {
+  margin: 16px 0 20px;
+  color: #17324d;
+}
+.marketing .planning-quote blockquote {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+.marketing .planning-quote blockquote p {
+  margin: 0;
+}
+.marketing .planning-quote figcaption {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: #42566a;
+}
 .marketing .chat-benefits {
   margin: 26px 0;
   list-style: none;
@@ -615,40 +633,6 @@
   color: #5a6a70;
   margin: 0;
 }
-.marketing .offline-section {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 70px;
-  background: #e0ebe0;
-  border-radius: 26px;
-  padding: 48px;
-}
-.marketing .offline-section p {
-  margin-bottom: 14px;
-}
-.marketing .offline-checklist {
-  align-self: center;
-  border-left: 1px solid #9cb6a6;
-  padding-left: 35px;
-}
-.marketing .offline-checklist h3 {
-  font-weight: 700;
-  font-size: 1rem;
-}
-.marketing .offline-checklist ul {
-  padding-left: 20px;
-  list-style: disc;
-  margin: 18px 0;
-}
-.marketing .offline-checklist li {
-  margin: 12px 0;
-  font-size: 0.94rem;
-}
-.marketing .offline-checklist > span {
-  font-family: var(--display);
-  font-size: 1.5rem;
-  color: #255c4d;
-}
 .marketing .how-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -936,10 +920,6 @@
   .guide-page .guide-content {
     gap: 40px;
   }
-  .marketing .offline-section {
-    gap: 35px;
-    padding: 35px;
-  }
 }
 @media (max-width: 860px) {
   .marketing .hero {
@@ -1116,17 +1096,6 @@
   }
   .marketing .timing-example li > span {
     font-size: 0.8rem;
-  }
-  .marketing .offline-section {
-    width: 94%;
-    grid-template-columns: 1fr;
-    padding: 28px 7%;
-    gap: 22px;
-  }
-  .marketing .offline-checklist {
-    border-left: 0;
-    border-top: 1px solid #afc5b7;
-    padding: 22px 0 0;
   }
   .marketing .how-grid {
     grid-template-columns: 1fr;

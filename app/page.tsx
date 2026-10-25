@@ -246,8 +246,16 @@ export default function Home() {
           <div className="story-copy">
             <p className="section-kicker">Choose your day with confidence</p>
             <h2 id="vendor-title">Walk off the ship with a plan.</h2>
+            <figure className="planning-quote">
+              <blockquote cite="https://www2.gov.bc.ca/assets/gov/farming-natural-resources-and-industry/agriculture-and-seafood/farm-management/farm-business-management/taking_stock_for_wildfire_recovery.pdf">
+                <p>“Good plans shape good decisions.”</p>
+              </blockquote>
+              <figcaption>— Lester R. Bittel</figcaption>
+            </figure>
             <p className="section-lead">
-              Step off with a plan, so “no thanks, we’re all set” comes easy.
+              Choose the stops you want before you step off the ship. ShoreDay
+              brings your route, budget and back-to-ship timing together in
+              WhatsApp, so you can make choices at your own pace.
             </p>
             <p>
               Got an offer at the pier? Snap the price board and ask whether it
@@ -287,34 +295,6 @@ export default function Home() {
             </Link>
           </div>
           <TimingExample />
-        </section>
-
-        <section
-          className="offline-section section-wrap"
-          aria-labelledby="offline-title"
-        >
-          <div>
-            <p className="section-kicker">Download before you step ashore</p>
-            <h2 id="offline-title">Works in airplane mode.</h2>
-            <p className="section-lead">
-              Your saved plan and downloaded PDF stay readable without signal.
-            </p>
-            <p>
-              Play voice notes once on ship Wi-Fi so downloaded notes replay
-              ashore. New questions, photos and replies need internet.
-            </p>
-            <p>Check your phone plan’s Bahamas coverage before you sail.</p>
-          </div>
-          <div className="offline-checklist">
-            <h3>Your before-you-go checklist</h3>
-            <ul>
-              <li>Save your plan in the chat.</li>
-              <li>Download and open the 17-page PDF.</li>
-              <li>Play voice notes once while connected.</li>
-              <li>Keep the page 17 back-to-ship card handy.</li>
-            </ul>
-            <span>Phone ready. Day ready.</span>
-          </div>
         </section>
 
         <section
@@ -370,11 +350,6 @@ export default function Home() {
             <h2 id="experience-title">
               One realistic day, not a packed checklist.
             </h2>
-            <p className="section-lead">
-              Beach time, a walkable downtown loop, or local food and history.
-              Your plan is shaped around your hours, your group, and the kind of
-              day you want.
-            </p>
           </div>
 
           <div className="experience-grid">
@@ -471,6 +446,7 @@ export default function Home() {
           </Link>
         </section>
 
+        <ExploreNassau />
         <section className="price" id="price" aria-labelledby="price-title">
           <div className="price-head">
             <p className="section-kicker">One group. One Nassau port call.</p>
@@ -518,7 +494,6 @@ export default function Home() {
           </div>
         </section>
         {/* Real reviews may be added here after Cam supplies permission and original customer wording. No fabricated social proof. */}
-        <ExploreNassau />
         <GuideLinks />
         {/* Keep the optional tour offer and its affiliate disclosure together. */}
         <section className="tours" aria-labelledby="tours-title">
