@@ -104,7 +104,7 @@ describe("Nassau directory publishing safeguards", () => {
   });
 
   it("records local assets with licensed attribution or explicit supplied-image provenance", () => {
-    for (const entry of PLACE_ENTRIES)
+    for (const entry of PUBLISHED_ENTRIES)
       if (entry.image) expect(DIRECTORY_IMAGES[entry.image]).toBeDefined();
     for (const image of Object.values(DIRECTORY_IMAGES)) {
       expect(existsSync(join(process.cwd(), "public", image.src))).toBe(true);
@@ -112,7 +112,8 @@ describe("Nassau directory publishing safeguards", () => {
       if (image.sourceType === "user-supplied") {
         expect(image.credit).toBeTruthy();
         expect(image.provenance).toBeTruthy();
-        expect(new URL(image.sourceUrl).protocol).toBe("https:");
+        if (image.sourceUrl)
+          expect(new URL(image.sourceUrl).protocol).toBe("https:");
         expect(image).not.toHaveProperty("license");
         expect(image).not.toHaveProperty("licenseUrl");
       } else {
@@ -125,7 +126,8 @@ describe("Nassau directory publishing safeguards", () => {
           /^https:\/\/commons.wikimedia.org\/wiki\/File:/,
         );
       }
-      expect(image.retrieved).toBe("2026-10-24");
+      expect(image.retrieved).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(new Date(image.retrieved).toISOString().slice(0, 10)).toBe(image.retrieved);
       expect(image.width).toBeGreaterThan(0);
       expect(image.height).toBeGreaterThan(0);
       expect(image.changes).toBeTruthy();

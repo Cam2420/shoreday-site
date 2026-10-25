@@ -1,10 +1,10 @@
 # Nassau directory — image licenses
 
-Retrieved October 24, 2026. For the twelve Wikimedia selections below, permission comes from the existing licenses. The listed licenses apply to the photographs and their resized/converted versions, not to the ShoreDay website as a whole. The separately documented user-supplied screenshots do not have verified reuse licenses.
+Commons photographs retrieved October 24, 2026; supplied screenshots added October 24–25, 2026. For the twelve Wikimedia selections below, permission comes from the existing licenses. The listed licenses apply to the photographs and their resized/converted versions, not to the ShoreDay website as a whole. The separately documented user-supplied screenshots do not have verified reuse licenses.
 
-Selection: Wikimedia Commons source-file pages and metadata were reviewed for subject, creator, license and capture date. A contact sheet was visually reviewed before importing. Eight beach listings and ten dining/bar listings were subsequently updated with the user's explicitly selected screenshots. No Maps reviews, Unsplash+ or paid assets are used.
+Selection: Wikimedia Commons source-file pages and metadata were reviewed for subject, creator, license and capture date. A contact sheet was visually reviewed before importing. Eight beach listings, ten dining/bar listings and eleven history, art and culture cards were subsequently updated with the user's explicitly selected screenshots. No Maps reviews, Unsplash+ or paid assets are used.
 
-The twelve Commons photographs were resized and converted to WebP. Eleven remain in use with a responsive crop; the original John Watling’s asset is retained as an unused alternative with its license record below. Creator/source and license links appear beside each licensed photo; expandable photo details include its title and modifications. Capture year is visible so an older image is not presented as a new photograph.
+The twelve Commons photographs were resized and converted to WebP. Four remain in use with a responsive crop: Cabbage Beach, Ardastra, Atlantis and Nobu. Eight replaced Commons assets are retained as unused alternatives with their license records below. Creator/source and license links appear beside each licensed photo; expandable photo details include its title and modifications. Capture year is visible so an older image is not presented as a new photograph.
 
 | Asset | Creator | Photograph / source | License | Captured | Retrieved |
 |---|---|---|---|---|---|
@@ -64,8 +64,30 @@ The user supplied and explicitly assigned these ten screenshots on October 24, 2
 
 John Watling’s now uses the supplied screenshot in place of the earlier Commons photograph. The Pink Octopus image matches the Palm Cay listing, and the Frankie Gone Bananas image matches the Arawak Cay listing. The printed hours in the Bon Vivants photograph are not used as verified current hours.
 
+## Eleven user-supplied history, art and culture screenshots
+
+The user supplied and explicitly assigned these screenshots on October 25, 2026. Original PNGs are retained byte-for-byte; the layout applies a responsive crop. Their original photo sources, photographers, capture dates and independent reuse licenses have not been verified. The visible credit is “User-supplied screenshot”; no source link or Creative Commons attribution is invented.
+
+| Screenshot time | Assigned card | Asset | Dimensions |
+|---|---|---|---|
+| 12.12.22 AM | National Art Gallery of The Bahamas | `/images/directory/national-art-gallery-screenshot.png` | 1612 × 1122 |
+| 12.13.48 AM | Fort Fincastle | `/images/directory/fort-fincastle-screenshot.png` | 1594 × 1262 |
+| 12.16.34 AM | Fort Charlotte | `/images/directory/fort-charlotte-screenshot.png` | 1614 × 778 |
+| 12.17.56 AM | Queen’s Staircase | `/images/directory/queens-staircase-screenshot.png` | 1218 × 1460 |
+| 12.19.41 AM | Heritage Museum of The Bahamas | `/images/directory/heritage-museum-screenshot.png` | 1592 × 942 |
+| 12.22.09 AM | Pompey Museum of Slavery & Emancipation | `/images/directory/pompey-museum-screenshot.png` | 1424 × 1322 |
+| 12.23.03 AM | Fort Montagu | `/images/directory/fort-montagu-screenshot.png` | 1620 × 942 |
+| 12.25.50 AM | Bahamas Historical Society Museum | `/images/directory/bahamas-historical-society-screenshot.png` | 1598 × 1248 |
+| 12.28.09 AM | Pirates of Nassau Museum | `/images/directory/pirates-of-nassau-screenshot.png` | 1612 × 1258 |
+| 12.29.26 AM | Hillside House Gallery | `/images/directory/hillside-house-screenshot.png` | 1618 × 1262 |
+| 12.32.13 AM | Junkanoo | `/images/directory/junkanoo-screenshot.png` | 1510 × 800 |
+
+Seven existing Commons images are replaced: National Art Gallery of The Bahamas, Fort Fincastle, Queen’s Staircase, Heritage Museum of The Bahamas, Pompey Museum of Slavery & Emancipation, Fort Montagu, Pirates of Nassau Museum. Their original files and license records remain above. Fort Charlotte, Bahamas Historical Society Museum and Hillside House Gallery now have images in place of placeholders.
+
+Junkanoo remains an event within its existing History & culture and Events categories, with no new place page or claimed performance date. Its assigned image appears on both category cards. The other ten images also appear on their corresponding place pages. The Heritage Museum closure notice and Fort Fincastle access notice remain unchanged.
+
 ## Gaps and rejected candidates
 
-7 of the 36 place pages use a clear “Photo coming soon” placeholder. A generic Bahamas beach is never substituted for a named beach. Commons searches were attempted for every place; unrelated results, 1988 beach scenes and a Fort Charlotte image dominated by construction were rejected. A very wide Jaws Beach panorama was also not selected. Older selected Commons images show a named historic exterior, beach or identified wildlife; their capture year is visible. The Atlantis photograph is explicitly captioned/alt-labelled as a resort pool rather than a specific Aquaventure slide.
+4 of the 36 place pages use a clear “Photo coming soon” placeholder. A generic Bahamas beach is never substituted for a named beach. Commons searches were attempted for every place; unrelated results, 1988 beach scenes and a Fort Charlotte image dominated by construction were rejected. A very wide Jaws Beach panorama was also not selected. Older selected Commons images show a named historic exterior, beach or identified wildlife; their capture year is visible. The Atlantis photograph is explicitly captioned/alt-labelled as a resort pool rather than a specific Aquaventure slide.
 
 Machine-readable asset records: `data/nassau-directory-images.json`. License requirements and source identity should be rechecked when replacing any asset. Keep the attribution with every reuse.

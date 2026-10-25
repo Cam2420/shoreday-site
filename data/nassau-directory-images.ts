@@ -6,7 +6,6 @@ export type DirectoryImage = {
   title: string;
   width: number;
   height: number;
-  sourceUrl: string;
   captured: string;
   retrieved: string;
   changes: string;
@@ -14,12 +13,14 @@ export type DirectoryImage = {
 } & (
   | {
       sourceType?: "licensed";
+      sourceUrl: string;
       author: string;
       license: string;
       licenseUrl: string;
     }
   | {
       sourceType: "user-supplied";
+      sourceUrl?: string;
       credit: string;
       provenance: string;
     }

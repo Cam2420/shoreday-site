@@ -159,7 +159,8 @@
       }
     ],
     "mapQuery": "Fort Charlotte, West Bay Street, opposite Arawak Cay, Nassau, Bahamas",
-    "mapsCheckedOn": "2026-10-24"
+    "mapsCheckedOn": "2026-10-24",
+    "image": "fort-charlotte"
   },
   {
     "slug": "queens-staircase",
@@ -557,7 +558,8 @@
       }
     ],
     "mapQuery": "Bahamas Historical Society Museum, Elizabeth Avenue and Shirley Street, Nassau, Bahamas",
-    "mapsCheckedOn": "2026-10-24"
+    "mapsCheckedOn": "2026-10-24",
+    "image": "bahamas-historical-society"
   },
   {
     "slug": "pirates-of-nassau",
@@ -1011,7 +1013,8 @@
       }
     ],
     "mapQuery": "Hillside House Gallery, 13 Cumberland Street, Nassau, Bahamas",
-    "mapsCheckedOn": "2026-10-24"
+    "mapsCheckedOn": "2026-10-24",
+    "image": "hillside-house"
   },
   {
     "slug": "the-current",
@@ -1184,6 +1187,7 @@
         "checkedOn": "2026-10-24",
         "supports": "Cultural description, Bay Street location and traditional seasonal context."
       }
-    ]
+    ],
+    "image": "junkanoo"
   }
 ]

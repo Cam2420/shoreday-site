@@ -179,9 +179,13 @@ export function DirectoryPhoto({
             />
           </div>
           <figcaption>
-            <a href={photo.sourceUrl} target="_blank" rel="noopener noreferrer">
-              {photo.sourceType === "user-supplied" ? photo.credit : photo.author}
-            </a>
+            {photo.sourceUrl ? (
+              <a href={photo.sourceUrl} target="_blank" rel="noopener noreferrer">
+                {photo.sourceType === "user-supplied" ? photo.credit : photo.author}
+              </a>
+            ) : (
+              photo.sourceType === "user-supplied" ? photo.credit : photo.author
+            )}
             {photo.sourceType !== "user-supplied" && (
               <>
                 {" "}·{" "}
@@ -242,7 +246,7 @@ export function EntryCard({ entry }: { entry: DirectoryEntry }) {
       className="directory-card"
       id={entry.kind === "place" ? undefined : entry.slug}
     >
-      {entry.kind === "place" ? <DirectoryPhoto entry={entry} /> : null}
+      {entry.kind === "place" || entry.image ? <DirectoryPhoto entry={entry} /> : null}
       <div className="directory-card-body">
         <p className="directory-eyebrow">
           {category?.name} <span aria-hidden="true">/</span> {entry.area}

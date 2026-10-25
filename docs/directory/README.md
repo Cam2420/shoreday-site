@@ -6,7 +6,7 @@ This feature is prepared on `codex/nassau-directory` for review before productio
 
 All 50 in-scope entries from the reference inventory are accounted for. Five duplicate mentions merge into shared records. Three unresolved entries are withheld; six broader topics remain inside their categories. See [coverage and sources](coverage-and-sources.md).
 
-Eleven active place photographs have verified Commons license records and visible attribution. Eighteen place pages use the exact Google Maps screenshots supplied and expressly selected by the user, recorded separately from licensed photographs: eight beaches and ten dining/bar locations. All nine beach cards and all listed food-and-drink place cards now have images; the remaining seven place pages use a clearly labelled placeholder. The earlier John Watling’s Commons asset and license record are retained as an unused alternative. See [image licenses and supplied-image provenance](image-licenses.md). No paid API is used, no Maps reviews were copied, and no new project dependency was added.
+Four active place photographs have verified Commons license records and visible attribution. Twenty-eight place pages and the Junkanoo event card use the exact screenshots supplied and expressly selected by the user, recorded separately from licensed photographs. All beach, food-and-drink and history-and-culture place cards now have images; four other place pages use a clearly labelled placeholder. Eight replaced Commons assets and their license records are retained as unused alternatives. See [image licenses and supplied-image provenance](image-licenses.md). No paid API is used, no Maps reviews were copied, and no new project dependency was added.
 
 ## Editing through Codex
 
@@ -49,6 +49,12 @@ Mobile Lighthouse 12.8.2, local production build, simulated mobile throttling, o
 These are lab scores, not field Core Web Vitals or a ranking guarantee. Raw Lighthouse HTML/JSON reports and local validation output are in the ignored `outputs/nassau-directory/` folder. The existing homepage chat preview has a non-scoring accessible-name diagnostic; it is outside this directory change.
 
 The initial webpack fallback hit a stale-cache error and then a Google Font loader error; the normal Next.js build succeeded. No font or dependency workaround is included in this change.
+
+## History, art and culture photo update — October 25, 2026
+
+Eleven supplied screenshots were mapped to the requested cards and checked against the original files with SHA-256 hashes. Seven existing images were replaced, three place placeholders were filled, and Junkanoo gained an event-card image in both History & culture and Events. Existing place facts and access/closure notices were preserved.
+
+The production build, type check, targeted ESLint and all six directory safeguards passed. At 1280 px, all twelve History & culture images loaded with no horizontal overflow. The Junkanoo event card and Queen’s Staircase detail page were checked at 390 px; both images displayed correctly with no horizontal overflow. Desktop and mobile screenshots are saved in `outputs/nassau-directory/`.
 
 ## Approval and release
 
