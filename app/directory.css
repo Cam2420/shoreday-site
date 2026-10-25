@@ -269,6 +269,35 @@
   font-size: 0.7rem;
   margin-top: 6px;
 }
+.directory-event-timing {
+  margin: 20px 0;
+  padding: 16px;
+  border: 1px solid #cbded3;
+  border-radius: 12px;
+  background: #f0f6f2;
+  color: #254b3c;
+}
+.directory-event-timing h4 {
+  margin: 0 0 10px;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.directory-event-timing p {
+  margin: 6px 0;
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+.directory-event-timing .directory-event-timing-note {
+  font-size: 0.76rem;
+  color: #465c6c;
+}
+.directory-event-timing a {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  text-underline-offset: 3px;
+}
 .directory .directory-status {
   background: #f7e6c4;
   border-left: 3px solid #9b682c;

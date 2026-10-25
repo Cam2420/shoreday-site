@@ -2,9 +2,9 @@
 
 Commons photographs retrieved October 24, 2026; supplied screenshots added October 24–25, 2026. For the twelve Wikimedia selections below, permission comes from the existing licenses. The listed licenses apply to the photographs and their resized/converted versions, not to the ShoreDay website as a whole. The separately documented user-supplied screenshots do not have verified reuse licenses.
 
-Selection: Wikimedia Commons source-file pages and metadata were reviewed for subject, creator, license and capture date. A contact sheet was visually reviewed before importing. Eight beach listings, ten dining/bar listings and eleven history, art and culture cards were subsequently updated with the user's explicitly selected screenshots. No Maps reviews, Unsplash+ or paid assets are used.
+Selection: Wikimedia Commons source-file pages and metadata were reviewed for subject, creator, license and capture date. A contact sheet was visually reviewed before importing. Eight beach listings, ten dining/bar listings eleven history, art and culture cards, and eleven outdoor, gallery and event cards were subsequently updated with the user's explicitly selected screenshots. No Maps reviews, Unsplash+ or paid assets are used.
 
-The twelve Commons photographs were resized and converted to WebP. Four remain in use with a responsive crop: Cabbage Beach, Ardastra, Atlantis and Nobu. Eight replaced Commons assets are retained as unused alternatives with their license records below. Creator/source and license links appear beside each licensed photo; expandable photo details include its title and modifications. Capture year is visible so an older image is not presented as a new photograph.
+The twelve Commons photographs were resized and converted to WebP. Two remain in use with a responsive crop: Cabbage Beach and Nobu. Ten replaced Commons assets are retained as unused alternatives with their license records below. Creator/source and license links appear beside each licensed photo; expandable photo details include its title and modifications. Capture year is visible so an older image is not presented as a new photograph.
 
 | Asset | Creator | Photograph / source | License | Captured | Retrieved |
 |---|---|---|---|---|---|
@@ -86,8 +86,28 @@ Seven existing Commons images are replaced: National Art Gallery of The Bahamas,
 
 Junkanoo remains an event within its existing History & culture and Events categories, with no new place page or claimed performance date. Its assigned image appears on both category cards. The other ten images also appear on their corresponding place pages. The Heritage Museum closure notice and Fort Fincastle access notice remain unchanged.
 
-## Gaps and rejected candidates
+## Eleven user-supplied outdoor, gallery and event screenshots
 
-4 of the 36 place pages use a clear “Photo coming soon” placeholder. A generic Bahamas beach is never substituted for a named beach. Commons searches were attempted for every place; unrelated results, 1988 beach scenes and a Fort Charlotte image dominated by construction were rejected. A very wide Jaws Beach panorama was also not selected. Older selected Commons images show a named historic exterior, beach or identified wildlife; their capture year is visible. The Atlantis photograph is explicitly captioned/alt-labelled as a resort pool rather than a specific Aquaventure slide.
+The user supplied these screenshots on October 25, 2026 and clarified that images 9, 10 and 11 map to the International Culture, Wine & Food Festival, Nassau sailing & regattas and Bahamas Carnival respectively. Each original PNG is retained byte-for-byte. Visible descriptions describe the supplied photograph without claiming a particular event edition. Image sources, capture dates and independent reuse licenses are unverified.
+
+| Screenshot time | Assigned card | Asset | Dimensions |
+|---|---|---|---|
+| 1.04.58 PM | Paradise Island | `/images/directory/paradise-island-screenshot.png` | 1430 × 1000 |
+| 1.10.26 PM | Ardastra Gardens & Wildlife Conservation Centre | `/images/directory/ardastra-gardens-screenshot.png` | 1438 × 1134 |
+| 1.15.48 PM | Stuart Cove Shark Diving | `/images/directory/shark-diving-screenshot.png` | 1424 × 840 |
+| 1.22.09 PM | Atlantis Aquaventure | `/images/directory/atlantis-aquaventure-screenshot.png` | 1026 × 1572 |
+| 1.24.14 PM | Baha Bay Waterpark | `/images/directory/baha-bay-screenshot.png` | 1446 × 994 |
+| 1.26.35 PM | V&M Gallery · D’Aguilar Art Foundation | `/images/directory/daguilar-art-foundation-screenshot.png` | 1432 × 986 |
+| 1.29.51 PM | The Current: Baha Mar Gallery & Art Center | `/images/directory/the-current-screenshot.png` | 1426 × 1124 |
+| 1.32.20 PM | Doongalik Studios Art Gallery | `/images/directory/doongalik-screenshot.png` | 1396 × 1316 |
+| 1.35.07 PM | International Culture, Wine & Food Festival | `/images/directory/international-culture-festival-screenshot.png` | 1216 × 814 |
+| 1.40.24 PM | Nassau sailing & regattas | `/images/directory/nassau-regattas-screenshot.png` | 1378 × 876 |
+| 1.43.51 PM | Bahamas Carnival | `/images/directory/bahamas-carnival-screenshot.png` | 1406 × 954 |
+
+The sailing image is displayed in full with its visible © JanPehrson.com watermark and matching caption credit. Other screenshots use responsive crops; the portrait Atlantis image is positioned to keep the temple slide in view. Ardastra and Atlantis replace Commons photographs, whose original files and license records are retained above. The four remaining published place placeholders are filled. All 36 published place pages and all six published area/activity/event cards now have images.
+
+## Earlier gaps and rejected candidates
+
+All 36 published place pages now have photographs; unresolved research entries remain unpublished. A generic Bahamas beach is never substituted for a named beach. Commons searches were attempted for every place; unrelated results, 1988 beach scenes and a Fort Charlotte image dominated by construction were rejected. A very wide Jaws Beach panorama was also not selected. Older selected Commons images show a named historic exterior, beach or identified wildlife; their capture year is visible. The earlier Atlantis Commons pool photograph is retained only as an unused alternative; the active supplied image shows the temple waterslide.
 
 Machine-readable asset records: `data/nassau-directory-images.json`. License requirements and source identity should be rechecked when replacing any asset. Keep the attribution with every reuse.

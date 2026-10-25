@@ -6,7 +6,7 @@ This feature is prepared on `codex/nassau-directory` for review before productio
 
 All 50 in-scope entries from the reference inventory are accounted for. Five duplicate mentions merge into shared records. Three unresolved entries are withheld; six broader topics remain inside their categories. See [coverage and sources](coverage-and-sources.md).
 
-Four active place photographs have verified Commons license records and visible attribution. Twenty-eight place pages and the Junkanoo event card use the exact screenshots supplied and expressly selected by the user, recorded separately from licensed photographs. All beach, food-and-drink and history-and-culture place cards now have images; four other place pages use a clearly labelled placeholder. Eight replaced Commons assets and their license records are retained as unused alternatives. See [image licenses and supplied-image provenance](image-licenses.md). No paid API is used, no Maps reviews were copied, and no new project dependency was added.
+Two active place photographs have verified Commons license records and visible attribution. Thirty-four place pages and all six published area/activity/event cards use the exact screenshots supplied and expressly selected by the user, recorded separately from licensed photographs. All 36 published place cards now have images. Ten replaced Commons assets and their license records are retained as unused alternatives. See [image licenses and supplied-image provenance](image-licenses.md). No paid API is used, no Maps reviews were copied, and no new project dependency was added.
 
 ## Editing through Codex
 
@@ -55,6 +55,14 @@ The initial webpack fallback hit a stale-cache error and then a Google Font load
 Eleven supplied screenshots were mapped to the requested cards and checked against the original files with SHA-256 hashes. Seven existing images were replaced, three place placeholders were filled, and Junkanoo gained an event-card image in both History & culture and Events. Existing place facts and access/closure notices were preserved.
 
 The production build, type check, targeted ESLint and all six directory safeguards passed. At 1280 px, all twelve History & culture images loaded with no horizontal overflow. The Junkanoo event card and Queen’s Staircase detail page were checked at 390 px; both images displayed correctly with no horizontal overflow. Desktop and mobile screenshots are saved in `outputs/nassau-directory/`.
+
+## Outdoor, gallery and event update — October 25, 2026
+
+Eleven supplied screenshots were matched to the user’s final assignments, including the corrected sequence for the food festival, sailing and Carnival. All originals were checked with SHA-256 hashes. The diving activity is now named “Stuart Cove Shark Diving”, preserving its existing anchor. The sailing photograph retains its visible JanPehrson.com watermark and credit.
+
+All four published event cards now show a month/season, dates where supported, a link to the date source, and an explanation of annual variation. Junkanoo shows its traditional December 26 and January 1 dates; the other cards distinguish past editions from future schedules. The government calendar and dated reports support the regatta example. No unannounced future dates or Event structured-data dates were added. The unresolved Rum Bahamas Festival remains unpublished.
+
+Production build, type check, targeted ESLint and all six directory safeguards passed. All images loaded in the Outdoor & adventure, Art & galleries and Events categories at 1280 px. Event cards also passed the 390 px overflow check; the sailing watermark remains visible. Desktop and mobile screenshots are saved in `outputs/nassau-directory/`.
 
 ## Approval and release
 

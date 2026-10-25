@@ -197,7 +197,7 @@ Visit durations are explicitly ShoreDay planning suggestions, not measured trave
 - [Ardastra: visitor information](https://ardastra.com/visitor-registration/) — Ticket arrangements, fee categories and accessibility. Checked 2026-10-24.
 - [Ardastra Gardens](https://ardastra.com/) — Gardens, conservation centre and flamingos. Checked 2026-10-24.
 
-### Shark diving
+### Stuart Cove Shark Diving
 - Record: `shark-diving`; status: `listed`.
 - Maps identity/location match: not established / not applicable to general topic.
 - [Stuart Cove’s: shark diving](https://stuartcove.com/shark-diving/) — Named operator and two-tank shark-diving experience. Checked 2026-10-24.
@@ -291,22 +291,26 @@ Visit durations are explicitly ShoreDay planning suggestions, not measured trave
 
 ### International Culture, Wine & Food Festival
 - Record: `international-culture-festival`; status: `listed`.
-- Maps identity/location match: not established / not applicable to general topic.
-- [Participating vendor: 2026 festival announcement](https://cabbagebeachbistro.com/) — 2026 edition, venue and past dates; not a future schedule. Checked 2026-10-24.
+- Timing: October. Latest verified dates: October 17–18, 2026 (past). The weekend changes by year. The next edition’s dates have not been verified.
+- [Participating vendor: 2026 festival announcement](https://cabbagebeachbistro.com/) — October 17–18, 2026 at the Botanical Gardens; a past edition, not a fixed annual weekend or future schedule. Checked 2026-10-25.
 
 ### Nassau sailing & regattas
 - Record: `nassau-regattas`; status: `listed`.
-- Maps identity/location match: not established / not applicable to general topic.
-- [Government regatta and festival information](https://www.dlgevents.gov.bs/) — Government regatta information and organizer contact. Checked 2026-10-24.
+- Timing: November–December · Best of the Best. Past example: December 4–7, 2025. This card covers several sailing events. There is no single annual date; confirm the specific Nassau race and year.
+- [Government regatta calendar](https://www.dlgevents.gov.bs/) — Government regatta information and organizer contact; no verified upcoming Nassau date range. Checked 2026-10-25.
+- [The Tribune: 2025 Best of the Best Regatta](https://www.tribune242.com/news/2025/dec/05/the-new-legend-lonesome-dove-sallie-sue-and-miss-agnes-take-early-leads-in-best-of-the-best-regatta/) — Montagu Bay racing began December 4, 2025 and ran through Sunday, December 7; past edition only. Checked 2026-10-25.
+- [Bahamas tourism: November 2023 events](https://www.bahamas.com/pressroom/whats-new-in-the-bahamas-in-november-2023) — Best of the Best Regatta in Montagu Bay on November 30–December 3, 2023; supports seasonal variation, not a future date. Checked 2026-10-25.
 
 ### Bahamas Carnival
 - Record: `bahamas-carnival`; status: `listed`.
-- Maps identity/location match: not established / not applicable to general topic.
-- [Bahamas Carnival event calendar](https://bahamascarnival.com/event/) — Organizer, individual event structure and currently listed past events. Checked 2026-10-24.
+- Timing: May or June · varies by edition. Traditionally early May; the organizer listed June 4–10 for 2025 (past). There is no fixed annual date range. The organizer’s current schedule lists no upcoming events.
+- [Bahamas Carnival: event schedule](https://bahamascarnival.com/bahamas-carnival-events-2026/) — Current event schedule lists no upcoming events when checked; no confirmed future dates. Checked 2026-10-25.
+- [Bahamas Carnival: organizer’s timing guide](https://bahamascarnival.com/t2/) — Typically early May, with June 4–10 listed for the 2025 edition; dates change by edition. Checked 2026-10-25.
 
 ### Junkanoo
 - Record: `junkanoo`; status: `listed`.
-- Maps identity/location match: not established / not applicable to general topic.
-- [Bahamas tourism: Junkanoo](https://www.bahamas.com/about/junkanoo/what-is-junkanoo) — Cultural description, Bay Street location and traditional seasonal context. Checked 2026-10-24.
+- Timing: December & January. Traditional dates: December 26 (Boxing Day) and January 1 (New Year’s Day). Parades run overnight and can start the preceding evening. Confirm each year’s start time, route and seating.
+- [Bahamas tourism: Junkanoo](https://www.bahamas.com/about/junkanoo/what-is-junkanoo) — Cultural description, Bay Street location and traditional seasonal context. Checked 2026-10-25.
+- [Bahamas High Commission: traditional Junkanoo dates](https://www.bahamashclondon.net/junkanoo-tickets-available-on-line/) — Traditional Boxing Day and New Year’s Day parades; historical cultural reference, not the current start time or ticket vendor. Checked 2026-10-25.
 
 The Historical Society operator website could not be reached during final link validation; its link is omitted. The museum record is supported by the tourism board and the Maps identity/address match.

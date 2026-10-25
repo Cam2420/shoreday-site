@@ -10,6 +10,8 @@ export type DirectoryImage = {
   retrieved: string;
   changes: string;
   displayScale?: number;
+  objectFit?: "cover" | "contain";
+  objectPosition?: string;
 } & (
   | {
       sourceType?: "licensed";

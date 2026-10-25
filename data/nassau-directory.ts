@@ -101,6 +101,13 @@ export type DirectoryEntry = {
   mapQuery?: string;
   mapsCheckedOn?: string;
   image?: string;
+  eventTiming?: {
+    months: string;
+    dates: string;
+    note: string;
+    sourceUrl: string;
+    checkedOn: string;
+  };
   featured?: boolean;
   sources: DirectorySource[];
 };

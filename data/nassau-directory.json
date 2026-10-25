@@ -212,7 +212,8 @@
         "supports": "Geography and destination overview."
       }
     ],
-    "mapQuery": "Paradise Island Bahamas"
+    "mapQuery": "Paradise Island Bahamas",
+    "image": "paradise-island"
   },
   {
     "slug": "pink-octopus",
@@ -623,7 +624,7 @@
   },
   {
     "slug": "shark-diving",
-    "name": "Shark diving",
+    "name": "Stuart Cove Shark Diving",
     "kind": "activity",
     "categories": [
       "outdoor-adventure"
@@ -642,7 +643,8 @@
         "checkedOn": "2026-10-24",
         "supports": "Named operator and two-tank shark-diving experience."
       }
-    ]
+    ],
+    "image": "shark-diving"
   },
   {
     "slug": "atlantis-aquaventure",
@@ -693,7 +695,8 @@
       }
     ],
     "mapQuery": "Baha Bay Water Park, 1 Baha Mar Boulevard, Nassau, Bahamas",
-    "mapsCheckedOn": "2026-10-24"
+    "mapsCheckedOn": "2026-10-24",
+    "image": "baha-bay"
   },
   {
     "slug": "goodmans-bay",
@@ -987,7 +990,8 @@
       }
     ],
     "mapQuery": "V & M Art Gallery, West Bay Street, Nassau, Bahamas",
-    "mapsCheckedOn": "2026-10-24"
+    "mapsCheckedOn": "2026-10-24",
+    "image": "daguilar-art-foundation"
   },
   {
     "slug": "hillside-house",
@@ -1045,7 +1049,8 @@
       }
     ],
     "mapQuery": "The Current: Baha Mar Gallery and Art Center, Grand Hyatt, One Baha Mar Boulevard, Nassau, Bahamas",
-    "mapsCheckedOn": "2026-10-24"
+    "mapsCheckedOn": "2026-10-24",
+    "image": "the-current"
   },
   {
     "slug": "doongalik",
@@ -1070,7 +1075,8 @@
       }
     ],
     "mapQuery": "Doongalik Studios Art Gallery, 20 Village Road, Nassau, Bahamas",
-    "mapsCheckedOn": "2026-10-24"
+    "mapsCheckedOn": "2026-10-24",
+    "image": "doongalik"
   },
   {
     "slug": "rum-bahamas-festival",
@@ -1104,20 +1110,28 @@
       "events"
     ],
     "area": "Botanical Gardens, Nassau",
-    "description": "A food and culture festival held at Nassau’s Botanical Gardens. A participating vendor published its attendance for October 17–18, 2026; those dates have passed.",
+    "description": "A food and culture festival at Nassau’s Botanical Gardens, bringing together international flavours and cultural celebrations. Check the programme for the edition you plan to attend.",
     "gettingThere": "Confirm the venue and travel arrangements for the edition you intend to attend.",
     "visitSuggestion": "Use the current event programme when allocating time.",
     "cost": "Check ticketing for the next announced edition.",
-    "booking": "The next edition’s dates are not confirmed here. Do not assume the same October weekend will repeat.",
+    "booking": "Check the next announced edition, venue and tickets before arranging your visit.",
     "status": "listed",
     "sources": [
       {
         "title": "Participating vendor: 2026 festival announcement",
         "url": "https://cabbagebeachbistro.com/",
-        "checkedOn": "2026-10-24",
-        "supports": "2026 edition, venue and past dates; not a future schedule."
+        "checkedOn": "2026-10-25",
+        "supports": "October 17–18, 2026 at the Botanical Gardens; a past edition, not a fixed annual weekend or future schedule."
       }
-    ]
+    ],
+    "image": "international-culture-festival",
+    "eventTiming": {
+      "months": "October",
+      "dates": "Latest verified dates: October 17–18, 2026 (past).",
+      "note": "The weekend changes by year. The next edition’s dates have not been verified.",
+      "sourceUrl": "https://cabbagebeachbistro.com/",
+      "checkedOn": "2026-10-25"
+    }
   },
   {
     "slug": "nassau-regattas",
@@ -1127,7 +1141,7 @@
       "events"
     ],
     "area": "Venue varies by event",
-    "description": "Sailing events take place across The Bahamas. Use the government regatta calendar to identify an event actually taking place in Nassau during your visit.",
+    "description": "Watch traditional Bahamian sloop racing at Nassau events such as the Best of the Best Regatta at Montagu Bay. Other regattas have their own calendars and may take place on different islands.",
     "gettingThere": "Check the specific Nassau venue; a Bahamas-wide event listing may be on another island.",
     "visitSuggestion": "Choose a viewing window from the confirmed programme.",
     "cost": "Check spectator access and any event tickets separately.",
@@ -1135,12 +1149,32 @@
     "status": "listed",
     "sources": [
       {
-        "title": "Government regatta and festival information",
+        "title": "Government regatta calendar",
         "url": "https://www.dlgevents.gov.bs/",
-        "checkedOn": "2026-10-24",
-        "supports": "Government regatta information and organizer contact."
+        "checkedOn": "2026-10-25",
+        "supports": "Government regatta information and organizer contact; no verified upcoming Nassau date range."
+      },
+      {
+        "title": "The Tribune: 2025 Best of the Best Regatta",
+        "url": "https://www.tribune242.com/news/2025/dec/05/the-new-legend-lonesome-dove-sallie-sue-and-miss-agnes-take-early-leads-in-best-of-the-best-regatta/",
+        "checkedOn": "2026-10-25",
+        "supports": "Montagu Bay racing began December 4, 2025 and ran through Sunday, December 7; past edition only."
+      },
+      {
+        "title": "Bahamas tourism: November 2023 events",
+        "url": "https://www.bahamas.com/pressroom/whats-new-in-the-bahamas-in-november-2023",
+        "checkedOn": "2026-10-25",
+        "supports": "Best of the Best Regatta in Montagu Bay on November 30–December 3, 2023; supports seasonal variation, not a future date."
       }
-    ]
+    ],
+    "image": "nassau-regattas",
+    "eventTiming": {
+      "months": "November–December · Best of the Best",
+      "dates": "Past example: December 4–7, 2025.",
+      "note": "This card covers several sailing events. There is no single annual date; confirm the specific Nassau race and year.",
+      "sourceUrl": "https://www.tribune242.com/news/2025/dec/05/the-new-legend-lonesome-dove-sallie-sue-and-miss-agnes-take-early-leads-in-best-of-the-best-regatta/",
+      "checkedOn": "2026-10-25"
+    }
   },
   {
     "slug": "bahamas-carnival",
@@ -1150,20 +1184,34 @@
       "events"
     ],
     "area": "Nassau — venues vary",
-    "description": "A programme of carnival events and celebrations in Nassau. Different events have their own venues and tickets; an annual heading alone does not establish dates for your visit.",
+    "description": "A Nassau celebration with colourful costumes, music, parties and a road march. Individual events have their own venues, tickets and participation arrangements.",
     "gettingThere": "Use the venue listed on your specific event confirmation.",
     "visitSuggestion": "Use the event’s published programme and allow time for the return transfer.",
     "cost": "Individual events may have separate tickets and inclusions.",
-    "booking": "The organizer’s calendar showed past events when checked. Follow its next confirmed announcement before making plans.",
+    "booking": "Check the organizer’s next announced programme before booking tickets or travel.",
     "status": "listed",
     "sources": [
       {
-        "title": "Bahamas Carnival event calendar",
-        "url": "https://bahamascarnival.com/event/",
-        "checkedOn": "2026-10-24",
-        "supports": "Organizer, individual event structure and currently listed past events."
+        "title": "Bahamas Carnival: event schedule",
+        "url": "https://bahamascarnival.com/bahamas-carnival-events-2026/",
+        "checkedOn": "2026-10-25",
+        "supports": "Current event schedule lists no upcoming events when checked; no confirmed future dates."
+      },
+      {
+        "title": "Bahamas Carnival: organizer’s timing guide",
+        "url": "https://bahamascarnival.com/t2/",
+        "checkedOn": "2026-10-25",
+        "supports": "Typically early May, with June 4–10 listed for the 2025 edition; dates change by edition."
       }
-    ]
+    ],
+    "image": "bahamas-carnival",
+    "eventTiming": {
+      "months": "May or June · varies by edition",
+      "dates": "Traditionally early May; the organizer listed June 4–10 for 2025 (past).",
+      "note": "There is no fixed annual date range. The organizer’s current schedule lists no upcoming events.",
+      "sourceUrl": "https://bahamascarnival.com/t2/",
+      "checkedOn": "2026-10-25"
+    }
   },
   {
     "slug": "junkanoo",
@@ -1174,7 +1222,7 @@
       "history-culture"
     ],
     "area": "Bay Street, downtown Nassau",
-    "description": "A Bahamian celebration of music, dance and elaborate costumes. Nassau’s major parades take place on Bay Street, with traditional celebrations around Boxing Day and New Year’s Day.",
+    "description": "A Bahamian celebration of music, dance and elaborate costumes. Nassau’s major holiday parades bring groups to Bay Street to compete through music, performance and costume design.",
     "gettingThere": "Check road closures, viewing areas and the route for the specific parade.",
     "visitSuggestion": "Parades may run overnight; choose a confirmed viewing window that fits your ship’s stay.",
     "cost": "Check the current organizer’s seating and ticket arrangements.",
@@ -1184,10 +1232,23 @@
       {
         "title": "Bahamas tourism: Junkanoo",
         "url": "https://www.bahamas.com/about/junkanoo/what-is-junkanoo",
-        "checkedOn": "2026-10-24",
+        "checkedOn": "2026-10-25",
         "supports": "Cultural description, Bay Street location and traditional seasonal context."
+      },
+      {
+        "title": "Bahamas High Commission: traditional Junkanoo dates",
+        "url": "https://www.bahamashclondon.net/junkanoo-tickets-available-on-line/",
+        "checkedOn": "2026-10-25",
+        "supports": "Traditional Boxing Day and New Year’s Day parades; historical cultural reference, not the current start time or ticket vendor."
       }
     ],
-    "image": "junkanoo"
+    "image": "junkanoo",
+    "eventTiming": {
+      "months": "December & January",
+      "dates": "Traditional dates: December 26 (Boxing Day) and January 1 (New Year’s Day).",
+      "note": "Parades run overnight and can start the preceding evening. Confirm each year’s start time, route and seating.",
+      "sourceUrl": "https://www.bahamashclondon.net/junkanoo-tickets-available-on-line/",
+      "checkedOn": "2026-10-25"
+    }
   }
 ]

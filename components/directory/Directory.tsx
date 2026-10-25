@@ -171,11 +171,11 @@ export function DirectoryPhoto({
               sizes="(max-width: 650px) 90vw, (max-width: 980px) 45vw, 600px"
               loading={priority ? "eager" : "lazy"}
               fetchPriority={priority ? "high" : undefined}
-              style={
-                photo.displayScale
-                  ? { transform: `scale(${photo.displayScale})` }
-                  : undefined
-              }
+              style={{
+                transform: photo.displayScale ? `scale(${photo.displayScale})` : undefined,
+                objectFit: photo.objectFit,
+                objectPosition: photo.objectPosition,
+              }}
             />
           </div>
           <figcaption>
@@ -264,6 +264,17 @@ export function EntryCard({ entry }: { entry: DirectoryEntry }) {
         {entry.notice ? (
           <p className="directory-status">{entry.notice}</p>
         ) : null}
+        {entry.eventTiming ? (
+          <div className="directory-event-timing">
+            <h4>When it happens</h4>
+            <p><strong>{entry.eventTiming.months}</strong></p>
+            <p>{entry.eventTiming.dates}</p>
+            <p className="directory-event-timing-note">{entry.eventTiming.note}</p>
+            <a href={entry.eventTiming.sourceUrl} target="_blank" rel="noopener noreferrer">
+              Date source ↗
+            </a>
+          </div>
+        ) : null}
         <p>{entry.description}</p>
         {entry.kind === "place" ? (
           <p className="directory-card-note">
@@ -281,7 +292,7 @@ export function EntryCard({ entry }: { entry: DirectoryEntry }) {
               {entry.sources[0].title} ↗
             </a>
             <p className="directory-checked">
-              Source checked October 24, 2026.
+              Source checked {new Date(`${entry.sources[0].checkedOn}T12:00:00Z`).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" })}.
             </p>
           </>
         )}
