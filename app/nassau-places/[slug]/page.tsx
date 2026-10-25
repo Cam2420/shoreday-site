@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import WhatsAppCta from "@/app/WhatsAppCta";
 import {
   DirectoryShell,
   DirectorySchema,
@@ -14,7 +15,6 @@ import {
   PLACE_ENTRIES,
   categoryBySlug,
   entryPath,
-  mapsUrl,
 } from "@/data/nassau-directory";
 import { DIRECTORY_IMAGES } from "@/data/nassau-directory-images";
 import { pageMetadata } from "@/lib/seo";
@@ -92,9 +92,6 @@ export default async function NassauPlacePage({
         <div className="directory-place-layout">
           <div className="directory-place-visual">
             <DirectoryPhoto entry={entry} priority />
-            <p className="directory-checked">
-              Visitor sources checked October 24, 2026.
-            </p>
           </div>
           <aside className="directory-visit-card" aria-labelledby="visit-title">
             <p className="section-kicker">Before you set off</p>
@@ -118,21 +115,15 @@ export default async function NassauPlacePage({
                 <dd>{entry.cost}</dd>
               </div>
             </dl>
-            <a
-              className="directory-primary"
-              href={mapsUrl(entry, Boolean(entry.mapsCheckedOn))}
-              target="_blank"
-              rel="noopener noreferrer"
+            <WhatsAppCta
+              surface="directory_place_plan"
+              className="directory-primary directory-concierge-button"
             >
-              {entry.mapsCheckedOn
-                ? "Open Google Maps"
-                : "View area in Google Maps"}{" "}
-              <span aria-hidden="true">↗</span>
-            </a>
-            <p className="directory-map-note">
-              {entry.mapsCheckedOn
-                ? "Choose your starting point in Maps. Walking and driving routes can differ."
-                : "This maps the wider area. A public beach entrance has not been confirmed."}
+              Plan my visit on WhatsApp
+            </WhatsAppCta>
+            <p className="directory-concierge-note">
+              ShoreDay’s WhatsApp concierge helps you fit this stop into your
+              cruise day, with time to get back to your ship.
             </p>
           </aside>
         </div>

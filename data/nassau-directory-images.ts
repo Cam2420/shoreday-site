@@ -12,6 +12,8 @@ export type DirectoryImage = {
   displayScale?: number;
   objectFit?: "cover" | "contain";
   objectPosition?: string;
+  /** Serve a pre-sized display asset directly instead of resizing it on request. */
+  unoptimized?: boolean;
 } & (
   | {
       sourceType?: "licensed";

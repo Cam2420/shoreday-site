@@ -64,8 +64,8 @@ export default async function NassauCategoryPage({
           in Nassau.
         </h1>
         <p className="directory-lead">{category.intro}</p>
-        <p className="directory-checked">
-          Sources checked October 24, 2026 · {entries.length} places & ideas
+        <p className="directory-count">
+          {entries.length} places & ideas
         </p>
       </header>
       <CategoryNav current={slug} />

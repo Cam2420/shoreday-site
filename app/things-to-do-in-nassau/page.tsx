@@ -114,8 +114,8 @@ export default function NassauDirectoryPage() {
       <div className="directory-editorial-note">
         <strong>A useful starting point, checked with care.</strong>
         <p>
-          Original ShoreDay descriptions with linked visitor sources. Last
-          checked October 24, 2026. Confirm current opening and access before
+          Original ShoreDay descriptions with linked visitor sources.
+          Confirm current opening and access before
           you go; no listing promises live availability.
         </p>
       </div>

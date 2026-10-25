@@ -151,9 +151,11 @@ export function DirectorySchema({
 export function DirectoryPhoto({
   entry,
   priority = false,
+  eager = false,
 }: {
   entry: DirectoryEntry;
   priority?: boolean;
+  eager?: boolean;
 }) {
   const photo = entry.image ? DIRECTORY_IMAGES[entry.image] : undefined;
   return (
@@ -168,8 +170,9 @@ export function DirectoryPhoto({
               alt={photo.alt}
               width={photo.width}
               height={photo.height}
+              unoptimized={photo.unoptimized}
               sizes="(max-width: 650px) 90vw, (max-width: 980px) 45vw, 600px"
-              loading={priority ? "eager" : "lazy"}
+              loading={priority || eager ? "eager" : "lazy"}
               fetchPriority={priority ? "high" : undefined}
               style={{
                 transform: photo.displayScale ? `scale(${photo.displayScale})` : undefined,
@@ -178,34 +181,18 @@ export function DirectoryPhoto({
               }}
             />
           </div>
-          <figcaption>
-            {photo.sourceUrl ? (
+          {photo.sourceType !== "user-supplied" ? (
+            <figcaption>
               <a href={photo.sourceUrl} target="_blank" rel="noopener noreferrer">
-                {photo.sourceType === "user-supplied" ? photo.credit : photo.author}
+                {photo.author}
               </a>
-            ) : (
-              photo.sourceType === "user-supplied" ? photo.credit : photo.author
-            )}
-            {photo.sourceType !== "user-supplied" && (
-              <>
-                {" "}·{" "}
-                <a
-                  href={photo.licenseUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {photo.license}
-                </a>
-              </>
-            )}
-            {photo.captured ? ` · Photo: ${photo.captured}` : ""}.
-            <details>
-              <summary>Photo details</summary>
-              <p>
-                {photo.title}. {photo.changes}
-              </p>
-            </details>
-          </figcaption>
+              {" · "}
+              <a href={photo.licenseUrl} target="_blank" rel="noopener noreferrer">
+                {photo.license}
+              </a>
+              {" · Cropped for display."}
+            </figcaption>
+          ) : null}
         </>
       ) : (
         <div className="directory-photo-placeholder">
@@ -246,7 +233,9 @@ export function EntryCard({ entry }: { entry: DirectoryEntry }) {
       className="directory-card"
       id={entry.kind === "place" ? undefined : entry.slug}
     >
-      {entry.kind === "place" || entry.image ? <DirectoryPhoto entry={entry} /> : null}
+      {entry.kind === "place" || entry.image ? (
+        <DirectoryPhoto entry={entry} eager={Boolean(entry.featured)} />
+      ) : null}
       <div className="directory-card-body">
         <p className="directory-eyebrow">
           {category?.name} <span aria-hidden="true">/</span> {entry.area}
@@ -291,9 +280,6 @@ export function EntryCard({ entry }: { entry: DirectoryEntry }) {
             >
               {entry.sources[0].title} ↗
             </a>
-            <p className="directory-checked">
-              Source checked {new Date(`${entry.sources[0].checkedOn}T12:00:00Z`).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" })}.
-            </p>
           </>
         )}
       </div>
@@ -355,7 +341,7 @@ export function DirectorySources({ entry }: { entry: DirectoryEntry }) {
     <section className="directory-sources" aria-labelledby="sources-title">
       <h2 id="sources-title">Sources & visit notes</h2>
       <p>
-        Details checked October 24, 2026. Opening, prices and access can change.
+        Opening, prices and access can change.
         Visit lengths are ShoreDay planning suggestions; they exclude travel and
         queues.
       </p>

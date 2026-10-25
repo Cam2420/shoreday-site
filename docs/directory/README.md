@@ -26,6 +26,14 @@ Directory text and links are generated on the server. Each route has its own tit
 
 The existing `/nassau` and `/nassau-cheat-sheet` noindex rules and sitemap exclusions remain intact. The $9.99 concierge offer and exact WhatsApp greeting remain unchanged.
 
+## Concierge and card presentation — October 25, 2026
+
+Place-page visit cards now use “Plan my visit on WhatsApp” with the shared, tracked ShoreDay concierge link and unchanged funnel greeting. Google Maps is no longer the visible primary action. Supplied-photo source captions and all “Photo details” disclosures have been removed from the directory UI; the two active Commons photographs retain concise author, license and crop attribution. The sailing screenshot retains its visible photographer watermark. Source records and image provenance remain in the data files and image ledger.
+
+Visible source-check dates have been removed from the hub, category cards and place pages. Event dates and their supporting links remain. Featured card images load eagerly; hero images alone retain high fetch priority. Ardastra stayed unloaded in the existing in-app tab even after switching to eager loading, while a fresh tab loaded a different responsive size. Its original PNG is retained, and a smaller 1200 px WebP display copy is served directly to avoid the problematic responsive image URL.
+
+Validation: production build and targeted ESLint passed, along with all ten directory/WhatsApp safeguards. Ardastra was visibly confirmed in the same 739 px browser tab that reproduced the blank card, then on its place page and category card at 390 px. The concierge button resolves to the existing WhatsApp URL with the unchanged greeting and `directory_place_plan` analytics surface. No horizontal overflow was observed. Screenshots are saved in `outputs/nassau-directory/ardastra-card-fixed.png` and `outputs/nassau-directory/concierge-cta-mobile.png`.
+
 ## Validation on October 24, 2026
 
 - Normal production build: passed (`npm run build`, Next.js Turbopack).

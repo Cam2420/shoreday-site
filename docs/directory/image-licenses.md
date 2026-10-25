@@ -115,9 +115,11 @@ The user supplied replacement screenshots on October 25, 2026. These now appear 
 | 2.20.28 PM | Ardastra Gardens & Wildlife Conservation Centre | `/images/directory/ardastra-gardens-2026-10-25-142028.png` | 2060 × 1602 |
 | 2.21.11 PM | Atlantis Aquaventure | `/images/directory/atlantis-aquaventure-2026-10-25-142111.png` | 890 × 1368 |
 
-These supplied assets retain the same unverified-source provenance and visible “User-supplied screenshot” credit. Responsive cropping hides screenshot edges; the Atlantis focal position keeps the top of the temple slide visible.
+These supplied assets retain the same unverified-source provenance. Responsive cropping hides screenshot edges; the Atlantis focal position keeps the top of the temple slide visible. The Ardastra PNG is retained as the original; its active delivery asset is now `/images/directory/ardastra-gardens-display.webp` (1200 × 933), resized and encoded at WebP quality 85. It is served directly to avoid the blank responsive-image variant observed in the user's existing browser tab.
 
 ## Earlier gaps and rejected candidates
+
+Presentation update, October 25: source captions for user-supplied screenshots and the “Photo details” disclosures are no longer displayed. This ledger retains all source/provenance records. The two active Commons images keep concise author, license and crop credits in the UI; the sailing photograph keeps its visible JanPehrson.com watermark.
 
 All 36 published place pages now have photographs; unresolved research entries remain unpublished. A generic Bahamas beach is never substituted for a named beach. Commons searches were attempted for every place; unrelated results, 1988 beach scenes and a Fort Charlotte image dominated by construction were rejected. A very wide Jaws Beach panorama was also not selected. Older selected Commons images show a named historic exterior, beach or identified wildlife; their capture year is visible. The earlier Atlantis Commons pool photograph is retained only as an unused alternative; the active supplied image shows the temple waterslide.
 
