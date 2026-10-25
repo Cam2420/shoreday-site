@@ -106,6 +106,17 @@ The user supplied these screenshots on October 25, 2026 and clarified that image
 
 The sailing image is displayed in full with its visible © JanPehrson.com watermark and matching caption credit. Other screenshots use responsive crops; the portrait Atlantis image is positioned to keep the temple slide in view. Ardastra and Atlantis replace Commons photographs, whose original files and license records are retained above. The four remaining published place placeholders are filled. All 36 published place pages and all six published area/activity/event cards now have images.
 
+## Latest Ardastra and Atlantis replacements
+
+The user supplied replacement screenshots on October 25, 2026. These now appear everywhere the shared Ardastra and Atlantis records are used, including featured cards, category cards and place pages. Each original PNG is retained byte-for-byte. New asset paths avoid serving an earlier cached screenshot; the earlier supplied files remain as unused alternatives.
+
+| Screenshot time | Assigned card | Active asset | Dimensions |
+|---|---|---|---|
+| 2.20.28 PM | Ardastra Gardens & Wildlife Conservation Centre | `/images/directory/ardastra-gardens-2026-10-25-142028.png` | 2060 × 1602 |
+| 2.21.11 PM | Atlantis Aquaventure | `/images/directory/atlantis-aquaventure-2026-10-25-142111.png` | 890 × 1368 |
+
+These supplied assets retain the same unverified-source provenance and visible “User-supplied screenshot” credit. Responsive cropping hides screenshot edges; the Atlantis focal position keeps the top of the temple slide visible.
+
 ## Earlier gaps and rejected candidates
 
 All 36 published place pages now have photographs; unresolved research entries remain unpublished. A generic Bahamas beach is never substituted for a named beach. Commons searches were attempted for every place; unrelated results, 1988 beach scenes and a Fort Charlotte image dominated by construction were rejected. A very wide Jaws Beach panorama was also not selected. Older selected Commons images show a named historic exterior, beach or identified wildlife; their capture year is visible. The earlier Atlantis Commons pool photograph is retained only as an unused alternative; the active supplied image shows the temple waterslide.
