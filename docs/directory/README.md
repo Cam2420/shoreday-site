@@ -28,7 +28,7 @@ The existing `/nassau` and `/nassau-cheat-sheet` noindex rules and sitemap exclu
 
 ## Concierge and card presentation — October 25, 2026
 
-Place-page visit cards now use “Plan my visit on WhatsApp” with the shared, tracked ShoreDay concierge link and unchanged funnel greeting. Google Maps is no longer the visible primary action. Supplied-photo source captions and all “Photo details” disclosures have been removed from the directory UI; the two active Commons photographs retain concise author, license and crop attribution. The sailing screenshot retains its visible photographer watermark. Source records and image provenance remain in the data files and image ledger.
+Place-page visit cards use “Plan my visit” with the shared, tracked ShoreDay concierge link and unchanged funnel greeting. The cards begin with the location details, without the former kicker and heading. Google Maps is no longer the visible primary action. Supplied-photo source captions and all “Photo details” disclosures have been removed from the directory UI; the two active Commons photographs retain concise author, license and crop attribution. The sailing screenshot retains its visible photographer watermark. Source records and image provenance remain in the data files and image ledger.
 
 Visible source-check dates have been removed from the hub, category cards and place pages. Event dates and their supporting links remain. Featured card images load eagerly; hero images alone retain high fetch priority. Ardastra stayed unloaded in the existing in-app tab even after switching to eager loading, while a fresh tab loaded a different responsive size. Its original PNG is retained, and a smaller 1200 px WebP display copy is served directly to avoid the problematic responsive image URL.
 

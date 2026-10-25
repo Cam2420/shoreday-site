@@ -93,9 +93,7 @@ export default async function NassauPlacePage({
           <div className="directory-place-visual">
             <DirectoryPhoto entry={entry} priority />
           </div>
-          <aside className="directory-visit-card" aria-labelledby="visit-title">
-            <p className="section-kicker">Before you set off</p>
-            <h2 id="visit-title">Plan the visit.</h2>
+          <aside className="directory-visit-card" aria-label="Visit information">
             <dl>
               <div>
                 <dt>Where</dt>
@@ -119,7 +117,7 @@ export default async function NassauPlacePage({
               surface="directory_place_plan"
               className="directory-primary directory-concierge-button"
             >
-              Plan my visit on WhatsApp
+              Plan my visit
             </WhatsAppCta>
             <p className="directory-concierge-note">
               ShoreDay’s WhatsApp concierge helps you fit this stop into your

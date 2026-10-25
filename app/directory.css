@@ -433,16 +433,16 @@
   border: 1px solid var(--line);
   border-radius: 20px;
 }
-.directory-visit-card h2 {
-  font-size: 2rem;
-  margin: 12px 0 24px;
-}
 .directory-visit-card dl {
   margin: 0;
 }
 .directory-visit-card dl > div {
   padding: 16px 0;
   border-top: 1px solid var(--line);
+}
+.directory-visit-card dl > div:first-child {
+  padding-top: 0;
+  border-top: 0;
 }
 .directory-visit-card dt {
   font-size: 0.7rem;
