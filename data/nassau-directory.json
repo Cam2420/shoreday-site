@@ -1,0 +1,1254 @@
+[
+  {
+    "slug": "bahamas-rum-cake-factory",
+    "name": "Bahamas Rum Cake Factory",
+    "kind": "place",
+    "categories": [
+      "food-drink"
+    ],
+    "area": "602 East Bay Street",
+    "description": "A bakery stop for Bahamian rum cakes on East Bay Street. The factory offers samples at the bakery and sells cakes to take away; it says it does not operate its own tours.",
+    "gettingThere": "Start at the Nassau Cruise Port street exit. Check the walking route and allow extra time for heat, crossings and your group’s pace.",
+    "visitSuggestion": "Allow 20–30 minutes for a short shop visit.",
+    "cost": "Cakes are purchases; samples are offered at the bakery.",
+    "booking": "Visit the bakery during its published hours. Do not book a “factory tour” assuming it is run by this business.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Factory FAQ",
+        "url": "https://thebahamasrumcakefactory.com/pages/faq",
+        "checkedOn": "2026-10-24",
+        "supports": "Address, samples, purchases and no operator-run tours."
+      }
+    ],
+    "mapsCheckedOn": "2026-10-24",
+    "mapQuery": "Bahamas Rum Cake Factory, 602 East Bay Street, Nassau, Bahamas",
+    "image": "bahamas-rum-cake-factory"
+  },
+  {
+    "slug": "john-watlings-distillery",
+    "name": "John Watling’s Distillery",
+    "kind": "place",
+    "categories": [
+      "food-drink",
+      "history-culture"
+    ],
+    "area": "Buena Vista Estate, Delancy Street",
+    "description": "Explore a rum distillery at the historic Buena Vista Estate in downtown Nassau. The operator offers a free walk-in tour, with a tavern and shop for visitors who want to stay a little longer.",
+    "gettingThere": "Start at the Nassau Cruise Port street exit. Check the walking route and allow extra time for heat, crossings and your group’s pace.",
+    "visitSuggestion": "Allow 45–60 minutes for a relaxed visit.",
+    "cost": "The operator advertises a free walk-in tour. Drinks, bottles and private experiences are separate.",
+    "booking": "No reservation is needed for the advertised walk-in tour. Check holiday closures and private-experience availability.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "John Watling’s official visitor information",
+        "url": "https://johnwatlings.com/",
+        "checkedOn": "2026-10-24",
+        "supports": "Estate, walk-in tour, booking and separate visitor experiences."
+      }
+    ],
+    "featured": true,
+    "image": "john-watlings",
+    "mapQuery": "John Watling’s Distillery, Buena Vista Estate, Delancy Street, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24"
+  },
+  {
+    "slug": "graycliff-chocolatier",
+    "name": "Graycliff Chocolatier",
+    "kind": "place",
+    "categories": [
+      "food-drink",
+      "outdoor-adventure"
+    ],
+    "area": "West Hill Street",
+    "description": "Browse chocolates at Graycliff or reserve a hands-on chocolate-making experience. The operator describes a factory tour followed by a classroom session where guests make chocolate treats.",
+    "gettingThere": "Start at the Nassau Cruise Port street exit. Check the walking route and allow extra time for heat, crossings and your group’s pace.",
+    "visitSuggestion": "Allow 60–90 minutes if booking an experience; use the duration on your confirmation.",
+    "cost": "Boutique purchases and booked chocolate experiences are priced separately.",
+    "booking": "Book the particular tour or class you want through Graycliff; shop hours are not the same as class start times.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Graycliff Chocolatier",
+        "url": "https://www.graycliff.com/graycliff-chocolatier/",
+        "checkedOn": "2026-10-24",
+        "supports": "Location, boutique, factory tour and classes."
+      }
+    ],
+    "mapQuery": "Graycliff Chocolatier, West Hill Street, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24",
+    "image": "graycliff-chocolatier"
+  },
+  {
+    "slug": "national-art-gallery",
+    "name": "National Art Gallery of The Bahamas",
+    "kind": "place",
+    "categories": [
+      "art-galleries",
+      "history-culture"
+    ],
+    "area": "West and West Hill Streets",
+    "description": "Explore Bahamian visual art through exhibitions and the grounds of the National Art Gallery. The museum offers self-guided visits, a store and an outdoor Art Park.",
+    "gettingThere": "Start at the Nassau Cruise Port street exit. Check the walking route and allow extra time for heat, crossings and your group’s pace.",
+    "visitSuggestion": "Allow 1–2 hours as a planning starting point; the museum says visits can range from 30 minutes to 3 hours.",
+    "cost": "Admission varies by visitor category. Resident concessions should not be assumed to apply to cruise visitors.",
+    "booking": "The museum’s FAQ lists Tuesday–Sunday opening and Monday closure. Recheck for your travel date.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "National Art Gallery visitor FAQ",
+        "url": "https://nagb.org.bs/faqs/",
+        "checkedOn": "2026-10-24",
+        "supports": "Exhibitions, visit duration, opening days, admission categories, amenities and accessibility."
+      }
+    ],
+    "featured": true,
+    "image": "national-art-gallery",
+    "access": "The museum lists elevator access to gallery floors. Its Art Park is unpaved and hilly; assess that part separately.",
+    "mapQuery": "National Art Gallery of The Bahamas, West and West Hill Streets, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24"
+  },
+  {
+    "slug": "fort-fincastle",
+    "name": "Fort Fincastle",
+    "kind": "place",
+    "categories": [
+      "history-culture"
+    ],
+    "area": "Bennet’s Hill, Prison Lane",
+    "description": "Fort Fincastle is one of Nassau’s historic forts, near Queen’s Staircase on Bennet’s Hill. Confirm access before making the fort interior part of your port-day route.",
+    "gettingThere": "Start at the Nassau Cruise Port street exit. Check the walking route and allow extra time for heat, crossings and your group’s pace.",
+    "visitSuggestion": "Allow 30–45 minutes only if visitor access has been confirmed.",
+    "cost": "Check the linked visitor information for current admission and any separately priced experiences.",
+    "booking": "Confirm reopening and admission directly before planning an interior visit.",
+    "status": "check-access",
+    "sources": [
+      {
+        "title": "Bahamas tourism: historic forts",
+        "url": "https://www.bahamas.com/blog/historic-forts-of-nassau",
+        "checkedOn": "2026-10-24",
+        "supports": "Fort identity and historic context; current access is separately flagged."
+      }
+    ],
+    "notice": "Access needs confirmation. Google Maps reported “Temporarily closed” when checked on October 24, 2026. Do not assume the fort interior is open.",
+    "mapsCheckedOn": "2026-10-24",
+    "image": "fort-fincastle",
+    "mapQuery": "Fort Fincastle, Bennet’s Hill, Prison Lane, Nassau, Bahamas"
+  },
+  {
+    "slug": "fort-charlotte",
+    "name": "Fort Charlotte",
+    "kind": "place",
+    "categories": [
+      "history-culture"
+    ],
+    "area": "West Bay Street, opposite Arawak Cay",
+    "description": "Explore Nassau’s hilltop fort complex west of downtown, with harbour views, cannons and historic passageways. It can be paired with the Arawak Cay area if your time ashore allows.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Allow 45–75 minutes, plus the journey and any waiting for a tour.",
+    "cost": "Check the linked visitor information for current admission and any separately priced experiences.",
+    "booking": "Check current opening and visitor arrangements before setting off.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Bahamas tourism: Fort Charlotte",
+        "url": "https://www.bahamas.com/plan-your-trip/things-to-do/fort-charlotte",
+        "checkedOn": "2026-10-24",
+        "supports": "Location, fort complex, harbour views and historic features."
+      }
+    ],
+    "mapQuery": "Fort Charlotte, West Bay Street, opposite Arawak Cay, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24",
+    "image": "fort-charlotte"
+  },
+  {
+    "slug": "queens-staircase",
+    "name": "Queen’s Staircase",
+    "kind": "place",
+    "categories": [
+      "history-culture"
+    ],
+    "area": "Elizabeth Avenue South",
+    "description": "Walk beside the limestone passage and staircase carved by enslaved people in the late eighteenth century. This downtown landmark connects with the Fort Fincastle area, whose visitor access should be checked separately.",
+    "gettingThere": "Check the route to the lower approach on Elizabeth Avenue and the upper approach near Fort Fincastle; they are not the same entrance. Google Maps also labels the attraction from Greenwich Street. Use the route that fits your group’s mobility.",
+    "visitSuggestion": "Allow 20–40 minutes to look around and take a break.",
+    "cost": "Check any offered guided-tour charges before accepting a tour.",
+    "booking": "A visit to the staircase does not confirm access to the neighbouring fort.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Bahamas tourism: Queen’s Staircase",
+        "url": "https://www.bahamas.com/plan-your-trip/things-to-do/the-queens-staircase",
+        "checkedOn": "2026-10-24",
+        "supports": "Location, limestone construction, history and relationship to Fort Fincastle."
+      }
+    ],
+    "featured": true,
+    "image": "queens-staircase",
+    "access": "The staircase includes steps; do not assume a step-free through-route.",
+    "mapQuery": "Queen’s Staircase, Elizabeth Avenue South, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24"
+  },
+  {
+    "slug": "paradise-island",
+    "name": "Paradise Island",
+    "kind": "area",
+    "categories": [
+      "outdoor-adventure"
+    ],
+    "area": "Across Nassau Harbour",
+    "description": "Paradise Island is an area with resorts, beaches and attractions, rather than one activity with one admission fee. Choose the specific place you want to visit before arranging your transfer.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Budget around the attraction you choose, then add both transfers.",
+    "cost": "Each attraction or resort has its own admission and access arrangements.",
+    "booking": "Check resort or day-pass rules for the particular beach, pool or attraction.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Bahamas tourism: Nassau & Paradise Island",
+        "url": "https://www.bahamas.com/nassau-paradise-island/what-to-do",
+        "checkedOn": "2026-10-24",
+        "supports": "Geography and destination overview."
+      }
+    ],
+    "mapQuery": "Paradise Island Bahamas",
+    "image": "paradise-island"
+  },
+  {
+    "slug": "pink-octopus",
+    "name": "Pink Octopus",
+    "kind": "place",
+    "categories": [
+      "food-drink"
+    ],
+    "area": "Palm Cay",
+    "description": "A restaurant at Palm Cay with an oceanfront setting and a seasonal menu. This is a reserved dining stop within the Palm Cay community, so confirm entry arrangements before travelling.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Allow 60–90 minutes for a meal, plus transfers.",
+    "cost": "Food and drinks are paid separately. Check the current menu, taxes and service charges before ordering.",
+    "booking": "Palm Cay says outside guests need a confirmed reservation, with non-members booking at least an hour ahead for security clearance.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Palm Cay: Pink Octopus",
+        "url": "https://palmcay.com/restaurant/",
+        "checkedOn": "2026-10-24",
+        "supports": "Restaurant setting, seasonal menu and reservation/security requirements."
+      }
+    ],
+    "mapQuery": "Pink Octopus, Palm Cay, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24",
+    "image": "pink-octopus"
+  },
+  {
+    "slug": "nobu",
+    "name": "Nobu",
+    "kind": "place",
+    "categories": [
+      "food-drink"
+    ],
+    "area": "Atlantis, Paradise Island",
+    "description": "A Japanese restaurant at Atlantis serving dishes such as sushi, sashimi and signature cooked plates. Its published service is for dinner, making it a choice for a later port stay rather than a typical daytime lunch.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Allow 90–120 minutes for dinner, plus transfers.",
+    "cost": "Food and drinks are paid separately. Check the current menu, taxes and service charges before ordering.",
+    "booking": "Reservations are encouraged. Check the current dinner service and dress requirements against your ship’s all-aboard time.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Atlantis: Nobu",
+        "url": "https://www.atlantisbahamas.com/dining/finedining/nobu",
+        "checkedOn": "2026-10-24",
+        "supports": "Location, cuisine, dinner service and reservations."
+      }
+    ],
+    "mapQuery": "Nobu, One Casino Drive, Paradise Island, Bahamas",
+    "image": "nobu",
+    "mapsCheckedOn": "2026-10-24"
+  },
+  {
+    "slug": "sapodilla",
+    "name": "Sapodilla Estate",
+    "kind": "place",
+    "categories": [
+      "food-drink"
+    ],
+    "area": "657 West Bay Street",
+    "description": "An estate restaurant on West Bay Street offering an evening dining experience. The operator publishes dinner service Tuesday through Saturday; this needs a late or overnight stay in Nassau.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Allow 90–120 minutes for dinner, plus transfers.",
+    "cost": "Food and drinks are paid separately. Check the current menu, taxes and service charges before ordering.",
+    "booking": "Check the restaurant’s current dinner hours and reserve before setting off. Office hours are not restaurant service hours.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Sapodilla Estate",
+        "url": "https://www.sapodillabahamas.com/",
+        "checkedOn": "2026-10-24",
+        "supports": "Address and evening restaurant service."
+      }
+    ],
+    "mapQuery": "Sapodilla Estate, 657 West Bay Street, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24",
+    "image": "sapodilla"
+  },
+  {
+    "slug": "cafe-matisse",
+    "name": "Café Matisse",
+    "kind": "place",
+    "categories": [
+      "food-drink"
+    ],
+    "area": "Bank Lane",
+    "description": "An Italian restaurant behind Parliament Square with indoor dining and an outdoor courtyard. Lunch can fit a downtown route when its service days line up with your visit.",
+    "gettingThere": "Start at the Nassau Cruise Port street exit. Check the walking route and allow extra time for heat, crossings and your group’s pace.",
+    "visitSuggestion": "Allow 60–90 minutes for lunch.",
+    "cost": "Food and drinks are paid separately. Check the current menu, taxes and service charges before ordering.",
+    "booking": "The operator lists lunch Tuesday–Saturday, 12–3 PM, and closure on Sunday and Monday. Check availability before going.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Café Matisse: menus and opening hours",
+        "url": "https://cafematisse.rest/",
+        "checkedOn": "2026-10-24",
+        "supports": "Cuisine, Bank Lane location and lunch opening hours."
+      },
+      {
+        "title": "Café Matisse: about the restaurant",
+        "url": "https://cafematisse.rest/about-us/",
+        "checkedOn": "2026-10-24",
+        "supports": "Courtyard and location behind Parliament Square."
+      }
+    ],
+    "mapQuery": "Café Matisse, Bank Lane, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24",
+    "image": "cafe-matisse"
+  },
+  {
+    "slug": "frankie-gone-bananas",
+    "name": "Frankie Gone Bananas",
+    "kind": "place",
+    "categories": [
+      "food-drink"
+    ],
+    "area": "Arawak Cay",
+    "description": "A Bahamian restaurant at the eastern end of Arawak Cay’s Fish Fry. Its own website describes seafood, native dishes, a courtyard and a conch-salad bar.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Allow 60–90 minutes for a meal.",
+    "cost": "Food and drinks are paid separately. Check the current menu, taxes and service charges before ordering.",
+    "booking": "Use the Arawak Cay location when checking directions and service. Do not assume a similarly named resort branch is the same stop.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Frankie Gone Bananas official website",
+        "url": "https://www.frankiegbananas.com/",
+        "checkedOn": "2026-10-24",
+        "supports": "Arawak Cay branch, seafood and dining spaces."
+      }
+    ],
+    "mapQuery": "Frankie Gone Bananas, Arawak Cay, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24",
+    "image": "frankie-gone-bananas"
+  },
+  {
+    "slug": "goldies-conch-house",
+    "name": "Goldie’s Conch House",
+    "kind": "place",
+    "categories": [
+      "food-drink"
+    ],
+    "area": "Arawak Cay",
+    "description": "This Arawak Cay restaurant is retained in the research register while current service is checked.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Do not plan a meal here until reopening is confirmed.",
+    "cost": "Food and drinks are paid separately. Check the current menu, taxes and service charges before ordering.",
+    "booking": "Reopening requires confirmation.",
+    "status": "research",
+    "sources": [
+      {
+        "title": "Google Maps status cross-check",
+        "url": "https://www.google.com/maps/search/?api=1&query=Goldies+Conch+House+Arawak+Cay+Nassau",
+        "checkedOn": "2026-10-24",
+        "supports": "Identity and temporary-closure signal only; no public recommendation."
+      }
+    ],
+    "notice": "Google Maps reported temporarily closed on October 24, 2026. Reopening has not been established from an accessible operator announcement.",
+    "mapsCheckedOn": "2026-10-24",
+    "mapQuery": "Goldie’s Conch House, Arawak Cay, Nassau, Bahamas"
+  },
+  {
+    "slug": "twin-brothers",
+    "name": "Twin Brothers",
+    "kind": "place",
+    "categories": [
+      "food-drink"
+    ],
+    "area": "Arawak Cay",
+    "description": "A sit-down restaurant at Nassau’s Arawak Cay Fish Fry, identified in the Bahamas tourism guide to the area. Consider it for a Bahamian-food stop and check the current menu before choosing your meal.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Allow 60–90 minutes for a meal.",
+    "cost": "Food and drinks are paid separately. Check the current menu, taxes and service charges before ordering.",
+    "booking": "Check current opening and visitor arrangements before setting off.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Bahamas tourism: Arawak Cay Fish Fry",
+        "url": "https://www.bahamas.com/experiences/fish-fry-nassau",
+        "checkedOn": "2026-10-24",
+        "supports": "Restaurant identity and Arawak Cay location."
+      }
+    ],
+    "mapQuery": "Twin Brothers, Arawak Cay, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24",
+    "image": "twin-brothers"
+  },
+  {
+    "slug": "senor-frogs",
+    "name": "Señor Frog’s Nassau",
+    "kind": "place",
+    "categories": [
+      "nightlife",
+      "food-drink"
+    ],
+    "area": "Woodes Rodgers Walk",
+    "description": "A lively waterfront restaurant and bar on Woodes Rodgers Walk, with food, drinks and entertainment. Check the day’s programme if you want a particular event or a quieter meal.",
+    "gettingThere": "Start at the Nassau Cruise Port street exit. Check the walking route and allow extra time for heat, crossings and your group’s pace.",
+    "visitSuggestion": "Allow 45–90 minutes depending on whether you are stopping for a drink or a meal.",
+    "cost": "Food and drinks are paid separately. Check the current menu, taxes and service charges before ordering.",
+    "booking": "Confirm service and event times. An evening programme only works if your ship remains in port late enough.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Señor Frog’s Nassau",
+        "url": "https://senorfrogs.com/what-to-do-in-nassau/",
+        "checkedOn": "2026-10-24",
+        "supports": "Nassau address, restaurant/bar and entertainment."
+      }
+    ],
+    "mapQuery": "Señor Frog’s Nassau, Woodes Rodgers Walk, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24",
+    "image": "senor-frogs"
+  },
+  {
+    "slug": "bon-vivants",
+    "name": "Bon Vivants",
+    "kind": "place",
+    "categories": [
+      "nightlife",
+      "food-drink"
+    ],
+    "area": "401 Sea Skye Lane, Sandyport",
+    "description": "A café and craft-cocktail bar in Sandyport. Its west-Nassau location makes it a planned outing rather than a quick stop beside the cruise terminal.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Allow 45–90 minutes, plus transfers.",
+    "cost": "Food and drinks are paid separately. Check the current menu, taxes and service charges before ordering.",
+    "booking": "Check whether café service or the cocktail menu suits your visit time. Allow for the return journey before your ship’s deadline.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Bon Vivants official website",
+        "url": "https://bonvivantsbahamas.com/",
+        "checkedOn": "2026-10-24",
+        "supports": "Café/bar identity and Sandyport address."
+      }
+    ],
+    "mapQuery": "Bon Vivants, 401 Sea Skye Lane, Sandyport, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24",
+    "image": "bon-vivants"
+  },
+  {
+    "slug": "heritage-museum",
+    "name": "Heritage Museum of The Bahamas",
+    "kind": "place",
+    "categories": [
+      "history-culture"
+    ],
+    "area": "Mountbatten House, West Hill Street",
+    "description": "The Heritage Museum at Graycliff’s Heritage Village explores Bahamian history through a private collection. It is located in Mountbatten House opposite Graycliff Hotel.",
+    "gettingThere": "Start at the Nassau Cruise Port street exit. Check the walking route and allow extra time for heat, crossings and your group’s pace.",
+    "visitSuggestion": "Plan a visit only after reopening has been confirmed.",
+    "cost": "Current admission is not listed here while the museum is closed.",
+    "booking": "Check Graycliff’s visitor information for a reopening announcement.",
+    "status": "temporarily-closed",
+    "sources": [
+      {
+        "title": "Graycliff: Heritage Museum",
+        "url": "https://www.graycliff.com/heritage-and-history-at-graycliff/",
+        "checkedOn": "2026-10-24",
+        "supports": "Museum identity, location and current closure notice."
+      }
+    ],
+    "notice": "Graycliff’s official website states that the Heritage Museum is closed for renovations. Checked October 24, 2026.",
+    "mapQuery": "Heritage Museum of The Bahamas, Mountbatten House, West Hill Street, Nassau, Bahamas",
+    "image": "heritage-museum",
+    "mapsCheckedOn": "2026-10-24"
+  },
+  {
+    "slug": "pompey-museum",
+    "name": "Pompey Museum of Slavery & Emancipation",
+    "kind": "place",
+    "categories": [
+      "history-culture"
+    ],
+    "area": "Vendue House, downtown Nassau",
+    "description": "A museum at historic Vendue House exploring slavery and emancipation in The Bahamas. The building’s own past as a marketplace is part of the context for a thoughtful visit.",
+    "gettingThere": "Start at the Nassau Cruise Port street exit. Check the walking route and allow extra time for heat, crossings and your group’s pace.",
+    "visitSuggestion": "Allow 45–60 minutes.",
+    "cost": "Check the linked visitor information for current admission and any separately priced experiences.",
+    "booking": "Check current opening and visitor arrangements before setting off.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Bahamas tourism: Pompey Museum",
+        "url": "https://www.bahamas.com/plan-your-trip/things-to-do/pompey-museum-of-slavery-emancipation-at-vendue-house",
+        "checkedOn": "2026-10-24",
+        "supports": "Museum subject, building and historic context."
+      }
+    ],
+    "mapQuery": "Pompey Museum of Slavery & Emancipation, Vendue House, downtown Nassau, Nassau, Bahamas",
+    "image": "pompey-museum",
+    "mapsCheckedOn": "2026-10-24"
+  },
+  {
+    "slug": "fort-montagu",
+    "name": "Fort Montagu",
+    "kind": "place",
+    "categories": [
+      "history-culture"
+    ],
+    "area": "East Bay Street, Montagu Bay",
+    "description": "A limestone fort on Nassau Harbour’s eastern waterfront, built in 1741. The nearby Montagu Beach area can make this a combined history and waterfront stop.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Allow 20–40 minutes, plus time for the waterfront.",
+    "cost": "Check the linked visitor information for current admission and any separately priced experiences.",
+    "booking": "Check whether the fort interior and any guided visits are available on your date.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Bahamas tourism: Fort Montagu",
+        "url": "https://www.bahamas.com/plan-your-trip/things-to-do/fort-montagu",
+        "checkedOn": "2026-10-24",
+        "supports": "Construction date, location and visitor tours."
+      }
+    ],
+    "mapQuery": "Fort Montagu, East Bay Street, Montagu Bay, Nassau, Bahamas",
+    "image": "fort-montagu",
+    "mapsCheckedOn": "2026-10-24"
+  },
+  {
+    "slug": "bahamas-historical-society",
+    "name": "Bahamas Historical Society Museum",
+    "kind": "place",
+    "categories": [
+      "history-culture"
+    ],
+    "area": "Elizabeth Avenue and Shirley Street",
+    "description": "A museum run by the Bahamas Historical Society, whose work focuses on preserving material relating to Bahamian history. Its downtown location allows it to be considered alongside nearby heritage stops.",
+    "gettingThere": "Start at the Nassau Cruise Port street exit. Check the walking route and allow extra time for heat, crossings and your group’s pace.",
+    "visitSuggestion": "Allow 30–60 minutes.",
+    "cost": "Check the linked visitor information for current admission and any separately priced experiences.",
+    "booking": "Check current opening and visitor arrangements before setting off.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Bahamas tourism: Historical Society Museum",
+        "url": "https://www.bahamas.com/plan-your-trip/things-to-do/bahamas-historical-society-museum",
+        "checkedOn": "2026-10-24",
+        "supports": "Museum identity, purpose and address."
+      }
+    ],
+    "mapQuery": "Bahamas Historical Society Museum, Elizabeth Avenue and Shirley Street, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24",
+    "image": "bahamas-historical-society"
+  },
+  {
+    "slug": "pirates-of-nassau",
+    "name": "Pirates of Nassau Museum",
+    "kind": "place",
+    "categories": [
+      "history-culture"
+    ],
+    "area": "King and George Streets",
+    "description": "Explore pirate history through staged scenes, displays and historical interpretation at this downtown museum. The self-guided format lets you choose a pace that suits your group.",
+    "gettingThere": "Start at the Nassau Cruise Port street exit. Check the walking route and allow extra time for heat, crossings and your group’s pace.",
+    "visitSuggestion": "Allow 30–60 minutes; add time if your group likes to read each display.",
+    "cost": "Check the linked visitor information for current admission and any separately priced experiences.",
+    "booking": "Check current opening and visitor arrangements before setting off.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Bahamas tourism: Pirates of Nassau",
+        "url": "https://www.bahamas.com/plan-your-trip/things-to-do/pirates-of-nassau-museum",
+        "checkedOn": "2026-10-24",
+        "supports": "Museum subject, self-guided format and address."
+      }
+    ],
+    "mapQuery": "Pirates of Nassau Museum, King and George Streets, Nassau, Bahamas",
+    "image": "pirates-of-nassau",
+    "mapsCheckedOn": "2026-10-24"
+  },
+  {
+    "slug": "ardastra-gardens",
+    "name": "Ardastra Gardens & Wildlife Conservation Centre",
+    "kind": "place",
+    "categories": [
+      "outdoor-adventure"
+    ],
+    "area": "Chippingham Road",
+    "description": "Visit tropical gardens and a wildlife conservation centre known for its Caribbean flamingos. Check the current animal-interaction programme when choosing when to arrive.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Allow 90–120 minutes, plus transfers.",
+    "cost": "Admission is charged, with different resident and non-resident rates. Optional animal experiences may cost extra.",
+    "booking": "The operator says tickets are available at the gate without advance reservations. Recheck special-event arrangements.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Ardastra: visitor information",
+        "url": "https://ardastra.com/visitor-registration/",
+        "checkedOn": "2026-10-24",
+        "supports": "Ticket arrangements, fee categories and accessibility."
+      },
+      {
+        "title": "Ardastra Gardens",
+        "url": "https://ardastra.com/",
+        "checkedOn": "2026-10-24",
+        "supports": "Gardens, conservation centre and flamingos."
+      }
+    ],
+    "featured": true,
+    "image": "ardastra",
+    "access": "The operator notes uneven terrain and says its restrooms are not wheelchair accessible.",
+    "mapQuery": "Ardastra Gardens & Wildlife Conservation Centre, Chippingham Road, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24"
+  },
+  {
+    "slug": "shark-diving",
+    "name": "Stuart Cove Shark Diving",
+    "kind": "activity",
+    "categories": [
+      "outdoor-adventure"
+    ],
+    "area": "Operator-specific departure point",
+    "description": "Stuart Cove’s advertises a two-tank shark-diving programme in Nassau. Compare the exact activity and eligibility requirements before booking; diving and snorkelling experiences are different products.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Use the operator’s full check-in, transfer and activity schedule.",
+    "cost": "Use the operator’s current quote, including equipment and transfers where applicable.",
+    "booking": "Check certification, health requirements, age limits, cancellation terms and return arrangements directly with the operator.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Stuart Cove’s: shark diving",
+        "url": "https://stuartcove.com/shark-diving/",
+        "checkedOn": "2026-10-24",
+        "supports": "Named operator and two-tank shark-diving experience."
+      }
+    ],
+    "image": "shark-diving"
+  },
+  {
+    "slug": "atlantis-aquaventure",
+    "name": "Atlantis Aquaventure",
+    "kind": "place",
+    "categories": [
+      "outdoor-adventure"
+    ],
+    "area": "Atlantis, Paradise Island",
+    "description": "A resort waterpark with slides, rivers and pools on Paradise Island. Atlantis offers day passes for visitors who are not staying overnight; reserve the correct pass for your date.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Treat this as your main activity: allow 3–5 hours at the resort, then add transfers and check-in.",
+    "cost": "Day-pass pricing and availability depend on the date and product. Check the official booking page.",
+    "booking": "Buy the appropriate day pass through the operator. Check its inclusions, restrictions and cancellation terms before paying.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Atlantis: day passes",
+        "url": "https://www.atlantisbahamas.com/daybooking?ActivityGroupCode=5",
+        "checkedOn": "2026-10-24",
+        "supports": "Day visitor access, waterpark and pass inclusions."
+      }
+    ],
+    "image": "atlantis",
+    "mapQuery": "Atlantis Aquaventure, Atlantis, Paradise Island, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24"
+  },
+  {
+    "slug": "baha-bay",
+    "name": "Baha Bay Waterpark",
+    "kind": "place",
+    "categories": [
+      "outdoor-adventure"
+    ],
+    "area": "Baha Mar, West Bay Street",
+    "description": "A waterpark beside the Baha Mar resort with rides and water-based attractions. The operator offers a limited number of tickets for visitors who are not resort guests.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Treat this as your main activity: allow 3–5 hours, then add transfers and entry time.",
+    "cost": "Check dated admission and any separate cabana or beach-club products.",
+    "booking": "Reserve a public day ticket if required for your date. Resort-guest access rules do not automatically apply to cruise visitors.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Baha Bay: visitor FAQ",
+        "url": "https://bahabay.bahamar.com/faq/",
+        "checkedOn": "2026-10-24",
+        "supports": "Location, waterpark and public ticket availability."
+      }
+    ],
+    "mapQuery": "Baha Bay Water Park, 1 Baha Mar Boulevard, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24",
+    "image": "baha-bay"
+  },
+  {
+    "slug": "goodmans-bay",
+    "name": "Goodman’s Bay",
+    "image": "goodmans-bay",
+    "kind": "place",
+    "categories": [
+      "beaches"
+    ],
+    "area": "West Bay Street, near Baha Mar",
+    "description": "A beach and park area in western New Providence near Baha Mar. Consider it for a waterfront break with a planned return journey to the cruise port.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Allow 1–2 hours as a starting point, plus transfers.",
+    "cost": "Check the access point before going. Chairs, food, equipment and any beach-club entry are separate purchases.",
+    "booking": "Confirm the public access point and check conditions on arrival.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Bahamas tourism: New Providence beaches",
+        "url": "https://www.bahamas.com/blog/the-best-bahamian-beaches-to-visit-on-new-providence",
+        "checkedOn": "2026-10-24",
+        "supports": "Goodman’s Bay location and park setting."
+      }
+    ],
+    "mapQuery": "Goodman’s Bay, West Bay Street, near Baha Mar, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24"
+  },
+  {
+    "slug": "montagu-beach",
+    "name": "Montagu Beach",
+    "kind": "place",
+    "categories": [
+      "beaches"
+    ],
+    "area": "East Bay Street, beside Fort Montagu",
+    "description": "A small beach beside Fort Montagu, east of downtown Nassau. It can be a place for a waterfront pause or picnic alongside a visit to the fort area.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Allow 45–90 minutes for a waterfront stop.",
+    "cost": "Check the access point before going. Chairs, food, equipment and any beach-club entry are separate purchases.",
+    "booking": "Check conditions on arrival and keep boat activity and local notices in mind.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Nassau Paradise Island: Montagu Beach",
+        "url": "https://www.nassauparadiseisland.com/experiences/beaches/montagu-beach",
+        "checkedOn": "2026-10-24",
+        "supports": "Location, beach scale and picnic setting."
+      }
+    ],
+    "mapQuery": "Montague Beach, Bahamas",
+    "mapsCheckedOn": "2026-10-24",
+    "image": "montagu-beach"
+  },
+  {
+    "slug": "jaws-beach",
+    "name": "Jaws Beach",
+    "kind": "place",
+    "categories": [
+      "beaches"
+    ],
+    "area": "Western New Providence, Clifton area",
+    "description": "A beach on the western side of New Providence associated with the Clifton area. Its distance from downtown makes return transport an important part of planning this stop.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Allow 1–2 hours at the beach, plus both transfers.",
+    "cost": "Check the access point before going. Chairs, food, equipment and any beach-club entry are separate purchases.",
+    "booking": "Arrange the return pickup before travelling; check current access and facilities.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Nassau Paradise Island: beaches",
+        "url": "https://www.nassauparadiseisland.com/experiences/beaches",
+        "checkedOn": "2026-10-24",
+        "supports": "Jaws Beach identity and western New Providence/Clifton location."
+      }
+    ],
+    "mapQuery": "Jaws Beach, Western New Providence, Clifton area, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24",
+    "image": "jaws-beach"
+  },
+  {
+    "slug": "saunders-beach",
+    "name": "Saunders Beach",
+    "kind": "place",
+    "categories": [
+      "beaches"
+    ],
+    "area": "West Bay Street, east of Goodman’s Bay",
+    "description": "A beach west of downtown Nassau and east of Goodman’s Bay. The destination guide notes its popularity with local visitors, particularly on weekends and holidays.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Allow 1–2 hours, plus transfers.",
+    "cost": "Check the access point before going. Chairs, food, equipment and any beach-club entry are separate purchases.",
+    "booking": "Check the entry point, facilities and sea conditions for your visit.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Nassau Paradise Island: Saunders Beach",
+        "url": "https://www.nassauparadiseisland.com/experiences/beaches/saunders-beach",
+        "checkedOn": "2026-10-24",
+        "supports": "Location and weekend/holiday visitor pattern."
+      }
+    ],
+    "mapQuery": "Saunders Beach, West Bay Street, east of Goodman’s Bay, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24",
+    "image": "saunders-beach"
+  },
+  {
+    "slug": "paradise-beach",
+    "name": "Paradise Beach",
+    "kind": "place",
+    "categories": [
+      "beaches"
+    ],
+    "area": "Paradise Island",
+    "description": "A stretch of sand on Paradise Island. Confirm exactly which entrance and facilities you intend to use; resort beach access and public beach access are different arrangements.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Allow 1–2 hours, plus transfers and any resort check-in.",
+    "cost": "Check the access point before going. Chairs, food, equipment and any beach-club entry are separate purchases.",
+    "booking": "Atlantis requires day passes for non-guests using its beaches. Confirm whether your intended access route falls within the resort.",
+    "status": "check-access",
+    "sources": [
+      {
+        "title": "Nassau Paradise Island: Paradise Beach",
+        "url": "https://www.nassauparadiseisland.com/experiences/beaches/paradise-beach",
+        "checkedOn": "2026-10-24",
+        "supports": "Beach identity and Paradise Island location."
+      },
+      {
+        "title": "Atlantis: pools and beaches",
+        "url": "https://www.atlantisbahamas.com/thingstodo/pools-beaches",
+        "checkedOn": "2026-10-24",
+        "supports": "Day-pass requirement for non-guests accessing Atlantis beaches."
+      }
+    ],
+    "notice": "Confirm the entrance and access arrangements before travelling. This listing does not promise free resort access.",
+    "mapQuery": "Paradise Island, Bahamas",
+    "image": "paradise-beach"
+  },
+  {
+    "slug": "cable-beach",
+    "name": "Cable Beach",
+    "kind": "place",
+    "categories": [
+      "beaches"
+    ],
+    "area": "West Bay Street resort area",
+    "description": "A long beach area west of downtown Nassau, lined with resorts. Choose a specific entrance or booked day-use venue before setting off rather than treating the whole coastline as one facility.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Allow 1–3 hours, plus transfers.",
+    "cost": "Check the access point before going. Chairs, food, equipment and any beach-club entry are separate purchases.",
+    "booking": "Check whether your chosen entrance or facilities require a resort booking or day pass.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Bahamas tourism: Cable Beach",
+        "url": "https://www.bahamas.com/natural-wonders/cable-beach",
+        "checkedOn": "2026-10-24",
+        "supports": "Location and resort-lined beach area."
+      }
+    ],
+    "mapQuery": "Cable Beach, West Bay Street resort area, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24",
+    "image": "cable-beach"
+  },
+  {
+    "slug": "love-beach",
+    "name": "Love Beach",
+    "kind": "place",
+    "categories": [
+      "beaches"
+    ],
+    "area": "Northwestern New Providence",
+    "description": "A beach on the north side of New Providence with nearby coral habitat. Choose a confirmed access point and make a return-transport plan before leaving downtown Nassau.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Allow 1–2 hours, plus transfers.",
+    "cost": "Check the access point before going. Chairs, food, equipment and any beach-club entry are separate purchases.",
+    "booking": "Check access charges at your chosen venue, available facilities and sea conditions.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Nassau Paradise Island: Love Beach",
+        "url": "https://www.nassauparadiseisland.com/experiences/beaches/love-beach",
+        "checkedOn": "2026-10-24",
+        "supports": "New Providence location and nearby coral habitat."
+      }
+    ],
+    "mapQuery": "Love Beach, Northwestern New Providence, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24",
+    "image": "love-beach"
+  },
+  {
+    "slug": "junkanoo-beach",
+    "name": "Junkanoo Beach",
+    "kind": "place",
+    "categories": [
+      "beaches",
+      "outdoor-adventure"
+    ],
+    "area": "Western Esplanade, downtown Nassau",
+    "description": "A downtown beach also known as the Western Esplanade, near the route toward Arawak Cay. It is an option for beach time without making a cross-island outing.",
+    "gettingThere": "Start at the Nassau Cruise Port street exit. Check the walking route and allow extra time for heat, crossings and your group’s pace.",
+    "visitSuggestion": "Allow 1–2 hours for a beach break, with time for the walk back.",
+    "cost": "Check the access point before going. Chairs, food, equipment and any beach-club entry are separate purchases.",
+    "booking": "A general beach visit is not a booked “beach party” package. Confirm what any vendor is offering before paying.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Bahamas tourism: Junkanoo Beach",
+        "url": "https://www.bahamas.com/natural-wonders/junkanoo-beach",
+        "checkedOn": "2026-10-24",
+        "supports": "Beach identity, Western Esplanade name and downtown location."
+      }
+    ],
+    "featured": true,
+    "mapQuery": "Junkanoo Beach, Western Esplanade, downtown Nassau, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24",
+    "image": "junkanoo-beach"
+  },
+  {
+    "slug": "cabbage-beach",
+    "name": "Cabbage Beach",
+    "kind": "place",
+    "categories": [
+      "beaches"
+    ],
+    "area": "Paradise Island",
+    "description": "A long beach on Paradise Island suited to a beach walk or time on the sand. Check sea conditions on the day rather than assuming it will be suitable for swimming.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Allow 1–2 hours, plus transfers.",
+    "cost": "Check the access point before going. Chairs, food, equipment and any beach-club entry are separate purchases.",
+    "booking": "Confirm the public entrance and any equipment charges. Follow local notices and avoid treating vendor services as included.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Bahamas tourism: Cabbage Beach",
+        "url": "https://www.bahamas.com/natural-wonders/cabbage-beach/1000",
+        "checkedOn": "2026-10-24",
+        "supports": "Beach identity, Paradise Island location and beach activities."
+      }
+    ],
+    "image": "cabbage-beach",
+    "mapQuery": "Cabbage Beach, Bahamas",
+    "featured": true,
+    "mapsCheckedOn": "2026-10-24"
+  },
+  {
+    "slug": "big-picture",
+    "name": "Big Picture Paint & Sip Studio",
+    "kind": "place",
+    "categories": [
+      "art-galleries"
+    ],
+    "area": "Nassau — location being checked",
+    "description": "A guided painting studio retained in the research register while its current address and booking details are reconciled.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Use the duration of the specific class you book.",
+    "cost": "Check the current class price and inclusions.",
+    "booking": "Confirm current studio address.",
+    "status": "research",
+    "sources": [
+      {
+        "title": "Bahamas tourism: Big Picture",
+        "url": "https://www.bahamas.com/plan-your-trip/things-to-do/big-picture-paint-sip-studio",
+        "checkedOn": "2026-10-24",
+        "supports": "Studio identity and class format; location conflicts with current Maps listing."
+      }
+    ],
+    "notice": "The tourism listing gives Sandyport; Google Maps identifies a move to 299 Bay Street. Operator confirmation is still needed before publishing directions.",
+    "mapsCheckedOn": "2026-10-24",
+    "mapQuery": "Big Picture Paint & Sip Studio, Nassau — location being checked, Nassau, Bahamas"
+  },
+  {
+    "slug": "daguilar-art-foundation",
+    "name": "V&M Gallery · D’Aguilar Art Foundation",
+    "kind": "place",
+    "categories": [
+      "art-galleries"
+    ],
+    "area": "West Bay Street, opposite Orange Hill Beach",
+    "description": "Explore the Vincent and Marina D’Aguilar collection at the V&M Gallery. The gallery’s current visitor information places it near Orange Hill Beach and requires appointments.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Allow 60–90 minutes for a reserved visit, plus transfers.",
+    "cost": "Ask for any tour fees when arranging an appointment.",
+    "booking": "The gallery advertises Thursday appointments and other days by arrangement. Do not use the old downtown address from other directories.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "V&M Gallery official visitor information",
+        "url": "https://www.vmartgallery.com/",
+        "checkedOn": "2026-10-24",
+        "supports": "Current collection, location and appointment requirements."
+      }
+    ],
+    "mapQuery": "V & M Art Gallery, West Bay Street, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24",
+    "image": "daguilar-art-foundation"
+  },
+  {
+    "slug": "hillside-house",
+    "name": "Hillside House Gallery",
+    "kind": "place",
+    "categories": [
+      "art-galleries",
+      "history-culture"
+    ],
+    "area": "13 Cumberland Street",
+    "description": "An art space associated with Bahamian artist Antonius Roberts, at Hillside House on Cumberland Street. Consider it as part of a downtown art and heritage route.",
+    "gettingThere": "Start at the Nassau Cruise Port street exit. Check the walking route and allow extra time for heat, crossings and your group’s pace.",
+    "visitSuggestion": "Allow 30–60 minutes.",
+    "cost": "Check current exhibition or event admission directly.",
+    "booking": "Confirm visitor hours and the current exhibition before going.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Hillside House official website",
+        "url": "https://www.hillsidehousegallery.com/",
+        "checkedOn": "2026-10-24",
+        "supports": "Art space, artist association and address."
+      }
+    ],
+    "mapQuery": "Hillside House Gallery, 13 Cumberland Street, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24",
+    "image": "hillside-house"
+  },
+  {
+    "slug": "the-current",
+    "name": "The Current: Baha Mar Gallery & Art Center",
+    "kind": "place",
+    "categories": [
+      "art-galleries"
+    ],
+    "area": "Baha Mar, West Bay Street",
+    "description": "Explore contemporary Bahamian art through The Current’s gallery programme, exhibitions and workshops at Baha Mar. Gallery visits and booked classes should be planned as separate experiences.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Allow 60–90 minutes for galleries; use the booked duration for a workshop.",
+    "cost": "Check exhibition access separately from paid art classes.",
+    "booking": "Non-hotel guests can book classes through Baha Mar. Check the current programme and reserve your session.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "The Current official gallery programme",
+        "url": "https://thecurrent.bahamar.com/",
+        "checkedOn": "2026-10-24",
+        "supports": "Gallery identity, Bahamian art and exhibitions/workshops."
+      },
+      {
+        "title": "Baha Mar: art classes",
+        "url": "https://bahamar.com/reservations/art/",
+        "checkedOn": "2026-10-24",
+        "supports": "Non-hotel guests may book classes."
+      }
+    ],
+    "mapQuery": "The Current: Baha Mar Gallery and Art Center, Grand Hyatt, One Baha Mar Boulevard, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24",
+    "image": "the-current"
+  },
+  {
+    "slug": "doongalik",
+    "name": "Doongalik Studios Art Gallery",
+    "kind": "place",
+    "categories": [
+      "art-galleries"
+    ],
+    "area": "20 Village Road",
+    "description": "A Bahamian art gallery on Village Road. Its visitor schedule includes limited gallery days and a seasonal Saturday farmers’ market, so confirm which experience will be available.",
+    "gettingThere": "Plan a taxi from the cruise-port exit and arrange the return before you leave. Check current traffic; travel time is separate from time at the venue.",
+    "visitSuggestion": "Allow 30–60 minutes, plus transfers.",
+    "cost": "Check any exhibition, workshop or event charges.",
+    "booking": "The operator lists Monday–Wednesday gallery hours; the Saturday market is seasonal. Check your date before travelling.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Doongalik Studios: visitor contact information",
+        "url": "https://www.doongalik.com/contact-us",
+        "checkedOn": "2026-10-24",
+        "supports": "Current street number, gallery schedule and seasonal market."
+      }
+    ],
+    "mapQuery": "Doongalik Studios Art Gallery, 20 Village Road, Nassau, Bahamas",
+    "mapsCheckedOn": "2026-10-24",
+    "image": "doongalik"
+  },
+  {
+    "slug": "rum-bahamas-festival",
+    "name": "Rum Bahamas Festival",
+    "kind": "event",
+    "categories": [
+      "events"
+    ],
+    "area": "Nassau — current event unconfirmed",
+    "description": "This reference entry remains unpublished because a current organizer announcement has not been established.",
+    "gettingThere": "Do not arrange travel around an unconfirmed event.",
+    "visitSuggestion": "No current schedule verified.",
+    "cost": "No current ticket price verified.",
+    "booking": "Await a current organizer announcement.",
+    "status": "research",
+    "sources": [
+      {
+        "title": "Reference inventory only",
+        "url": "https://bahamasjetboat.com/area/",
+        "checkedOn": "2026-10-24",
+        "supports": "Name in the reference inventory only; not a source for a current event."
+      }
+    ],
+    "notice": "No verified current edition; no assumed February dates or Fort Charlotte venue."
+  },
+  {
+    "slug": "international-culture-festival",
+    "name": "International Culture, Wine & Food Festival",
+    "kind": "event",
+    "categories": [
+      "events"
+    ],
+    "area": "Botanical Gardens, Nassau",
+    "description": "A food and culture festival at Nassau’s Botanical Gardens, bringing together international flavours and cultural celebrations. Check the programme for the edition you plan to attend.",
+    "gettingThere": "Confirm the venue and travel arrangements for the edition you intend to attend.",
+    "visitSuggestion": "Use the current event programme when allocating time.",
+    "cost": "Check ticketing for the next announced edition.",
+    "booking": "Check the next announced edition, venue and tickets before arranging your visit.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Participating vendor: 2026 festival announcement",
+        "url": "https://cabbagebeachbistro.com/",
+        "checkedOn": "2026-10-25",
+        "supports": "October 17–18, 2026 at the Botanical Gardens; a past edition, not a fixed annual weekend or future schedule."
+      }
+    ],
+    "image": "international-culture-festival",
+    "eventTiming": {
+      "months": "October",
+      "dates": "Latest verified dates: October 17–18, 2026 (past).",
+      "note": "The weekend changes by year. The next edition’s dates have not been verified.",
+      "sourceUrl": "https://cabbagebeachbistro.com/",
+      "checkedOn": "2026-10-25"
+    }
+  },
+  {
+    "slug": "nassau-regattas",
+    "name": "Nassau sailing & regattas",
+    "kind": "event",
+    "categories": [
+      "events"
+    ],
+    "area": "Venue varies by event",
+    "description": "Watch traditional Bahamian sloop racing at Nassau events such as the Best of the Best Regatta at Montagu Bay. Other regattas have their own calendars and may take place on different islands.",
+    "gettingThere": "Check the specific Nassau venue; a Bahamas-wide event listing may be on another island.",
+    "visitSuggestion": "Choose a viewing window from the confirmed programme.",
+    "cost": "Check spectator access and any event tickets separately.",
+    "booking": "Confirm the island, date and spectator arrangements with the current organizer.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Government regatta calendar",
+        "url": "https://www.dlgevents.gov.bs/",
+        "checkedOn": "2026-10-25",
+        "supports": "Government regatta information and organizer contact; no verified upcoming Nassau date range."
+      },
+      {
+        "title": "The Tribune: 2025 Best of the Best Regatta",
+        "url": "https://www.tribune242.com/news/2025/dec/05/the-new-legend-lonesome-dove-sallie-sue-and-miss-agnes-take-early-leads-in-best-of-the-best-regatta/",
+        "checkedOn": "2026-10-25",
+        "supports": "Montagu Bay racing began December 4, 2025 and ran through Sunday, December 7; past edition only."
+      },
+      {
+        "title": "Bahamas tourism: November 2023 events",
+        "url": "https://www.bahamas.com/pressroom/whats-new-in-the-bahamas-in-november-2023",
+        "checkedOn": "2026-10-25",
+        "supports": "Best of the Best Regatta in Montagu Bay on November 30–December 3, 2023; supports seasonal variation, not a future date."
+      }
+    ],
+    "image": "nassau-regattas",
+    "eventTiming": {
+      "months": "November–December · Best of the Best",
+      "dates": "Past example: December 4–7, 2025.",
+      "note": "This card covers several sailing events. There is no single annual date; confirm the specific Nassau race and year.",
+      "sourceUrl": "https://www.tribune242.com/news/2025/dec/05/the-new-legend-lonesome-dove-sallie-sue-and-miss-agnes-take-early-leads-in-best-of-the-best-regatta/",
+      "checkedOn": "2026-10-25"
+    }
+  },
+  {
+    "slug": "bahamas-carnival",
+    "name": "Bahamas Carnival",
+    "kind": "event",
+    "categories": [
+      "events"
+    ],
+    "area": "Nassau — venues vary",
+    "description": "A Nassau celebration with colourful costumes, music, parties and a road march. Individual events have their own venues, tickets and participation arrangements.",
+    "gettingThere": "Use the venue listed on your specific event confirmation.",
+    "visitSuggestion": "Use the event’s published programme and allow time for the return transfer.",
+    "cost": "Individual events may have separate tickets and inclusions.",
+    "booking": "Check the organizer’s next announced programme before booking tickets or travel.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Bahamas Carnival: event schedule",
+        "url": "https://bahamascarnival.com/bahamas-carnival-events-2026/",
+        "checkedOn": "2026-10-25",
+        "supports": "Current event schedule lists no upcoming events when checked; no confirmed future dates."
+      },
+      {
+        "title": "Bahamas Carnival: organizer’s timing guide",
+        "url": "https://bahamascarnival.com/t2/",
+        "checkedOn": "2026-10-25",
+        "supports": "Typically early May, with June 4–10 listed for the 2025 edition; dates change by edition."
+      }
+    ],
+    "image": "bahamas-carnival",
+    "eventTiming": {
+      "months": "May or June · varies by edition",
+      "dates": "Traditionally early May; the organizer listed June 4–10 for 2025 (past).",
+      "note": "There is no fixed annual date range. The organizer’s current schedule lists no upcoming events.",
+      "sourceUrl": "https://bahamascarnival.com/t2/",
+      "checkedOn": "2026-10-25"
+    }
+  },
+  {
+    "slug": "junkanoo",
+    "name": "Junkanoo",
+    "kind": "event",
+    "categories": [
+      "events",
+      "history-culture"
+    ],
+    "area": "Bay Street, downtown Nassau",
+    "description": "A Bahamian celebration of music, dance and elaborate costumes. Nassau’s major holiday parades bring groups to Bay Street to compete through music, performance and costume design.",
+    "gettingThere": "Check road closures, viewing areas and the route for the specific parade.",
+    "visitSuggestion": "Parades may run overnight; choose a confirmed viewing window that fits your ship’s stay.",
+    "cost": "Check the current organizer’s seating and ticket arrangements.",
+    "booking": "Traditional dates describe the celebration; confirm the exact edition, start time and ticketing before planning your visit.",
+    "status": "listed",
+    "sources": [
+      {
+        "title": "Bahamas tourism: Junkanoo",
+        "url": "https://www.bahamas.com/about/junkanoo/what-is-junkanoo",
+        "checkedOn": "2026-10-25",
+        "supports": "Cultural description, Bay Street location and traditional seasonal context."
+      },
+      {
+        "title": "Bahamas High Commission: traditional Junkanoo dates",
+        "url": "https://www.bahamashclondon.net/junkanoo-tickets-available-on-line/",
+        "checkedOn": "2026-10-25",
+        "supports": "Traditional Boxing Day and New Year’s Day parades; historical cultural reference, not the current start time or ticket vendor."
+      }
+    ],
+    "image": "junkanoo",
+    "eventTiming": {
+      "months": "December & January",
+      "dates": "Traditional dates: December 26 (Boxing Day) and January 1 (New Year’s Day).",
+      "note": "Parades run overnight and can start the preceding evening. Confirm each year’s start time, route and seating.",
+      "sourceUrl": "https://www.bahamashclondon.net/junkanoo-tickets-available-on-line/",
+      "checkedOn": "2026-10-25"
+    }
+  }
+]

@@ -36,8 +36,8 @@ export default function GuidePage({
           <Image src="/logo_transparent.png" width={28} height={36} alt="" />
           <ShoreDayWordmark />
         </Link>
-        <Link href="/#guides" className="header-guide">
-          Nassau guides
+        <Link href="/things-to-do-in-nassau" className="header-guide">
+          Explore Nassau
         </Link>
         <WhatsAppCta surface="guide_header" className="nav-cta" />
       </header>
