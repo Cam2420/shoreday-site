@@ -6,14 +6,14 @@ This feature is prepared on `codex/nassau-directory` for review before productio
 
 All 50 in-scope entries from the reference inventory are accounted for. Five duplicate mentions merge into shared records. Three unresolved entries are withheld; six broader topics remain inside their categories. See [coverage and sources](coverage-and-sources.md).
 
-Twelve place photographs have verified Commons license records and visible attribution. The other 24 place pages use a clearly labelled placeholder. See [image licenses](image-licenses.md). No Google Maps photos or reviews were copied, no paid API is used, and no new project dependency was added.
+Twelve place photographs have verified Commons license records and visible attribution. Goodman’s Bay uses the exact Google Maps screenshot supplied and expressly selected by the user, recorded separately from licensed photographs. The other 23 place pages use a clearly labelled placeholder. See [image licenses and supplied-image provenance](image-licenses.md). No paid API is used, no Maps reviews were copied, and no new project dependency was added.
 
 ## Editing through Codex
 
 - `data/nassau-directory.json`: visitor copy, source URLs, fact scopes, verification dates, status and Maps destination queries.
 - `data/nassau-directory-coverage.json`: the complete 50-row reference-to-catalog mapping.
 - `data/nassau-directory-images.json`: asset location, photographer, source page, license, capture/retrieval dates and modifications.
-- `public/images/directory/`: optimized, licensed WebP photographs.
+- `public/images/directory/`: licensed WebP photographs and the original user-supplied Goodman’s Bay screenshot.
 - `components/directory/` and `app/directory.css`: shared page presentation.
 
 To update a listing, ask Codex to check the operator’s current information, update only supported facts and revise its source/check date. Do not turn a past event into a future date by changing its year. A Maps identity match is not proof that a venue is currently open. Keep uncertain prices and hours out of the copy.

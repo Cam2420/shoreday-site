@@ -6,12 +6,22 @@ export type DirectoryImage = {
   title: string;
   width: number;
   height: number;
-  author: string;
   sourceUrl: string;
-  license: string;
-  licenseUrl: string;
   captured: string;
   retrieved: string;
   changes: string;
-};
+  displayScale?: number;
+} & (
+  | {
+      sourceType?: "licensed";
+      author: string;
+      license: string;
+      licenseUrl: string;
+    }
+  | {
+      sourceType: "user-supplied";
+      credit: string;
+      provenance: string;
+    }
+);
 export const DIRECTORY_IMAGES = imageRecords as Record<string, DirectoryImage>;

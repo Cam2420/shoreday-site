@@ -103,20 +103,28 @@ describe("Nassau directory publishing safeguards", () => {
     }
   });
 
-  it("requires a licensed local asset and attribution for every selected photograph", () => {
+  it("records local assets with licensed attribution or explicit supplied-image provenance", () => {
     for (const entry of PLACE_ENTRIES)
       if (entry.image) expect(DIRECTORY_IMAGES[entry.image]).toBeDefined();
     for (const image of Object.values(DIRECTORY_IMAGES)) {
       expect(existsSync(join(process.cwd(), "public", image.src))).toBe(true);
-      expect(image.author).toBeTruthy();
       expect(image.title).toBeTruthy();
-      expect(image.license).toMatch(/^CC BY(?:-SA)? [234]\.0$/);
-      expect(image.licenseUrl).toMatch(
-        /^https:\/\/creativecommons.org\/licenses\//,
-      );
-      expect(image.sourceUrl).toMatch(
-        /^https:\/\/commons.wikimedia.org\/wiki\/File:/,
-      );
+      if (image.sourceType === "user-supplied") {
+        expect(image.credit).toBeTruthy();
+        expect(image.provenance).toBeTruthy();
+        expect(new URL(image.sourceUrl).protocol).toBe("https:");
+        expect(image).not.toHaveProperty("license");
+        expect(image).not.toHaveProperty("licenseUrl");
+      } else {
+        expect(image.author).toBeTruthy();
+        expect(image.license).toMatch(/^CC BY(?:-SA)? [234]\.0$/);
+        expect(image.licenseUrl).toMatch(
+          /^https:\/\/creativecommons.org\/licenses\//,
+        );
+        expect(image.sourceUrl).toMatch(
+          /^https:\/\/commons.wikimedia.org\/wiki\/File:/,
+        );
+      }
       expect(image.retrieved).toBe("2026-10-24");
       expect(image.width).toBeGreaterThan(0);
       expect(image.height).toBeGreaterThan(0);

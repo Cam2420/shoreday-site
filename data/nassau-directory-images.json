@@ -1,4 +1,19 @@
 {
+  "goodmans-bay": {
+    "src": "/images/directory/goodmans-bay-screenshot.png",
+    "alt": "White sand and turquoise water along Goodman’s Bay beach in Nassau",
+    "width": 1668,
+    "height": 1272,
+    "title": "Goodman’s Bay beach — supplied Google Maps screenshot",
+    "sourceType": "user-supplied",
+    "credit": "Google Maps",
+    "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Goodman%27s+Bay+Park%2C+Nassau",
+    "captured": "",
+    "retrieved": "2026-10-24",
+    "changes": "Original screenshot retained. Display crop hides screenshot controls.",
+    "displayScale": 1.08,
+    "provenance": "Screenshot 2026-10-24 at 10.40.57 PM.png supplied by the user and explicitly selected for Goodman’s Bay. Photographer and independent reuse license have not been verified; this is not a Creative Commons asset."
+  },
   "queens-staircase": {
     "src": "/images/directory/queens-staircase.webp",
     "alt": "Limestone walls and steps at Queen’s Staircase in Nassau",

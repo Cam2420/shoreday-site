@@ -687,6 +687,7 @@
   {
     "slug": "goodmans-bay",
     "name": "Goodman’s Bay",
+    "image": "goodmans-bay",
     "kind": "place",
     "categories": [
       "beaches"

@@ -171,20 +171,29 @@ export function DirectoryPhoto({
               sizes="(max-width: 650px) 90vw, (max-width: 980px) 45vw, 600px"
               loading={priority ? "eager" : "lazy"}
               fetchPriority={priority ? "high" : undefined}
+              style={
+                photo.displayScale
+                  ? { transform: `scale(${photo.displayScale})` }
+                  : undefined
+              }
             />
           </div>
           <figcaption>
             <a href={photo.sourceUrl} target="_blank" rel="noopener noreferrer">
-              {photo.author}
-            </a>{" "}
-            ·{" "}
-            <a
-              href={photo.licenseUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {photo.license}
+              {photo.sourceType === "user-supplied" ? photo.credit : photo.author}
             </a>
+            {photo.sourceType !== "user-supplied" && (
+              <>
+                {" "}·{" "}
+                <a
+                  href={photo.licenseUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {photo.license}
+                </a>
+              </>
+            )}
             {photo.captured ? ` · Photo: ${photo.captured}` : ""}.
             <details>
               <summary>Photo details</summary>
