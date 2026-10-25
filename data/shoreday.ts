@@ -11,10 +11,6 @@ export const PURCHASER_APP_ACCESS_COPY =
 export type Faq = { q: string; a: string };
 export const HOME_FAQ: Faq[] = [
   {
-    q: "Is it free to message?",
-    a: "Yes. Look around first. You only pay $9.99 if you want a plan for your group’s Nassau port call.",
-  },
-  {
     q: "Is this AI, or a person?",
     a: "Both. An automated assistant helps with your plan and questions. Type HUMAN for the founder, available daily 12–5 PM ET.",
   },
@@ -59,16 +55,8 @@ export const HOME_FAQ: Faq[] = [
     a: "Yes, unless you delete it. The plan, downloaded PDF, voice notes and photos stay in the conversation. Included help runs through the end of your Nassau port day.",
   },
   {
-    q: "Does it work for kids?",
-    a: "A parent or adult can plan for the family. Share children’s ages, stroller needs, walking preferences and budget to shape the day.",
-  },
-  {
     q: "What if my ship’s times change?",
     a: "Your ship’s official all-aboard time and onboard instructions win. Send the updated time in the chat and ask to adjust your plan.",
-  },
-  {
-    q: "Which cruise lines?",
-    a: "Royal Caribbean, Carnival, MSC, Disney, Norwegian, Margaritaville at Sea, Celebrity, Princess, Virgin Voyages, Scenic, TUI and any ship stopping in Nassau. ShoreDay is independent and not affiliated with them.",
   },
   {
     q: "Is the ShoreDay app the same thing?",
