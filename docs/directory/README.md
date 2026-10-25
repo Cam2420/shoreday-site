@@ -33,6 +33,7 @@ The existing `/nassau` and `/nassau-cheat-sheet` noindex rules and sitemap exclu
 - ESLint: passed for this project. The command excluded `.claude/**` and `under-control-ac-demo/**`, which contain unrelated local worktrees and a separate untracked project. An unrestricted run scans those generated/unrelated files.
 - Vitest: 151 tests passed in 11 test files, excluding those same unrelated directories. Six new directory safeguards cover inventory, source records, withholding, links/sitemap, image licenses and preserved funnel behavior.
 - HTTP validation: 44 directory routes return valid pages, 51 internal link targets return 200, and withheld/unknown place routes return 404. Unique titles, one H1, production canonicals, JSON-LD parsing, exact WhatsApp prefill, sitemap entries and the two noindex funnels passed.
+- External source links: 31 returned HTTP 200; 15 rejected automated requests with HTTP 403 and remain supported by the web research. One timed-out operator link was removed in favor of its verified tourism-board source.
 - Browser review: responsive directory/category/place layouts at 390 px; category navigation, photo-credit expansion and homepage placement checked. Additional desktop and small-screen checks are recorded with the preview artifacts.
 
 Mobile Lighthouse 12.8.2, local production build, simulated mobile throttling, one run per page:
@@ -56,3 +57,5 @@ The initial webpack fallback hit a stale-cache error and then a Google Font load
 4. Use Search Console’s indexing and performance reports to review discovered pages, impressions, queries and clicks. Investigate crawl/indexing errors before expanding content. Publication and sitemap submission do not guarantee indexing or rankings.
 
 No production publication or Search Console submission has been performed as part of this preview preparation.
+
+The Vercel preview is protected by the project’s existing sign-in requirement. An anyone-with-the-link share URL was not created. Production remains on its existing deployment.

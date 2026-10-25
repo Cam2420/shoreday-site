@@ -185,7 +185,6 @@ Visit durations are explicitly ShoreDay planning suggestions, not measured trave
 - Record: `bahamas-historical-society`; status: `listed`.
 - Maps identity/location match: 2026-10-24.
 - [Bahamas tourism: Historical Society Museum](https://www.bahamas.com/plan-your-trip/things-to-do/bahamas-historical-society-museum) — Museum identity, purpose and address. Checked 2026-10-24.
-- [Bahamas Historical Society](https://thebahamashistoricalsociety.org/) — Current organization identity and mission. Checked 2026-10-24.
 
 ### Pirates of Nassau Museum
 - Record: `pirates-of-nassau`; status: `listed`.
@@ -309,3 +308,5 @@ Visit durations are explicitly ShoreDay planning suggestions, not measured trave
 - Record: `junkanoo`; status: `listed`.
 - Maps identity/location match: not established / not applicable to general topic.
 - [Bahamas tourism: Junkanoo](https://www.bahamas.com/about/junkanoo/what-is-junkanoo) — Cultural description, Bay Street location and traditional seasonal context. Checked 2026-10-24.
+
+The Historical Society operator website could not be reached during final link validation; its link is omitted. The museum record is supported by the tourism board and the Maps identity/address match.
