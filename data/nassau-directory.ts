@@ -56,7 +56,7 @@ export const DIRECTORY_CATEGORIES = [
   },
   {
     slug: "nightlife",
-    name: "Nightlife",
+    name: "Bars & evening spots",
     short: "For a later stay",
     description:
       "Explore Nassau cocktail bars and lively venues, with planning notes for evening and overnight visitors.",
