@@ -733,7 +733,8 @@
       }
     ],
     "mapQuery": "Montague Beach, Bahamas",
-    "mapsCheckedOn": "2026-10-24"
+    "mapsCheckedOn": "2026-10-24",
+    "image": "montagu-beach"
   },
   {
     "slug": "jaws-beach",
@@ -758,7 +759,8 @@
       }
     ],
     "mapQuery": "Jaws Beach, Western New Providence, Clifton area, Nassau, Bahamas",
-    "mapsCheckedOn": "2026-10-24"
+    "mapsCheckedOn": "2026-10-24",
+    "image": "jaws-beach"
   },
   {
     "slug": "saunders-beach",
@@ -783,7 +785,8 @@
       }
     ],
     "mapQuery": "Saunders Beach, West Bay Street, east of Goodman’s Bay, Nassau, Bahamas",
-    "mapsCheckedOn": "2026-10-24"
+    "mapsCheckedOn": "2026-10-24",
+    "image": "saunders-beach"
   },
   {
     "slug": "paradise-beach",
@@ -814,7 +817,8 @@
       }
     ],
     "notice": "Confirm the entrance and access arrangements before travelling. This listing does not promise free resort access.",
-    "mapQuery": "Paradise Island, Bahamas"
+    "mapQuery": "Paradise Island, Bahamas",
+    "image": "paradise-beach"
   },
   {
     "slug": "cable-beach",
@@ -839,7 +843,8 @@
       }
     ],
     "mapQuery": "Cable Beach, West Bay Street resort area, Nassau, Bahamas",
-    "mapsCheckedOn": "2026-10-24"
+    "mapsCheckedOn": "2026-10-24",
+    "image": "cable-beach"
   },
   {
     "slug": "love-beach",
@@ -864,7 +869,8 @@
       }
     ],
     "mapQuery": "Love Beach, Northwestern New Providence, Nassau, Bahamas",
-    "mapsCheckedOn": "2026-10-24"
+    "mapsCheckedOn": "2026-10-24",
+    "image": "love-beach"
   },
   {
     "slug": "junkanoo-beach",
@@ -891,7 +897,8 @@
     ],
     "featured": true,
     "mapQuery": "Junkanoo Beach, Western Esplanade, downtown Nassau, Nassau, Bahamas",
-    "mapsCheckedOn": "2026-10-24"
+    "mapsCheckedOn": "2026-10-24",
+    "image": "junkanoo-beach"
   },
   {
     "slug": "cabbage-beach",

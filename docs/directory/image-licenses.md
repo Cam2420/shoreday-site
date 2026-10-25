@@ -1,8 +1,8 @@
 # Nassau directory — image licenses
 
-Retrieved October 24, 2026. For the twelve Wikimedia selections below, permission comes from the existing licenses. The listed licenses apply to the photographs and their resized/converted versions, not to the ShoreDay website as a whole. The separately documented user-supplied screenshot does not have a verified reuse license.
+Retrieved October 24, 2026. For the twelve Wikimedia selections below, permission comes from the existing licenses. The listed licenses apply to the photographs and their resized/converted versions, not to the ShoreDay website as a whole. The separately documented user-supplied screenshots do not have verified reuse licenses.
 
-Selection: Wikimedia Commons source-file pages and metadata were reviewed for subject, creator, license and capture date. A contact sheet was visually reviewed before importing. Goodman’s Bay was subsequently updated with the user's explicitly selected screenshot. No Maps reviews, Unsplash+ or paid assets are used.
+Selection: Wikimedia Commons source-file pages and metadata were reviewed for subject, creator, license and capture date. A contact sheet was visually reviewed before importing. Eight beach listings were subsequently updated with the user's explicitly selected screenshots. No Maps reviews, Unsplash+ or paid assets are used.
 
 The twelve Commons photographs were resized, converted to WebP and displayed with a responsive crop. Creator/source and license links appear beside each licensed photo; expandable photo details include its title and modifications. Capture year is visible so an older image is not presented as a new photograph.
 
@@ -29,8 +29,24 @@ The twelve Commons photographs were resized, converted to WebP and displayed wit
 - Provenance: Google Maps screenshot; the photographer, original capture date and independent reuse license have not been verified. User direction is recorded as provenance, not as a copyright license or a claim that the user owns the photograph.
 - Presentation: original file retained; a responsive display crop hides screenshot controls. Google Maps source credit is visible. No Creative Commons license is attributed to this asset.
 
+## Seven additional user-supplied beach screenshots
+
+The user supplied these files and explicitly mapped them to the following cards on October 24, 2026. The same image also appears on its associated place page. Each original PNG is retained, with responsive cropping in the layout and Google Maps source credit. Capture dates, photographers and independent reuse licenses have not been verified; these assets are not labelled Creative Commons.
+
+| Screenshot time | Assigned location | Asset | Dimensions |
+|---|---|---|---|
+| 10.55.52 PM | Montagu Beach | `/images/directory/montagu-beach-screenshot.png` | 1626 × 946 |
+| 10.58.32 PM | Jaws Beach | `/images/directory/jaws-beach-screenshot.png` | 1612 × 940 |
+| 11.00.28 PM | Saunders Beach | `/images/directory/saunders-beach-screenshot.png` | 1628 × 1254 |
+| 11.02.00 PM | Paradise Beach | `/images/directory/paradise-beach-screenshot.png` | 1612 × 1256 |
+| 11.04.16 PM | Cable Beach | `/images/directory/cable-beach-screenshot.png` | 1616 × 1116 |
+| 11.07.50 PM | Love Beach | `/images/directory/love-beach-screenshot.png` | 1628 × 956 |
+| 11.09.13 PM | Junkanoo Beach | `/images/directory/junkanoo-beach-screenshot.png` | 1604 × 1252 |
+
+The Montagu image depicts the fort beside the beach. The Junkanoo selection depicts cruise ships and a pier on Nassau's waterfront. Image descriptions identify these visible subjects without claiming that the waterfront photograph was taken from Junkanoo Beach.
+
 ## Gaps and rejected candidates
 
-23 of the 36 place pages use a clear “Photo coming soon” placeholder. A generic Bahamas beach is never substituted for a named beach. Commons searches were attempted for every place; unrelated results, 1988 beach scenes and a Fort Charlotte image dominated by construction were rejected. A very wide Jaws Beach panorama was also not selected. Older selected Commons images show a named historic exterior, beach or identified wildlife; their capture year is visible. The Atlantis photograph is explicitly captioned/alt-labelled as a resort pool rather than a specific Aquaventure slide.
+16 of the 36 place pages use a clear “Photo coming soon” placeholder. A generic Bahamas beach is never substituted for a named beach. Commons searches were attempted for every place; unrelated results, 1988 beach scenes and a Fort Charlotte image dominated by construction were rejected. A very wide Jaws Beach panorama was also not selected. Older selected Commons images show a named historic exterior, beach or identified wildlife; their capture year is visible. The Atlantis photograph is explicitly captioned/alt-labelled as a resort pool rather than a specific Aquaventure slide.
 
 Machine-readable asset records: `data/nassau-directory-images.json`. License requirements and source identity should be rechecked when replacing any asset. Keep the attribution with every reuse.
