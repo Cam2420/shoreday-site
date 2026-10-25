@@ -6,14 +6,14 @@ This feature is prepared on `codex/nassau-directory` for review before productio
 
 All 50 in-scope entries from the reference inventory are accounted for. Five duplicate mentions merge into shared records. Three unresolved entries are withheld; six broader topics remain inside their categories. See [coverage and sources](coverage-and-sources.md).
 
-Twelve place photographs have verified Commons license records and visible attribution. Eight beach pages use the exact Google Maps screenshots supplied and expressly selected by the user, recorded separately from licensed photographs. All nine beach cards now have images; the other 16 place pages use a clearly labelled placeholder. See [image licenses and supplied-image provenance](image-licenses.md). No paid API is used, no Maps reviews were copied, and no new project dependency was added.
+Eleven active place photographs have verified Commons license records and visible attribution. Eighteen place pages use the exact Google Maps screenshots supplied and expressly selected by the user, recorded separately from licensed photographs: eight beaches and ten dining/bar locations. All nine beach cards and all listed food-and-drink place cards now have images; the remaining seven place pages use a clearly labelled placeholder. The earlier John Watling’s Commons asset and license record are retained as an unused alternative. See [image licenses and supplied-image provenance](image-licenses.md). No paid API is used, no Maps reviews were copied, and no new project dependency was added.
 
 ## Editing through Codex
 
 - `data/nassau-directory.json`: visitor copy, source URLs, fact scopes, verification dates, status and Maps destination queries.
 - `data/nassau-directory-coverage.json`: the complete 50-row reference-to-catalog mapping.
 - `data/nassau-directory-images.json`: asset location, photographer, source page, license, capture/retrieval dates and modifications.
-- `public/images/directory/`: licensed WebP photographs and the original user-supplied beach screenshots.
+- `public/images/directory/`: licensed WebP photographs and the original user-supplied screenshots.
 - `components/directory/` and `app/directory.css`: shared page presentation.
 
 To update a listing, ask Codex to check the operator’s current information, update only supported facts and revise its source/check date. Do not turn a past event into a future date by changing its year. A Maps identity match is not proof that a venue is currently open. Keep uncertain prices and hours out of the copy.
@@ -35,6 +35,7 @@ The existing `/nassau` and `/nassau-cheat-sheet` noindex rules and sitemap exclu
 - HTTP validation: 44 directory routes return valid pages, 51 internal link targets return 200, and withheld/unknown place routes return 404. Unique titles, one H1, production canonicals, JSON-LD parsing, exact WhatsApp prefill, sitemap entries and the two noindex funnels passed.
 - External source links: 31 returned HTTP 200; 15 rejected automated requests with HTTP 403 and remain supported by the web research. One timed-out operator link was removed in favor of its verified tourism-board source.
 - Browser review: responsive directory/category/place layouts at 390 px; category navigation, photo-credit expansion and homepage placement checked. Additional desktop and small-screen checks are recorded with the preview artifacts.
+- Supplied dining/bar photo update: ten screenshots matched to their requested places; original-file hashes checked after import. Production build, type check and all six directory safeguards passed. All eleven food-and-drink card images loaded at 1280 px; 390 px card/detail layouts and both portrait-image crops were checked. Screenshot evidence is saved with the preview artifacts.
 
 Mobile Lighthouse 12.8.2, local production build, simulated mobile throttling, one run per page:
 

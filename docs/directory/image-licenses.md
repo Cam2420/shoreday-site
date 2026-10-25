@@ -2,9 +2,9 @@
 
 Retrieved October 24, 2026. For the twelve Wikimedia selections below, permission comes from the existing licenses. The listed licenses apply to the photographs and their resized/converted versions, not to the ShoreDay website as a whole. The separately documented user-supplied screenshots do not have verified reuse licenses.
 
-Selection: Wikimedia Commons source-file pages and metadata were reviewed for subject, creator, license and capture date. A contact sheet was visually reviewed before importing. Eight beach listings were subsequently updated with the user's explicitly selected screenshots. No Maps reviews, Unsplash+ or paid assets are used.
+Selection: Wikimedia Commons source-file pages and metadata were reviewed for subject, creator, license and capture date. A contact sheet was visually reviewed before importing. Eight beach listings and ten dining/bar listings were subsequently updated with the user's explicitly selected screenshots. No Maps reviews, Unsplash+ or paid assets are used.
 
-The twelve Commons photographs were resized, converted to WebP and displayed with a responsive crop. Creator/source and license links appear beside each licensed photo; expandable photo details include its title and modifications. Capture year is visible so an older image is not presented as a new photograph.
+The twelve Commons photographs were resized and converted to WebP. Eleven remain in use with a responsive crop; the original John Watling’s asset is retained as an unused alternative with its license record below. Creator/source and license links appear beside each licensed photo; expandable photo details include its title and modifications. Capture year is visible so an older image is not presented as a new photograph.
 
 | Asset | Creator | Photograph / source | License | Captured | Retrieved |
 |---|---|---|---|---|---|
@@ -45,8 +45,27 @@ The user supplied these files and explicitly mapped them to the following cards 
 
 The Montagu image depicts the fort beside the beach. The Junkanoo selection depicts cruise ships and a pier on Nassau's waterfront. Image descriptions identify these visible subjects without claiming that the waterfront photograph was taken from Junkanoo Beach.
 
+## Ten user-supplied dining and bar screenshots
+
+The user supplied and explicitly assigned these ten screenshots on October 24, 2026. They appear on the corresponding location cards and place pages. Original PNGs are retained byte-for-byte; the layout applies a responsive crop and displays Google Maps source credit. Photographer, original capture date and independent reuse license remain unverified, and no Creative Commons license is assigned to these screenshots.
+
+| Screenshot time | Assigned location | Asset | Dimensions |
+|---|---|---|---|
+| 11.20.33 PM | Bahamas Rum Cake Factory | `/images/directory/bahamas-rum-cake-factory-screenshot.png` | 1036 × 1256 |
+| 11.23.03 PM | John Watling’s Distillery | `/images/directory/john-watlings-distillery-screenshot.png` | 1628 × 1264 |
+| 11.24.16 PM | Graycliff Chocolatier | `/images/directory/graycliff-chocolatier-screenshot.png` | 1614 × 1254 |
+| 11.28.44 PM | Pink Octopus | `/images/directory/pink-octopus-screenshot.png` | 1608 × 1302 |
+| 11.32.04 PM | Sapodilla Estate | `/images/directory/sapodilla-screenshot.png` | 1614 × 952 |
+| 11.33.40 PM | Café Matisse | `/images/directory/cafe-matisse-screenshot.png` | 1594 × 1298 |
+| 11.34.59 PM | Frankie Gone Bananas | `/images/directory/frankie-gone-bananas-screenshot.png` | 1618 × 1252 |
+| 11.36.26 PM | Twin Brothers | `/images/directory/twin-brothers-screenshot.png` | 1610 × 1258 |
+| 11.37.20 PM | Señor Frog’s Nassau | `/images/directory/senor-frogs-screenshot.png` | 1588 × 1068 |
+| 11.39.25 PM | Bon Vivants | `/images/directory/bon-vivants-screenshot.png` | 1072 × 1464 |
+
+John Watling’s now uses the supplied screenshot in place of the earlier Commons photograph. The Pink Octopus image matches the Palm Cay listing, and the Frankie Gone Bananas image matches the Arawak Cay listing. The printed hours in the Bon Vivants photograph are not used as verified current hours.
+
 ## Gaps and rejected candidates
 
-16 of the 36 place pages use a clear “Photo coming soon” placeholder. A generic Bahamas beach is never substituted for a named beach. Commons searches were attempted for every place; unrelated results, 1988 beach scenes and a Fort Charlotte image dominated by construction were rejected. A very wide Jaws Beach panorama was also not selected. Older selected Commons images show a named historic exterior, beach or identified wildlife; their capture year is visible. The Atlantis photograph is explicitly captioned/alt-labelled as a resort pool rather than a specific Aquaventure slide.
+7 of the 36 place pages use a clear “Photo coming soon” placeholder. A generic Bahamas beach is never substituted for a named beach. Commons searches were attempted for every place; unrelated results, 1988 beach scenes and a Fort Charlotte image dominated by construction were rejected. A very wide Jaws Beach panorama was also not selected. Older selected Commons images show a named historic exterior, beach or identified wildlife; their capture year is visible. The Atlantis photograph is explicitly captioned/alt-labelled as a resort pool rather than a specific Aquaventure slide.
 
 Machine-readable asset records: `data/nassau-directory-images.json`. License requirements and source identity should be rechecked when replacing any asset. Keep the attribution with every reuse.
