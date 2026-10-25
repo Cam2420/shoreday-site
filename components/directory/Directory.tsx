@@ -151,11 +151,9 @@ export function DirectorySchema({
 export function DirectoryPhoto({
   entry,
   priority = false,
-  eager = false,
 }: {
   entry: DirectoryEntry;
   priority?: boolean;
-  eager?: boolean;
 }) {
   const photo = entry.image ? DIRECTORY_IMAGES[entry.image] : undefined;
   return (
@@ -172,7 +170,7 @@ export function DirectoryPhoto({
               height={photo.height}
               unoptimized={photo.unoptimized}
               sizes="(max-width: 650px) 90vw, (max-width: 980px) 45vw, 600px"
-              loading={priority || eager ? "eager" : "lazy"}
+              loading={priority ? "eager" : photo.loading ?? "lazy"}
               fetchPriority={priority ? "high" : undefined}
               style={{
                 transform: photo.displayScale ? `scale(${photo.displayScale})` : undefined,
@@ -234,7 +232,7 @@ export function EntryCard({ entry }: { entry: DirectoryEntry }) {
       id={entry.kind === "place" ? undefined : entry.slug}
     >
       {entry.kind === "place" || entry.image ? (
-        <DirectoryPhoto entry={entry} eager={Boolean(entry.featured)} />
+        <DirectoryPhoto entry={entry} />
       ) : null}
       <div className="directory-card-body">
         <p className="directory-eyebrow">

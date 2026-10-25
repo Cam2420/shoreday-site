@@ -30,7 +30,7 @@ The existing `/nassau` and `/nassau-cheat-sheet` noindex rules and sitemap exclu
 
 Place-page visit cards use “Plan my visit” with the shared, tracked ShoreDay concierge link and unchanged funnel greeting. The cards begin with the location details, without the former kicker and heading. Google Maps is no longer the visible primary action. Supplied-photo source captions and all “Photo details” disclosures have been removed from the directory UI; the two active Commons photographs retain concise author, license and crop attribution. The sailing screenshot retains its visible photographer watermark. Source records and image provenance remain in the data files and image ledger.
 
-Visible source-check dates have been removed from the hub, category cards and place pages. Event dates and their supporting links remain. Featured card images load eagerly; hero images alone retain high fetch priority. Ardastra stayed unloaded in the existing in-app tab even after switching to eager loading, while a fresh tab loaded a different responsive size. Its original PNG is retained, and a smaller 1200 px WebP display copy is served directly to avoid the problematic responsive image URL.
+Visible source-check dates have been removed from the hub, category cards and place pages. Event dates and their supporting links remain. Hero images retain high fetch priority; Ardastra remains eager and other card images load lazily. Ardastra’s original PNG is retained, and a smaller 900 px WebP display copy is served directly to avoid the problematic responsive image URL. Its active display file is 56% smaller than the previous 1200 px copy.
 
 Validation: production build and targeted ESLint passed, along with all ten directory/WhatsApp safeguards. Ardastra was visibly confirmed in the same 739 px browser tab that reproduced the blank card, then on its place page and category card at 390 px. The concierge button resolves to the existing WhatsApp URL with the unchanged greeting and `directory_place_plan` analytics surface. No horizontal overflow was observed. Screenshots are saved in `outputs/nassau-directory/ardastra-card-fixed.png` and `outputs/nassau-directory/concierge-cta-mobile.png`.
 
@@ -56,6 +56,8 @@ Mobile Lighthouse 12.8.2, local production build, simulated mobile throttling, o
 
 These are lab scores, not field Core Web Vitals or a ranking guarantee. Raw Lighthouse HTML/JSON reports and local validation output are in the ignored `outputs/nassau-directory/` folder. The existing homepage chat preview has a non-scoring accessible-name diagnostic; it is outside this directory change.
 
+The [fresh October 25 mobile audit](mobile-audit-2026-10-25.md) supersedes these initial scores for the current preview. Seven representative pages scored 86–95 for performance and 100 for automated accessibility, best practices and SEO. It records the image-delivery improvements and the remaining speed opportunities on the hub and Ardastra page.
+
 The initial webpack fallback hit a stale-cache error and then a Google Font loader error; the normal Next.js build succeeded. No font or dependency workaround is included in this change.
 
 ## History, art and culture photo update — October 25, 2026
@@ -76,7 +78,7 @@ Production build, type check, targeted ESLint and all six directory safeguards p
 
 1. Review the branch preview in a browser: homepage discovery, directory, a category and a place page. Check the tone, placeholders and closure/access notices.
 2. Approve publication explicitly. Until then, do not merge the branch or promote its preview.
-3. After the approved production release passes its checks, use the existing ShoreDay property in Google Search Console. Sign in if requested; submit `https://shoredayapp.com/sitemap.xml` and inspect the hub and representative category/place URLs.
+3. After the approved production release passes its checks, use the existing ShoreDay property in Google Search Console. The sitemap is already submitted successfully; verify the updated `https://shoredayapp.com/sitemap.xml` entry and inspect the hub and representative category/place URLs. One resubmission is optional after the expansion. Follow the detailed checklist in the fresh mobile-audit report.
 4. Use Search Console’s indexing and performance reports to review discovered pages, impressions, queries and clicks. Investigate crawl/indexing errors before expanding content. Publication and sitemap submission do not guarantee indexing or rankings.
 
 No production publication or Search Console submission has been performed as part of this preview preparation.

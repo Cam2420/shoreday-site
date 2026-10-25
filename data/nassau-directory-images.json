@@ -191,19 +191,20 @@
     "changes": "Resized, converted to WebP and cropped to fit the layout."
   },
   "ardastra": {
-    "src": "/images/directory/ardastra-gardens-display.webp",
+    "src": "/images/directory/ardastra-gardens-display-900.webp",
     "alt": "Caribbean flamingos on the lawn at Ardastra Gardens",
-    "width": 1200,
-    "height": 933,
+    "width": 900,
+    "height": 700,
     "title": "Ardastra Gardens & Wildlife Conservation Centre — supplied screenshot",
     "sourceType": "user-supplied",
     "credit": "User-supplied screenshot",
     "captured": "",
     "retrieved": "2026-10-25",
-    "changes": "Original screenshot retained separately. Resized to 1200 pixels wide and converted to WebP for direct display. Responsive display crop hides screenshot edges.",
+    "changes": "Original screenshot retained separately. Resized to 900 pixels wide and encoded as WebP quality 75 for direct display. Responsive display crop hides screenshot edges.",
     "displayScale": 1.03,
     "provenance": "Screenshot 2026-10-25 at 2.20.28 PM.png supplied by the user and explicitly assigned to Ardastra Gardens & Wildlife Conservation Centre, replacing the earlier supplied screenshot. Original photo source, photographer, capture date and independent reuse license have not been verified; this is not a Creative Commons asset.",
-    "unoptimized": true
+    "unoptimized": true,
+    "loading": "eager"
   },
   "atlantis": {
     "src": "/images/directory/atlantis-aquaventure-2026-10-25-142111.png",
