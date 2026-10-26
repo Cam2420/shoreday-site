@@ -100,7 +100,7 @@ export default function Home() {
                 all-aboard time.
               </h1>
               <p className="hero-human">
-                A Nassau trained WhatsApp assistant with live support daily
+                A 24/7 Nassau trained WhatsApp assistant with live support daily
                 12–5 PM ET.
               </p>
               <div className="hero-cta-stack">
@@ -501,11 +501,12 @@ export default function Home() {
             Excursions via <span>Viator</span>, a Tripadvisor company
           </div>
 
-          <h2 id="tours-title">Optional: add a Nassau tour</h2>
+          <h2 id="tours-title">Nassau port day a few weeks away? Add a Tour</h2>
           <p>
-            Already have your plan and want a tour? Browse a short list of
-            Nassau tours on Viator. Check your ship&rsquo;s official all-aboard
-            time before booking anything far from port.
+            Browse Nassau tours here for ideas, or explore the same options with
+            your WhatsApp concierge to plan around your ship&rsquo;s official
+            all-aboard time. Before booking, check the tour&rsquo;s return time
+            and allow enough time to get back to your ship.
           </p>
 
           <div className="cta-button-group">
