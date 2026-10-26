@@ -100,7 +100,7 @@ export default function Home() {
                 all-aboard time.
               </h1>
               <p className="hero-human">
-                A Nassau trained assistant. A real person available daily
+                An AI concierge trained on Nassau, with the founder available daily
                 12–5 PM ET.
               </p>
               <div className="hero-cta-stack">

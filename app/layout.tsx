@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Hanken_Grotesk, Fraunces } from "next/font/google";
+import RedditPixel from "@/components/RedditPixel";
 import "./globals.css";
 
 // Body / UI sans — Hanken Grotesk: a warm, humanist grotesque that reads closer
@@ -49,7 +50,10 @@ export default function RootLayout({
       className={`${hankenGrotesk.variable} ${fraunces.variable}`}
       data-scroll-behavior="smooth"
     >
-      <body>{children}</body>
+      <body>
+        <RedditPixel />
+        {children}
+      </body>
     </html>
   );
 }
