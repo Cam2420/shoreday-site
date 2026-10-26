@@ -19,7 +19,7 @@ import { OfferSchema } from "@/components/marketing/StructuredData";
 import FinalCta from "@/components/marketing/FinalCta";
 import GuideLinks from "@/components/marketing/GuideLinks";
 import ExploreNassau from "@/components/directory/ExploreNassau";
-import { CRUISE_LINE_COPY, INDEPENDENCE } from "@/data/cruise-lines";
+import { CRUISE_LINE_COPY } from "@/data/cruise-lines";
 import { PURCHASER_APP_ACCESS_COPY } from "@/data/shoreday";
 import { pageMetadata } from "@/lib/seo";
 import "./home.css";
@@ -100,7 +100,7 @@ export default function Home() {
                 all-aboard time.
               </h1>
               <p className="hero-human">
-                A Nassau trained assistant. A real person available daily
+                A 24/7 Nassau trained WhatsApp assistant with live support daily
                 12–5 PM ET.
               </p>
               <div className="hero-cta-stack">
@@ -135,7 +135,7 @@ export default function Home() {
         </section>
         <div className="cruise-fit">
           <p>{CRUISE_LINE_COPY}</p>
-          <small>{INDEPENDENCE}</small>
+          <small>Independent. Not affiliated with any cruise line.</small>
         </div>
 
         <section
@@ -501,11 +501,12 @@ export default function Home() {
             Excursions via <span>Viator</span>, a Tripadvisor company
           </div>
 
-          <h2 id="tours-title">Optional: add a Nassau tour</h2>
+          <h2 id="tours-title">Nassau port day a few weeks away? Add a Tour</h2>
           <p>
-            Already have your plan and want a tour? Browse a short list of
-            Nassau tours on Viator. Check your ship&rsquo;s official all-aboard
-            time before booking anything far from port.
+            Browse Nassau tours here for ideas, or explore the same options with
+            your WhatsApp concierge to plan around your ship&rsquo;s official
+            all-aboard time. Before booking, check the tour&rsquo;s return time
+            and allow enough time to get back to your ship.
           </p>
 
           <div className="cta-button-group">
@@ -640,8 +641,7 @@ export default function Home() {
           <a href="mailto:support@shoredayapp.com">support@shoredayapp.com</a>
         </div>
         <p className="footer-note">
-          Independent planning service, not affiliated with any cruise line or
-          the Nassau Cruise Port.
+          Independent planning service, not affiliated with any cruise line.
         </p>
         <p>&copy; 2026 VMAManagement LLC - ShoreDay. All rights reserved.</p>
       </footer>
