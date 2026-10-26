@@ -95,6 +95,15 @@ export function track(
   }
 
   forwardToVendors(event);
+  // Forward only the original click event, not its cross-page alias. Do not
+  // send destination URLs, message text, attribution fields, or customer data.
+  if (event.name === "whatsapp_click") {
+    try {
+      window.rdt?.("track", "Custom", { customEventName: "WhatsAppClick" });
+    } catch {
+      // A blocked or failing pixel must not interrupt WhatsApp navigation.
+    }
+  }
   sendToInternalSink(event);
 }
 
