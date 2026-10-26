@@ -18,6 +18,16 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/index.html",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/android.html",
+        destination: "/nassau-cruise-app",
+        permanent: true,
+      },
+      {
         source: "/privacy.html",
         destination: "/privacy",
         permanent: true,
