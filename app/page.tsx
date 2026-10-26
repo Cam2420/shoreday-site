@@ -19,7 +19,7 @@ import { OfferSchema } from "@/components/marketing/StructuredData";
 import FinalCta from "@/components/marketing/FinalCta";
 import GuideLinks from "@/components/marketing/GuideLinks";
 import ExploreNassau from "@/components/directory/ExploreNassau";
-import { CRUISE_LINE_COPY, INDEPENDENCE } from "@/data/cruise-lines";
+import { CRUISE_LINE_COPY } from "@/data/cruise-lines";
 import { PURCHASER_APP_ACCESS_COPY } from "@/data/shoreday";
 import { pageMetadata } from "@/lib/seo";
 import "./home.css";
@@ -100,7 +100,7 @@ export default function Home() {
                 all-aboard time.
               </h1>
               <p className="hero-human">
-                An AI concierge trained on Nassau, with the founder available daily
+                A Nassau trained WhatsApp assistant with live support daily
                 12–5 PM ET.
               </p>
               <div className="hero-cta-stack">
@@ -135,7 +135,7 @@ export default function Home() {
         </section>
         <div className="cruise-fit">
           <p>{CRUISE_LINE_COPY}</p>
-          <small>{INDEPENDENCE}</small>
+          <small>Independent. Not affiliated with any cruise line.</small>
         </div>
 
         <section
@@ -640,8 +640,7 @@ export default function Home() {
           <a href="mailto:support@shoredayapp.com">support@shoredayapp.com</a>
         </div>
         <p className="footer-note">
-          Independent planning service, not affiliated with any cruise line or
-          the Nassau Cruise Port.
+          Independent planning service, not affiliated with any cruise line.
         </p>
         <p>&copy; 2026 VMAManagement LLC - ShoreDay. All rights reserved.</p>
       </footer>
