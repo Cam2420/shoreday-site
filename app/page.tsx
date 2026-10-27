@@ -107,14 +107,7 @@ export default function Home() {
                 <WhatsAppCta surface="home_hero" className="hero-primary-cta">
                   Start in WhatsApp
                 </WhatsAppCta>
-                <p className="hero-microcopy">
-                  <strong>$9.99 once for your whole group.</strong> Food, rides
-                  and tours extra.
-                </p>
               </div>
-              <p className="hero-reassurance">
-                Refund before your plan is sent. Save it before going offline.
-              </p>
             </div>
             <aside className="port-control" aria-labelledby="hero-offer-title">
               <p className="port-control-kicker">One chat. Your whole day.</p>
