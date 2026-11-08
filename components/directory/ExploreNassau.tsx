@@ -14,10 +14,6 @@ export default function ExploreNassau() {
           A beach. A good lunch.
           <br />A little local history.
         </h2>
-        <p>
-          Explore places to visit, then shape the day around your ship’s time.
-          Find location, access and booking notes before you set off.
-        </p>
         <Link href={DIRECTORY_PATH} className="text-link">
           Explore things to do in Nassau →
         </Link>
@@ -91,12 +87,6 @@ export default function ExploreNassau() {
           </span>
         </Link>
       </div>
-      <Link
-        href="/is-nassau-worth-getting-off-the-ship"
-        className="text-link"
-      >
-        Find your reason to step ashore →
-      </Link>
     </section>
   );
 }

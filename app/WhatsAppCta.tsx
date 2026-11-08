@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { WHATSAPP_CHAT_URL } from "@/lib/whatsapp";
+import { WHATSAPP_CHAT_URL, WHATSAPP_NUMBER } from "@/lib/whatsapp";
 
 /** WhatsApp chat-bubble glyph used on the homepage's WhatsApp buttons. */
 export function WhatsAppIcon() {
@@ -25,12 +25,14 @@ export function WhatsAppIcon() {
  */
 export default function WhatsAppCta({
   surface,
+  message,
   className,
   icon = true,
   watched = true,
   children = "Start in WhatsApp",
 }: {
   surface: string;
+  message?: string;
   className?: string;
   icon?: boolean;
   watched?: boolean;
@@ -38,7 +40,7 @@ export default function WhatsAppCta({
 }) {
   return (
     <a
-      href={WHATSAPP_CHAT_URL}
+      href={message ? `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}` : WHATSAPP_CHAT_URL}
       target="_blank"
       rel="noopener noreferrer"
       className={className}

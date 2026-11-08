@@ -9,8 +9,8 @@ import WhatsAppCta from "./WhatsAppCta";
 import WhatsAppShare from "./WhatsAppShare";
 import ChatPreview, { ChatCard } from "@/components/marketing/ChatPreview";
 import { OfferSchema } from "@/components/marketing/StructuredData";
-import FinalCta from "@/components/marketing/FinalCta";
 import GuideLinks from "@/components/marketing/GuideLinks";
+import MemberPerkFilm from "@/components/marketing/MemberPerkFilm";
 import ExploreNassau from "@/components/directory/ExploreNassau";
 import { CRUISE_LINE_COPY } from "@/data/cruise-lines";
 import { PURCHASER_APP_ACCESS_COPY } from "@/data/shoreday";
@@ -199,11 +199,6 @@ export default function Home() {
                   </span>
                   <h3>{f.title}</h3>
                   <p>{f.copy}</p>
-                  {f.type === "countdown" && (
-                    <Link href="/nassau-all-aboard-time" className="text-link">
-                      See how the timing works →
-                    </Link>
-                  )}
                 </div>
                 <ChatCard type={f.type} />
               </article>
@@ -265,19 +260,44 @@ export default function Home() {
           </div>
         </section>
         <ExploreNassau />
+        <section className="member-perk section-wrap" id="member-perk" aria-labelledby="member-perk-title">
+          <div>
+            <p className="section-kicker">Included with ShoreDay WhatsApp Concierge</p>
+            <h2 id="member-perk-title">15% off Nassau’s clear boat + swimming pigs tour</h2>
+            <p>
+              Under the Blue operates ShoreDay’s flagship excursion,
+              about a 5-minute walk from the cruise pier. Your 15% member code arrives in
+              WhatsApp after checkout.
+            </p>
+            <p className="perk-price"><strong>Adults $180 → $153</strong> (2.5-hour tour)</p>
+          </div>
+          <div className="perk-media">
+            <MemberPerkFilm />
+            <WhatsAppCta
+              surface="home_member_perk"
+              className="wa-button"
+              message="Hi ShoreDay, I want the Under the Blue member deal"
+            >
+              Get ShoreDay ($9.99)
+            </WhatsAppCta>
+            <a className="text-link" href="https://underthebluebahamas.com/tours/" target="_blank" rel="noopener sponsored">
+              See tour times
+            </a>
+            <p className="section-note">
+              Tours are booked and operated by Under the Blue and are subject to
+              their availability, schedule, weather and terms. The code doesn’t
+              reserve a seat. Under the Blue is a ShoreDay partner; ShoreDay
+              earns a commission on bookings.
+            </p>
+          </div>
+        </section>
+
         <section className="tours" aria-labelledby="tours-title">
           <div className="viator-text">
             Excursions via <span>Viator</span>, a Tripadvisor company
           </div>
 
           <h2 id="tours-title">Nassau port day a few weeks away? Add a Tour</h2>
-          <p>
-            Browse Nassau tours here for ideas, or explore the same options with
-            your WhatsApp concierge to plan around your ship&rsquo;s official
-            all-aboard time. Before booking, check the tour&rsquo;s return time
-            and allow enough time to get back to your ship.
-          </p>
-
           <div className="cta-button-group">
             <a
               href="https://vi.me/s/shoredayapp"
@@ -287,7 +307,7 @@ export default function Home() {
               data-analytics-event="excursion_click"
               data-analytics-surface="home_excursions_cta"
             >
-              Browse Nassau Tours
+              Browse More Nassau Tours
             </a>
           </div>
           <p className="affiliate-disclosure">
@@ -311,6 +331,10 @@ export default function Home() {
               <ul className="wa-included-list">
                 <li>A plan shaped around your ship, group and budget.</li>
                 <li>A 17-page offline PDF kit.</li>
+                <li>
+                  15% off ShoreDay’s flagship excursion, the Under the Blue
+                  clear boat + swimming pigs tour.
+                </li>
                 <li>Photo, video, PDF and voice-note questions.</li>
                 <li>Help through the end of your Nassau port day.</li>
                 <li>
@@ -343,7 +367,10 @@ export default function Home() {
           </div>
         </section>
         {/* Real reviews may be added here after Cam supplies permission and original customer wording. No fabricated social proof. */}
-        <GuideLinks />
+        <GuideLinks labels={{
+          "nassau-all-aboard-time": "See how the timing works",
+          "is-nassau-worth-getting-off-the-ship": "Find your reason to step ashore",
+        }} />
         {/* Keep the optional tour offer and its affiliate disclosure together. */}
         <HomeFaq />
         <aside className="wa-share" aria-labelledby="wa-share-title">
@@ -450,7 +477,6 @@ export default function Home() {
           </div>
         </section>
 
-        <FinalCta surface="home_final" />
       </main>
       <footer>
         <div className="footer-links">

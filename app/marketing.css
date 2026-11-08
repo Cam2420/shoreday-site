@@ -1529,3 +1529,30 @@
     min-height: 0;
   }
 }
+
+.marketing .member-perk {
+  display: grid;
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+  scroll-margin-top: 32px;
+}
+.marketing .perk-film {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  border-radius: 18px;
+  background: #123b46;
+}
+.marketing .perk-price {
+  margin: 16px 0;
+}
+.marketing .perk-media {
+  display: grid;
+  gap: 16px;
+}
+@media (min-width: 800px) {
+  .marketing .member-perk {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}

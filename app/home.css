@@ -548,22 +548,23 @@
   width: 92%;
   max-width: 1080px;
   margin: 0 auto 4rem;
-  padding: clamp(1.75rem, 3.5vw, 2.5rem) 5%;
+  padding: clamp(2rem, 5vw, 4rem) 4% clamp(2rem, 5vw, 4rem) min(50%, 580px);
   text-align: center;
   border-radius: 24px;
-  background: var(--cream-card);
+  background: linear-gradient(90deg, transparent 32%, rgba(8, 39, 49, 0.85) 56%, #082731 100%),
+    url("/swimmingpig_bird.jpg") center 40% / cover no-repeat #082731;
   border: 1px solid var(--line);
 }
 .home .viator-text {
   margin-bottom: 0.9rem;
-  color: var(--harbor);
+  color: #fff;
   font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 .home .viator-text span {
-  color: var(--color-deep-teal);
+  color: inherit;
   font-weight: 800;
 }
 .home .tours h2 {
@@ -572,12 +573,12 @@
   font-weight: 600;
   line-height: 1.15;
   margin-bottom: 0.75rem;
-  color: var(--color-ocean-ink);
+  color: #fff;
 }
 .home .tours p {
   max-width: 62ch;
   margin: 0 auto 1.5rem;
-  color: var(--color-ocean-ink-muted);
+  color: #fff;
   font-size: 1rem;
   line-height: 1.55;
 }
@@ -605,11 +606,19 @@
   outline-offset: 4px;
 }
 .home .tours .affiliate-disclosure {
-  color: var(--color-ocean-ink-muted);
+  color: #fff;
   font-size: 0.8rem;
   font-weight: 500;
   margin: 1rem auto 0;
   max-width: 620px;
+}
+
+@media (max-width: 700px) {
+  .home .tours {
+    padding: 52vw 6% 1.75rem;
+    background: linear-gradient(to bottom, transparent 32vw, #082731 57vw),
+      url("/swimmingpig_bird.jpg") center top / 100% auto no-repeat #082731;
+  }
 }
 
 /* App companion */

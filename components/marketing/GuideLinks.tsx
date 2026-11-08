@@ -9,7 +9,10 @@ const LABELS: Record<string, string> = {
   "is-nassau-worth-getting-off-the-ship": "Is it worth stepping ashore?",
   "nassau-cash-or-card": "Cash, cards and your budget",
 };
-export default function GuideLinks({ slugs }: { slugs?: string[] }) {
+export default function GuideLinks({ slugs, labels = {} }: {
+  slugs?: string[];
+  labels?: Record<string, string>;
+}) {
   return (
     <section
       className="section-wrap guide-links"
@@ -21,7 +24,7 @@ export default function GuideLinks({ slugs }: { slugs?: string[] }) {
       <div className="guide-link-grid">
         {GUIDES.filter((g) => !slugs || slugs.includes(g.slug)).map((g) => (
           <Link href={`/${g.slug}`} key={g.slug}>
-            {LABELS[g.slug]}
+            {labels[g.slug] ?? LABELS[g.slug]}
             <span aria-hidden="true">↗</span>
           </Link>
         ))}
