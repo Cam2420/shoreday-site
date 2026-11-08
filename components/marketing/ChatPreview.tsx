@@ -345,11 +345,6 @@ export default function ChatPreview() {
               Less figuring it out. More enjoying Nassau 🇧🇸
             </p>
             <p>
-              <strong>
-                $9.99 once for your whole group, for one Nassau port day.
-              </strong>
-            </p>
-            <p>
               🗺️ <strong>Your personal day plan:</strong> built around your
               interests and your ship’s confirmed all-aboard time.
             </p>

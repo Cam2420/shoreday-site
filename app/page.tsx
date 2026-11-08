@@ -94,10 +94,7 @@ export default function Home() {
               <p className="hero-eyebrow">
                 Booked your cruise? Let’s plan Nassau.
               </p>
-              <h1 id="home-title">
-                Your Nassau port-day concierge, built around your ship’s
-                all-aboard time.
-              </h1>
+              <h1 id="home-title">Your Nassau day. One chat away.</h1>
               <p className="hero-human">
                 A 24/7 Nassau trained WhatsApp assistant with live support daily
                 12–5 PM ET.
@@ -140,11 +137,7 @@ export default function Home() {
               <p className="section-kicker">
                 A little less searching. A lot more Nassau.
               </p>
-              <h2 id="one-chat-title">
-                Your Nassau day,
-                <br />
-                in one chat.
-              </h2>
+              <h2 id="one-chat-title">ShoreDay Concierge</h2>
               <p className="section-lead">
                 Your Nassau cruise port day plan, saved in one WhatsApp chat. A
                 personal plan and offline PDF before you step off. Photo answers
@@ -317,91 +310,6 @@ export default function Home() {
             </p>
           </div>
         </section>
-        <section className="experience" aria-labelledby="experience-title">
-          <div className="experience-head">
-            <p className="section-kicker">A real Nassau day</p>
-            <h2 id="experience-title">
-              One realistic day, not a packed checklist.
-            </h2>
-          </div>
-
-          <div className="experience-grid">
-            <figure className="exp-card">
-              <Image
-                src="/images/shoreday/nassau/nassau-beach.webp"
-                alt="Turquoise water and white sand at a public beach in Nassau, Bahamas"
-                width={640}
-                height={480}
-                sizes="(max-width: 600px) 88vw, (max-width: 1000px) 45vw, 290px"
-                decoding="async"
-              />
-              <span className="exp-tag">Beach &amp; water</span>
-              <figcaption>
-                <span className="exp-copy">
-                  Easy beach time close to port — with room to get back calmly.
-                </span>
-              </figcaption>
-            </figure>
-
-            <figure className="exp-card">
-              <Image
-                src="/images/shoreday/nassau/nassau-street.webp"
-                alt="Cruise visitors walking a sunny, colorful street near the Nassau cruise port"
-                width={640}
-                height={480}
-                sizes="(max-width: 600px) 88vw, (max-width: 1000px) 45vw, 290px"
-                decoding="async"
-              />
-              <span className="exp-tag">Walkable</span>
-              <figcaption>
-                <span className="exp-copy">
-                  Know where to walk, what to skip, and when to head back.
-                </span>
-              </figcaption>
-            </figure>
-
-            <figure className="exp-card">
-              <Image
-                src="/images/shoreday/nassau/bahamas-food.webp"
-                alt="Bahamian cracked conch and fresh conch salad served beachside"
-                width={640}
-                height={480}
-                sizes="(max-width: 600px) 88vw, (max-width: 1000px) 45vw, 290px"
-                decoding="async"
-              />
-              <span className="exp-tag">Local food</span>
-              <figcaption>
-                <span className="exp-copy">
-                  Make room for local Bahamian food and a relaxed meal.
-                </span>
-              </figcaption>
-            </figure>
-
-            <figure className="exp-card">
-              <Image
-                src="/images/shoreday/nassau/nassau-heritage.webp"
-                alt="The Pirates of Nassau heritage museum in historic downtown Nassau"
-                width={640}
-                height={480}
-                sizes="(max-width: 600px) 88vw, (max-width: 1000px) 45vw, 290px"
-                decoding="async"
-              />
-              <span className="exp-tag">Heritage</span>
-              <figcaption>
-                <span className="exp-copy">
-                  Landmarks and shops on a simple route that fits your window.
-                </span>
-              </figcaption>
-            </figure>
-          </div>
-          <Link
-            href="/is-nassau-worth-getting-off-the-ship"
-            className="text-link"
-          >
-            Find your reason to step ashore →
-          </Link>
-        </section>
-
         <ExploreNassau />
         <section className="price" id="price" aria-labelledby="price-title">
           <div className="price-head">
