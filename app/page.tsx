@@ -259,7 +259,6 @@ export default function Home() {
             </p>
           </div>
         </section>
-        <ExploreNassau />
         <section className="member-perk section-wrap" id="member-perk" aria-labelledby="member-perk-title">
           <div>
             <p className="section-kicker">Included with ShoreDay WhatsApp Concierge</p>
@@ -269,7 +268,6 @@ export default function Home() {
               about a 5-minute walk from the cruise pier. Your 15% member code arrives in
               WhatsApp after checkout.
             </p>
-            <p className="perk-price"><strong>Adults $180 → $153</strong> (2.5-hour tour)</p>
           </div>
           <div className="perk-media">
             <MemberPerkFilm />
@@ -316,6 +314,7 @@ export default function Home() {
           </p>
         </section>
 
+        <ExploreNassau />
         <section className="price" id="price" aria-labelledby="price-title">
           <div className="price-head">
             <p className="section-kicker">One group. One Nassau port call.</p>
