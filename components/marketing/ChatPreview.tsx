@@ -1,3 +1,4 @@
+import WelcomeVideo from "./WelcomeVideo";
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { WHATSAPP_PREFILL } from "@/lib/whatsapp";
@@ -77,21 +78,6 @@ export function MenuPhoto() {
         alt="Goldie’s Conch House menu photographed in the supplied October 2026 WhatsApp chat"
       />
     </div>
-  );
-}
-function WelcomePreview() {
-  return (
-    <>
-      <div className="chat-photo-crop welcome-crop">
-        <Image
-          src="/images/shoreday/chat/welcome-source.webp"
-          width={942}
-          height={2048}
-          sizes="(max-width: 600px) 90vw, 420px"
-          alt="Still from the supplied ShoreDay welcome video, showing a cruise ship in Nassau"
-        />
-      </div>
-    </>
   );
 }
 function ReplyOptions({ items, reply = false }: { items: string[]; reply?: boolean }) {
@@ -352,7 +338,7 @@ export default function ChatPreview() {
               />
             }
           >
-            <WelcomePreview />
+            <WelcomeVideo />
             <p>
               <strong>Welcome to ShoreDay 👋</strong>
               <br />

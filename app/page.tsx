@@ -14,7 +14,6 @@ import ChatPreview, {
   MenuPhoto,
   GoldiesReply,
 } from "@/components/marketing/ChatPreview";
-import TimingExample from "@/components/marketing/TimingExample";
 import { OfferSchema } from "@/components/marketing/StructuredData";
 import FinalCta from "@/components/marketing/FinalCta";
 import GuideLinks from "@/components/marketing/GuideLinks";
@@ -137,19 +136,21 @@ export default function Home() {
           aria-labelledby="one-chat-title"
         >
           <div className="story-copy">
-            <p className="section-kicker">
-              A little less searching. A lot more Nassau.
-            </p>
-            <h2 id="one-chat-title">
-              Your Nassau day,
-              <br />
-              in one chat.
-            </h2>
-            <p className="section-lead">
-              Your Nassau cruise port day plan, saved in one WhatsApp chat. A
-              personal plan and offline PDF before you step off. Photo answers
-              and voice notes when you’re connected ashore.
-            </p>
+            <div className="one-chat-intro">
+              <p className="section-kicker">
+                A little less searching. A lot more Nassau.
+              </p>
+              <h2 id="one-chat-title">
+                Your Nassau day,
+                <br />
+                in one chat.
+              </h2>
+              <p className="section-lead">
+                Your Nassau cruise port day plan, saved in one WhatsApp chat. A
+                personal plan and offline PDF before you step off. Photo answers
+                and voice notes when you’re connected ashore.
+              </p>
+            </div>
             <ol className="chat-benefits">
               <li>
                 <span>01</span>
@@ -211,6 +212,11 @@ export default function Home() {
                   </span>
                   <h3>{f.title}</h3>
                   <p>{f.copy}</p>
+                  {f.type === "countdown" && (
+                    <Link href="/nassau-all-aboard-time" className="text-link">
+                      See how the timing works →
+                    </Link>
+                  )}
                 </div>
                 <ChatCard type={f.type} />
               </article>
@@ -262,32 +268,6 @@ export default function Home() {
               Plan your spending →
             </Link>
           </div>
-        </section>
-
-        <section
-          className="story-section timing-section"
-          aria-labelledby="problem-title"
-        >
-          <div className="story-copy">
-            <p className="section-kicker">Why timing matters</p>
-            <h2 id="problem-title">Your port call isn’t your port day.</h2>
-            <p className="section-lead">
-              Docking, walking off and getting back all use time. Build your day
-              backward from all-aboard.
-            </p>
-            <p>
-              Start with your back-at-pier target. Subtract the trip back. That
-              gives you a leave-by time to plan around.
-            </p>
-            <p>
-              Ask for two alarm times to set yourself. The WhatsApp concierge
-              does not send automatic reminders.
-            </p>
-            <Link href="/nassau-all-aboard-time" className="text-link">
-              See how the timing works →
-            </Link>
-          </div>
-          <TimingExample />
         </section>
 
         <section
@@ -414,23 +394,6 @@ export default function Home() {
               </figcaption>
             </figure>
           </div>
-        </section>
-
-        <section className="return-section section-wrap">
-          <p className="section-kicker">Been to Nassau before?</p>
-          <h2>
-            You’ve been to Nassau.
-            <br />
-            You haven’t done Nassau with ShoreDay.
-          </h2>
-          <p>
-            A different ship’s clock. Local food you skipped. A beach or
-            heritage stop that fits this visit.
-          </p>
-          <p>
-            Come back to the same chat next time. Each Nassau port call is a
-            separate $9.99 for your group.
-          </p>
           <Link
             href="/is-nassau-worth-getting-off-the-ship"
             className="text-link"

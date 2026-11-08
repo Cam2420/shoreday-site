@@ -173,7 +173,8 @@
   align-items: center;
   gap: clamp(36px, 7vw, 100px);
 }
-.marketing .story-copy > p {
+.marketing .story-copy > p,
+.marketing .one-chat-intro > p {
   margin: 0 0 18px;
 }
 .marketing .story-copy .section-kicker {
@@ -1047,8 +1048,21 @@
   .marketing .chat-demo {
     --phone-w: min(350px, 86vw);
   }
-  .marketing .chat-benefits {
-    margin: 15px 0;
+  .marketing .one-chat-section .story-copy {
+    display: contents;
+  }
+  .marketing .one-chat-section {
+    gap: 0;
+  }
+  .marketing .one-chat-section .chat-benefits {
+    display: none;
+  }
+  .marketing .one-chat-section .chat-demo {
+    grid-row: 2;
+    margin-bottom: 24px;
+  }
+  .marketing .one-chat-section .wa-button {
+    justify-self: start;
   }
   .marketing .feature-grid {
     grid-template-columns: 1fr;
@@ -1249,6 +1263,25 @@
 
 .marketing .welcome-crop {
   aspect-ratio: 699 / 700;
+}
+.marketing .welcome-crop video,
+.marketing .welcome-crop button {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.marketing .welcome-crop video {
+  background: black;
+  object-fit: contain;
+}
+.marketing .welcome-crop button {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+.marketing .welcome-crop button:focus-visible {
+  outline-offset: -4px;
+  outline: 3px solid white;
 }
 .marketing .welcome-crop img {
   position: absolute;
