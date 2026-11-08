@@ -7,13 +7,7 @@ import ShoreDayWordmark from "@/components/brand/ShoreDayWordmark";
 import { WHATSAPP_QR_SRC } from "@/lib/whatsapp";
 import WhatsAppCta from "./WhatsAppCta";
 import WhatsAppShare from "./WhatsAppShare";
-import ChatPreview, {
-  ChatCard,
-  ChatExcerpt,
-  ChatBubble,
-  MenuPhoto,
-  GoldiesReply,
-} from "@/components/marketing/ChatPreview";
+import ChatPreview, { ChatCard } from "@/components/marketing/ChatPreview";
 import { OfferSchema } from "@/components/marketing/StructuredData";
 import FinalCta from "@/components/marketing/FinalCta";
 import GuideLinks from "@/components/marketing/GuideLinks";
@@ -218,59 +212,19 @@ export default function Home() {
         </section>
 
         <section
-          className="story-section vendor-section"
-          aria-labelledby="vendor-title"
+          className="how-section section-wrap"
+          id="whatsapp"
+          aria-labelledby="how-title"
         >
-          <figure className="vendor-proof">
-            <ChatExcerpt
-              id="vendor-menu"
-              label="Goldie’s menu chat example in light mode"
-            >
-              <ChatBubble sent time="4:15 PM">
-                <MenuPhoto />
-                <p>Is this a fair price?</p>
-              </ChatBubble>
-              <ChatBubble time="4:16 PM">
-                <GoldiesReply />
-              </ChatBubble>
-            </ChatExcerpt>
-          </figure>
-          <div className="story-copy">
+          <div className="section-heading">
             <p className="section-kicker">Choose your day with confidence</p>
-            <h2 id="vendor-title">Walk off the ship with a plan.</h2>
+            <h2 id="how-title">Walk off the ship with a plan.</h2>
             <figure className="planning-quote">
               <blockquote cite="https://www2.gov.bc.ca/assets/gov/farming-natural-resources-and-industry/agriculture-and-seafood/farm-management/farm-business-management/taking_stock_for_wildfire_recovery.pdf">
                 <p>“Good plans shape good decisions.”</p>
               </blockquote>
               <figcaption>— Lester R. Bittel</figcaption>
             </figure>
-            <p className="section-lead">
-              Choose the stops you want before you step off the ship. ShoreDay
-              brings your route, budget and back-to-ship timing together in
-              WhatsApp, so you can make choices at your own pace.
-            </p>
-            <p>
-              Got an offer at the pier? Snap the price board and ask whether it
-              fits your day and budget.
-            </p>
-            <p>
-              Make room for local food. Agree the fare before taking a taxi.
-              Check every tour against your leave-by time.
-            </p>
-            <Link href="/nassau-cash-or-card" className="text-link">
-              Plan your spending →
-            </Link>
-          </div>
-        </section>
-
-        <section
-          className="how-section section-wrap"
-          id="whatsapp"
-          aria-labelledby="how-title"
-        >
-          <div className="section-heading">
-            <p className="section-kicker">Before you sail</p>
-            <h2 id="how-title">Three steps, one WhatsApp chat.</h2>
           </div>
           <ol className="how-grid">
             <li>
@@ -311,6 +265,37 @@ export default function Home() {
           </div>
         </section>
         <ExploreNassau />
+        <section className="tours" aria-labelledby="tours-title">
+          <div className="viator-text">
+            Excursions via <span>Viator</span>, a Tripadvisor company
+          </div>
+
+          <h2 id="tours-title">Nassau port day a few weeks away? Add a Tour</h2>
+          <p>
+            Browse Nassau tours here for ideas, or explore the same options with
+            your WhatsApp concierge to plan around your ship&rsquo;s official
+            all-aboard time. Before booking, check the tour&rsquo;s return time
+            and allow enough time to get back to your ship.
+          </p>
+
+          <div className="cta-button-group">
+            <a
+              href="https://vi.me/s/shoredayapp"
+              target="_blank"
+              rel="sponsored noopener noreferrer"
+              className="tours-btn"
+              data-analytics-event="excursion_click"
+              data-analytics-surface="home_excursions_cta"
+            >
+              Browse Nassau Tours
+            </a>
+          </div>
+          <p className="affiliate-disclosure">
+            Disclosure: ShoreDay may earn a commission if you book through a
+            Viator link.
+          </p>
+        </section>
+
         <section className="price" id="price" aria-labelledby="price-title">
           <div className="price-head">
             <p className="section-kicker">One group. One Nassau port call.</p>
@@ -360,36 +345,6 @@ export default function Home() {
         {/* Real reviews may be added here after Cam supplies permission and original customer wording. No fabricated social proof. */}
         <GuideLinks />
         {/* Keep the optional tour offer and its affiliate disclosure together. */}
-        <section className="tours" aria-labelledby="tours-title">
-          <div className="viator-text">
-            Excursions via <span>Viator</span>, a Tripadvisor company
-          </div>
-
-          <h2 id="tours-title">Nassau port day a few weeks away? Add a Tour</h2>
-          <p>
-            Browse Nassau tours here for ideas, or explore the same options with
-            your WhatsApp concierge to plan around your ship&rsquo;s official
-            all-aboard time. Before booking, check the tour&rsquo;s return time
-            and allow enough time to get back to your ship.
-          </p>
-
-          <div className="cta-button-group">
-            <a
-              href="https://vi.me/s/shoredayapp"
-              target="_blank"
-              rel="sponsored noopener noreferrer"
-              className="tours-btn"
-              data-analytics-event="excursion_click"
-              data-analytics-surface="home_excursions_cta"
-            >
-              Browse Nassau Tours
-            </a>
-          </div>
-          <p className="affiliate-disclosure">
-            Disclosure: ShoreDay may earn a commission if you book through a
-            Viator link.
-          </p>
-        </section>
         <HomeFaq />
         <aside className="wa-share" aria-labelledby="wa-share-title">
           <p className="section-kicker">For your cruise buddy</p>
