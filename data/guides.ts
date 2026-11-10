@@ -8,7 +8,7 @@ export type Guide = {
   keyword: string;
   eyebrow: string;
   intro: string;
-  sections: { title: string; paragraphs: string[] }[];
+  sections: { title: string; paragraphs: string[]; walkingComparison?: boolean }[];
   faq: Faq[];
   related: string[];
   timing?: boolean;
@@ -93,29 +93,25 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: "nassau-cruise-port-walking-distance",
-    title: "Things to Do Near Nassau Cruise Port Walking Distance",
+    title: "Walking From Nassau Cruise Port: Queen’s Staircase or Junkanoo Beach?",
     description:
-      "Plan a walk from Nassau cruise port around your group, a food or heritage stop and your return time. $9.99 once for your whole group.",
+      "Compare walks from Nassau Cruise Port to Queen’s Staircase and Junkanoo Beach. See walking estimates, time to spend at each stop and what to allow for the return.",
     h1: "Things to do near Nassau cruise port, within walking distance.",
     keyword: "things to do near nassau cruise port walking distance",
     eyebrow: "A day on foot, at your pace",
     intro:
-      "For things to do near Nassau cruise port within walking distance, start with a downtown loop, local food or heritage. Decide how much walking your group wants before choosing stops.",
+      "Queen’s Staircase suits a short history stop. Junkanoo Beach suits a longer break by the water. The walks from the port take about the same time, so choose by how you want to spend your hours ashore.",
     sections: [
       {
         title: "Can you walk around Nassau from the cruise port?",
         paragraphs: [
-          "A walkable downtown loop is one ShoreDay day shape. Ask for a route that fits your group and time ashore.",
-          "Include the walk from your ship to the port exit when planning. Don’t treat a map’s first landmark as your starting point.",
-          "Ask ShoreDay for Google Maps directions to a place. Confirm the route and allow time to get back to the pier.",
+          "Yes. From the port’s street exit you can head downtown for a heritage stop or walk to Junkanoo Beach. Pick one main stop for a short visit and check your return route before you leave.",
         ],
       },
       {
-        title: "What should I put in a short walking plan?",
-        paragraphs: [
-          "Choose one focus: local food, heritage or an easy downtown loop. Add another stop only if your return window allows it.",
-          "If you want beach time, ask whether it fits your walking preferences and all-aboard time. A day shape is a starting point, not a fixed itinerary.",
-        ],
+        title: "Queen’s Staircase or Junkanoo Beach: which walk fits your day?",
+        paragraphs: [],
+        walkingComparison: true,
       },
       {
         title: "Walking off the ship with a plan",
