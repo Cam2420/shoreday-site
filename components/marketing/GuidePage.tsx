@@ -12,6 +12,7 @@ import { BreadcrumbSchema } from "./StructuredData";
 import FaqList from "./FaqList";
 import GuideLinks from "./GuideLinks";
 import FinalCta from "./FinalCta";
+import WalkingComparison from "./WalkingComparison";
 import TimingExample from "./TimingExample";
 import { ChatCard } from "./ChatPreview";
 import "@/app/home.css";
@@ -82,6 +83,7 @@ export default function GuidePage({
                 {section.paragraphs.map((p) => (
                   <p key={p}>{p}</p>
                 ))}
+                {section.walkingComparison && <WalkingComparison />}
                 {guide.timing && i === 1 && <TimingExample />}
                 {guide.menu && i === 2 && (
                   <figure className="guide-menu">
