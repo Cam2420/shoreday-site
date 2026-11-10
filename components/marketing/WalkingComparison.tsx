@@ -28,8 +28,8 @@ export default function WalkingComparison() {
       <h3><Link className="font-bold underline" href={entryPath(beach)}>Junkanoo Beach</Link></h3>
       <p>
         For a beach outing, ShoreDay suggests 1–2 hours for a beach break, with
-        time for the walk back. Check the access point before settling in.
-        Chairs, food, equipment and any beach-club entry are separate purchases.
+        time for the walk back. Public access to Junkanoo Beach is free.
+        Chairs, food, equipment rentals and optional facilities such as beach clubs may cost extra.
       </p>
 
       <p>
