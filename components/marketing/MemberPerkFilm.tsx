@@ -23,8 +23,8 @@ export default function MemberPerkFilm() {
       ref={player}
       className="perk-film"
       aria-label="Under the Blue’s clear boat and swimming pigs tour in Nassau"
-      src={nearViewport ? "/videos/under-the-blue.mp4" : undefined}
-      poster={nearViewport ? "/images/shoreday/under-the-blue/film-poster.webp" : undefined}
+      src={nearViewport ? "/videos/under-the-blue-pigs-and-logo.mp4" : undefined}
+      poster={nearViewport ? "/images/shoreday/under-the-blue/pigs-and-logo-poster.webp" : undefined}
       autoPlay
       muted
       loop
