@@ -269,8 +269,8 @@ export default function Home() {
               </strong>
             </p>
             <p>
-              Under the Blue operates ShoreDay’s flagship excursion,
-              about a 5-minute walk from the cruise pier.
+              Our local partner <em>Under the Blue</em> operates the clear boat flagship excursion,
+              about a 5-minute walk from the cruise pier. 👣📍Elizabeth on Bay Plaza
             </p>
           </div>
           <div className="perk-media">
