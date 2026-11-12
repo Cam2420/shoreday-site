@@ -262,11 +262,15 @@ export default function Home() {
         <section className="member-perk section-wrap" id="member-perk" aria-labelledby="member-perk-title">
           <div>
             <p className="section-kicker">Included with ShoreDay WhatsApp Concierge</p>
-            <h2 id="member-perk-title">20% off Nassau’s clear boat + swimming pigs tour</h2>
+            <h2 id="member-perk-title">Enjoy 20% off Nassau’s clear boat + swimming pigs tour</h2>
+            <p>
+              <strong>
+                Your 20% member code arrives in WhatsApp chat after ShoreDay Concierge checkout.
+              </strong>
+            </p>
             <p>
               Under the Blue operates ShoreDay’s flagship excursion,
-              about a 5-minute walk from the cruise pier. Your 20% member code arrives in
-              WhatsApp after checkout.
+              about a 5-minute walk from the cruise pier.
             </p>
           </div>
           <div className="perk-media">
