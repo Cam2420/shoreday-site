@@ -28,25 +28,25 @@ const FEATURES = [
   {
     type: "photo",
     icon: "📸",
-    title: "Snap it. Ask it.",
+    title: "A little curious? Send a picture.",
     copy: "Send a menu, price board or recognizable landmark. Get help understanding what’s in front of you.",
   },
   {
     type: "voice",
     icon: "🗣️🎙️",
-    title: "Too tired and hot to type? Just talk.",
+    title: "Hands full? Just say the word.",
     copy: "Send a voice note and get one back. You can also ask ShoreDay to reply in voice.",
   },
   {
     type: "location",
     icon: "📍",
-    title: "A place. A link. Your next stop.",
+    title: "Your next stop? Just ask.",
     copy: "Ask for an ATM, pharmacy or beach. Get a Google Maps link for directions, hours and reviews.",
   },
   {
     type: "countdown",
     icon: "⏳",
-    title: "How much time do I have?",
+    title: "Time to explore or time to head back?",
     copy: "Ask for your leave-by time, back-at-pier target and exact time left. Your ship’s clock comes first.",
   },
 ] as const;
@@ -129,7 +129,7 @@ export default function Home() {
           <div className="story-copy">
             <div className="one-chat-intro">
               <p className="section-kicker">
-                A little less searching. A lot more Nassau.
+                A day that fits you. Help that goes with you.
               </p>
               <h2 id="one-chat-title">ShoreDay Concierge</h2>
               <p className="section-lead">
@@ -142,30 +142,31 @@ export default function Home() {
               <li>
                 <span>01</span>
                 <div>
-                  <h3>Already on your phone: it’s WhatsApp.</h3>
+                  <h3>Tell us what makes a good day in WhatsApp chat.</h3>
                   <p>
-                    No separate ShoreDay account or password. Start before you
-                    sail.
+                    Beach time, Bahamian food or a little exploring? ShoreDay
+                    shapes your plan around your interests, budget and ship’s time.
                   </p>
                 </div>
               </li>
               <li>
                 <span>02</span>
                 <div>
-                  <h3>Too tired and hot to type? Just talk.</h3>
+                  <h3>A local question? Just ask.</h3>
                   <p>
-                    Hands full? Send a voice note. ShoreDay replies in voice
-                    when you speak first or ask.
+                    Find a lunch spot, understand a menu or explore tour options.
+                    Send a message, photo or voice note for help with your next move.
                   </p>
                 </div>
               </li>
               <li>
                 <span>03</span>
                 <div>
-                  <h3>Scroll back anytime.</h3>
+                  <h3>Plans change. Keep the conversation going.</h3>
                   <p>
-                    It’s your Nassau day, saved. Keep the chat or share parts
-                    with your group.
+                    Want another stop or need to head back? Ask your concierge
+                    for help adjusting your day around your ship’s all-aboard time
+                    or access your offline PDF in chat.
                   </p>
                 </div>
               </li>
@@ -206,59 +207,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          className="how-section section-wrap"
-          id="whatsapp"
-          aria-labelledby="how-title"
-        >
-          <div className="section-heading">
-            <p className="section-kicker">Choose your day with confidence</p>
-            <h2 id="how-title">Walk off the ship with a plan.</h2>
-            <figure className="planning-quote">
-              <blockquote cite="https://www2.gov.bc.ca/assets/gov/farming-natural-resources-and-industry/agriculture-and-seafood/farm-management/farm-business-management/taking_stock_for_wildfire_recovery.pdf">
-                <p>“Good plans shape good decisions.”</p>
-              </blockquote>
-              <figcaption>— Lester R. Bittel</figcaption>
-            </figure>
-          </div>
-          <ol className="how-grid">
-            <li>
-              <span>01</span>
-              <h3>Message ShoreDay</h3>
-              <p>It’s free to look around and ask how it works.</p>
-            </li>
-            <li>
-              <span>02</span>
-              <h3>Get your plan</h3>
-              <p>
-                Pay once for your group. Send your ship, date, all-aboard time
-                and what your group enjoys.
-              </p>
-            </li>
-            <li>
-              <span>03</span>
-              <h3>Take Nassau with you</h3>
-              <p>
-                Save your plan and PDF. Come back to the chat with questions
-                through your port day.
-              </p>
-            </li>
-          </ol>
-          <div className="how-action">
-            <WhatsAppCta surface="home_whatsapp" className="wa-button" />
-            <Image
-              src={WHATSAPP_QR_SRC}
-              width={112}
-              height={112}
-              alt="Scan to open ShoreDay in WhatsApp"
-            />
-            <p>
-              On a computer?
-              <br />
-              Scan with your phone.
-            </p>
-          </div>
-        </section>
         <section className="member-perk section-wrap" id="member-perk" aria-labelledby="member-perk-title">
           <div>
             <p className="section-kicker">Included with ShoreDay WhatsApp Concierge</p>
@@ -316,6 +264,60 @@ export default function Home() {
             Disclosure: ShoreDay may earn a commission if you book through a
             Viator link.
           </p>
+        </section>
+
+        <section
+          className="how-section section-wrap"
+          id="whatsapp"
+          aria-labelledby="how-title"
+        >
+          <div className="section-heading">
+            <p className="section-kicker">Choose your day with confidence</p>
+            <h2 id="how-title">Walk off the ship with a plan.</h2>
+            <figure className="planning-quote">
+              <blockquote cite="https://www2.gov.bc.ca/assets/gov/farming-natural-resources-and-industry/agriculture-and-seafood/farm-management/farm-business-management/taking_stock_for_wildfire_recovery.pdf">
+                <p>“Good plans shape good decisions.”</p>
+              </blockquote>
+              <figcaption>— Lester R. Bittel</figcaption>
+            </figure>
+          </div>
+          <ol className="how-grid">
+            <li>
+              <span>01</span>
+              <h3>Message ShoreDay</h3>
+              <p>It’s free to look around and ask how it works.</p>
+            </li>
+            <li>
+              <span>02</span>
+              <h3>Get your plan</h3>
+              <p>
+                Pay once for your group. Send your ship, date, all-aboard time
+                and what your group enjoys.
+              </p>
+            </li>
+            <li>
+              <span>03</span>
+              <h3>Take Nassau with you</h3>
+              <p>
+                Save your plan and PDF. Come back to the chat with questions
+                through your port day.
+              </p>
+            </li>
+          </ol>
+          <div className="how-action">
+            <WhatsAppCta surface="home_whatsapp" className="wa-button" />
+            <Image
+              src={WHATSAPP_QR_SRC}
+              width={112}
+              height={112}
+              alt="Scan to open ShoreDay in WhatsApp"
+            />
+            <p>
+              On a computer?
+              <br />
+              Scan with your phone.
+            </p>
+          </div>
         </section>
 
         <ExploreNassau />
