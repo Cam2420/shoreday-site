@@ -210,14 +210,14 @@ export default function Home() {
         <section className="member-perk section-wrap" id="member-perk" aria-labelledby="member-perk-title">
           <div>
             <p className="section-kicker">Included with ShoreDay WhatsApp Concierge</p>
-            <h2 id="member-perk-title">Enjoy 20% off Nassau’s clear boat + swimming pigs tour</h2>
+            <h2 id="member-perk-title">Enjoy 15% off Nassau’s clear boat + swimming pigs tour</h2>
             <p>
               <strong>
-                Your 20% member code arrives in WhatsApp chat after ShoreDay Concierge checkout.
+                Your 15% member code arrives in WhatsApp chat after ShoreDay Concierge checkout.
               </strong>
             </p>
             <p>
-              Our local partner <em>Under the Blue</em> operates the clear boat flagship excursion,
+              Our local partner <em>Clear Boat Bahamas</em> operates the clear boat flagship excursion,
               about a 5-minute walk from the cruise pier. 👣📍Elizabeth on Bay Plaza
             </p>
           </div>
@@ -226,17 +226,17 @@ export default function Home() {
             <WhatsAppCta
               surface="home_member_perk"
               className="wa-button"
-              message="Hi ShoreDay, I want the Under the Blue member deal"
+              message="Hi ShoreDay, I want the Clear Boat Bahamas member deal"
             >
               Get ShoreDay ($9.99)
             </WhatsAppCta>
-            <a className="text-link" href="https://underthebluebahamas.com/tours/" target="_blank" rel="noopener sponsored">
+            <a className="text-link" href="https://clearboatbahamas.com/tour-schedule/" target="_blank" rel="noopener sponsored">
               See tour times
             </a>
             <p className="section-note">
-              Tours are booked and operated by Under the Blue and are subject to
+              Tours are booked and operated by Clear Boat Bahamas and are subject to
               their availability, schedule, weather and terms. The code doesn’t
-              reserve a seat. Under the Blue is a ShoreDay partner; ShoreDay
+              reserve a seat. Clear Boat Bahamas is a ShoreDay partner; ShoreDay
               earns a commission on bookings.
             </p>
           </div>
@@ -337,7 +337,7 @@ export default function Home() {
                 <li>A plan shaped around your ship, group and budget.</li>
                 <li>A 17-page offline PDF kit.</li>
                 <li>
-                  20% off ShoreDay’s flagship excursion, the Under the Blue
+                  15% off ShoreDay’s flagship excursion, the Clear Boat Bahamas
                   clear boat + swimming pigs tour.
                 </li>
                 <li>Photo, video, PDF and voice-note questions.</li>
